@@ -1,4 +1,9 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import { AuthButton } from "./components/AuthButton";
+import { AuthForm } from "./components/AuthForm";
+import { AuthFormBookingsForm } from "./components/AuthFormBookingsForm";
+import { PasswordResetForm } from "./components/PasswordResetForm";
+import { UpdatePasswordForm } from "./components/UpdatePasswordForm";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -14,6 +19,13 @@ export const PLASMIC = initPlasmicLoader({
   // only use this for development, as this is significantly slower.
   preview: false,
 });
+
+PLASMIC.substituteComponent(AuthButton, "AuthButton");
+PLASMIC.substituteComponent(AuthForm, "AuthForm");
+PLASMIC.substituteComponent(AuthFormBookingsForm, "AuthFormBookingsForm");
+PLASMIC.substituteComponent(PasswordResetForm, "PasswordResetForm");
+PLASMIC.substituteComponent(UpdatePasswordForm, "UpdatePasswordForm");
+
 
 // You can register any code components that you want to use here; see
 // https://docs.plasmic.app/learn/code-components-ref/
