@@ -26,7 +26,7 @@ export function AuthForm(): JSX.Element {
             await supabaseClient.auth.signUp(credentials);
           }
           await mutate(PLASMIC_AUTH_DATA_KEY);
-          //router.push("/homepage");
+          router.push("/newuserform");
         },
       }}
     />
