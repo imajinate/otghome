@@ -36,4 +36,4 @@ PLASMIC.substituteComponent(UpdatePasswordForm, "UpdatePasswordForm");
 // http://localhost:3000/plasmic-host).  See
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
-// PLASMIC.registerComponent(...);
+// PLASMIC.registerComponent(.....);
