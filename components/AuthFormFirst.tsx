@@ -5,13 +5,13 @@ import { useState } from "react";
 import { mutate } from "swr";
 import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 
-export function AuthForm(): JSX.Element {
+export function AuthFormFirst(): JSX.Element {
   const [supabaseClient] = useState(() => createPagesBrowserClient());
   const router = useRouter();
   return (
     <PlasmicComponent
       forceOriginal
-      component="AuthForm"
+      component="AuthFormFirst"
       componentProps={{
         handleSubmit: async (
           mode: "signIn" | "signUp",

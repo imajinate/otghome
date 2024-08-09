@@ -1,6 +1,7 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 import { AuthButton } from "./components/AuthButton";
 import { AuthForm } from "./components/AuthForm";
+import { AuthFormFirst } from "./components/AuthFormFirst";
 import { AuthFormBookingsForm } from "./components/AuthFormBookingsForm";
 import { PasswordResetForm } from "./components/PasswordResetForm";
 import { UpdatePasswordForm } from "./components/UpdatePasswordForm";
@@ -23,6 +24,7 @@ export const PLASMIC = initPlasmicLoader({
 PLASMIC.substituteComponent(AuthButton, "AuthButton");
 PLASMIC.substituteComponent(AuthForm, "AuthForm");
 PLASMIC.substituteComponent(AuthFormBookingsForm, "AuthFormBookingsForm");
+PLASMIC.substituteComponent(AuthFormFirst, "AuthFormFirst");
 PLASMIC.substituteComponent(PasswordResetForm, "PasswordResetForm");
 PLASMIC.substituteComponent(UpdatePasswordForm, "UpdatePasswordForm");
 
