@@ -1,5 +1,10 @@
-import { useState } from "react";
+import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { mutate } from "swr";
+import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
+
 
 export function UpdatePasswordForm(): JSX.Element {
     const [newPassword, setNewPassword] = useState("");
