@@ -29,7 +29,7 @@ export function UpdatePasswordForm(): JSX.Element {
   };
 
   // Functie om het formulier in te dienen
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleResetPassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -46,7 +46,7 @@ export function UpdatePasswordForm(): JSX.Element {
   return (
     <div>
       <h1>Update Password</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleResetPassword}>
         <label>
           New Password:
           <input
