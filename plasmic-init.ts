@@ -4,7 +4,7 @@ import { AuthForm } from "./components/AuthForm";
 import { AuthFormFirst } from "./components/AuthFormFirst";
 import { AuthFormBookingsForm } from "./components/AuthFormBookingsForm";
 import { PasswordResetForm } from "./components/PasswordResetForm";
-import { UpdatePasswordForm } from "./components/UpdatePasswordForm";
+import UpdatePasswordForm from "./components/UpdatePasswordFormNew"; 
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -26,7 +26,8 @@ PLASMIC.substituteComponent(AuthForm, "AuthForm");
 PLASMIC.substituteComponent(AuthFormBookingsForm, "AuthFormBookingsForm");
 PLASMIC.substituteComponent(AuthFormFirst, "AuthFormFirst");
 PLASMIC.substituteComponent(PasswordResetForm, "PasswordResetForm");
-PLASMIC.substituteComponent(UpdatePasswordForm, "UpdatePasswordForm");
+PLASMIC.substituteComponent(UpdatePasswordForm, "UpdatePasswordFormNew");
+
 
 
 // You can register any code components that you want to use here; see
