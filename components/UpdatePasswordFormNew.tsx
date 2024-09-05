@@ -47,7 +47,7 @@ export default function UpdatePasswordFormNew(): JSX.Element {
     try {
       await updatePasswordNew(newPassword);
       // Doorsturen naar succespagina of login pagina
-      router.push("/login");
+      router.push("/");
     } catch (error) {
       // Eventuele foutafhandeling
       console.error("Fout:", error);
