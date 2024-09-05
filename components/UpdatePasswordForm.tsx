@@ -12,10 +12,11 @@ export function UpdatePasswordForm(): JSX.Element {
   const router = useRouter();
 
   useEffect(() => {
-    // Haal het token uit de URL-queryparameters
-    const { query } = router;
-    if (query.token) {
-      setTokenHash(query.token as string);
+    // Haal het token en andere parameters uit de URL-queryparameters
+    const { token_hash } = router.query;
+
+    if (typeof token_hash === "string") {
+      setTokenHash(token_hash);
     }
   }, [router.query]);
 
@@ -26,15 +27,20 @@ export function UpdatePasswordForm(): JSX.Element {
     }
 
     try {
+      console.log("Verificatie met token_hash:", tokenHash);
+
       // Verifieer de OTP met behulp van het token
       const { data: otpData, error: otpError } = await supabaseClient.auth.verifyOtp({
         token_hash: tokenHash,
-        type: 'email', // Of een ander type indien van toepassing
+        type: 'email', // Zorg ervoor dat dit overeenkomt met het type dat je gebruikt
       });
 
       if (otpError) {
+        console.error("OTP-verificatiefout:", otpError);
         throw new Error(`Fout bij OTP-verificatie: ${otpError.message}`);
       }
+
+      console.log("OTP-verificatiegegevens:", otpData);
 
       // Update het wachtwoord van de gebruiker
       const { data: userData, error: userError } = await supabaseClient.auth.updateUser({
@@ -42,10 +48,10 @@ export function UpdatePasswordForm(): JSX.Element {
       });
 
       if (userError) {
+        console.error("Wachtwoordupdatefout:", userError);
         throw userError;
       }
 
-      // Het wachtwoord is succesvol bijgewerkt
       console.log("Wachtwoord succesvol bijgewerkt:", userData);
 
       // Cache invalideren om de data te verversen
@@ -55,6 +61,7 @@ export function UpdatePasswordForm(): JSX.Element {
     } catch (error) {
       // Er is een fout opgetreden bij het bijwerken van het wachtwoord
       console.error("Er is een fout opgetreden bij het bijwerken van het wachtwoord:", error);
+      setErrorMessage("Er is een fout opgetreden bij het bijwerken van het wachtwoord.");
       throw error;
     }
   };
