@@ -53,7 +53,7 @@ export function UpdatePasswordForm(): JSX.Element {
       await updateUserPassword(newPassword);
 
       // Navigeer de gebruiker naar een andere pagina na succesvolle update
-      router.push("/success");
+      router.push("/");
     } catch (error) {
       // Toon een foutmelding aan de gebruiker
       setErrorMessage("Er is een fout opgetreden bij het bijwerken van het wachtwoord.");
