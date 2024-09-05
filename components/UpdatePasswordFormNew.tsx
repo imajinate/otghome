@@ -1,9 +1,9 @@
-import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
+// import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { mutate } from "swr";
-import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
+// import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 import { createClient } from "@supabase/supabase-js";
 
 // Supabase client initialiseren met een fallback controle
