@@ -1,41 +1,57 @@
-import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
-import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { mutate } from "swr";
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 
 export function UpdatePasswordForm(): JSX.Element {
   const [newPassword, setNewPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [tokenHash, setTokenHash] = useState<string | null>(null); // Token state
   const supabaseClient = createPagesBrowserClient();
   const router = useRouter();
 
+  useEffect(() => {
+    // Haal het token uit de URL-queryparameters
+    const { query } = router;
+    if (query.token) {
+      setTokenHash(query.token as string);
+    }
+  }, [router.query]);
+
   // Functie om het wachtwoord van de gebruiker bij te werken
   const updateUserPassword = async (newPassword: string) => {
-    try {
-      // Haal de sessie op om te controleren of er een actieve sessie is
-      const { data: { session } } = await supabaseClient.auth.getSession();
+    if (!tokenHash) {
+      throw new Error("Token ontbreekt.");
+    }
 
-      if (!session) {
-        throw new Error("Geen actieve sessie gevonden.");
+    try {
+      // Verifieer de OTP met behulp van het token
+      const { data: otpData, error: otpError } = await supabaseClient.auth.verifyOtp({
+        token_hash: tokenHash,
+        type: 'email', // Of een ander type indien van toepassing
+      });
+
+      if (otpError) {
+        throw new Error(`Fout bij OTP-verificatie: ${otpError.message}`);
       }
 
-      const { data, error } = await supabaseClient.auth.updateUser({
+      // Update het wachtwoord van de gebruiker
+      const { data: userData, error: userError } = await supabaseClient.auth.updateUser({
         password: newPassword,
       });
 
-      if (error) {
-        throw error;
+      if (userError) {
+        throw userError;
       }
 
       // Het wachtwoord is succesvol bijgewerkt
-      console.log("Wachtwoord succesvol bijgewerkt:", data);
+      console.log("Wachtwoord succesvol bijgewerkt:", userData);
 
       // Cache invalideren om de data te verversen
       mutate(PLASMIC_AUTH_DATA_KEY);
 
-      return data;
+      return userData;
     } catch (error) {
       // Er is een fout opgetreden bij het bijwerken van het wachtwoord
       console.error("Er is een fout opgetreden bij het bijwerken van het wachtwoord:", error);
