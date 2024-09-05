@@ -11,7 +11,7 @@ export function PasswordResetForm(): JSX.Element {
   const handlePasswordReset = async (email: string) => {
     try {
       const { data, error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: 'http://www.offtoglow.com/',
+        redirectTo: 'https://offtoglow.com/',
       });
 
       if (error) {
