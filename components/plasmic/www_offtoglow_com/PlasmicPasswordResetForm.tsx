@@ -312,7 +312,19 @@ function PlasmicPasswordResetForm__RenderFunc(props: {
                     const actionArgs = {
                       eventRef: $props["handleSubmit"],
                       args: [
-                        undefined,
+                        (() => {
+                          try {
+                            return $state.currentMode;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
                         (() => {
                           try {
                             return $state.updatePasswordForm.value.email;
@@ -382,6 +394,7 @@ function PlasmicPasswordResetForm__RenderFunc(props: {
                 data-plasmic-name={"formField"}
                 data-plasmic-override={overrides.formField}
                 className={classNames("__wab_instance", sty.formField)}
+                initialValue={$state.input.value}
                 label={
                   <Stack__
                     as={"div"}
