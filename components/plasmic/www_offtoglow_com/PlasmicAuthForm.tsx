@@ -693,7 +693,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                         }
                         <React.Fragment>
                           {
-                            "\nFor security, avoid using personal information or common words.\n"
+                            "\nFor security, avoid using personal information or common words."
                           }
                         </React.Fragment>
                       </React.Fragment>

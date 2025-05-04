@@ -314,6 +314,9 @@ function PlasmicButton__RenderFunc(props: {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
           [sty.rootcolor_blue]: hasVariant($state, "color", "blue"),
           [sty.rootcolor_clearDash]: hasVariant($state, "color", "clearDash"),
+          [sty.rootcolor_clearDash_size_compact]:
+            hasVariant($state, "size", "compact") &&
+            hasVariant($state, "color", "clearDash"),
           [sty.rootcolor_clear]: hasVariant($state, "color", "clear"),
           [sty.rootcolor_green]: hasVariant($state, "color", "green"),
           [sty.rootcolor_link]: hasVariant($state, "color", "link"),

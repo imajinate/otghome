@@ -208,11 +208,7 @@
   background: #ffffff00;
 }
 .rootcolor_clearDash:hover {
-  background: linear-gradient(
-    188deg,
-    var(--token-M_5fD3bsBbm4) 0%,
-    #ff56c6 100%
-  );
+  background: var(--token-DbGdjBpQ6R_X);
 }
 .rootselectRight_shape_rounded:hover {
   background: var(--token-WxvvgatuPYoJ);
@@ -455,7 +451,7 @@
   color: #006adc;
 }
 .rootcolor_clearDash:hover .slotTargetChildrencolor_clearDash {
-  color: var(--token-jgohepLVeKvh);
+  color: #999999;
 }
 .rootselectRight_shape_rounded:hover
   .slotTargetChildrenselectRight_shape_rounded {
