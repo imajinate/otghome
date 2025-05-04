@@ -152,9 +152,7 @@ export function UpdatePasswordForm(): JSX.Element {
         </button>
       </div>
     </label>
-    
-    <div className="divider"></div>
-    
+        
     <button type="submit">
       <strong>Change Password</strong>
     </button>
