@@ -60,7 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Card from "../../Card"; // plasmic-import: twFopKdKGk6j/component
-// import UpdatePasswordForm from "../../UpdatePasswordForm"; // plasmic-import: E2Q3fYpTWWgF/component
+import UpdatePasswordForm from "../../UpdatePasswordForm"; // plasmic-import: E2Q3fYpTWWgF/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -171,7 +171,7 @@ function PlasmicPw__RenderFunc(props: {
                   sty.text
                 )}
               >
-                {"\u00a9 Spenser Sembrat"}
+                {"\u00a9 Rob Csaszar"}
               </div>
             </Card>
           </div>

@@ -105,9 +105,9 @@ export function UpdatePasswordForm(): JSX.Element {
   
   <form onSubmit={handleResetPassword}>
     <label>
-      <strong>New Password</strong>
       <input
         type="password"
+        placeholder="••••••••"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}
         style={{
