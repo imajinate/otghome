@@ -128,7 +128,7 @@ export function UpdatePasswordForm(): JSX.Element {
           style={{
             position: 'absolute',
             right: '35px',
-            top: '50%',
+            top: '45%',
             transform: 'translateY(-50%)',
             background: 'none',
             border: 'none',
