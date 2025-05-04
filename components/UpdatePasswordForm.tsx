@@ -134,8 +134,8 @@ export function UpdatePasswordForm(): JSX.Element {
             border: 'none',
             cursor: 'pointer',
             color: '#666',
-            padding: '4px'
-            width: '0 !important';
+            padding: '4px',
+            width: '0 !important'
           }}
         >
           {showPassword ? (
