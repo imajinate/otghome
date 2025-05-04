@@ -85,20 +85,50 @@ export function UpdatePasswordForm(): JSX.Element {
   };
 
   return (
-    <div>
-      <h1>Update Password</h1>
-      <form onSubmit={handleResetPassword}>
-        <label>
-          New Password:
-          <input
-            type="password"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-          />
-        </label>
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        <button type="submit">Update Password</button>
-      </form>
-    </div>
+<div className="password-reset-form">
+  <h1>Create a New Password</h1>
+  <p>Please enter a strong, new password below. Ensure it includes at least:</p>
+  
+  <ul style={{ 
+    color: '#00000073',
+    fontSize: '14px',
+    marginBottom: '24px',
+    paddingLeft: '20px',
+    lineHeight: '1.5'
+  }}>
+    <li>8 characters</li>
+    <li>1 uppercase letter</li>
+    <li>1 number or special character</li>
+  </ul>
+  
+  <p style={{ marginBottom: '24px' }}>For security, avoid using personal information or common words.</p>
+  
+  <form onSubmit={handleResetPassword}>
+    <label>
+      <strong>New Password</strong>
+      <input
+        type="password"
+        value={newPassword}
+        onChange={(e) => setNewPassword(e.target.value)}
+        style={{
+          width: '100%',
+          padding: '12px',
+          margin: '8px 0 24px',
+          border: '1px solid #ddd',
+          borderRadius: '4px',
+          fontSize: '16px'
+        }}
+      />
+    </label>
+    
+    <div className="divider"></div>
+    
+    <button type="submit">
+      <strong>Change Password</strong>
+    </button>
+    
+    {errorMessage && <p className="error-message">{errorMessage}</p>}
+  </form>
+</div>
   );
 }
