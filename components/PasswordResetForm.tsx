@@ -40,16 +40,14 @@ export function PasswordResetForm(): JSX.Element {
       <p>Enter your email address below. You will receive a password reset link within a few minutes. Click the link in the email to create a new password.</p>
       
       <label>
-        <strong>Enter Your Email</strong>
         <input
           type="email"
           value={email}
+          placeholder="Enter Your Email"
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
-      
-      <div className="divider"></div>
-      
+            
       <div>
         <button type="submit"><strong>Send Reset Link</strong></button>
       </div>
