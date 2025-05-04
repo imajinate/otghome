@@ -14,38 +14,42 @@ export function PasswordResetForm(): JSX.Element {
 
   const handlePasswordReset = async (email: string) => {
     try {
-      const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/update-password`,
-      });
+      const { error } = await supabaseClient.auth.resetPasswordForEmail(email);
 
       if (error) throw error;
 
       setEmailSent(true);
       await mutate(PLASMIC_AUTH_DATA_KEY);
     } catch (error) {
-      setError("We couldn't send the password reset email. Please try again.");
+      setError("An error occurred while sending the password reset email.");
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await handlePasswordReset(email);
   };
 
   return (
     <PlasmicComponent
       forceOriginal
-      component="PasswordResetForm" // Voeg deze verplichte prop toe
+      component="PasswordResetForm"
       componentProps={{
         emailInput: {
           value: email,
           onChange: (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value),
         },
         submitButton: {
-          onClick: async (e: React.FormEvent) => {
-            e.preventDefault();
-            await handlePasswordReset(email);
-          },
+          onClick: handleSubmit,
         },
         errorMessage: error,
-        successMessage: emailSent ? (
-          <p>An email is sent to {email}</p>
-        ) : null,
+        successMessage: emailSent && (
+          <div className="success-message">
+            <p>We've sent password reset instructions to:</p>
+            <p className="email-address">{email}</p>
+            <p>Please check your inbox.</p>
+          </div>
+        ),
         backButton: {
           onClick: () => router.push("/login"),
         },
