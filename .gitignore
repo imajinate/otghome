@@ -34,7 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-components/UpdatePasswordForm.tsx
 
 # pages
 /pages/5nN0wMAaSX6O3o5x/
