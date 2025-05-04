@@ -31,9 +31,9 @@ export function PasswordResetForm(): JSX.Element {
   };
 
   return (
-<div>
+<div className="password-reset-form">
   {emailSent ? (
-    <p>An email with password reset instructions has been sent to the provided email address.</p>
+    <p className="success-message">An email with password reset instructions has been sent to the provided email address.</p>
   ) : (
     <form onSubmit={handleSubmit}>
       <h1>Please Enter Your Email</h1>
@@ -48,11 +48,13 @@ export function PasswordResetForm(): JSX.Element {
         />
       </label>
       
+      <div className="divider"></div>
+      
       <div>
         <button type="submit"><strong>Send Reset Link</strong></button>
       </div>
       
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </form>
   )}
 </div>
