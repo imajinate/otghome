@@ -1,59 +1,60 @@
-import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
 import { useState } from "react";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
-import { useRouter } from "next/router";
-import { mutate } from "swr";
-import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 
 export function PasswordResetForm(): JSX.Element {
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
   const supabaseClient = createPagesBrowserClient();
-  const router = useRouter();
 
   const handlePasswordReset = async (email: string) => {
     try {
-      const { error } = await supabaseClient.auth.resetPasswordForEmail(email);
+      const { data, error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://offtoglow.com/',
+      });
 
-      if (error) throw error;
+      if (error) {
+        throw error;
+      }
 
       setEmailSent(true);
-      await mutate(PLASMIC_AUTH_DATA_KEY);
     } catch (error) {
-      setError("An error occurred while sending the password reset email.");
+      setError("Er is een fout opgetreden bij het verzenden van de wachtwoordherstel e-mail. Probeer het later opnieuw.");
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     await handlePasswordReset(email);
   };
 
   return (
-    <PlasmicComponent
-      forceOriginal
-      component="PasswordResetForm"
-      componentProps={{
-        emailInput: {
-          value: email,
-          onChange: (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value),
-        },
-        submitButton: {
-          onClick: handleSubmit,
-        },
-        errorMessage: error,
-        successMessage: emailSent && (
-          <div className="success-message">
-            <p>{`We've sent password reset instructions to:`}</p>
-            <p className="email-address">{email}</p>
-            <p>Please check your inbox.</p>
-          </div>
-        ),
-        backButton: {
-          onClick: () => router.push("/login"),
-        },
-      }}
-    />
+<div>
+  {emailSent ? (
+    <p>An email with password reset instructions has been sent to the provided email address.</p>
+  ) : (
+    <form onSubmit={handleSubmit}>
+      <h1>Please Enter Your Email</h1>
+      <p>Enter your email address below. You will receive a password reset link within a few minutes. Click the link in the email to create a new password.</p>
+      
+      <label>
+        <strong>Enter Your Email</strong>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </label>
+      
+      <div>
+        <button type="submit"><strong>Send Reset Link</strong></button>
+      </div>
+      
+      {error && <p>{error}</p>}
+    </form>
+  )}
+</div>
   );
 }
