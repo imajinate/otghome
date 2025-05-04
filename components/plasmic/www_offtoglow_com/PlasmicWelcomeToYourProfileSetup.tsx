@@ -69,7 +69,7 @@ import {
 import Card from "../../Card"; // plasmic-import: twFopKdKGk6j/component
 import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import { ConditionGuard } from "@plasmicpkgs/plasmic-basic-components";
-// import AuthFormFirst from "../../AuthFormFirst"; // plasmic-import: qTyITqH96yO7/component
+import AuthFormFirst from "../../AuthFormFirst"; // plasmic-import: qTyITqH96yO7/component
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
 import TextInput from "../../TextInput"; // plasmic-import: EBZZZa8XvB9u/component
@@ -78,7 +78,7 @@ import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
-// import AuthButton from "../../AuthButton"; // plasmic-import: yqZlWocYh-A7/component
+import AuthButton from "../../AuthButton"; // plasmic-import: yqZlWocYh-A7/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -296,7 +296,22 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">
+          {PlasmicWelcomeToYourProfileSetup.pageMetadata.title}
+        </title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicWelcomeToYourProfileSetup.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicWelcomeToYourProfileSetup.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -2333,7 +2348,7 @@ export const PlasmicWelcomeToYourProfileSetup = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "Profile Setup || OfftoGlow",
       description: "",
       ogImageSrc: "",
       canonical: ""

@@ -60,7 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Card from "../../Card"; // plasmic-import: twFopKdKGk6j/component
-// import AuthForm from "../../AuthForm"; // plasmic-import: S-xeQrVUnObh/component
+import AuthForm from "../../AuthForm"; // plasmic-import: S-xeQrVUnObh/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -165,7 +165,20 @@ function PlasmicRegister__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicRegister.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicRegister.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicRegister.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -540,7 +553,7 @@ export const PlasmicRegister = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "Register || OfftoGlow",
       description: "",
       ogImageSrc: "",
       canonical: ""

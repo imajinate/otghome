@@ -59,7 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-// import PasswordResetForm from "../../PasswordResetForm"; // plasmic-import: OXtcbqP4qn4B/component
+import PasswordResetForm from "../../PasswordResetForm"; // plasmic-import: OXtcbqP4qn4B/component
 import Card from "../../Card"; // plasmic-import: twFopKdKGk6j/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -133,7 +133,22 @@ function PlasmicPasswordResetRequest__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">
+          {PlasmicPasswordResetRequest.pageMetadata.title}
+        </title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicPasswordResetRequest.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicPasswordResetRequest.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -279,7 +294,7 @@ export const PlasmicPasswordResetRequest = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "Password Reset Request || OfftoGlow",
       description: "",
       ogImageSrc: "",
       canonical: ""

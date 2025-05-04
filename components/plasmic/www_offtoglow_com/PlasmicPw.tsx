@@ -131,7 +131,20 @@ function PlasmicPw__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicPw.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicPw.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicPw.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -274,7 +287,7 @@ export const PlasmicPw = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "Create a New Password || OfftoGlow",
       description: "",
       ogImageSrc: "",
       canonical: ""

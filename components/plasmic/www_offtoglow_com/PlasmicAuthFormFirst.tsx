@@ -109,6 +109,7 @@ export type PlasmicAuthFormFirst__OverridesType = {
   passwordInput?: Flex__<typeof AntdPassword>;
   forgotPasswordForm?: Flex__<typeof FormWrapper>;
   input?: Flex__<typeof AntdInput>;
+  link?: Flex__<"a"> & Partial<LinkProps>;
 };
 
 export interface DefaultAuthFormFirstProps {
@@ -859,78 +860,34 @@ function PlasmicAuthFormFirst__RenderFunc(props: {
             )
           })}
         >
-          {(() => {
-            try {
-              return $state.currentMode === "signIn";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___0TY6M,
-                {
-                  [sty.textmode_forgotPassword___0TY6Mu8Bjw]: hasVariant(
-                    $state,
-                    "mode",
-                    "forgotPassword"
-                  ),
-                  [sty.textmode_signIn___0TY6MslrP3]: hasVariant(
-                    $state,
-                    "mode",
-                    "signIn"
-                  ),
-                  [sty.textmode_signUp___0TY6MtobGl]: hasVariant(
-                    $state,
-                    "mode",
-                    "signUp"
-                  )
-                }
-              )}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToPasswordReset"] = true
-                  ? (() => {
-                      const actionArgs = {};
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+          <PlasmicLink__
+            data-plasmic-name={"link"}
+            data-plasmic-override={overrides.link}
+            className={classNames(
+              projectcss.all,
+              projectcss.a,
+              projectcss.__wab_text,
+              sty.link
+            )}
+            component={Link}
+            href={(() => {
+              try {
+                return "https://accounts.offtoglow.com/MT3pje7t1Prbi5r4/pwresetrequest";
+              } catch (e) {
                 if (
-                  $steps["goToPasswordReset"] != null &&
-                  typeof $steps["goToPasswordReset"] === "object" &&
-                  typeof $steps["goToPasswordReset"].then === "function"
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  $steps["goToPasswordReset"] = await $steps[
-                    "goToPasswordReset"
-                  ];
+                  return `/MT3pje7t1Prbi5r4/pwresetrequest`;
                 }
-              }}
-            >
-              {hasVariant($state, "mode", "signUp")
-                ? "Already have an account? Sign In Now"
-                : "Forgot Password"}
-            </div>
-          ) : null}
+                throw e;
+              }
+            })()}
+            platform={"nextjs"}
+            target={"_blank"}
+          >
+            {"Forgot Password"}
+          </PlasmicLink__>
         </Stack__>
       </div>
       <div
@@ -975,13 +932,15 @@ const PlasmicDescendants = {
     "emailInput",
     "passwordInput",
     "forgotPasswordForm",
-    "input"
+    "input",
+    "link"
   ],
   credentialsForm: ["credentialsForm", "emailInput", "passwordInput"],
   emailInput: ["emailInput"],
   passwordInput: ["passwordInput"],
   forgotPasswordForm: ["forgotPasswordForm", "input"],
-  input: ["input"]
+  input: ["input"],
+  link: ["link"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -993,6 +952,7 @@ type NodeDefaultElementType = {
   passwordInput: typeof AntdPassword;
   forgotPasswordForm: typeof FormWrapper;
   input: typeof AntdInput;
+  link: "a";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1060,6 +1020,7 @@ export const PlasmicAuthFormFirst = Object.assign(
     passwordInput: makeNodeComponent("passwordInput"),
     forgotPasswordForm: makeNodeComponent("forgotPasswordForm"),
     input: makeNodeComponent("input"),
+    link: makeNodeComponent("link"),
 
     // Metadata about props expected for PlasmicAuthFormFirst
     internalVariantProps: PlasmicAuthFormFirst__VariantProps,

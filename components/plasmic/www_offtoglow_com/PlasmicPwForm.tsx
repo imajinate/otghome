@@ -341,7 +341,7 @@ function PlasmicPwForm__RenderFunc(props: {
               {...child$Props}
             >
               <FormItemWrapper
-                className={classNames("__wab_instance", sty.formField___0CHja)}
+                className={classNames("__wab_instance", sty.formField__s01P)}
                 label={"Email"}
                 name={"email"}
               >
@@ -350,26 +350,26 @@ function PlasmicPwForm__RenderFunc(props: {
                 />
               </FormItemWrapper>
               <FormItemWrapper
-                className={classNames("__wab_instance", sty.formField__ujciL)}
+                className={classNames("__wab_instance", sty.formField___64DNn)}
                 label={"Password"}
                 name={"password"}
               >
                 <AntdPassword
                   className={classNames(
                     "__wab_instance",
-                    sty.passwordInput__j8Mku
+                    sty.passwordInput__pLjb
                   )}
                 />
               </FormItemWrapper>
               <FormItemWrapper
-                className={classNames("__wab_instance", sty.formField__xhDi)}
+                className={classNames("__wab_instance", sty.formField__zkkZm)}
                 label={"Confirm Password"}
                 name={"confirmPassword"}
               >
                 <AntdPassword
                   className={classNames(
                     "__wab_instance",
-                    sty.passwordInput__pJh9B
+                    sty.passwordInput__jnrhd
                   )}
                 />
               </FormItemWrapper>
@@ -382,7 +382,7 @@ function PlasmicPwForm__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__gzLg9
+                    sty.text__hqMAw
                   )}
                 >
                   {"Sign In"}
