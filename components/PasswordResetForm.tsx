@@ -20,7 +20,7 @@ export function PasswordResetForm(): JSX.Element {
 
       setEmailSent(true);
     } catch (error) {
-      setError("Er is een fout opgetreden bij het verzenden van de wachtwoordherstel e-mail. Probeer het later opnieuw.");
+      setError("An error occurred while sending the password reset email. Please try again later.");
     }
   };
 

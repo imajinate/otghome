@@ -81,7 +81,7 @@ export function UpdatePasswordForm(): JSX.Element {
     try {
       await updateUserPassword(newPassword);
     } catch (error) {
-      setErrorMessage("Er is een fout opgetreden bij het bijwerken van het wachtwoord.");
+      setErrorMessage("An error occurred while updating your password. Please ensure your password meets all requirements listed above.");
     }
   };
 
