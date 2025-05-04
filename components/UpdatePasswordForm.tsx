@@ -127,7 +127,7 @@ export function UpdatePasswordForm(): JSX.Element {
           onClick={() => setShowPassword(!showPassword)}
           style={{
             position: 'absolute',
-            right: '10px',
+            right: '35px',
             top: '50%',
             transform: 'translateY(-50%)',
             background: 'none',
@@ -135,6 +135,7 @@ export function UpdatePasswordForm(): JSX.Element {
             cursor: 'pointer',
             color: '#666',
             padding: '4px'
+            width: '0 !important';
           }}
         >
           {showPassword ? (
