@@ -45,7 +45,7 @@ export function PasswordResetForm(): JSX.Element {
         errorMessage: error,
         successMessage: emailSent && (
           <div className="success-message">
-            <p>We've sent password reset instructions to:</p>
+            <p>{`We've sent password reset instructions to:`}</p>
             <p className="email-address">{email}</p>
             <p>Please check your inbox.</p>
           </div>
