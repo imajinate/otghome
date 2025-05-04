@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 385 370" class="w-64 sm:w-96 -mb-16 -mt-36" fill="none">
+  <g style="mix-blend-mode:lighten" filter="url(#64JYS-_oYa)">
+    <circle cx="192.5" cy="178" r="64" fill="url(#64JYS-_oYb)"/>
+  </g>
+  <path d="M192 150l32.5 56h-65l32.5-56z" fill="#fff"/>
+  <defs>
+    <linearGradient id="64JYS-_oYb" x1="229.833" y1="228.667" x2="141.833" y2="140.667" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF0080"/>
+      <stop offset="1" stop-color="#0070F3"/>
+    </linearGradient>
+    <filter id="64JYS-_oYa" x=".5" y="-14" width="384" height="384" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="64" result="effect1_foregroundBlur_32_715"/>
+    </filter>
+  </defs>
+</svg>
