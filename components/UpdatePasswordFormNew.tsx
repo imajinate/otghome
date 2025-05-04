@@ -16,7 +16,8 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export default function UpdatePasswordFormNew(): JSX.Element {
+export function UpdatePasswordFormNew(): JSX.Element {
+
   const [newPassword, setNewPassword] = useState("");
   const router = useRouter();
 
