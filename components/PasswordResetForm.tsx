@@ -36,7 +36,7 @@ export function PasswordResetForm(): JSX.Element {
     <p className="success-message">An email containing password reset instructions will be sent to the provided email address shortly. Should you not receive it, we recommend checking your spam folder.</p>
   ) : (
     <form onSubmit={handleSubmit}>
-      <h1>Please Enter Your Email</h1>
+      <h1>Password Reset</h1>
       <p>Enter your email address below. You will receive a password reset link within a few minutes. Click the link in the email to create a new password.</p>
       
       <label>
