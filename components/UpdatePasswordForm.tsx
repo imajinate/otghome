@@ -9,6 +9,7 @@ export function UpdatePasswordForm(): JSX.Element {
   const [errorMessage, setErrorMessage] = useState("");
   const [tokenHash, setTokenHash] = useState<string | null>(null); // Token state
   const [redirectUrl, setRedirectUrl] = useState<string | null>(null); // Redirect URL state
+  const [showPassword, setShowPassword] = useState(false);
   const supabaseClient = createPagesBrowserClient();
   const router = useRouter();
 
@@ -105,20 +106,50 @@ export function UpdatePasswordForm(): JSX.Element {
   
   <form onSubmit={handleResetPassword}>
     <label>
-      <input
-        type="password"
-        placeholder="••••••••"
-        value={newPassword}
-        onChange={(e) => setNewPassword(e.target.value)}
-        style={{
-          width: '100%',
-          padding: '12px',
-          margin: '8px 0 24px',
-          border: '1px solid #ddd',
-          borderRadius: '4px',
-          fontSize: '16px'
-        }}
-      />
+      <strong>New Password</strong>
+      <div style={{ position: 'relative' }}>
+        <input
+          type={showPassword ? "text" : "password"}
+          placeholder="••••••••"
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+          style={{
+            width: '100%',
+            padding: '12px 40px 12px 12px', // Extra padding for the eye icon
+            margin: '8px 0 24px',
+            border: '1px solid #ddd',
+            borderRadius: '4px',
+            fontSize: '16px'
+          }}
+        />
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          style={{
+            position: 'absolute',
+            right: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            color: '#666',
+            padding: '4px'
+          }}
+        >
+          {showPassword ? (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          )}
+        </button>
+      </div>
     </label>
     
     <div className="divider"></div>
