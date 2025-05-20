@@ -883,36 +883,55 @@ function PlasmicAuthForm__RenderFunc(props: {
                         );
                       })()}
                     </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__nsWy
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (() => {
-                              if (
-                                $state.passwordInput.value !==
+                    {(() => {
+                      try {
+                        return (() => {
+                          return $state.confirmPasswordInput.value
+                            ? $state.passwordInput.value !==
                                 $state.confirmPasswordInput.value
+                            : false;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__nsWy
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                if (
+                                  $state.passwordInput.value !==
+                                  $state.confirmPasswordInput.value
+                                ) {
+                                  return "Passwords do not match. Please ensure both entries are identical.";
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return "Passwords do not match. Please ensure both entries are identical.";
+                                return "Password is not the same\n";
                               }
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "Password is not the same\n";
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
                   </FormItemWrapper>
                   {false ? (
                     <div
