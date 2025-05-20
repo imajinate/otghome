@@ -296,33 +296,6 @@ function PlasmicAuthForm__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "variable",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                const fetchedEmail =
-                  $ctx.fetchedEmail.data.usersCollection.edges[0]?.node?.email;
-                if (!fetchedEmail) {
-                  return false;
-                } else {
-                  return true;
-                }
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "ladvar.value",
         type: "private",
         variableType: "object",
@@ -824,8 +797,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                       noLayout={false}
                       query={{
                         query:
-                          "query username($emailcheck: String!) {\n  usersCollection(filter: {email: {eq: $emailcheck}}) {\n    edges {\n      node {\n        email\n      }\n    }\n  }\n}",
-                        variables: {}
+                          "query username($emailcheck: String!) {\n  usersCollection(filter: {email: {eq: $emailcheck}}) {\n    edges {\n      node {\n        email\n      }\n    }\n  }\n}"
                       }}
                       url={
                         "https://tsbldwzuynryqbmaguci.supabase.co/graphql/v1"
@@ -847,44 +819,34 @@ function PlasmicAuthForm__RenderFunc(props: {
                       <DataCtxReader__>
                         {$ctx => (
                           <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.ladvar.value.emailcheck;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__v1Naw
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return "This email address is already registered.";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "Password is not the same\n";
-                                      }
-                                      throw e;
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__v1Naw
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      return $state.ladvar.value.emailcheck
+                                        ? "This email address is already registered."
+                                        : false;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "Password is not the same\n";
                                     }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            ) : null}
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
                             {(() => {
                               const child$Props = {
                                 className: classNames(
@@ -913,6 +875,25 @@ function PlasmicAuthForm__RenderFunc(props: {
                                     inputType: "Text Area"
                                   }
                                 ],
+                                initialValues: (() => {
+                                  try {
+                                    return (() => {
+                                      return $ctx.fetchedEmail?.data
+                                        ?.usersCollection?.edges[0]?.node?.email
+                                        ? true
+                                        : false;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
                                 labelCol: { span: 8, horizontalOnly: true },
                                 layout: "vertical",
                                 mode: "advanced",
@@ -966,12 +947,11 @@ function PlasmicAuthForm__RenderFunc(props: {
                                     initialValue={(() => {
                                       try {
                                         return (() => {
-                                          const isEmailRegistered = $ctx
-                                            .fetchedEmail?.data?.usersCollection
-                                            ?.edges[0]?.node?.email
+                                          return $ctx.fetchedEmail?.data
+                                            ?.usersCollection?.edges[0]?.node
+                                            ?.email
                                             ? true
                                             : false;
-                                          return isEmailRegistered;
                                         })();
                                       } catch (e) {
                                         if (
