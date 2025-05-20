@@ -849,7 +849,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return !$state.ladvar.value.emailcheck;
+                                return $state.ladvar.value.emailcheck;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -965,16 +965,14 @@ function PlasmicAuthForm__RenderFunc(props: {
                                     )}
                                     initialValue={(() => {
                                       try {
-                                        return !(
-                                          $ctx.fetchedEmail.data.usersCollection
-                                            .edges &&
-                                          $ctx.fetchedEmail.data.usersCollection
-                                            .edges.length &&
-                                          $ctx.fetchedEmail.data.usersCollection
-                                            .edges[0].node.email
-                                        )
-                                          ? true
-                                          : false;
+                                        return (() => {
+                                          const isEmailRegistered = $ctx
+                                            .fetchedEmail?.data?.usersCollection
+                                            ?.edges[0]?.node?.email
+                                            ? true
+                                            : false;
+                                          return isEmailRegistered;
+                                        })();
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -1361,7 +1359,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                             isEmailInvalid($state.emailInput?.value) ||
                             isPasswordInvalid ||
                             doPasswordsDiffer ||
-                            !$state.ladvar.value.emailcheck;
+                            $state.ladvar.value.emailcheck;
                           return isInvalid;
                         })();
                       } catch (e) {
