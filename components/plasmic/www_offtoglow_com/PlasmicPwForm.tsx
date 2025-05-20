@@ -139,6 +139,7 @@ function PlasmicPwForm__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -341,7 +342,7 @@ function PlasmicPwForm__RenderFunc(props: {
               {...child$Props}
             >
               <FormItemWrapper
-                className={classNames("__wab_instance", sty.formField__s01P)}
+                className={classNames("__wab_instance", sty.formField__wEbb)}
                 label={"Email"}
                 name={"email"}
               >
@@ -350,26 +351,26 @@ function PlasmicPwForm__RenderFunc(props: {
                 />
               </FormItemWrapper>
               <FormItemWrapper
-                className={classNames("__wab_instance", sty.formField___64DNn)}
+                className={classNames("__wab_instance", sty.formField__to7St)}
                 label={"Password"}
                 name={"password"}
               >
                 <AntdPassword
                   className={classNames(
                     "__wab_instance",
-                    sty.passwordInput__pLjb
+                    sty.passwordInput__kAy1W
                   )}
                 />
               </FormItemWrapper>
               <FormItemWrapper
-                className={classNames("__wab_instance", sty.formField__zkkZm)}
+                className={classNames("__wab_instance", sty.formField__kNaUk)}
                 label={"Confirm Password"}
                 name={"confirmPassword"}
               >
                 <AntdPassword
                   className={classNames(
                     "__wab_instance",
-                    sty.passwordInput__jnrhd
+                    sty.passwordInput__sdtuk
                   )}
                 />
               </FormItemWrapper>
@@ -382,7 +383,7 @@ function PlasmicPwForm__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__hqMAw
+                    sty.text__dYlw4
                   )}
                 >
                   {"Sign In"}

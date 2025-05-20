@@ -111,6 +111,7 @@ export type PlasmicAuthForm__OverridesType = {
   credentialsForm?: Flex__<typeof FormWrapper>;
   emailInput?: Flex__<typeof AntdInput>;
   passwordInput?: Flex__<typeof AntdPassword>;
+  confirmPasswordInput?: Flex__<typeof AntdPassword>;
   ul?: Flex__<"ul">;
   forgotPasswordForm?: Flex__<typeof FormWrapper>;
   input?: Flex__<typeof AntdInput>;
@@ -160,6 +161,7 @@ function PlasmicAuthForm__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -268,6 +270,14 @@ function PlasmicAuthForm__RenderFunc(props: {
       },
       {
         path: "passwordInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdPassword_Helpers)
+      },
+      {
+        path: "confirmPasswordInput.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
@@ -566,6 +576,112 @@ function PlasmicAuthForm__RenderFunc(props: {
                         );
                       })()}
                     </div>
+                    {(() => {
+                      try {
+                        return (() => {
+                          function getEmailError(email) {
+                            if (!email || email.trim() === "") return false;
+                            if (!email.includes("@")) {
+                              return "\u26A0️ Missing @ symbol (e.g., name@domain.com)";
+                            }
+                            if ((email.match(/@/g) || []).length > 1) {
+                              return "\u26A0️ Too many @ symbols";
+                            }
+                            const [localPart, domain] = email.split("@");
+                            const lastDotIndex = domain.lastIndexOf(".");
+                            if (lastDotIndex === -1) {
+                              return "\u26A0️ Missing domain (e.g., name@domain.com)";
+                            }
+                            const tld = domain.slice(lastDotIndex + 1);
+                            if (tld.length < 2) {
+                              return "\u26A0️ Domain extension must be at least 2 characters (e.g., .com, .co)";
+                            }
+                            if (
+                              domain.startsWith(".") ||
+                              domain.endsWith(".")
+                            ) {
+                              return "\u26A0️ Invalid domain format (e.g., name@domain.com)";
+                            }
+                            return false;
+                          }
+                          const emailCheck = getEmailError(
+                            $state.emailInput?.value
+                          );
+                          if (emailCheck === false) {
+                            return false;
+                          } else {
+                            return emailCheck;
+                          }
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__kynSk
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                function getEmailError(email) {
+                                  if (!email || email.trim() === "")
+                                    return false;
+                                  if (!email.includes("@")) {
+                                    return "\u26A0️ Missing @ symbol (e.g., name@domain.com)";
+                                  }
+                                  if ((email.match(/@/g) || []).length > 1) {
+                                    return "\u26A0️ Too many @ symbols";
+                                  }
+                                  const [localPart, domain] = email.split("@");
+                                  const lastDotIndex = domain.lastIndexOf(".");
+                                  if (lastDotIndex === -1) {
+                                    return "\u26A0️ Missing domain (e.g., name@domain.com)";
+                                  }
+                                  const tld = domain.slice(lastDotIndex + 1);
+                                  if (tld.length < 2) {
+                                    return "\u26A0️ Domain extension must be at least 2 characters (e.g., .com, .co)";
+                                  }
+                                  if (
+                                    domain.startsWith(".") ||
+                                    domain.endsWith(".")
+                                  ) {
+                                    return "\u26A0️ Invalid domain format (e.g., name@domain.com)";
+                                  }
+                                  return false;
+                                }
+                                const emailCheck = getEmailError(
+                                  $state.emailInput?.value
+                                );
+                                if (emailCheck === false) {
+                                  return false;
+                                } else {
+                                  return emailCheck;
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "Password is not the same\n";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
@@ -632,73 +748,243 @@ function PlasmicAuthForm__RenderFunc(props: {
                         );
                       })()}
                     </div>
+                    {(() => {
+                      try {
+                        return (() => {
+                          const isInvalid = !!(
+                            $state.passwordInput.value &&
+                            ($state.passwordInput.value.length < 8 ||
+                              !/[A-Z]/.test($state.passwordInput.value) ||
+                              !/[0-9]/.test($state.passwordInput.value))
+                          );
+                          return isInvalid;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___3RHK
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                function getPasswordError(password) {
+                                  if (!password) return "Password is required.";
+                                  if (password.length < 8) {
+                                    return "Password must be at least 8 characters long.";
+                                  }
+                                  if (!/[A-Z]/.test(password)) {
+                                    return "Password must contain at least one uppercase letter.";
+                                  }
+                                  if (!/[0-9]/.test(password)) {
+                                    return "Password must contain at least one number.";
+                                  }
+                                  return null;
+                                }
+                                const errorMessage = getPasswordError(
+                                  $state.passwordInput.value
+                                );
+                                if (errorMessage) {
+                                  return errorMessage;
+                                } else {
+                                  return false;
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "Password is not the same\n";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
                   </FormItemWrapper>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___8RCwZ)}
+                  <FormItemWrapper
+                    className={classNames(
+                      "__wab_instance",
+                      sty.formField__ufpNy
+                    )}
+                    label={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__r1Joz
+                        )}
+                      >
+                        {"Confirm Password"}
+                      </div>
+                    }
+                    name={"password"}
                   >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__pY5Pi)}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          bordered: false,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.confirmPasswordInput
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["confirmPasswordInput", "value"],
+                              AntdPassword_Helpers
+                            ).apply(null, eventArgs);
+                          },
+                          placeholder:
+                            "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
+                          value: generateStateValueProp($state, [
+                            "confirmPasswordInput",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "confirmPasswordInput.value"
+                            }
+                          ],
+                          [],
+                          AntdPassword_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdPassword
+                            data-plasmic-name={"confirmPasswordInput"}
+                            data-plasmic-override={
+                              overrides.confirmPasswordInput
+                            }
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                    </div>
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___3RHK
+                        sty.text__nsWy
                       )}
                     >
                       <React.Fragment>
-                        <React.Fragment>
-                          {
-                            "Please enter a strong, new password below. Ensure it includes at least:\n\n"
+                        {(() => {
+                          try {
+                            return (() => {
+                              if (
+                                $state.passwordInput.value !==
+                                $state.confirmPasswordInput.value
+                              ) {
+                                return "Passwords do not match. Please ensure both entries are identical.";
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "Password is not the same\n";
+                            }
+                            throw e;
                           }
-                        </React.Fragment>
-                        {
-                          <ul
-                            data-plasmic-name={"ul"}
-                            data-plasmic-override={overrides.ul}
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.ul,
-                              sty.ul
-                            )}
-                          >
-                            <li
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                projectcss.__wab_text,
-                                sty.li__saV4O
-                              )}
-                            >
-                              {"8 characters"}
-                            </li>
-                            <li
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                projectcss.__wab_text,
-                                sty.li__gTn8K
-                              )}
-                            >
-                              {"1 uppercase letter"}
-                            </li>
-                            <li
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                projectcss.__wab_text,
-                                sty.li__s5IvF
-                              )}
-                            >
-                              {"1 number or special character"}
-                            </li>
-                          </ul>
-                        }
-                        <React.Fragment>
-                          {
-                            "\nFor security, avoid using personal information or common words."
-                          }
-                        </React.Fragment>
+                        })()}
                       </React.Fragment>
                     </div>
-                  </div>
+                  </FormItemWrapper>
+                  {false ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___8RCwZ
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rXAgO
+                        )}
+                      >
+                        <React.Fragment>
+                          <React.Fragment>
+                            {
+                              "Please enter a strong, new password below. Ensure it includes at least:\n\n"
+                            }
+                          </React.Fragment>
+                          {
+                            <ul
+                              data-plasmic-name={"ul"}
+                              data-plasmic-override={overrides.ul}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.ul,
+                                sty.ul
+                              )}
+                            >
+                              <li
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.li,
+                                  projectcss.__wab_text,
+                                  sty.li__tCguR
+                                )}
+                              >
+                                {"8 characters"}
+                              </li>
+                              <li
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.li,
+                                  projectcss.__wab_text,
+                                  sty.li__oSz92
+                                )}
+                              >
+                                {"1 uppercase letter"}
+                              </li>
+                              <li
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.li,
+                                  projectcss.__wab_text,
+                                  sty.li__fmWOh
+                                )}
+                              >
+                                {"1 number or special character"}
+                              </li>
+                            </ul>
+                          }
+                          <React.Fragment>
+                            {
+                              "\nFor security, avoid using personal information or common words."
+                            }
+                          </React.Fragment>
+                        </React.Fragment>
+                      </div>
+                    </div>
+                  ) : null}
                   <AntdButton
                     className={classNames("__wab_instance", sty.button__f1AJh, {
                       [sty.buttonmode_signUp__f1AJhbzryM]: hasVariant(
@@ -707,6 +993,51 @@ function PlasmicAuthForm__RenderFunc(props: {
                         "signUp"
                       )
                     })}
+                    disabled={(() => {
+                      try {
+                        return (() => {
+                          const isEmailInvalid = email => {
+                            if (!email || email.trim() === "") return false;
+                            if (
+                              !email.includes("@") ||
+                              (email.match(/@/g) || []).length > 1
+                            )
+                              return true;
+                            const [_, domain] = email.split("@");
+                            const lastDotIndex = domain.lastIndexOf(".");
+                            if (
+                              lastDotIndex === -1 ||
+                              domain.startsWith(".") ||
+                              domain.endsWith(".")
+                            )
+                              return true;
+                            const tld = domain.slice(lastDotIndex + 1);
+                            return tld.length < 2;
+                          };
+                          const isPasswordInvalid =
+                            !$state.passwordInput?.value ||
+                            $state.passwordInput.value.length < 8 ||
+                            !/[A-Z]/.test($state.passwordInput.value) ||
+                            !/[0-9]/.test($state.passwordInput.value);
+                          const doPasswordsDiffer =
+                            $state.passwordInput?.value !==
+                            $state.confirmPasswordInput?.value;
+                          const isInvalid =
+                            isEmailInvalid($state.emailInput?.value) ||
+                            isPasswordInvalid ||
+                            doPasswordsDiffer;
+                          return isInvalid;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async () => {
                       const $steps = {};
                     }}
@@ -1210,13 +1541,21 @@ const PlasmicDescendants = {
     "credentialsForm",
     "emailInput",
     "passwordInput",
+    "confirmPasswordInput",
     "ul",
     "forgotPasswordForm",
     "input"
   ],
-  credentialsForm: ["credentialsForm", "emailInput", "passwordInput", "ul"],
+  credentialsForm: [
+    "credentialsForm",
+    "emailInput",
+    "passwordInput",
+    "confirmPasswordInput",
+    "ul"
+  ],
   emailInput: ["emailInput"],
   passwordInput: ["passwordInput"],
+  confirmPasswordInput: ["confirmPasswordInput"],
   ul: ["ul"],
   forgotPasswordForm: ["forgotPasswordForm", "input"],
   input: ["input"]
@@ -1229,6 +1568,7 @@ type NodeDefaultElementType = {
   credentialsForm: typeof FormWrapper;
   emailInput: typeof AntdInput;
   passwordInput: typeof AntdPassword;
+  confirmPasswordInput: typeof AntdPassword;
   ul: "ul";
   forgotPasswordForm: typeof FormWrapper;
   input: typeof AntdInput;
@@ -1297,6 +1637,7 @@ export const PlasmicAuthForm = Object.assign(
     credentialsForm: makeNodeComponent("credentialsForm"),
     emailInput: makeNodeComponent("emailInput"),
     passwordInput: makeNodeComponent("passwordInput"),
+    confirmPasswordInput: makeNodeComponent("confirmPasswordInput"),
     ul: makeNodeComponent("ul"),
     forgotPasswordForm: makeNodeComponent("forgotPasswordForm"),
     input: makeNodeComponent("input"),

@@ -157,6 +157,7 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -2348,7 +2349,7 @@ export const PlasmicWelcomeToYourProfileSetup = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "Profile Setup || OfftoGlow",
+      title: "Profile Setup | OfftoGlow",
       description: "",
       ogImageSrc: "",
       canonical: ""
