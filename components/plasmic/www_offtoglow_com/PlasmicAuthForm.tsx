@@ -817,7 +817,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                       })()}
                       loadingDisplay={
                         <DataCtxReader__>
-                          {$ctx => "Loading..."}
+                          {$ctx => (false ? "Loading..." : null)}
                         </DataCtxReader__>
                       }
                       method={"POST"}
