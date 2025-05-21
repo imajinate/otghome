@@ -5,102 +5,62 @@ import { useState } from "react";
 import { mutate } from "swr";
 import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 
-interface SignUpCredentials {
-  email: string;
-  password: string;
-  firstName?: string;
-  lastName?: string;
-  city?: string;
-  country?: string;
-}
-
 export function AuthForm(): JSX.Element {
+  // Initialiseer Supabase client
   const [supabaseClient] = useState(() => createPagesBrowserClient());
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-
-  const handleSignUp = async (credentials: SignUpCredentials) => {
-    setLoading(true);
-    setError(null);
-    
-    try {
-      const { error: signUpError } = await supabaseClient.auth.signUp({
-        email: credentials.email,
-        password: credentials.password,
-        options: {
-          data: {
-            first_name: credentials.firstName || '',
-            last_name: credentials.lastName || '',
-            city: credentials.city || '',
-            country: credentials.country || ''
-          }
-        }
-      });
-
-      if (signUpError) throw signUpError;
-
-      await mutate(PLASMIC_AUTH_DATA_KEY);
-      router.push("/homepage");
-    } catch (err) {
-      // Type-safe error handling
-      if (err instanceof Error) {
-        setError(err.message);
-      } else if (typeof err === 'string') {
-        setError(err);
-      } else {
-        setError("Registration failed - unknown error");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSignIn = async (credentials: { email: string; password: string }) => {
-    setLoading(true);
-    setError(null);
-    
-    try {
-      const { error: signInError } = await supabaseClient.auth.signInWithPassword({
-        email: credentials.email,
-        password: credentials.password,
-      });
-
-      if (signInError) throw signInError;
-
-      await mutate(PLASMIC_AUTH_DATA_KEY);
-      router.push("/homepage");
-    } catch (err) {
-      // Type-safe error handling
-      if (err instanceof Error) {
-        setError(err.message);
-      } else if (typeof err === 'string') {
-        setError(err);
-      } else {
-        setError("Login failed - unknown error");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  
   return (
     <PlasmicComponent
       forceOriginal
       component="AuthForm"
       componentProps={{
-        loading,
-        error,
+        // Handle submit functie voor zowel login als registratie
         handleSubmit: async (
           mode: "signIn" | "signUp",
-          credentials: SignUpCredentials
+          credentials: {
+            email: string;
+            password: string;
+            firstName?: string;
+            lastName?: string;
+            city?: string;
+            country?: string;
+          }
         ) => {
           if (mode === "signIn") {
-            await handleSignIn(credentials);
+            // Handle login
+            await supabaseClient.auth.signInWithPassword({
+              email: credentials.email,
+              password: credentials.password,
+            });
           } else {
-            await handleSignUp(credentials);
+            // Handle registratie met extra velden
+            await supabaseClient.auth.signUp({
+              email: credentials.email,
+              password: credentials.password,
+              options: {
+                data: { // Extra gebruikersdata
+                  first_name: credentials.firstName,
+                  last_name: credentials.lastName,
+                  city: credentials.city,
+                  country: credentials.country
+                }
+              }
+            });
           }
+          // Update SWR cache en redirect
+          await mutate(PLASMIC_AUTH_DATA_KEY);
+          router.push("/homepage");
         },
+        // Vertel Plasmic over alle formuliervelden
+        formFields: [
+          { name: "email", type: "email" },
+          { name: "password", type: "password" },
+          { name: "firstName", type: "text" },
+          { name: "lastName", type: "text" },
+          { name: "city", type: "text" },
+          { name: "country", type: "text" }
+        ]
       }}
     />
   );
