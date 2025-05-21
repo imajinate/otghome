@@ -1534,6 +1534,7 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
                                                 popupScopeClassName={
                                                   sty["selectCountry__popup"]
                                                 }
+                                                showSearch={true}
                                                 triggerClassName={classNames({
                                                   [sty["pcls_n1I-kmv8ISc6"]]:
                                                     true
