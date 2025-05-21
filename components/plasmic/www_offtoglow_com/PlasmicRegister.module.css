@@ -67,6 +67,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  overflow: auto;
   min-width: 0;
   padding: 20px;
 }
