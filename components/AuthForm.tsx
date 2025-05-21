@@ -5,62 +5,101 @@ import { useState } from "react";
 import { mutate } from "swr";
 import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 
+interface SignUpCredentials {
+  email: string;
+  password: string;
+  firstName?: string;
+  lastName?: string;
+  city?: string;
+  country?: string;
+}
+
 export function AuthForm(): JSX.Element {
   const [supabaseClient] = useState(() => createPagesBrowserClient());
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+
+  const handleSignUp = async (credentials: SignUpCredentials) => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const { error: signUpError } = await supabaseClient.auth.signUp({
+        email: credentials.email,
+        password: credentials.password,
+        options: {
+          data: {
+            first_name: credentials.firstName || '',
+            last_name: credentials.lastName || '',
+            city: credentials.city || '',
+            country: credentials.country || ''
+          }
+        }
+      });
+
+      if (signUpError) throw signUpError;
+
+      await mutate(PLASMIC_AUTH_DATA_KEY);
+      router.push("/homepage");
+    } catch (err) {
+      // Type-safe error handling
+      if (err instanceof Error) {
+        setError(err.message);
+      } else if (typeof err === 'string') {
+        setError(err);
+      } else {
+        setError("Registration failed - unknown error");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSignIn = async (credentials: { email: string; password: string }) => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const { error: signInError } = await supabaseClient.auth.signInWithPassword({
+        email: credentials.email,
+        password: credentials.password,
+      });
+
+      if (signInError) throw signInError;
+
+      await mutate(PLASMIC_AUTH_DATA_KEY);
+      router.push("/homepage");
+    } catch (err) {
+      // Type-safe error handling
+      if (err instanceof Error) {
+        setError(err.message);
+      } else if (typeof err === 'string') {
+        setError(err);
+      } else {
+        setError("Login failed - unknown error");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <PlasmicComponent
       forceOriginal
       component="AuthForm"
       componentProps={{
+        loading,
+        error,
         handleSubmit: async (
           mode: "signIn" | "signUp",
-          credentials: {
-            email: string;
-            password: string;
-            firstName?: string;
-            lastName?: string;
-            city?: string;
-            country?: string;
-          }
+          credentials: SignUpCredentials
         ) => {
           if (mode === "signIn") {
-            await supabaseClient.auth.signInWithPassword({
-              email: credentials.email,
-              password: credentials.password,
-            });
+            await handleSignIn(credentials);
           } else {
-            // Eerst aanmelden
-            const { data: authData, error: authError } = await supabaseClient.auth.signUp({
-              email: credentials.email,
-              password: credentials.password,
-            });
-            
-            if (authError) throw authError;
-            
-            // Daarna extra gebruikersgegevens opslaan met geneste structuur
-            if (authData.user) {
-              const { error: profileError } = await supabaseClient
-                .from('users')
-                .insert({
-                  id: authData.user.id,
-                  email: credentials.email,
-                  name: {
-                    first_name: credentials.firstName || "",
-                    last_name: credentials.lastName || ""
-                  },
-                  location: {
-                    city: credentials.city || "",
-                    country: credentials.country || ""
-                  }
-                });
-              
-              if (profileError) throw profileError;
-            }
+            await handleSignUp(credentials);
           }
-          
-          await mutate(PLASMIC_AUTH_DATA_KEY);
-          router.push("/homepage");
         },
       }}
     />
