@@ -59,7 +59,7 @@ export function AuthForm(): JSX.Element {
           { name: "firstName", type: "text" },
           { name: "lastName", type: "text" },
           { name: "city", type: "text" },
-          { name: "country", type: "text" }
+          { name: "country", type: "select" }
         ]
       }}
     />
