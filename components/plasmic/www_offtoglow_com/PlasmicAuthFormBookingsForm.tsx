@@ -454,18 +454,21 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                   {...child$Props}
                 >
                   <FormItemWrapper
-                    className={classNames("__wab_instance", sty.formField__jQk)}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.formField__zHajR
+                    )}
                     label={"Email"}
                     name={"email"}
                   >
                     <AntdInput
-                      className={classNames("__wab_instance", sty.input__wTpLs)}
+                      className={classNames("__wab_instance", sty.input__pYxyv)}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__gGglC
+                      sty.formField__goTcx
                     )}
                     label={"Password"}
                     name={"password"}
@@ -478,13 +481,17 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                     />
                   </FormItemWrapper>
                   <AntdButton
-                    className={classNames("__wab_instance", sty.button__vBaJt, {
-                      [sty.buttonmode_signUp__vBaJtCx1E6]: hasVariant(
-                        $state,
-                        "mode",
-                        "signUp"
-                      )
-                    })}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.button___8HwKa,
+                      {
+                        [sty.buttonmode_signUp___8HwKaCx1E6]: hasVariant(
+                          $state,
+                          "mode",
+                          "signUp"
+                        )
+                      }
+                    )}
                     shape={"default"}
                     submitsForm={true}
                     type={"primary"}
@@ -493,9 +500,9 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__hAmWc,
+                        sty.text__d5YMo,
                         {
-                          [sty.textmode_signUp__hAmWcCx1E6]: hasVariant(
+                          [sty.textmode_signUp__d5YMoCx1E6]: hasVariant(
                             $state,
                             "mode",
                             "signUp"

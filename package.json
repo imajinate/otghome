@@ -12,6 +12,7 @@
     "@ant-design/icons": "^6.0.0",
     "@ant-design/pro-components": "^2.8.7",
     "@plasmicapp/auth-api": "^0.0.17",
+    "@plasmicapp/auth-react": "^0.0.22",
     "@plasmicapp/cli": "^0.1.331",
     "@plasmicapp/loader-nextjs": "^1.0.401",
     "@plasmicapp/react-web": "^0.2.381",

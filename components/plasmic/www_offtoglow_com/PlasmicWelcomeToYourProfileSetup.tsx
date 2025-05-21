@@ -78,6 +78,7 @@ import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import Button from "../../Button"; // plasmic-import: bUjxyyacyjDo/component
 import AuthButton from "../../AuthButton"; // plasmic-import: yqZlWocYh-A7/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -89,6 +90,7 @@ import sty from "./PlasmicWelcomeToYourProfileSetup.module.css"; // plasmic-impo
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: e32uixpuZXVG/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: v7iefsRDFFri/icon
+import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: 4-aZVVDUZLRE/icon
 
 createPlasmicElementProxy;
 
@@ -117,7 +119,6 @@ export type PlasmicWelcomeToYourProfileSetup__OverridesType = {
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
   selectCountry?: Flex__<typeof AntdSelect>;
   radioGroup?: Flex__<typeof AntdRadioGroup>;
-  button?: Flex__<typeof AntdButton>;
   authButton?: Flex__<typeof AuthButton>;
 };
 
@@ -1995,11 +1996,9 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
                                       </Stack__>
                                     </div>
                                     <AntdButton
-                                      data-plasmic-name={"button"}
-                                      data-plasmic-override={overrides.button}
                                       className={classNames(
                                         "__wab_instance",
-                                        sty.button
+                                        sty.button___7BYWk
                                       )}
                                       shape={"default"}
                                       size={"large"}
@@ -2033,6 +2032,26 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
                                         throw e;
                                       }
                                     })() ? (
+                                      <Button
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.button__sLeK
+                                        )}
+                                        color={"blue"}
+                                        submitsForm={true}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__ytapf
+                                          )}
+                                        >
+                                          {"Submit"}
+                                        </div>
+                                      </Button>
+                                    ) : null}
+                                    {false ? (
                                       <AuthButton
                                         data-plasmic-name={"authButton"}
                                         data-plasmic-override={
@@ -2190,7 +2209,6 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "selectCountry",
     "radioGroup",
-    "button",
     "authButton"
   ],
   card: ["card"],
@@ -2206,7 +2224,6 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "selectCountry",
     "radioGroup",
-    "button",
     "authButton"
   ],
   conditionGuard: [
@@ -2220,7 +2237,6 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "selectCountry",
     "radioGroup",
-    "button",
     "authButton"
   ],
   authFormFirst: ["authFormFirst"],
@@ -2233,7 +2249,6 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "selectCountry",
     "radioGroup",
-    "button",
     "authButton"
   ],
   inputEmail: ["inputEmail"],
@@ -2243,7 +2258,6 @@ const PlasmicDescendants = {
   httpRestApiFetcher: ["httpRestApiFetcher", "selectCountry"],
   selectCountry: ["selectCountry"],
   radioGroup: ["radioGroup"],
-  button: ["button"],
   authButton: ["authButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -2263,7 +2277,6 @@ type NodeDefaultElementType = {
   httpRestApiFetcher: typeof DataFetcher;
   selectCountry: typeof AntdSelect;
   radioGroup: typeof AntdRadioGroup;
-  button: typeof AntdButton;
   authButton: typeof AuthButton;
 };
 
@@ -2340,7 +2353,6 @@ export const PlasmicWelcomeToYourProfileSetup = Object.assign(
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
     selectCountry: makeNodeComponent("selectCountry"),
     radioGroup: makeNodeComponent("radioGroup"),
-    button: makeNodeComponent("button"),
     authButton: makeNodeComponent("authButton"),
 
     // Metadata about props expected for PlasmicWelcomeToYourProfileSetup

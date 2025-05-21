@@ -651,7 +651,7 @@
   color: #22222280;
   min-width: 0;
 }
-.button:global(.__wab_instance) {
+.button___7BYWk:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   margin-top: 32px;
@@ -665,6 +665,29 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+}
+.button__sLeK:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  margin-top: 28px;
+  min-width: 0;
+  flex-shrink: 0;
+}
+.svg__odu7C {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__ytapf {
+  padding-right: 0px;
+}
+.svg__fsmFe {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
 }
 .authButton:global(.__wab_instance) {
   max-width: 100%;

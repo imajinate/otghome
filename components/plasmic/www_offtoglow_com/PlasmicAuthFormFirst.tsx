@@ -245,7 +245,7 @@ function PlasmicAuthFormFirst__RenderFunc(props: {
         path: "emailInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``,
 
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },

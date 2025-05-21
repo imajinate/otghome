@@ -554,7 +554,7 @@ export const PlasmicRegister = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "Register || OfftoGlow",
+      title: "Register | OfftoGlow",
       description: "",
       ogImageSrc: "",
       canonical: ""
