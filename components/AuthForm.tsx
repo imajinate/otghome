@@ -8,73 +8,95 @@ import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 export function AuthForm(): JSX.Element {
   const [supabaseClient] = useState(() => createPagesBrowserClient());
   const router = useRouter();
-  const [selectedCountry, setSelectedCountry] = useState('');
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    city: "",
+    country: ""
+  });
+
+  const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormState({...formState, [field]: e.target.value});
+  };
+
+  const handleCountrySelect = (value: string) => {
+    setFormState({...formState, country: value});
+  };
+
+  const handleSubmit = async (mode: "signIn" | "signUp") => {
+    console.log("Submitting:", formState); // Debug log
+    
+    if (mode === "signIn") {
+      await supabaseClient.auth.signInWithPassword({
+        email: formState.email,
+        password: formState.password,
+      });
+    } else {
+      await supabaseClient.auth.signUp({
+        email: formState.email,
+        password: formState.password,
+        options: {
+          data: {
+            first_name: formState.firstName,
+            last_name: formState.lastName,
+            city: formState.city,
+            country: formState.country
+          }
+        }
+      });
+    }
+    await mutate(PLASMIC_AUTH_DATA_KEY);
+    router.push("/homepage");
+  };
 
   return (
     <PlasmicComponent
       forceOriginal
       component="AuthForm"
       componentProps={{
-        // Landen dropdown
-        countryDropdown: {
-          onSelect: (value: string) => {
-            setSelectedCountry(value);
-          }
+        // Input velden
+        emailInput: {
+          value: formState.email,
+          onChange: handleInputChange("email")
         },
-
-        // Verborgen input voor formulier submit
+        passwordInput: {
+          value: formState.password,
+          onChange: handleInputChange("password")
+        },
+        firstNameInput: {
+          value: formState.firstName,
+          onChange: handleInputChange("firstName")
+        },
+        lastNameInput: {
+          value: formState.lastName,
+          onChange: handleInputChange("lastName")
+        },
+        cityInput: {
+          value: formState.city,
+          onChange: handleInputChange("city")
+        },
+        
+        // Country select
+        countryDropdown: {
+          onSelect: handleCountrySelect
+        },
+        
+        // Verborgen country input (optioneel)
         countryInput: {
-          value: selectedCountry,
-          name: "country",
+          value: formState.country,
+          readOnly: true,
           style: { display: 'none' }
         },
-
-        // Formulier afhandeling
-        handleSubmit: async (
-          mode: "signIn" | "signUp",
-          credentials: {
-            email: string;
-            password: string;
-            firstName?: string;
-            lastName?: string;
-            city?: string;
-            country?: string;
-          }
-        ) => {
-          console.log("Submitting with country:", credentials.country); // Debug log
-          
-          if (mode === "signIn") {
-            await supabaseClient.auth.signInWithPassword({
-              email: credentials.email,
-              password: credentials.password,
-            });
-          } else {
-            await supabaseClient.auth.signUp({
-              email: credentials.email,
-              password: credentials.password,
-              options: {
-                data: {
-                  first_name: credentials.firstName,
-                  last_name: credentials.lastName,
-                  city: credentials.city,
-                  country: credentials.country // Gebruik de doorgegeven waarde
-                }
-              }
-            });
-          }
-          await mutate(PLASMIC_AUTH_DATA_KEY);
-          router.push("/homepage");
+        
+        // Submit handlers
+        signInButton: {
+          onClick: () => handleSubmit("signIn")
         },
-
-        // Vertel Plasmic over alle formuliervelden
-        formFields: [
-          { name: "email", type: "email" },
-          { name: "password", type: "password" },
-          { name: "firstName", type: "text" },
-          { name: "lastName", type: "text" },
-          { name: "city", type: "text" },
-          { name: "country", type: "text" } // Moet overeenkomen met name van hidden input
-        ]
+        signUpButton: {
+          onClick: () => handleSubmit("signUp")
+        }
       }}
     />
   );
