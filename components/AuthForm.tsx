@@ -8,7 +8,7 @@ import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 export function AuthForm(): JSX.Element {
   const [supabaseClient] = useState(() => createPagesBrowserClient());
   const router = useRouter();
-  const [formState, setFormState] = useState({
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
     firstName: "",
@@ -18,37 +18,54 @@ export function AuthForm(): JSX.Element {
   });
 
   const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormState({...formState, [field]: e.target.value});
+    setFormData({...formData, [field]: e.target.value});
   };
 
-  const handleCountrySelect = (value: string) => {
-    setFormState({...formState, country: value});
+  const handleCountryChange = (value: string) => {
+    setFormData({...formData, country: value});
   };
 
   const handleSubmit = async (mode: "signIn" | "signUp") => {
-    console.log("Submitting:", formState); // Debug log
+    console.log("Form data being submitted:", formData);
     
-    if (mode === "signIn") {
-      await supabaseClient.auth.signInWithPassword({
-        email: formState.email,
-        password: formState.password,
-      });
-    } else {
-      await supabaseClient.auth.signUp({
-        email: formState.email,
-        password: formState.password,
-        options: {
-          data: {
-            first_name: formState.firstName,
-            last_name: formState.lastName,
-            city: formState.city,
-            country: formState.country
+    try {
+      if (mode === "signIn") {
+        const { error } = await supabaseClient.auth.signInWithPassword({
+          email: formData.email,
+          password: formData.password
+        });
+        if (error) throw error;
+      } else {
+        const { error } = await supabaseClient.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+          options: {
+            data: {
+              first_name: formData.firstName,
+              last_name: formData.lastName,
+              city: formData.city,
+              country: formData.country
+            }
           }
-        }
-      });
+        });
+        if (error) throw error;
+      }
+      
+      await mutate(PLASMIC_AUTH_DATA_KEY);
+      router.push("/homepage");
+    } catch (error) {
+      // Type-safe error handling
+      if (error instanceof Error) {
+        console.error("Authentication error:", error.message);
+        alert(error.message);
+      } else if (typeof error === 'string') {
+        console.error("Authentication error:", error);
+        alert(error);
+      } else {
+        console.error("Unknown authentication error:", error);
+        alert("An unknown error occurred during authentication");
+      }
     }
-    await mutate(PLASMIC_AUTH_DATA_KEY);
-    router.push("/homepage");
   };
 
   return (
@@ -56,46 +73,49 @@ export function AuthForm(): JSX.Element {
       forceOriginal
       component="AuthForm"
       componentProps={{
-        // Input velden
         emailInput: {
-          value: formState.email,
-          onChange: handleInputChange("email")
+          value: formData.email,
+          onChange: handleInputChange("email"),
+          name: "email"
         },
         passwordInput: {
-          value: formState.password,
-          onChange: handleInputChange("password")
+          value: formData.password,
+          onChange: handleInputChange("password"),
+          name: "password",
+          type: "password"
         },
         firstNameInput: {
-          value: formState.firstName,
-          onChange: handleInputChange("firstName")
+          value: formData.firstName,
+          onChange: handleInputChange("firstName"),
+          name: "firstName"
         },
         lastNameInput: {
-          value: formState.lastName,
-          onChange: handleInputChange("lastName")
+          value: formData.lastName,
+          onChange: handleInputChange("lastName"),
+          name: "lastName"
         },
         cityInput: {
-          value: formState.city,
-          onChange: handleInputChange("city")
+          value: formData.city,
+          onChange: handleInputChange("city"),
+          name: "city"
         },
-        
-        // Country select
-        countryDropdown: {
-          onSelect: handleCountrySelect
+        countrySelect: {
+          value: formData.country,
+          onChange: (e: React.ChangeEvent<HTMLSelectElement>) => 
+            handleCountryChange(e.target.value),
+          name: "country"
         },
-        
-        // Verborgen country input (optioneel)
-        countryInput: {
-          value: formState.country,
-          readOnly: true,
-          style: { display: 'none' }
-        },
-        
-        // Submit handlers
         signInButton: {
-          onClick: () => handleSubmit("signIn")
+          onClick: (e: React.MouseEvent) => {
+            e.preventDefault();
+            handleSubmit("signIn");
+          }
         },
         signUpButton: {
-          onClick: () => handleSubmit("signUp")
+          onClick: (e: React.MouseEvent) => {
+            e.preventDefault();
+            handleSubmit("signUp");
+          }
         }
       }}
     />
