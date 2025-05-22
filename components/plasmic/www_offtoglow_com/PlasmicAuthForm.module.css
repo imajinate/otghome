@@ -175,13 +175,13 @@
   padding: 8px 8px 6px;
   border: 1px solid var(--token-MjYUWCcX38Uk);
 }
-.country:global(.__wab_instance) {
+.countrySelect:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
   border: 1px none #ffffff;
 }
-.country
+.countrySelect
   :global(.ant-select-selector)
   :global(.ant-select-selection-placeholder) {
   height: 100%;
@@ -193,7 +193,6 @@
 .countryInput:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  display: none;
 }
 .formField__yjuFy:global(.__wab_instance) {
   width: 100%;

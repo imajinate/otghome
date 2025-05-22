@@ -117,7 +117,7 @@ export type PlasmicAuthForm__OverridesType = {
   lastNameInput?: Flex__<typeof AntdInput>;
   cityInput?: Flex__<typeof AntdInput>;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
-  country?: Flex__<typeof AntdSelect>;
+  countrySelect?: Flex__<typeof AntdSelect>;
   countryInput?: Flex__<typeof AntdInput>;
   emailInput?: Flex__<typeof AntdInput>;
   graphQlFetcher?: Flex__<typeof GraphqlFetcher>;
@@ -346,7 +346,7 @@ function PlasmicAuthForm__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "country.value",
+        path: "countrySelect.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -762,7 +762,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                       "__wab_instance",
                       sty.formField__tfYip
                     )}
-                    initialValue={$state.country.value}
+                    initialValue={$state.countrySelect.value}
                     label={
                       <div
                         className={classNames(
@@ -840,12 +840,12 @@ function PlasmicAuthForm__RenderFunc(props: {
                             )}
                           >
                             <AntdSelect
-                              data-plasmic-name={"country"}
-                              data-plasmic-override={overrides.country}
+                              data-plasmic-name={"countrySelect"}
+                              data-plasmic-override={overrides.countrySelect}
                               bordered={false}
                               className={classNames(
                                 "__wab_instance",
-                                sty.country
+                                sty.countrySelect
                               )}
                               defaultOpen={false}
                               defaultStylesClassName={classNames(
@@ -858,7 +858,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                               )}
                               onChange={async (...eventArgs: any) => {
                                 generateStateOnChangeProp($state, [
-                                  "country",
+                                  "countrySelect",
                                   "value"
                                 ]).apply(null, eventArgs);
 
@@ -876,7 +876,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                                             ]
                                           },
                                           operation: 0,
-                                          value: $state.country.value
+                                          value: $state.countrySelect.value
                                         };
                                         return (({
                                           variable,
@@ -960,10 +960,10 @@ function PlasmicAuthForm__RenderFunc(props: {
                               placeholderClassName={classNames({
                                 [sty["pcls_miwbn8KTf9jN"]]: true
                               })}
-                              popupScopeClassName={sty["country__popup"]}
+                              popupScopeClassName={sty["countrySelect__popup"]}
                               showSearch={true}
                               value={generateStateValueProp($state, [
-                                "country",
+                                "countrySelect",
                                 "value"
                               ])}
                             />
@@ -2354,7 +2354,7 @@ const PlasmicDescendants = {
     "lastNameInput",
     "cityInput",
     "httpRestApiFetcher",
-    "country",
+    "countrySelect",
     "countryInput",
     "emailInput",
     "graphQlFetcher",
@@ -2372,7 +2372,7 @@ const PlasmicDescendants = {
     "lastNameInput",
     "cityInput",
     "httpRestApiFetcher",
-    "country",
+    "countrySelect",
     "countryInput",
     "emailInput",
     "graphQlFetcher",
@@ -2385,8 +2385,8 @@ const PlasmicDescendants = {
   firstNameInput: ["firstNameInput"],
   lastNameInput: ["lastNameInput"],
   cityInput: ["cityInput"],
-  httpRestApiFetcher: ["httpRestApiFetcher", "country"],
-  country: ["country"],
+  httpRestApiFetcher: ["httpRestApiFetcher", "countrySelect"],
+  countrySelect: ["countrySelect"],
   countryInput: ["countryInput"],
   emailInput: ["emailInput"],
   graphQlFetcher: ["graphQlFetcher", "ladvar", "emailcheck"],
@@ -2408,7 +2408,7 @@ type NodeDefaultElementType = {
   lastNameInput: typeof AntdInput;
   cityInput: typeof AntdInput;
   httpRestApiFetcher: typeof DataFetcher;
-  country: typeof AntdSelect;
+  countrySelect: typeof AntdSelect;
   countryInput: typeof AntdInput;
   emailInput: typeof AntdInput;
   graphQlFetcher: typeof GraphqlFetcher;
@@ -2486,7 +2486,7 @@ export const PlasmicAuthForm = Object.assign(
     lastNameInput: makeNodeComponent("lastNameInput"),
     cityInput: makeNodeComponent("cityInput"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
-    country: makeNodeComponent("country"),
+    countrySelect: makeNodeComponent("countrySelect"),
     countryInput: makeNodeComponent("countryInput"),
     emailInput: makeNodeComponent("emailInput"),
     graphQlFetcher: makeNodeComponent("graphQlFetcher"),
