@@ -64,10 +64,10 @@ import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Fo
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
-import { FormListWrapper } from "@plasmicpkgs/antd5/skinny/FormList";
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
+import { FormListWrapper } from "@plasmicpkgs/antd5/skinny/FormList";
 import { AntdPassword } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdPassword_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
@@ -114,19 +114,13 @@ export type PlasmicAuthForm__OverridesType = {
   root?: Flex__<"div">;
   credentialsForm?: Flex__<typeof FormWrapper>;
   firstNameInput?: Flex__<typeof AntdInput>;
-  ladvar2?: Flex__<typeof FormWrapper>;
-  emailcheck2?: Flex__<typeof FormListWrapper>;
   lastNameInput?: Flex__<typeof AntdInput>;
-  ladvar3?: Flex__<typeof FormWrapper>;
-  emailcheck3?: Flex__<typeof FormListWrapper>;
   cityInput?: Flex__<typeof AntdInput>;
-  ladvar4?: Flex__<typeof FormWrapper>;
-  emailcheck4?: Flex__<typeof FormListWrapper>;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
-  selectCountry?: Flex__<typeof AntdSelect>;
-  ladvar5?: Flex__<typeof FormWrapper>;
-  emailcheck5?: Flex__<typeof FormListWrapper>;
+  country?: Flex__<typeof AntdSelect>;
+  countryInput?: Flex__<typeof AntdInput>;
   emailInput?: Flex__<typeof AntdInput>;
+  graphQlFetcher?: Flex__<typeof GraphqlFetcher>;
   ladvar?: Flex__<typeof FormWrapper>;
   emailcheck?: Flex__<typeof FormListWrapper>;
   passwordInput?: Flex__<typeof AntdPassword>;
@@ -336,48 +330,12 @@ function PlasmicAuthForm__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "ladvar2.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        refName: "ladvar2",
-        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
-      },
-      {
-        path: "ladvar2.isSubmitting",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false,
-
-        refName: "ladvar2",
-        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
-      },
-      {
         path: "lastNameInput.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "ladvar3.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        refName: "ladvar3",
-        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
-      },
-      {
-        path: "ladvar3.isSubmitting",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false,
-
-        refName: "ladvar3",
-        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       },
       {
         path: "cityInput.value",
@@ -388,46 +346,24 @@ function PlasmicAuthForm__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "ladvar4.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        refName: "ladvar4",
-        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
-      },
-      {
-        path: "ladvar4.isSubmitting",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false,
-
-        refName: "ladvar4",
-        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
-      },
-      {
-        path: "ladvar5.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        refName: "ladvar5",
-        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
-      },
-      {
-        path: "ladvar5.isSubmitting",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false,
-
-        refName: "ladvar5",
-        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
-      },
-      {
-        path: "selectCountry.value",
+        path: "country.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "countryInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "selCountry",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -582,43 +518,6 @@ function PlasmicAuthForm__RenderFunc(props: {
                   ) {
                     $steps["runHandleSubmit"] = await $steps["runHandleSubmit"];
                   }
-
-                  $steps["updateCurrentMode"] =
-                    $state.currentMode === "signUp"
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["currentMode"]
-                            },
-                            operation: 0,
-                            value: "checkEmail"
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["updateCurrentMode"] != null &&
-                    typeof $steps["updateCurrentMode"] === "object" &&
-                    typeof $steps["updateCurrentMode"].then === "function"
-                  ) {
-                    $steps["updateCurrentMode"] = await $steps[
-                      "updateCurrentMode"
-                    ];
-                  }
                 },
                 onIsSubmittingChange: async (...eventArgs: any) => {
                   generateStateOnChangePropForCodeComponents(
@@ -673,7 +572,8 @@ function PlasmicAuthForm__RenderFunc(props: {
                         {"First Name"}
                       </div>
                     }
-                    name={"email"}
+                    name={"firstName"}
+                    rules={[{ ruleType: "required", message: "Required" }]}
                   >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__cqAuq)}
@@ -692,49 +592,6 @@ function PlasmicAuthForm__RenderFunc(props: {
                               ["firstNameInput", "value"],
                               AntdInput_Helpers
                             ).apply(null, eventArgs);
-
-                            (async event => {
-                              const $steps = {};
-
-                              $steps["updateAvailEmail"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["availEmail"]
-                                      },
-                                      operation: 0,
-                                      value: $state.firstNameInput.value
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateAvailEmail"] != null &&
-                                typeof $steps["updateAvailEmail"] ===
-                                  "object" &&
-                                typeof $steps["updateAvailEmail"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateAvailEmail"] = await $steps[
-                                  "updateAvailEmail"
-                                ];
-                              }
-                            }).apply(null, eventArgs);
                           },
                           placeholder: "First Name",
                           value: generateStateValueProp($state, [
@@ -764,328 +621,6 @@ function PlasmicAuthForm__RenderFunc(props: {
                         );
                       })()}
                     </div>
-                    {(() => {
-                      try {
-                        return (() => {
-                          function getEmailError(email) {
-                            if (!email || email.trim() === "") return false;
-                            if (!email.includes("@")) {
-                              return "\u26A0️ Missing @ symbol (e.g., name@domain.com)";
-                            }
-                            if ((email.match(/@/g) || []).length > 1) {
-                              return "\u26A0️ Too many @ symbols";
-                            }
-                            const [localPart, domain] = email.split("@");
-                            const lastDotIndex = domain.lastIndexOf(".");
-                            if (lastDotIndex === -1) {
-                              return "\u26A0️ Missing domain (e.g., name@domain.com)";
-                            }
-                            const tld = domain.slice(lastDotIndex + 1);
-                            if (tld.length < 2) {
-                              return "\u26A0️ Domain extension must be at least 2 characters (e.g., .com, .co)";
-                            }
-                            if (
-                              domain.startsWith(".") ||
-                              domain.endsWith(".")
-                            ) {
-                              return "\u26A0️ Invalid domain format (e.g., name@domain.com)";
-                            }
-                            return false;
-                          }
-                          const emailCheck = getEmailError(
-                            $state.firstNameInput?.value
-                          );
-                          if (emailCheck === false) {
-                            return false;
-                          } else {
-                            return emailCheck;
-                          }
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__iaddh
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                function getEmailError(email) {
-                                  if (!email || email.trim() === "")
-                                    return false;
-                                  if (!email.includes("@")) {
-                                    return "\u26A0️ Missing @ symbol (e.g., name@domain.com)";
-                                  }
-                                  if ((email.match(/@/g) || []).length > 1) {
-                                    return "\u26A0️ Too many @ symbols";
-                                  }
-                                  const [localPart, domain] = email.split("@");
-                                  const lastDotIndex = domain.lastIndexOf(".");
-                                  if (lastDotIndex === -1) {
-                                    return "\u26A0️ Missing domain (e.g., name@domain.com)";
-                                  }
-                                  const tld = domain.slice(lastDotIndex + 1);
-                                  if (tld.length < 2) {
-                                    return "\u26A0️ Domain extension must be at least 2 characters (e.g., .com, .co)";
-                                  }
-                                  if (
-                                    domain.startsWith(".") ||
-                                    domain.endsWith(".")
-                                  ) {
-                                    return "\u26A0️ Invalid domain format (e.g., name@domain.com)";
-                                  }
-                                  return false;
-                                }
-                                const emailCheck = getEmailError(
-                                  $state.firstNameInput?.value
-                                );
-                                if (emailCheck === false) {
-                                  return false;
-                                } else {
-                                  return emailCheck;
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "Password is not the same\n";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    ) : null}
-                    <GraphqlFetcher
-                      className={classNames(
-                        "__wab_instance",
-                        sty.graphQlFetcher__gxY1
-                      )}
-                      dataName={"fetchedEmail"}
-                      errorDisplay={
-                        <DataCtxReader__>
-                          {$ctx => "Error fetching data"}
-                        </DataCtxReader__>
-                      }
-                      errorName={"fetchError"}
-                      headers={(() => {
-                        try {
-                          return {
-                            "Content-Type": "application/json",
-                            Accept: "application/json",
-                            apikey:
-                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY5NTE4NjksImV4cCI6MjAwMjUyNzg2OX0.epN8z7ALKCjIWpz056OgbiL2Af1fg5W61yWXzGJALwA",
-                            Authorization:
-                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njk1MTg2OSwiZXhwIjoyMDAyNTI3ODY5fQ.Zg1jbFVl47RffMhBG1rM2XeAEJzUasurJxGPq78ACp0"
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                      loadingDisplay={
-                        <DataCtxReader__>
-                          {$ctx => (false ? "Loading..." : null)}
-                        </DataCtxReader__>
-                      }
-                      method={"POST"}
-                      noLayout={false}
-                      query={{
-                        query:
-                          "query username($emailcheck: String!) {\n  usersCollection(filter: {email: {eq: $emailcheck}}) {\n    edges {\n      node {\n        email\n      }\n    }\n  }\n}"
-                      }}
-                      url={
-                        "https://tsbldwzuynryqbmaguci.supabase.co/graphql/v1"
-                      }
-                      varOverrides={(() => {
-                        try {
-                          return { emailcheck: $state.availEmail };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                    >
-                      <DataCtxReader__>
-                        {$ctx => (
-                          <React.Fragment>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__w9Dag
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.ladvar2.value.emailcheck
-                                      ? "This email address is already registered."
-                                      : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Password is not the same\n";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                            {(() => {
-                              const child$Props = {
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.ladvar2
-                                ),
-                                extendedOnValuesChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "value",
-                                    ["ladvar2", "value"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                formItems: [
-                                  {
-                                    label: "Name",
-                                    name: "name",
-                                    inputType: "Text"
-                                  },
-                                  {
-                                    label: "Message",
-                                    name: "message",
-                                    inputType: "Text Area"
-                                  }
-                                ],
-                                initialValues: (() => {
-                                  try {
-                                    return $ctx.fetchedEmail?.data
-                                      ?.usersCollection?.edges[0]?.node?.email
-                                      ? true
-                                      : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                labelCol: { span: 8, horizontalOnly: true },
-                                layout: "vertical",
-                                mode: "advanced",
-                                onIsSubmittingChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "isSubmitting",
-                                    ["ladvar2", "isSubmitting"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                ref: ref => {
-                                  $refs["ladvar2"] = ref;
-                                },
-                                submitSlot: null,
-                                wrapperCol: { span: 16, horizontalOnly: true }
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "value",
-                                    plasmicStateName: "ladvar2.value"
-                                  },
-                                  {
-                                    name: "isSubmitting",
-                                    plasmicStateName: "ladvar2.isSubmitting"
-                                  }
-                                ],
-                                [],
-                                FormWrapper_Helpers ?? {},
-                                child$Props
-                              );
-
-                              return (
-                                <FormWrapper
-                                  data-plasmic-name={"ladvar2"}
-                                  data-plasmic-override={overrides.ladvar2}
-                                  {...child$Props}
-                                >
-                                  <FormListWrapper
-                                    data-plasmic-name={"emailcheck2"}
-                                    data-plasmic-override={
-                                      overrides.emailcheck2
-                                    }
-                                    children={null}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.emailcheck2
-                                    )}
-                                    initialValue={(() => {
-                                      try {
-                                        return $ctx.fetchedEmail?.data
-                                          ?.usersCollection?.edges[0]?.node
-                                          ?.email
-                                          ? true
-                                          : false;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {};
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                    name={"emailcheck"}
-                                    ref={ref => {
-                                      $refs["emailcheck2"] = ref;
-                                    }}
-                                  />
-                                </FormWrapper>
-                              );
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </DataCtxReader__>
-                    </GraphqlFetcher>
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
@@ -1103,7 +638,8 @@ function PlasmicAuthForm__RenderFunc(props: {
                         {"Last Name"}
                       </div>
                     }
-                    name={"email"}
+                    name={"lastName"}
+                    rules={[{ ruleType: "required", message: "Required" }]}
                   >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__o1EcX)}
@@ -1122,49 +658,6 @@ function PlasmicAuthForm__RenderFunc(props: {
                               ["lastNameInput", "value"],
                               AntdInput_Helpers
                             ).apply(null, eventArgs);
-
-                            (async event => {
-                              const $steps = {};
-
-                              $steps["updateAvailEmail"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["availEmail"]
-                                      },
-                                      operation: 0,
-                                      value: $state.lastNameInput.value
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateAvailEmail"] != null &&
-                                typeof $steps["updateAvailEmail"] ===
-                                  "object" &&
-                                typeof $steps["updateAvailEmail"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateAvailEmail"] = await $steps[
-                                  "updateAvailEmail"
-                                ];
-                              }
-                            }).apply(null, eventArgs);
                           },
                           placeholder: "Last Name",
                           value: generateStateValueProp($state, [
@@ -1194,328 +687,6 @@ function PlasmicAuthForm__RenderFunc(props: {
                         );
                       })()}
                     </div>
-                    {(() => {
-                      try {
-                        return (() => {
-                          function getEmailError(email) {
-                            if (!email || email.trim() === "") return false;
-                            if (!email.includes("@")) {
-                              return "\u26A0️ Missing @ symbol (e.g., name@domain.com)";
-                            }
-                            if ((email.match(/@/g) || []).length > 1) {
-                              return "\u26A0️ Too many @ symbols";
-                            }
-                            const [localPart, domain] = email.split("@");
-                            const lastDotIndex = domain.lastIndexOf(".");
-                            if (lastDotIndex === -1) {
-                              return "\u26A0️ Missing domain (e.g., name@domain.com)";
-                            }
-                            const tld = domain.slice(lastDotIndex + 1);
-                            if (tld.length < 2) {
-                              return "\u26A0️ Domain extension must be at least 2 characters (e.g., .com, .co)";
-                            }
-                            if (
-                              domain.startsWith(".") ||
-                              domain.endsWith(".")
-                            ) {
-                              return "\u26A0️ Invalid domain format (e.g., name@domain.com)";
-                            }
-                            return false;
-                          }
-                          const emailCheck = getEmailError(
-                            $state.lastNameInput?.value
-                          );
-                          if (emailCheck === false) {
-                            return false;
-                          } else {
-                            return emailCheck;
-                          }
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__cq5Ps
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                function getEmailError(email) {
-                                  if (!email || email.trim() === "")
-                                    return false;
-                                  if (!email.includes("@")) {
-                                    return "\u26A0️ Missing @ symbol (e.g., name@domain.com)";
-                                  }
-                                  if ((email.match(/@/g) || []).length > 1) {
-                                    return "\u26A0️ Too many @ symbols";
-                                  }
-                                  const [localPart, domain] = email.split("@");
-                                  const lastDotIndex = domain.lastIndexOf(".");
-                                  if (lastDotIndex === -1) {
-                                    return "\u26A0️ Missing domain (e.g., name@domain.com)";
-                                  }
-                                  const tld = domain.slice(lastDotIndex + 1);
-                                  if (tld.length < 2) {
-                                    return "\u26A0️ Domain extension must be at least 2 characters (e.g., .com, .co)";
-                                  }
-                                  if (
-                                    domain.startsWith(".") ||
-                                    domain.endsWith(".")
-                                  ) {
-                                    return "\u26A0️ Invalid domain format (e.g., name@domain.com)";
-                                  }
-                                  return false;
-                                }
-                                const emailCheck = getEmailError(
-                                  $state.lastNameInput?.value
-                                );
-                                if (emailCheck === false) {
-                                  return false;
-                                } else {
-                                  return emailCheck;
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "Password is not the same\n";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    ) : null}
-                    <GraphqlFetcher
-                      className={classNames(
-                        "__wab_instance",
-                        sty.graphQlFetcher__qwSs9
-                      )}
-                      dataName={"fetchedEmail"}
-                      errorDisplay={
-                        <DataCtxReader__>
-                          {$ctx => "Error fetching data"}
-                        </DataCtxReader__>
-                      }
-                      errorName={"fetchError"}
-                      headers={(() => {
-                        try {
-                          return {
-                            "Content-Type": "application/json",
-                            Accept: "application/json",
-                            apikey:
-                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY5NTE4NjksImV4cCI6MjAwMjUyNzg2OX0.epN8z7ALKCjIWpz056OgbiL2Af1fg5W61yWXzGJALwA",
-                            Authorization:
-                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njk1MTg2OSwiZXhwIjoyMDAyNTI3ODY5fQ.Zg1jbFVl47RffMhBG1rM2XeAEJzUasurJxGPq78ACp0"
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                      loadingDisplay={
-                        <DataCtxReader__>
-                          {$ctx => (false ? "Loading..." : null)}
-                        </DataCtxReader__>
-                      }
-                      method={"POST"}
-                      noLayout={false}
-                      query={{
-                        query:
-                          "query username($emailcheck: String!) {\n  usersCollection(filter: {email: {eq: $emailcheck}}) {\n    edges {\n      node {\n        email\n      }\n    }\n  }\n}"
-                      }}
-                      url={
-                        "https://tsbldwzuynryqbmaguci.supabase.co/graphql/v1"
-                      }
-                      varOverrides={(() => {
-                        try {
-                          return { emailcheck: $state.availEmail };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                    >
-                      <DataCtxReader__>
-                        {$ctx => (
-                          <React.Fragment>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text___0VHkl
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.ladvar3.value.emailcheck
-                                      ? "This email address is already registered."
-                                      : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Password is not the same\n";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                            {(() => {
-                              const child$Props = {
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.ladvar3
-                                ),
-                                extendedOnValuesChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "value",
-                                    ["ladvar3", "value"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                formItems: [
-                                  {
-                                    label: "Name",
-                                    name: "name",
-                                    inputType: "Text"
-                                  },
-                                  {
-                                    label: "Message",
-                                    name: "message",
-                                    inputType: "Text Area"
-                                  }
-                                ],
-                                initialValues: (() => {
-                                  try {
-                                    return $ctx.fetchedEmail?.data
-                                      ?.usersCollection?.edges[0]?.node?.email
-                                      ? true
-                                      : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                labelCol: { span: 8, horizontalOnly: true },
-                                layout: "vertical",
-                                mode: "advanced",
-                                onIsSubmittingChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "isSubmitting",
-                                    ["ladvar3", "isSubmitting"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                ref: ref => {
-                                  $refs["ladvar3"] = ref;
-                                },
-                                submitSlot: null,
-                                wrapperCol: { span: 16, horizontalOnly: true }
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "value",
-                                    plasmicStateName: "ladvar3.value"
-                                  },
-                                  {
-                                    name: "isSubmitting",
-                                    plasmicStateName: "ladvar3.isSubmitting"
-                                  }
-                                ],
-                                [],
-                                FormWrapper_Helpers ?? {},
-                                child$Props
-                              );
-
-                              return (
-                                <FormWrapper
-                                  data-plasmic-name={"ladvar3"}
-                                  data-plasmic-override={overrides.ladvar3}
-                                  {...child$Props}
-                                >
-                                  <FormListWrapper
-                                    data-plasmic-name={"emailcheck3"}
-                                    data-plasmic-override={
-                                      overrides.emailcheck3
-                                    }
-                                    children={null}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.emailcheck3
-                                    )}
-                                    initialValue={(() => {
-                                      try {
-                                        return $ctx.fetchedEmail?.data
-                                          ?.usersCollection?.edges[0]?.node
-                                          ?.email
-                                          ? true
-                                          : false;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {};
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                    name={"emailcheck"}
-                                    ref={ref => {
-                                      $refs["emailcheck3"] = ref;
-                                    }}
-                                  />
-                                </FormWrapper>
-                              );
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </DataCtxReader__>
-                    </GraphqlFetcher>
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
@@ -1533,7 +704,8 @@ function PlasmicAuthForm__RenderFunc(props: {
                         {"City"}
                       </div>
                     }
-                    name={"email"}
+                    name={"city"}
+                    rules={[{ ruleType: "required", message: "Required" }]}
                   >
                     <div
                       className={classNames(
@@ -1555,49 +727,6 @@ function PlasmicAuthForm__RenderFunc(props: {
                               ["cityInput", "value"],
                               AntdInput_Helpers
                             ).apply(null, eventArgs);
-
-                            (async event => {
-                              const $steps = {};
-
-                              $steps["updateAvailEmail"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["availEmail"]
-                                      },
-                                      operation: 0,
-                                      value: $state.cityInput.value
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateAvailEmail"] != null &&
-                                typeof $steps["updateAvailEmail"] ===
-                                  "object" &&
-                                typeof $steps["updateAvailEmail"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateAvailEmail"] = await $steps[
-                                  "updateAvailEmail"
-                                ];
-                              }
-                            }).apply(null, eventArgs);
                           },
                           placeholder: "City",
                           value: generateStateValueProp($state, [
@@ -1627,346 +756,26 @@ function PlasmicAuthForm__RenderFunc(props: {
                         );
                       })()}
                     </div>
-                    {(() => {
-                      try {
-                        return (() => {
-                          function getEmailError(email) {
-                            if (!email || email.trim() === "") return false;
-                            if (!email.includes("@")) {
-                              return "\u26A0️ Missing @ symbol (e.g., name@domain.com)";
-                            }
-                            if ((email.match(/@/g) || []).length > 1) {
-                              return "\u26A0️ Too many @ symbols";
-                            }
-                            const [localPart, domain] = email.split("@");
-                            const lastDotIndex = domain.lastIndexOf(".");
-                            if (lastDotIndex === -1) {
-                              return "\u26A0️ Missing domain (e.g., name@domain.com)";
-                            }
-                            const tld = domain.slice(lastDotIndex + 1);
-                            if (tld.length < 2) {
-                              return "\u26A0️ Domain extension must be at least 2 characters (e.g., .com, .co)";
-                            }
-                            if (
-                              domain.startsWith(".") ||
-                              domain.endsWith(".")
-                            ) {
-                              return "\u26A0️ Invalid domain format (e.g., name@domain.com)";
-                            }
-                            return false;
-                          }
-                          const emailCheck = getEmailError(
-                            $state.cityInput?.value
-                          );
-                          if (emailCheck === false) {
-                            return false;
-                          } else {
-                            return emailCheck;
-                          }
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__hsY80
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                function getEmailError(email) {
-                                  if (!email || email.trim() === "")
-                                    return false;
-                                  if (!email.includes("@")) {
-                                    return "\u26A0️ Missing @ symbol (e.g., name@domain.com)";
-                                  }
-                                  if ((email.match(/@/g) || []).length > 1) {
-                                    return "\u26A0️ Too many @ symbols";
-                                  }
-                                  const [localPart, domain] = email.split("@");
-                                  const lastDotIndex = domain.lastIndexOf(".");
-                                  if (lastDotIndex === -1) {
-                                    return "\u26A0️ Missing domain (e.g., name@domain.com)";
-                                  }
-                                  const tld = domain.slice(lastDotIndex + 1);
-                                  if (tld.length < 2) {
-                                    return "\u26A0️ Domain extension must be at least 2 characters (e.g., .com, .co)";
-                                  }
-                                  if (
-                                    domain.startsWith(".") ||
-                                    domain.endsWith(".")
-                                  ) {
-                                    return "\u26A0️ Invalid domain format (e.g., name@domain.com)";
-                                  }
-                                  return false;
-                                }
-                                const emailCheck = getEmailError(
-                                  $state.cityInput?.value
-                                );
-                                if (emailCheck === false) {
-                                  return false;
-                                } else {
-                                  return emailCheck;
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "Password is not the same\n";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    ) : null}
-                    <GraphqlFetcher
-                      className={classNames(
-                        "__wab_instance",
-                        sty.graphQlFetcher__niWfX
-                      )}
-                      dataName={"fetchedEmail"}
-                      errorDisplay={
-                        <DataCtxReader__>
-                          {$ctx => "Error fetching data"}
-                        </DataCtxReader__>
-                      }
-                      errorName={"fetchError"}
-                      headers={(() => {
-                        try {
-                          return {
-                            "Content-Type": "application/json",
-                            Accept: "application/json",
-                            apikey:
-                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY5NTE4NjksImV4cCI6MjAwMjUyNzg2OX0.epN8z7ALKCjIWpz056OgbiL2Af1fg5W61yWXzGJALwA",
-                            Authorization:
-                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njk1MTg2OSwiZXhwIjoyMDAyNTI3ODY5fQ.Zg1jbFVl47RffMhBG1rM2XeAEJzUasurJxGPq78ACp0"
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                      loadingDisplay={
-                        <DataCtxReader__>
-                          {$ctx => (false ? "Loading..." : null)}
-                        </DataCtxReader__>
-                      }
-                      method={"POST"}
-                      noLayout={false}
-                      query={{
-                        query:
-                          "query username($emailcheck: String!) {\n  usersCollection(filter: {email: {eq: $emailcheck}}) {\n    edges {\n      node {\n        email\n      }\n    }\n  }\n}"
-                      }}
-                      url={
-                        "https://tsbldwzuynryqbmaguci.supabase.co/graphql/v1"
-                      }
-                      varOverrides={(() => {
-                        try {
-                          return { emailcheck: $state.availEmail };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                    >
-                      <DataCtxReader__>
-                        {$ctx => (
-                          <React.Fragment>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__jaFqT
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.ladvar4.value.emailcheck
-                                      ? "This email address is already registered."
-                                      : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Password is not the same\n";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                            {(() => {
-                              const child$Props = {
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.ladvar4
-                                ),
-                                extendedOnValuesChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "value",
-                                    ["ladvar4", "value"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                formItems: [
-                                  {
-                                    label: "Name",
-                                    name: "name",
-                                    inputType: "Text"
-                                  },
-                                  {
-                                    label: "Message",
-                                    name: "message",
-                                    inputType: "Text Area"
-                                  }
-                                ],
-                                initialValues: (() => {
-                                  try {
-                                    return $ctx.fetchedEmail?.data
-                                      ?.usersCollection?.edges[0]?.node?.email
-                                      ? true
-                                      : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                labelCol: { span: 8, horizontalOnly: true },
-                                layout: "vertical",
-                                mode: "advanced",
-                                onIsSubmittingChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "isSubmitting",
-                                    ["ladvar4", "isSubmitting"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                ref: ref => {
-                                  $refs["ladvar4"] = ref;
-                                },
-                                submitSlot: null,
-                                wrapperCol: { span: 16, horizontalOnly: true }
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "value",
-                                    plasmicStateName: "ladvar4.value"
-                                  },
-                                  {
-                                    name: "isSubmitting",
-                                    plasmicStateName: "ladvar4.isSubmitting"
-                                  }
-                                ],
-                                [],
-                                FormWrapper_Helpers ?? {},
-                                child$Props
-                              );
-
-                              return (
-                                <FormWrapper
-                                  data-plasmic-name={"ladvar4"}
-                                  data-plasmic-override={overrides.ladvar4}
-                                  {...child$Props}
-                                >
-                                  <FormListWrapper
-                                    data-plasmic-name={"emailcheck4"}
-                                    data-plasmic-override={
-                                      overrides.emailcheck4
-                                    }
-                                    children={null}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.emailcheck4
-                                    )}
-                                    initialValue={(() => {
-                                      try {
-                                        return $ctx.fetchedEmail?.data
-                                          ?.usersCollection?.edges[0]?.node
-                                          ?.email
-                                          ? true
-                                          : false;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {};
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                    name={"emailcheck"}
-                                    ref={ref => {
-                                      $refs["emailcheck4"] = ref;
-                                    }}
-                                  />
-                                </FormWrapper>
-                              );
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </DataCtxReader__>
-                    </GraphqlFetcher>
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__i7Pwe
+                      sty.formField__tfYip
                     )}
+                    initialValue={$state.country.value}
                     label={
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__nyw2P
+                          sty.text___2Jf8S
                         )}
                       >
                         {"Country"}
                       </div>
                     }
-                    name={"email"}
+                    name={"country"}
+                    rules={[]}
                   >
                     <DataFetcher
                       data-plasmic-name={"httpRestApiFetcher"}
@@ -2017,6 +826,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                       }
                       method={"GET"}
                       noLayout={false}
+                      queryKey={"country"}
                       url={
                         "https://tsbldwzuynryqbmaguci.supabase.co/rest/v1/typecountries?select=name&order=name.asc"
                       }
@@ -2030,12 +840,12 @@ function PlasmicAuthForm__RenderFunc(props: {
                             )}
                           >
                             <AntdSelect
-                              data-plasmic-name={"selectCountry"}
-                              data-plasmic-override={overrides.selectCountry}
+                              data-plasmic-name={"country"}
+                              data-plasmic-override={overrides.country}
                               bordered={false}
                               className={classNames(
                                 "__wab_instance",
-                                sty.selectCountry
+                                sty.country
                               )}
                               defaultOpen={false}
                               defaultStylesClassName={classNames(
@@ -2048,9 +858,58 @@ function PlasmicAuthForm__RenderFunc(props: {
                               )}
                               onChange={async (...eventArgs: any) => {
                                 generateStateOnChangeProp($state, [
-                                  "selectCountry",
+                                  "country",
                                   "value"
                                 ]).apply(null, eventArgs);
+
+                                (async (value, option) => {
+                                  const $steps = {};
+
+                                  $steps["updateCountryInputValue"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: [
+                                              "countryInput",
+                                              "value"
+                                            ]
+                                          },
+                                          operation: 0,
+                                          value: $state.country.value
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateCountryInputValue"] != null &&
+                                    typeof $steps["updateCountryInputValue"] ===
+                                      "object" &&
+                                    typeof $steps["updateCountryInputValue"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["updateCountryInputValue"] =
+                                      await $steps["updateCountryInputValue"];
+                                  }
+                                }).apply(null, eventArgs);
                               }}
                               options={(() => {
                                 try {
@@ -2064,7 +923,25 @@ function PlasmicAuthForm__RenderFunc(props: {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return [];
+                                    return (() => {
+                                      const __composite = [
+                                        {
+                                          type: "option",
+                                          value: null,
+                                          label: null
+                                        },
+                                        {
+                                          type: "option",
+                                          value: null,
+                                          label: null
+                                        }
+                                      ];
+                                      __composite["0"]["value"] = "2";
+                                      __composite["0"]["label"] = "2";
+                                      __composite["1"]["value"] = "3";
+                                      __composite["1"]["label"] = "3";
+                                      return __composite;
+                                    })();
                                   }
                                   throw e;
                                 }
@@ -2083,10 +960,10 @@ function PlasmicAuthForm__RenderFunc(props: {
                               placeholderClassName={classNames({
                                 [sty["pcls_miwbn8KTf9jN"]]: true
                               })}
-                              popupScopeClassName={sty["selectCountry__popup"]}
+                              popupScopeClassName={sty["country__popup"]}
                               showSearch={true}
                               value={generateStateValueProp($state, [
-                                "selectCountry",
+                                "country",
                                 "value"
                               ])}
                             />
@@ -2094,222 +971,48 @@ function PlasmicAuthForm__RenderFunc(props: {
                         )}
                       </DataCtxReader__>
                     </DataFetcher>
-                    <GraphqlFetcher
-                      className={classNames(
-                        "__wab_instance",
-                        sty.graphQlFetcher___4SyXs
-                      )}
-                      dataName={"fetchedEmail"}
-                      errorDisplay={
-                        <DataCtxReader__>
-                          {$ctx => "Error fetching data"}
-                        </DataCtxReader__>
-                      }
-                      errorName={"fetchError"}
-                      headers={(() => {
-                        try {
-                          return {
-                            "Content-Type": "application/json",
-                            Accept: "application/json",
-                            apikey:
-                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY5NTE4NjksImV4cCI6MjAwMjUyNzg2OX0.epN8z7ALKCjIWpz056OgbiL2Af1fg5W61yWXzGJALwA",
-                            Authorization:
-                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njk1MTg2OSwiZXhwIjoyMDAyNTI3ODY5fQ.Zg1jbFVl47RffMhBG1rM2XeAEJzUasurJxGPq78ACp0"
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
+                    {(() => {
+                      const child$Props = {
+                        bordered: false,
+                        className: classNames(
+                          "__wab_instance",
+                          sty.countryInput
+                        ),
+                        onChange: async (...eventArgs: any) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "value",
+                            ["countryInput", "value"],
+                            AntdInput_Helpers
+                          ).apply(null, eventArgs);
+                        },
+                        placeholder: "country",
+                        value: generateStateValueProp($state, [
+                          "countryInput",
+                          "value"
+                        ])
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "value",
+                            plasmicStateName: "countryInput.value"
                           }
-                          throw e;
-                        }
-                      })()}
-                      loadingDisplay={
-                        <DataCtxReader__>
-                          {$ctx => (false ? "Loading..." : null)}
-                        </DataCtxReader__>
-                      }
-                      method={"POST"}
-                      noLayout={false}
-                      query={{
-                        query:
-                          "query username($emailcheck: String!) {\n  usersCollection(filter: {email: {eq: $emailcheck}}) {\n    edges {\n      node {\n        email\n      }\n    }\n  }\n}"
-                      }}
-                      url={
-                        "https://tsbldwzuynryqbmaguci.supabase.co/graphql/v1"
-                      }
-                      varOverrides={(() => {
-                        try {
-                          return { emailcheck: $state.availEmail };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                    >
-                      <DataCtxReader__>
-                        {$ctx => (
-                          <React.Fragment>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__rcRqQ
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.ladvar5.value.emailcheck
-                                      ? "This email address is already registered."
-                                      : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Password is not the same\n";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                            {(() => {
-                              const child$Props = {
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.ladvar5
-                                ),
-                                extendedOnValuesChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "value",
-                                    ["ladvar5", "value"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                formItems: [
-                                  {
-                                    label: "Name",
-                                    name: "name",
-                                    inputType: "Text"
-                                  },
-                                  {
-                                    label: "Message",
-                                    name: "message",
-                                    inputType: "Text Area"
-                                  }
-                                ],
-                                initialValues: (() => {
-                                  try {
-                                    return $ctx.fetchedEmail?.data
-                                      ?.usersCollection?.edges[0]?.node?.email
-                                      ? true
-                                      : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                labelCol: { span: 8, horizontalOnly: true },
-                                layout: "vertical",
-                                mode: "advanced",
-                                onIsSubmittingChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "isSubmitting",
-                                    ["ladvar5", "isSubmitting"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                ref: ref => {
-                                  $refs["ladvar5"] = ref;
-                                },
-                                submitSlot: null,
-                                wrapperCol: { span: 16, horizontalOnly: true }
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "value",
-                                    plasmicStateName: "ladvar5.value"
-                                  },
-                                  {
-                                    name: "isSubmitting",
-                                    plasmicStateName: "ladvar5.isSubmitting"
-                                  }
-                                ],
-                                [],
-                                FormWrapper_Helpers ?? {},
-                                child$Props
-                              );
+                        ],
+                        [],
+                        AntdInput_Helpers ?? {},
+                        child$Props
+                      );
 
-                              return (
-                                <FormWrapper
-                                  data-plasmic-name={"ladvar5"}
-                                  data-plasmic-override={overrides.ladvar5}
-                                  {...child$Props}
-                                >
-                                  <FormListWrapper
-                                    data-plasmic-name={"emailcheck5"}
-                                    data-plasmic-override={
-                                      overrides.emailcheck5
-                                    }
-                                    children={null}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.emailcheck5
-                                    )}
-                                    initialValue={(() => {
-                                      try {
-                                        return $ctx.fetchedEmail?.data
-                                          ?.usersCollection?.edges[0]?.node
-                                          ?.email
-                                          ? true
-                                          : false;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {};
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                    name={"emailcheck"}
-                                    ref={ref => {
-                                      $refs["emailcheck5"] = ref;
-                                    }}
-                                  />
-                                </FormWrapper>
-                              );
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </DataCtxReader__>
-                    </GraphqlFetcher>
+                      return (
+                        <AntdInput
+                          data-plasmic-name={"countryInput"}
+                          data-plasmic-override={overrides.countryInput}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
@@ -2328,6 +1031,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                       </div>
                     }
                     name={"email"}
+                    rules={[{ ruleType: "required", message: "Required" }]}
                   >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__hjIgj)}
@@ -2525,9 +1229,11 @@ function PlasmicAuthForm__RenderFunc(props: {
                       </div>
                     ) : null}
                     <GraphqlFetcher
+                      data-plasmic-name={"graphQlFetcher"}
+                      data-plasmic-override={overrides.graphQlFetcher}
                       className={classNames(
                         "__wab_instance",
-                        sty.graphQlFetcher__eYsBx
+                        sty.graphQlFetcher
                       )}
                       dataName={"fetchedEmail"}
                       errorDisplay={
@@ -2894,7 +1600,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                         {"Confirm Password"}
                       </div>
                     }
-                    name={"password"}
+                    name={"confirmpassword"}
                   >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__pY5Pi)}
@@ -3581,6 +2287,29 @@ function PlasmicAuthForm__RenderFunc(props: {
             ) : null}
           </Stack__>
         ) : null}
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__ur4A0
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return JSON.stringify($state.credentialsForm.value);
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__rYk7C, {
@@ -3622,19 +2351,13 @@ const PlasmicDescendants = {
     "root",
     "credentialsForm",
     "firstNameInput",
-    "ladvar2",
-    "emailcheck2",
     "lastNameInput",
-    "ladvar3",
-    "emailcheck3",
     "cityInput",
-    "ladvar4",
-    "emailcheck4",
     "httpRestApiFetcher",
-    "selectCountry",
-    "ladvar5",
-    "emailcheck5",
+    "country",
+    "countryInput",
     "emailInput",
+    "graphQlFetcher",
     "ladvar",
     "emailcheck",
     "passwordInput",
@@ -3646,19 +2369,13 @@ const PlasmicDescendants = {
   credentialsForm: [
     "credentialsForm",
     "firstNameInput",
-    "ladvar2",
-    "emailcheck2",
     "lastNameInput",
-    "ladvar3",
-    "emailcheck3",
     "cityInput",
-    "ladvar4",
-    "emailcheck4",
     "httpRestApiFetcher",
-    "selectCountry",
-    "ladvar5",
-    "emailcheck5",
+    "country",
+    "countryInput",
     "emailInput",
+    "graphQlFetcher",
     "ladvar",
     "emailcheck",
     "passwordInput",
@@ -3666,19 +2383,13 @@ const PlasmicDescendants = {
     "ul"
   ],
   firstNameInput: ["firstNameInput"],
-  ladvar2: ["ladvar2", "emailcheck2"],
-  emailcheck2: ["emailcheck2"],
   lastNameInput: ["lastNameInput"],
-  ladvar3: ["ladvar3", "emailcheck3"],
-  emailcheck3: ["emailcheck3"],
   cityInput: ["cityInput"],
-  ladvar4: ["ladvar4", "emailcheck4"],
-  emailcheck4: ["emailcheck4"],
-  httpRestApiFetcher: ["httpRestApiFetcher", "selectCountry"],
-  selectCountry: ["selectCountry"],
-  ladvar5: ["ladvar5", "emailcheck5"],
-  emailcheck5: ["emailcheck5"],
+  httpRestApiFetcher: ["httpRestApiFetcher", "country"],
+  country: ["country"],
+  countryInput: ["countryInput"],
   emailInput: ["emailInput"],
+  graphQlFetcher: ["graphQlFetcher", "ladvar", "emailcheck"],
   ladvar: ["ladvar", "emailcheck"],
   emailcheck: ["emailcheck"],
   passwordInput: ["passwordInput"],
@@ -3694,19 +2405,13 @@ type NodeDefaultElementType = {
   root: "div";
   credentialsForm: typeof FormWrapper;
   firstNameInput: typeof AntdInput;
-  ladvar2: typeof FormWrapper;
-  emailcheck2: typeof FormListWrapper;
   lastNameInput: typeof AntdInput;
-  ladvar3: typeof FormWrapper;
-  emailcheck3: typeof FormListWrapper;
   cityInput: typeof AntdInput;
-  ladvar4: typeof FormWrapper;
-  emailcheck4: typeof FormListWrapper;
   httpRestApiFetcher: typeof DataFetcher;
-  selectCountry: typeof AntdSelect;
-  ladvar5: typeof FormWrapper;
-  emailcheck5: typeof FormListWrapper;
+  country: typeof AntdSelect;
+  countryInput: typeof AntdInput;
   emailInput: typeof AntdInput;
+  graphQlFetcher: typeof GraphqlFetcher;
   ladvar: typeof FormWrapper;
   emailcheck: typeof FormListWrapper;
   passwordInput: typeof AntdPassword;
@@ -3778,19 +2483,13 @@ export const PlasmicAuthForm = Object.assign(
     // Helper components rendering sub-elements
     credentialsForm: makeNodeComponent("credentialsForm"),
     firstNameInput: makeNodeComponent("firstNameInput"),
-    ladvar2: makeNodeComponent("ladvar2"),
-    emailcheck2: makeNodeComponent("emailcheck2"),
     lastNameInput: makeNodeComponent("lastNameInput"),
-    ladvar3: makeNodeComponent("ladvar3"),
-    emailcheck3: makeNodeComponent("emailcheck3"),
     cityInput: makeNodeComponent("cityInput"),
-    ladvar4: makeNodeComponent("ladvar4"),
-    emailcheck4: makeNodeComponent("emailcheck4"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
-    selectCountry: makeNodeComponent("selectCountry"),
-    ladvar5: makeNodeComponent("ladvar5"),
-    emailcheck5: makeNodeComponent("emailcheck5"),
+    country: makeNodeComponent("country"),
+    countryInput: makeNodeComponent("countryInput"),
     emailInput: makeNodeComponent("emailInput"),
+    graphQlFetcher: makeNodeComponent("graphQlFetcher"),
     ladvar: makeNodeComponent("ladvar"),
     emailcheck: makeNodeComponent("emailcheck"),
     passwordInput: makeNodeComponent("passwordInput"),
