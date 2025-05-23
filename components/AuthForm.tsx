@@ -60,7 +60,7 @@ export function AuthForm(): JSX.Element {
                     first_name: credentials.firstName,
                     last_name: credentials.lastName,
                     city: credentials.city,
-                    country: credentials.country // Use state instead of credentials.country
+                    country: country // Use state instead of credentials.country
                   }
                 }
               });
