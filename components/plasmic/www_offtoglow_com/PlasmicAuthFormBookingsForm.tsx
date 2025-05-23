@@ -456,19 +456,19 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__oknvj
+                      sty.formField__zeF9D
                     )}
                     label={"Email"}
                     name={"email"}
                   >
                     <AntdInput
-                      className={classNames("__wab_instance", sty.input__aa47Y)}
+                      className={classNames("__wab_instance", sty.input__bcHa)}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__hTpWe
+                      sty.formField__elCud
                     )}
                     label={"Password"}
                     name={"password"}
@@ -481,8 +481,8 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                     />
                   </FormItemWrapper>
                   <AntdButton
-                    className={classNames("__wab_instance", sty.button__yVzcA, {
-                      [sty.buttonmode_signUp__yVzcACx1E6]: hasVariant(
+                    className={classNames("__wab_instance", sty.button__vTncA, {
+                      [sty.buttonmode_signUp__vTncACx1E6]: hasVariant(
                         $state,
                         "mode",
                         "signUp"
@@ -496,9 +496,9 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__gnHpD,
+                        sty.text___9Uvhq,
                         {
-                          [sty.textmode_signUp__gnHpDCx1E6]: hasVariant(
+                          [sty.textmode_signUp___9UvhqCx1E6]: hasVariant(
                             $state,
                             "mode",
                             "signUp"

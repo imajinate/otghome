@@ -71,7 +71,7 @@ export function AuthForm(): JSX.Element {
             
             await mutate(PLASMIC_AUTH_DATA_KEY);
             // Router push naar succes pagina na succesvolle authenticatie
-            router.push('/succes');
+            router.push('/success');
           } catch (error) {
             console.error("Auth error:", error);
           }
