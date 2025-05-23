@@ -1361,20 +1361,6 @@
           "componentType": "component"
         },
         {
-          "id": "3gtjCoHvk73C",
-          "name": "WelcomeToYourProfileSetup",
-          "type": "managed",
-          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
-          "renderModuleFilePath": "plasmic/www_offtoglow_com/PlasmicWelcomeToYourProfileSetup.tsx",
-          "importSpec": {
-            "modulePath": "../pages/5WqztA5PSPLqEsO02zhHwaXl7v5H/RMDgPSzr/[email].tsx"
-          },
-          "cssFilePath": "plasmic/www_offtoglow_com/PlasmicWelcomeToYourProfileSetup.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/5WqztA5PSPLqEsO02zhHwaXl7v5H/[authid]/RMDgPSzr/[email]"
-        },
-        {
           "id": "EBZZZa8XvB9u",
           "name": "TextInput",
           "type": "managed",
@@ -1511,6 +1497,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/succes"
+        },
+        {
+          "id": "3gtjCoHvk73C",
+          "name": "Congratulations",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicCongratulations.tsx",
+          "importSpec": {
+            "modulePath": "../pages/5WqztA5PSPLqEsO02zhHwaXl7v5H/RMDgPSzr/[email].tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicCongratulations.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/5WqztA5PSPLqEsO02zhHwaXl7v5H/RMDgPSzr/[email]"
         }
       ],
       "icons": [
