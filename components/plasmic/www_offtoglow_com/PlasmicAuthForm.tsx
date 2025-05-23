@@ -101,7 +101,7 @@ export type PlasmicAuthForm__ArgsType = {
   setResetEmail?: string;
   handlePasswordReset?: () => void;
   onClick?: () => void;
-  onFormSubmitChange?: (val: string) => void;
+  onFormSubmittedChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicAuthForm__ArgsType;
 export const PlasmicAuthForm__ArgProps = new Array<ArgPropType>(
@@ -111,7 +111,7 @@ export const PlasmicAuthForm__ArgProps = new Array<ArgPropType>(
   "setResetEmail",
   "handlePasswordReset",
   "onClick",
-  "onFormSubmitChange"
+  "onFormSubmittedChange"
 );
 
 export type PlasmicAuthForm__OverridesType = {
@@ -143,7 +143,7 @@ export interface DefaultAuthFormProps {
   setResetEmail?: string;
   handlePasswordReset?: () => void;
   onClick?: () => void;
-  onFormSubmitChange?: (val: string) => void;
+  onFormSubmittedChange?: (val: string) => void;
   mode?: SingleChoiceArg<"signIn" | "signUp" | "checkEmail" | "forgotPassword">;
   className?: string;
 }
@@ -411,25 +411,12 @@ function PlasmicAuthForm__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "formSubmit",
+        path: "formSubmitted",
         type: "readonly",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.credentialsForm.isSubmitting;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })(),
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
 
-        onChangeProp: "onFormSubmitChange"
+        onChangeProp: "onFormSubmittedChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -787,6 +774,42 @@ function PlasmicAuthForm__RenderFunc(props: {
                     typeof $steps["runHandleSubmit"].then === "function"
                   ) {
                     $steps["runHandleSubmit"] = await $steps["runHandleSubmit"];
+                  }
+
+                  $steps["updateFormSubmitted"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["formSubmitted"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateFormSubmitted"] != null &&
+                    typeof $steps["updateFormSubmitted"] === "object" &&
+                    typeof $steps["updateFormSubmitted"].then === "function"
+                  ) {
+                    $steps["updateFormSubmitted"] = await $steps[
+                      "updateFormSubmitted"
+                    ];
                   }
                 },
                 onIsSubmittingChange: async (...eventArgs: any) => {
@@ -1625,51 +1648,8 @@ function PlasmicAuthForm__RenderFunc(props: {
                               ["confirmEmailInput", "value"],
                               AntdInput_Helpers
                             ).apply(null, eventArgs);
-
-                            (async event => {
-                              const $steps = {};
-
-                              $steps["updateAvailEmail"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["availEmail"]
-                                      },
-                                      operation: 0,
-                                      value: $state.confirmEmailInput.value
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateAvailEmail"] != null &&
-                                typeof $steps["updateAvailEmail"] ===
-                                  "object" &&
-                                typeof $steps["updateAvailEmail"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateAvailEmail"] = await $steps[
-                                  "updateAvailEmail"
-                                ];
-                              }
-                            }).apply(null, eventArgs);
                           },
-                          placeholder: "Email",
+                          placeholder: "Confirm Email",
                           value: generateStateValueProp($state, [
                             "confirmEmailInput",
                             "value"
@@ -2120,7 +2100,9 @@ function PlasmicAuthForm__RenderFunc(props: {
                         throw e;
                       }
                     })()}
-                    onClick={args.onClick}
+                    onClick={async () => {
+                      const $steps = {};
+                    }}
                     shape={"default"}
                     size={"large"}
                     submitsForm={true}

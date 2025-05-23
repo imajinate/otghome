@@ -152,10 +152,23 @@ function PlasmicRegister__RenderFunc(props: {
         path: "firstStep",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return !$state.authForm.formSubmitted;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })()
       },
       {
-        path: "authForm.formSubmit",
+        path: "authForm.formSubmitted",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -281,42 +294,6 @@ function PlasmicRegister__RenderFunc(props: {
                   ])}
                   onClick={async () => {
                     const $steps = {};
-
-                    $steps["updateFirstStep"] = !!$state.authForm.formSubmit
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["firstStep"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateFirstStep"] != null &&
-                      typeof $steps["updateFirstStep"] === "object" &&
-                      typeof $steps["updateFirstStep"].then === "function"
-                    ) {
-                      $steps["updateFirstStep"] = await $steps[
-                        "updateFirstStep"
-                      ];
-                    }
                   }}
                   onCurrentModeChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
@@ -332,10 +309,10 @@ function PlasmicRegister__RenderFunc(props: {
                       return;
                     }
                   }}
-                  onFormSubmitChange={async (...eventArgs: any) => {
+                  onFormSubmittedChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
                       "authForm",
-                      "formSubmit"
+                      "formSubmitted"
                     ]).apply(null, eventArgs);
 
                     if (
