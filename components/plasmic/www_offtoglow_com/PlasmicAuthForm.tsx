@@ -1863,6 +1863,19 @@ function PlasmicAuthForm__RenderFunc(props: {
                       "__wab_instance",
                       sty.formField__ufpNy
                     )}
+                    dependencies={(() => {
+                      try {
+                        return $state.passwordInput.value;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                     label={
                       <div
                         className={classNames(
@@ -2393,228 +2406,6 @@ function PlasmicAuthForm__RenderFunc(props: {
               );
             })()
           : null}
-        {false ? (
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__dLm3L, {
-              [sty.freeBoxmode_checkEmail__dLm3LpTg7L]: hasVariant(
-                $state,
-                "mode",
-                "checkEmail"
-              ),
-              [sty.freeBoxmode_forgotPassword__dLm3Lg8Geu]: hasVariant(
-                $state,
-                "mode",
-                "forgotPassword"
-              ),
-              [sty.freeBoxmode_signIn__dLm3L0Uw3J]: hasVariant(
-                $state,
-                "mode",
-                "signIn"
-              )
-            })}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jcOcW,
-                {
-                  [sty.textmode_forgotPassword__jcOcWg8Geu]: hasVariant(
-                    $state,
-                    "mode",
-                    "forgotPassword"
-                  ),
-                  [sty.textmode_signIn__jcOcW0Uw3J]: hasVariant(
-                    $state,
-                    "mode",
-                    "signIn"
-                  ),
-                  [sty.textmode_signUp__jcOcWbzryM]: hasVariant(
-                    $state,
-                    "mode",
-                    "signUp"
-                  )
-                }
-              )}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["updateCurrentMode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["currentMode"]
-                        },
-                        operation: 0,
-                        value:
-                          $state.currentMode === "signIn"
-                            ? "signUp"
-                            : $state.currentMode === "signUp"
-                            ? "signIn"
-                            : "checkEmail"
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateCurrentMode"] != null &&
-                  typeof $steps["updateCurrentMode"] === "object" &&
-                  typeof $steps["updateCurrentMode"].then === "function"
-                ) {
-                  $steps["updateCurrentMode"] = await $steps[
-                    "updateCurrentMode"
-                  ];
-                }
-              }}
-            >
-              {hasVariant($state, "mode", "signUp")
-                ? "Already have an account? Sign In Now"
-                : "Don't have an account? Sign Up Now"}
-            </div>
-            {(() => {
-              try {
-                return $state.currentMode === "signIn";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__m6J7N,
-                  {
-                    [sty.textmode_forgotPassword__m6J7Ng8Geu]: hasVariant(
-                      $state,
-                      "mode",
-                      "forgotPassword"
-                    ),
-                    [sty.textmode_signIn__m6J7N0Uw3J]: hasVariant(
-                      $state,
-                      "mode",
-                      "signIn"
-                    ),
-                    [sty.textmode_signUp__m6J7NbzryM]: hasVariant(
-                      $state,
-                      "mode",
-                      "signUp"
-                    )
-                  }
-                )}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPasswordReset"] = true
-                    ? (() => {
-                        const actionArgs = {};
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPasswordReset"] != null &&
-                    typeof $steps["goToPasswordReset"] === "object" &&
-                    typeof $steps["goToPasswordReset"].then === "function"
-                  ) {
-                    $steps["goToPasswordReset"] = await $steps[
-                      "goToPasswordReset"
-                    ];
-                  }
-                }}
-              >
-                {hasVariant($state, "mode", "signUp")
-                  ? "Already have an account? Sign In Now"
-                  : "Forgot Password"}
-              </div>
-            ) : null}
-          </Stack__>
-        ) : null}
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__ur4A0
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return JSON.stringify($state.credentialsForm.value);
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-      </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__rYk7C, {
-          [sty.freeBoxmode_checkEmail__rYk7CpTg7L]: hasVariant(
-            $state,
-            "mode",
-            "checkEmail"
-          ),
-          [sty.freeBoxmode_signIn__rYk7C0Uw3J]: hasVariant(
-            $state,
-            "mode",
-            "signIn"
-          )
-        })}
-      >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__bbYhn,
-            {
-              [sty.textmode_checkEmail__bbYhnPTg7L]: hasVariant(
-                $state,
-                "mode",
-                "checkEmail"
-              )
-            }
-          )}
-        >
-          {"Check your email"}
-        </div>
       </div>
     </div>
   ) as React.ReactElement | null;

@@ -172,9 +172,9 @@
 }
 .formField___0Slv9:global(.__wab_instance) {
   width: 100%;
-  margin-bottom: 20px;
   height: 112px;
   min-width: 0;
+  margin: 0px;
 }
 .text___8UJiq {
   color: #222222;
@@ -267,8 +267,8 @@
 .formField__yjuFy:global(.__wab_instance) {
   width: 100%;
   height: 112px;
-  margin-bottom: 20px;
   min-width: 0;
+  margin: 0px;
 }
 .text__ngI2I {
   color: #222222;
@@ -338,8 +338,9 @@
 }
 .formField__kRcY3:global(.__wab_instance) {
   width: 100%;
-  margin-bottom: 20px;
+  height: 112px;
   min-width: 0;
+  margin: 0px;
 }
 .text__wddLg {
   color: #222222;
@@ -375,8 +376,9 @@
 }
 .formField___1PVdn:global(.__wab_instance) {
   width: 100%;
-  margin-bottom: 12px;
+  height: 112px;
   min-width: 0;
+  margin: 0px;
 }
 .text__pMrXg {
   color: #222222;
@@ -412,7 +414,8 @@
 }
 .formField__ufpNy:global(.__wab_instance) {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  height: 112px;
   min-width: 0;
 }
 .text__r1Joz {
@@ -547,76 +550,4 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-}
-.freeBox__dLm3L {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__dLm3L > :global(.__wab_flex-container) {
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-top: calc(0px - 8px);
-  height: calc(100% + 8px);
-}
-.freeBox__dLm3L > :global(.__wab_flex-container) > *,
-.freeBox__dLm3L > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__dLm3L > :global(.__wab_flex-container) > picture > img,
-.freeBox__dLm3L
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 8px;
-}
-.text__jcOcW {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  cursor: pointer;
-  color: var(--token-GEppKCdlxgWK);
-}
-.text__m6J7N {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  cursor: pointer;
-  color: var(--token-GEppKCdlxgWK);
-}
-.text__ur4A0 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  white-space: pre-wrap;
-  min-width: 0;
-}
-.freeBox__rYk7C {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
-.text__bbYhn {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  display: none;
-}
-.textmode_checkEmail__bbYhnPTg7L {
-  display: block;
 }
