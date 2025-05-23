@@ -84,7 +84,6 @@ export type PlasmicSucces__OverridesType = {
   card?: Flex__<typeof Card>;
   h2?: Flex__<"h2">;
   h3?: Flex__<"h3">;
-  span?: Flex__<"span">;
   ul?: Flex__<"ul">;
 };
 
@@ -260,7 +259,7 @@ function PlasmicSucces__RenderFunc(props: {
                               sty.h3
                             )}
                           >
-                            {"Thank You for Registering!\n"}
+                            {"Thank You for Registering!"}
                           </h3>
                         }
                         <React.Fragment>{""}</React.Fragment>
@@ -268,26 +267,8 @@ function PlasmicSucces__RenderFunc(props: {
                     </h2>
                   }
                   <React.Fragment>
-                    {"We\u2019ve sent a confirmation email to "}
-                  </React.Fragment>
-                  {
-                    <span
-                      data-plasmic-name={"span"}
-                      data-plasmic-override={overrides.span}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.span,
-                        projectcss.__wab_text,
-                        projectcss.plasmic_default__inline,
-                        sty.span
-                      )}
-                    >
-                      {"your@email.com"}
-                    </span>
-                  }
-                  <React.Fragment>
                     {
-                      ". Please check your inbox and click the verification link to activate your account.\n\n\ud83d\udccc Can\u2019t find the email?\n\n"
+                      "We\u2019ve just sent a confirmation email to your email. To get started, simply check your inbox and click the verification link to activate your account.\n\n\ud83d\udd0d Can\u2019t find the email?\n\n"
                     }
                   </React.Fragment>
                   {
@@ -305,26 +286,30 @@ function PlasmicSucces__RenderFunc(props: {
                           projectcss.all,
                           projectcss.li,
                           projectcss.__wab_text,
-                          sty.li__moODi
+                          sty.li__vfeic
                         )}
                       >
-                        {"Check your spam or junk folder."}
+                        {
+                          "Give it a few minutes\u2014it might still be on its way.\n"
+                        }
                       </li>
                       <li
                         className={classNames(
                           projectcss.all,
                           projectcss.li,
                           projectcss.__wab_text,
-                          sty.li__dTccT
+                          sty.li__zWiRh
                         )}
                       >
-                        {"Still nothing? Resend confirmation email."}
+                        {
+                          "Don\u2019t forget to peek into your spam or junk folder, just in case."
+                        }
                       </li>
                     </ul>
                   }
                   <React.Fragment>
                     {
-                      "\nNeed help? Contact us at support@example.com.\n\nWelcome aboard!"
+                      "\nIf you\u2019re still having trouble, feel free to reach out to us at support@offtoglow.com\u2014we\u2019re happy to help!\n\nWelcome aboard\u2014we\u2019re excited to have you! \ud83c\udf89"
                     }
                   </React.Fragment>
                 </React.Fragment>
@@ -338,11 +323,10 @@ function PlasmicSucces__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "card", "h2", "h3", "span", "ul"],
+  root: ["root", "card", "h2", "h3", "ul"],
   card: ["card"],
   h2: ["h2", "h3"],
   h3: ["h3"],
-  span: ["span"],
   ul: ["ul"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -353,7 +337,6 @@ type NodeDefaultElementType = {
   card: typeof Card;
   h2: "h2";
   h3: "h3";
-  span: "span";
   ul: "ul";
 };
 
@@ -420,7 +403,6 @@ export const PlasmicSucces = Object.assign(
     card: makeNodeComponent("card"),
     h2: makeNodeComponent("h2"),
     h3: makeNodeComponent("h3"),
-    span: makeNodeComponent("span"),
     ul: makeNodeComponent("ul"),
 
     // Metadata about props expected for PlasmicSucces
