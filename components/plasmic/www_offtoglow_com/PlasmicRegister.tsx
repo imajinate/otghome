@@ -243,7 +243,7 @@ function PlasmicRegister__RenderFunc(props: {
           <div className={classNames(projectcss.all, sty.freeBox__xn8JK)}>
             {(() => {
               try {
-                return $state.firstStep;
+                return !$state.authForm.formSubmitted;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -328,7 +328,7 @@ function PlasmicRegister__RenderFunc(props: {
             ) : null}
             {(() => {
               try {
-                return !$state.firstStep;
+                return $state.authForm.formSubmitted;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
