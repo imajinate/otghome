@@ -241,209 +241,181 @@ function PlasmicRegister__RenderFunc(props: {
             </Card>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__xn8JK)}>
-            {(() => {
-              try {
-                return !$state.authForm.formSubmitted;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__lZQe)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__yEg4B)}
+            <div className={classNames(projectcss.all, sty.freeBox__lZQe)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__yEg4B)}
+              >
+                <h1
+                  data-plasmic-name={"h1"}
+                  data-plasmic-override={overrides.h1}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h1,
+                    projectcss.__wab_text,
+                    sty.h1
+                  )}
                 >
-                  <h1
-                    data-plasmic-name={"h1"}
-                    data-plasmic-override={overrides.h1}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h1,
-                      projectcss.__wab_text,
-                      sty.h1
-                    )}
-                  >
-                    {"Get Started with Offtoglow"}
-                  </h1>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__r4GyU
-                    )}
-                  >
-                    {
-                      "Sign up to unlock your personalized dashboard and manage your business in one place."
-                    }
-                  </div>
-                </Stack__>
-                <AuthForm
-                  data-plasmic-name={"authForm"}
-                  data-plasmic-override={overrides.authForm}
-                  className={classNames("__wab_instance", sty.authForm)}
-                  currentMode={generateStateValueProp($state, [
-                    "authForm",
-                    "currentMode"
-                  ])}
-                  onClick={async () => {
-                    const $steps = {};
-                  }}
-                  onCurrentModeChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "authForm",
-                      "currentMode"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onFormSubmittedChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "authForm",
-                      "formSubmitted"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                />
-              </div>
-            ) : null}
-            {(() => {
-              try {
-                return $state.authForm.formSubmitted;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__i3Fg)}>
+                  {"Get Started with Offtoglow"}
+                </h1>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__bHhFk
+                    sty.text__r4GyU
                   )}
                 >
-                  <React.Fragment>
-                    <React.Fragment>{""}</React.Fragment>
-                    {
-                      <h2
-                        data-plasmic-name={"h2"}
-                        data-plasmic-override={overrides.h2}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h2,
-                          projectcss.__wab_text,
-                          sty.h2
-                        )}
-                      >
-                        <React.Fragment>
-                          <React.Fragment>{""}</React.Fragment>
-                          {
-                            <h5
-                              data-plasmic-name={"h5"}
-                              data-plasmic-override={overrides.h5}
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h5,
-                                projectcss.__wab_text,
-                                sty.h5
-                              )}
-                            >
-                              {"Thank You for Registering!\n"}
-                            </h5>
-                          }
-                          <React.Fragment>{""}</React.Fragment>
-                        </React.Fragment>
-                      </h2>
-                    }
-                    <React.Fragment>
-                      {"We\u2019ve sent a confirmation email to "}
-                    </React.Fragment>
-                    {
-                      <span
-                        data-plasmic-name={"span"}
-                        data-plasmic-override={overrides.span}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.span,
-                          projectcss.__wab_text,
-                          projectcss.plasmic_default__inline,
-                          sty.span
-                        )}
-                      >
-                        {"your@email.com"}
-                      </span>
-                    }
-                    <React.Fragment>
-                      {
-                        ". Please check your inbox and click the verification link to activate your account.\n\n\ud83d\udccc Can\u2019t find the email?\n\n"
-                      }
-                    </React.Fragment>
-                    {
-                      <ul
-                        data-plasmic-name={"ul"}
-                        data-plasmic-override={overrides.ul}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.ul,
-                          sty.ul
-                        )}
-                      >
-                        <li
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.li,
-                            projectcss.__wab_text,
-                            sty.li__qs0Pm
-                          )}
-                        >
-                          {"Check your spam or junk folder."}
-                        </li>
-                        <li
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.li,
-                            projectcss.__wab_text,
-                            sty.li__q3Ai
-                          )}
-                        >
-                          {"Still nothing? Resend confirmation email."}
-                        </li>
-                      </ul>
-                    }
-                    <React.Fragment>
-                      {
-                        "\nNeed help? Contact us at support@example.com.\n\nWelcome aboard!"
-                      }
-                    </React.Fragment>
-                  </React.Fragment>
+                  {
+                    "Sign up to unlock your personalized dashboard and manage your business in one place."
+                  }
                 </div>
+              </Stack__>
+              <AuthForm
+                data-plasmic-name={"authForm"}
+                data-plasmic-override={overrides.authForm}
+                className={classNames("__wab_instance", sty.authForm)}
+                currentMode={generateStateValueProp($state, [
+                  "authForm",
+                  "currentMode"
+                ])}
+                onClick={async () => {
+                  const $steps = {};
+                }}
+                onCurrentModeChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "authForm",
+                    "currentMode"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onFormSubmittedChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "authForm",
+                    "formSubmitted"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__i3Fg)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__bHhFk
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h2
+                      data-plasmic-name={"h2"}
+                      data-plasmic-override={overrides.h2}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h2,
+                        projectcss.__wab_text,
+                        sty.h2
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>{""}</React.Fragment>
+                        {
+                          <h5
+                            data-plasmic-name={"h5"}
+                            data-plasmic-override={overrides.h5}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h5,
+                              projectcss.__wab_text,
+                              sty.h5
+                            )}
+                          >
+                            {"Thank You for Registering!\n"}
+                          </h5>
+                        }
+                        <React.Fragment>{""}</React.Fragment>
+                      </React.Fragment>
+                    </h2>
+                  }
+                  <React.Fragment>
+                    {"We\u2019ve sent a confirmation email to "}
+                  </React.Fragment>
+                  {
+                    <span
+                      data-plasmic-name={"span"}
+                      data-plasmic-override={overrides.span}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.span,
+                        projectcss.__wab_text,
+                        projectcss.plasmic_default__inline,
+                        sty.span
+                      )}
+                    >
+                      {"your@email.com"}
+                    </span>
+                  }
+                  <React.Fragment>
+                    {
+                      ". Please check your inbox and click the verification link to activate your account.\n\n\ud83d\udccc Can\u2019t find the email?\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      data-plasmic-name={"ul"}
+                      data-plasmic-override={overrides.ul}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__qs0Pm
+                        )}
+                      >
+                        {"Check your spam or junk folder."}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__q3Ai
+                        )}
+                      >
+                        {"Still nothing? Resend confirmation email."}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>
+                    {
+                      "\nNeed help? Contact us at support@example.com.\n\nWelcome aboard!"
+                    }
+                  </React.Fragment>
+                </React.Fragment>
               </div>
-            ) : null}
+            </div>
           </div>
         </div>
       </div>
