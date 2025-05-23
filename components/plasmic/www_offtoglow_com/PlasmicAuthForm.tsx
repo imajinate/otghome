@@ -1863,19 +1863,6 @@ function PlasmicAuthForm__RenderFunc(props: {
                       "__wab_instance",
                       sty.formField__ufpNy
                     )}
-                    dependencies={(() => {
-                      try {
-                        return $state.passwordInput.value;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
                     label={
                       <div
                         className={classNames(
