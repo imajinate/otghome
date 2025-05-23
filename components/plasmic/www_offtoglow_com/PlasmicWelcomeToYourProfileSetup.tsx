@@ -69,6 +69,7 @@ import {
 import Card from "../../Card"; // plasmic-import: twFopKdKGk6j/component
 import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import { ConditionGuard } from "@plasmicpkgs/plasmic-basic-components";
+import Button from "../../Button"; // plasmic-import: bUjxyyacyjDo/component
 import AuthFormFirst from "../../AuthFormFirst"; // plasmic-import: qTyITqH96yO7/component
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
@@ -78,7 +79,6 @@ import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
-import Button from "../../Button"; // plasmic-import: bUjxyyacyjDo/component
 import AuthButton from "../../AuthButton"; // plasmic-import: yqZlWocYh-A7/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -88,9 +88,9 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectcss
 import sty from "./PlasmicWelcomeToYourProfileSetup.module.css"; // plasmic-import: 3gtjCoHvk73C/css
 
-import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: e32uixpuZXVG/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: v7iefsRDFFri/icon
 import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: 4-aZVVDUZLRE/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: e32uixpuZXVG/icon
 
 createPlasmicElementProxy;
 
@@ -110,6 +110,7 @@ export type PlasmicWelcomeToYourProfileSetup__OverridesType = {
   card?: Flex__<typeof Card>;
   graphQlFetcher?: Flex__<typeof GraphqlFetcher>;
   conditionGuard?: Flex__<typeof ConditionGuard>;
+  h3?: Flex__<"h3">;
   authFormFirst?: Flex__<typeof AuthFormFirst>;
   form?: Flex__<typeof FormWrapper>;
   inputEmail?: Flex__<typeof TextInput>;
@@ -496,8 +497,34 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
                                 sty.h2__un6N2
                               )}
                             >
-                              {"Your email address is confirmed!"}
+                              {"Congratulations \ud83c\udf89"}
                             </h2>
+                          ) : null}
+                          {(() => {
+                            try {
+                              return !currentUser.isLoggedIn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <h3
+                              data-plasmic-name={"h3"}
+                              data-plasmic-override={overrides.h3}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h3,
+                                projectcss.__wab_text,
+                                sty.h3
+                              )}
+                            >
+                              {"Your email address is confirmed!"}
+                            </h3>
                           ) : null}
                           <div
                             className={classNames(
@@ -507,352 +534,707 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
                             )}
                           >
                             {
-                              "To get started, please log in to your account. After you log in, you\u2019ll need to complete a few simple steps to set up your profile. Once you\u2019re logged in, you\u2019ll unlock access to your personalized dashboard and start making the most of our features."
+                              "Welcome to our community! We\u2019re excited to have you on board.\n\nTo help you get started, please let us know how you\u2019d like to use our platform. Are you here to showcase your talents, represent amazing performers, book the perfect talent for your next event, or support a booking team?\nSimply select the role that best describes you to continue.\n\nLet\u2019s get started\u2014choose your role below!"
                             }
                           </div>
-                          <AuthFormFirst
-                            data-plasmic-name={"authFormFirst"}
-                            data-plasmic-override={overrides.authFormFirst}
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
-                              "__wab_instance",
-                              sty.authFormFirst
+                              projectcss.all,
+                              sty.freeBox__gmDLa
                             )}
-                            onCurrentModeChange={async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "authFormFirst",
-                                "currentMode"
-                              ]).apply(null, eventArgs);
+                          >
+                            <Button
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button__bw26R
+                              )}
+                              color={"clearDash"}
+                              onClick={async event => {
+                                const $steps = {};
 
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                          />
+                                $steps["goToPage"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        destination: (() => {
+                                          try {
+                                            return "https://talent.offtoglow.com";
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      };
+                                      return (({ destination }) => {
+                                        if (
+                                          typeof destination === "string" &&
+                                          destination.startsWith("#")
+                                        ) {
+                                          document
+                                            .getElementById(
+                                              destination.substr(1)
+                                            )
+                                            .scrollIntoView({
+                                              behavior: "smooth"
+                                            });
+                                        } else {
+                                          __nextRouter?.push(destination);
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["goToPage"] != null &&
+                                  typeof $steps["goToPage"] === "object" &&
+                                  typeof $steps["goToPage"].then === "function"
+                                ) {
+                                  $steps["goToPage"] = await $steps["goToPage"];
+                                }
+                              }}
+                              selectLeft={true}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__p8Mnd
+                                )}
+                              >
+                                <h4
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.h4,
+                                    projectcss.__wab_text,
+                                    sty.h4__zc7U3
+                                  )}
+                                >
+                                  {"Talent"}
+                                </h4>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__u52Ni
+                                  )}
+                                >
+                                  {"I am or representing a talent"}
+                                </div>
+                              </div>
+                            </Button>
+                            <Button
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button__ssBh1
+                              )}
+                              color={"clearDash"}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["goToPage"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        destination: (() => {
+                                          try {
+                                            return "https://booker.offtoglow.com";
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      };
+                                      return (({ destination }) => {
+                                        if (
+                                          typeof destination === "string" &&
+                                          destination.startsWith("#")
+                                        ) {
+                                          document
+                                            .getElementById(
+                                              destination.substr(1)
+                                            )
+                                            .scrollIntoView({
+                                              behavior: "smooth"
+                                            });
+                                        } else {
+                                          __nextRouter?.push(destination);
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["goToPage"] != null &&
+                                  typeof $steps["goToPage"] === "object" &&
+                                  typeof $steps["goToPage"].then === "function"
+                                ) {
+                                  $steps["goToPage"] = await $steps["goToPage"];
+                                }
+                              }}
+                              selectRight={true}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__btUw
+                                )}
+                              >
+                                <h4
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.h4,
+                                    projectcss.__wab_text,
+                                    sty.h4__gIzgl
+                                  )}
+                                >
+                                  {"Booker"}
+                                </h4>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__qozdn
+                                  )}
+                                >
+                                  {"I am or representing a booker"}
+                                </div>
+                              </div>
+                            </Button>
+                          </Stack__>
+                          {false ? (
+                            <AuthFormFirst
+                              data-plasmic-name={"authFormFirst"}
+                              data-plasmic-override={overrides.authFormFirst}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.authFormFirst
+                              )}
+                              onCurrentModeChange={async (
+                                ...eventArgs: any
+                              ) => {
+                                generateStateOnChangeProp($state, [
+                                  "authFormFirst",
+                                  "currentMode"
+                                ]).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                            />
+                          ) : null}
                         </div>
                       ) : null}
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__xWyiQ
-                        )}
-                      >
-                        {(() => {
-                          try {
-                            return currentUser.isLoggedIn;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
+                      {false ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__xWyiQ
+                          )}
+                        >
+                          {(() => {
+                            try {
+                              return currentUser.isLoggedIn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                          ? (() => {
-                              const child$Props = {
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.form
-                                ),
-                                extendedOnValuesChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "value",
-                                    ["form", "value"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                formItems: [
-                                  {
-                                    label: "Name",
-                                    name: "name",
-                                    inputType: "Text"
+                          })()
+                            ? (() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.form
+                                  ),
+                                  extendedOnValuesChange: async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["form", "value"],
+                                      FormWrapper_Helpers
+                                    ).apply(null, eventArgs);
                                   },
-                                  {
-                                    label: "Message",
-                                    name: "message",
-                                    inputType: "Text Area"
-                                  }
-                                ],
-                                labelCol: { span: 8, horizontalOnly: true },
-                                layout: "vertical",
-                                mode: "advanced",
-                                onFinish: async values => {
-                                  const $steps = {};
-
-                                  $steps["graphqlMutation"] =
-                                    $state.role === "booker" ||
-                                    $state.role === "talent"
-                                      ? (() => {
-                                          const actionArgs = {
-                                            dataOp: {
-                                              sourceId:
-                                                "6oMkzFQQGdyMxmjxeuCoBq",
-                                              opId: "11d7092d-9319-4c98-911d-ad223e99cabd",
-                                              userArgs: {
-                                                variables: [
-                                                  $state.locationData,
-                                                  $state.nameData,
-                                                  $ctx.params.authid,
-                                                  $ctx.params.email
-                                                ]
-                                              },
-                                              cacheKey: null,
-                                              invalidatedKeys: [
-                                                "plasmic_refresh_all"
-                                              ],
-                                              roleId: null
-                                            }
-                                          };
-                                          return (async ({
-                                            dataOp,
-                                            continueOnError
-                                          }) => {
-                                            try {
-                                              const response =
-                                                await executePlasmicDataOp(
-                                                  dataOp,
-                                                  {
-                                                    userAuthToken:
-                                                      dataSourcesCtx?.userAuthToken,
-                                                    user: dataSourcesCtx?.user
-                                                  }
-                                                );
-                                              await plasmicInvalidate(
-                                                dataOp.invalidatedKeys
-                                              );
-                                              return response;
-                                            } catch (e) {
-                                              if (!continueOnError) {
-                                                throw e;
-                                              }
-                                              return e;
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["graphqlMutation"] != null &&
-                                    typeof $steps["graphqlMutation"] ===
-                                      "object" &&
-                                    typeof $steps["graphqlMutation"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["graphqlMutation"] = await $steps[
-                                      "graphqlMutation"
-                                    ];
-                                  }
-
-                                  $steps["goToTalent"] =
-                                    $state.role === "talent"
-                                      ? (() => {
-                                          const actionArgs = {
-                                            destination: (() => {
-                                              try {
-                                                return "https://talent.offtoglow.com";
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          };
-                                          return (({ destination }) => {
-                                            if (
-                                              typeof destination === "string" &&
-                                              destination.startsWith("#")
-                                            ) {
-                                              document
-                                                .getElementById(
-                                                  destination.substr(1)
-                                                )
-                                                .scrollIntoView({
-                                                  behavior: "smooth"
-                                                });
-                                            } else {
-                                              __nextRouter?.push(destination);
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["goToTalent"] != null &&
-                                    typeof $steps["goToTalent"] === "object" &&
-                                    typeof $steps["goToTalent"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["goToTalent"] = await $steps[
-                                      "goToTalent"
-                                    ];
-                                  }
-
-                                  $steps["goToBooker"] =
-                                    $state.role === "booker"
-                                      ? (() => {
-                                          const actionArgs = {
-                                            destination: (() => {
-                                              try {
-                                                return "https://booker.offtoglow.com";
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          };
-                                          return (({ destination }) => {
-                                            if (
-                                              typeof destination === "string" &&
-                                              destination.startsWith("#")
-                                            ) {
-                                              document
-                                                .getElementById(
-                                                  destination.substr(1)
-                                                )
-                                                .scrollIntoView({
-                                                  behavior: "smooth"
-                                                });
-                                            } else {
-                                              __nextRouter?.push(destination);
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["goToBooker"] != null &&
-                                    typeof $steps["goToBooker"] === "object" &&
-                                    typeof $steps["goToBooker"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["goToBooker"] = await $steps[
-                                      "goToBooker"
-                                    ];
-                                  }
-                                },
-                                onIsSubmittingChange: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "isSubmitting",
-                                    ["form", "isSubmitting"],
-                                    FormWrapper_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                ref: ref => {
-                                  $refs["form"] = ref;
-                                },
-                                submitSlot: null,
-                                wrapperCol: { span: 16, horizontalOnly: true }
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "value",
-                                    plasmicStateName: "form.value"
-                                  },
-                                  {
-                                    name: "isSubmitting",
-                                    plasmicStateName: "form.isSubmitting"
-                                  }
-                                ],
-                                [],
-                                FormWrapper_Helpers ?? {},
-                                child$Props
-                              );
-
-                              return (
-                                <FormWrapper
-                                  data-plasmic-name={"form"}
-                                  data-plasmic-override={overrides.form}
-                                  {...child$Props}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2__ssJRz
-                                    )}
-                                  >
-                                    {"Welcome to OfftoGlow!"}
-                                  </h2>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__fc8Ab
-                                    )}
-                                  >
+                                  formItems: [
                                     {
-                                      "We\u2019re thrilled to have you join our community. To get started, please complete your profile by filling in the details below. After this step is complete, we can embark on this exciting journey together and explore a world of opportunities. \n\nLet\u2019s get ready to glow!"
+                                      label: "Name",
+                                      name: "name",
+                                      inputType: "Text"
+                                    },
+                                    {
+                                      label: "Message",
+                                      name: "message",
+                                      inputType: "Text Area"
                                     }
-                                  </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__cbRAa
-                                    )}
+                                  ],
+                                  labelCol: { span: 8, horizontalOnly: true },
+                                  layout: "vertical",
+                                  mode: "advanced",
+                                  onFinish: async values => {
+                                    const $steps = {};
+
+                                    $steps["graphqlMutation"] =
+                                      $state.role === "booker" ||
+                                      $state.role === "talent"
+                                        ? (() => {
+                                            const actionArgs = {
+                                              dataOp: {
+                                                sourceId:
+                                                  "6oMkzFQQGdyMxmjxeuCoBq",
+                                                opId: "11d7092d-9319-4c98-911d-ad223e99cabd",
+                                                userArgs: {
+                                                  variables: [
+                                                    $state.locationData,
+                                                    $state.nameData,
+                                                    $ctx.params.authid,
+                                                    $ctx.params.email
+                                                  ]
+                                                },
+                                                cacheKey: null,
+                                                invalidatedKeys: [
+                                                  "plasmic_refresh_all"
+                                                ],
+                                                roleId: null
+                                              }
+                                            };
+                                            return (async ({
+                                              dataOp,
+                                              continueOnError
+                                            }) => {
+                                              try {
+                                                const response =
+                                                  await executePlasmicDataOp(
+                                                    dataOp,
+                                                    {
+                                                      userAuthToken:
+                                                        dataSourcesCtx?.userAuthToken,
+                                                      user: dataSourcesCtx?.user
+                                                    }
+                                                  );
+                                                await plasmicInvalidate(
+                                                  dataOp.invalidatedKeys
+                                                );
+                                                return response;
+                                              } catch (e) {
+                                                if (!continueOnError) {
+                                                  throw e;
+                                                }
+                                                return e;
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["graphqlMutation"] != null &&
+                                      typeof $steps["graphqlMutation"] ===
+                                        "object" &&
+                                      typeof $steps["graphqlMutation"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["graphqlMutation"] = await $steps[
+                                        "graphqlMutation"
+                                      ];
+                                    }
+
+                                    $steps["goToTalent"] =
+                                      $state.role === "talent"
+                                        ? (() => {
+                                            const actionArgs = {
+                                              destination: (() => {
+                                                try {
+                                                  return "https://talent.offtoglow.com";
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            };
+                                            return (({ destination }) => {
+                                              if (
+                                                typeof destination ===
+                                                  "string" &&
+                                                destination.startsWith("#")
+                                              ) {
+                                                document
+                                                  .getElementById(
+                                                    destination.substr(1)
+                                                  )
+                                                  .scrollIntoView({
+                                                    behavior: "smooth"
+                                                  });
+                                              } else {
+                                                __nextRouter?.push(destination);
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["goToTalent"] != null &&
+                                      typeof $steps["goToTalent"] ===
+                                        "object" &&
+                                      typeof $steps["goToTalent"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["goToTalent"] = await $steps[
+                                        "goToTalent"
+                                      ];
+                                    }
+
+                                    $steps["goToBooker"] =
+                                      $state.role === "booker"
+                                        ? (() => {
+                                            const actionArgs = {
+                                              destination: (() => {
+                                                try {
+                                                  return "https://booker.offtoglow.com";
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            };
+                                            return (({ destination }) => {
+                                              if (
+                                                typeof destination ===
+                                                  "string" &&
+                                                destination.startsWith("#")
+                                              ) {
+                                                document
+                                                  .getElementById(
+                                                    destination.substr(1)
+                                                  )
+                                                  .scrollIntoView({
+                                                    behavior: "smooth"
+                                                  });
+                                              } else {
+                                                __nextRouter?.push(destination);
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["goToBooker"] != null &&
+                                      typeof $steps["goToBooker"] ===
+                                        "object" &&
+                                      typeof $steps["goToBooker"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["goToBooker"] = await $steps[
+                                        "goToBooker"
+                                      ];
+                                    }
+                                  },
+                                  onIsSubmittingChange: async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "isSubmitting",
+                                      ["form", "isSubmitting"],
+                                      FormWrapper_Helpers
+                                    ).apply(null, eventArgs);
+                                  },
+                                  ref: ref => {
+                                    $refs["form"] = ref;
+                                  },
+                                  submitSlot: null,
+                                  wrapperCol: { span: 16, horizontalOnly: true }
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "form.value"
+                                    },
+                                    {
+                                      name: "isSubmitting",
+                                      plasmicStateName: "form.isSubmitting"
+                                    }
+                                  ],
+                                  [],
+                                  FormWrapper_Helpers ?? {},
+                                  child$Props
+                                );
+
+                                return (
+                                  <FormWrapper
+                                    data-plasmic-name={"form"}
+                                    data-plasmic-override={overrides.form}
+                                    {...child$Props}
                                   >
+                                    <h2
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.h2,
+                                        projectcss.__wab_text,
+                                        sty.h2__ssJRz
+                                      )}
+                                    >
+                                      {"Welcome to OfftoGlow!"}
+                                    </h2>
                                     <div
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox__lkvkk
+                                        projectcss.__wab_text,
+                                        sty.text__fc8Ab
                                       )}
                                     >
-                                      <h5
+                                      {
+                                        "We\u2019re thrilled to have you join our community. To get started, please complete your profile by filling in the details below. After this step is complete, we can embark on this exciting journey together and explore a world of opportunities. \n\nLet\u2019s get ready to glow!"
+                                      }
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__cbRAa
+                                      )}
+                                    >
+                                      <div
                                         className={classNames(
                                           projectcss.all,
-                                          projectcss.h5,
-                                          projectcss.__wab_text,
-                                          sty.h5___8CPpp
+                                          sty.freeBox__lkvkk
                                         )}
                                       >
-                                        {"Personal Details"}
-                                      </h5>
-                                      <h6
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h6,
-                                          projectcss.__wab_text,
-                                          sty.h6___4OkSz
-                                        )}
-                                      >
-                                        {"Email"}
-                                      </h6>
-                                      {(() => {
-                                        const child$Props = {
-                                          className: classNames(
+                                        <h5
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.h5,
+                                            projectcss.__wab_text,
+                                            sty.h5___8CPpp
+                                          )}
+                                        >
+                                          {"Personal Details"}
+                                        </h5>
+                                        <h6
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.h6,
+                                            projectcss.__wab_text,
+                                            sty.h6___4OkSz
+                                          )}
+                                        >
+                                          {"Email"}
+                                        </h6>
+                                        {(() => {
+                                          const child$Props = {
+                                            className: classNames(
+                                              "__wab_instance",
+                                              sty.inputEmail
+                                            ),
+                                            isDisabled: true,
+                                            name: "Email",
+                                            onChange: async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              ((...eventArgs) => {
+                                                generateStateOnChangeProp(
+                                                  $state,
+                                                  ["inputEmail", "value"]
+                                                )(
+                                                  (e => e.target?.value).apply(
+                                                    null,
+                                                    eventArgs
+                                                  )
+                                                );
+                                              }).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1] &&
+                                                eventArgs[1]
+                                                  ._plasmic_state_init_
+                                              ) {
+                                                return;
+                                              }
+
+                                              (async event => {
+                                                const $steps = {};
+
+                                                $steps["updateNameData"] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        variable: {
+                                                          objRoot: $state,
+                                                          variablePath: [
+                                                            "nameData"
+                                                          ]
+                                                        },
+                                                        operation: 0,
+                                                        value: (() => {
+                                                          const nameData =
+                                                            JSON.parse(
+                                                              $state.nameData
+                                                            );
+                                                          nameData.first_name =
+                                                            $state.inputEmail.value;
+                                                          return ($state.nameData =
+                                                            JSON.stringify(
+                                                              nameData
+                                                            ));
+                                                        })()
+                                                      };
+                                                      return (({
+                                                        variable,
+                                                        value,
+                                                        startIndex,
+                                                        deleteCount
+                                                      }) => {
+                                                        if (!variable) {
+                                                          return;
+                                                        }
+                                                        const {
+                                                          objRoot,
+                                                          variablePath
+                                                        } = variable;
+
+                                                        $stateSet(
+                                                          objRoot,
+                                                          variablePath,
+                                                          value
+                                                        );
+                                                        return value;
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["updateNameData"] !=
+                                                    null &&
+                                                  typeof $steps[
+                                                    "updateNameData"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "updateNameData"
+                                                  ].then === "function"
+                                                ) {
+                                                  $steps["updateNameData"] =
+                                                    await $steps[
+                                                      "updateNameData"
+                                                    ];
+                                                }
+                                              }).apply(null, eventArgs);
+                                            },
+                                            placeholder: (() => {
+                                              try {
+                                                return currentUser.email;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })(),
+                                            required: false,
+                                            value:
+                                              generateStateValueProp($state, [
+                                                "inputEmail",
+                                                "value"
+                                              ]) ?? ""
+                                          };
+
+                                          initializePlasmicStates(
+                                            $state,
+                                            [
+                                              {
+                                                name: "inputEmail.value",
+                                                initFunc: ({
+                                                  $props,
+                                                  $state,
+                                                  $queries
+                                                }) =>
+                                                  (() => {
+                                                    try {
+                                                      return currentUser.email;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()
+                                              }
+                                            ],
+                                            []
+                                          );
+                                          return (
+                                            <TextInput
+                                              data-plasmic-name={"inputEmail"}
+                                              data-plasmic-override={
+                                                overrides.inputEmail
+                                              }
+                                              {...child$Props}
+                                            />
+                                          );
+                                        })()}
+                                        <h6
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.h6,
+                                            projectcss.__wab_text,
+                                            sty.h6__iAsC
+                                          )}
+                                        >
+                                          {"First Name"}
+                                        </h6>
+                                        <TextInput
+                                          data-plasmic-name={"inputFirstname"}
+                                          data-plasmic-override={
+                                            overrides.inputFirstname
+                                          }
+                                          className={classNames(
                                             "__wab_instance",
-                                            sty.inputEmail
-                                          ),
-                                          isDisabled: true,
-                                          name: "Email",
-                                          onChange: async (
+                                            sty.inputFirstname
+                                          )}
+                                          name={"First Name"}
+                                          onChange={async (
                                             ...eventArgs: any
                                           ) => {
                                             ((...eventArgs) => {
                                               generateStateOnChangeProp(
                                                 $state,
-                                                ["inputEmail", "value"]
+                                                ["inputFirstname", "value"]
                                               )(
                                                 (e => e.target?.value).apply(
                                                   null,
@@ -888,7 +1270,7 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
                                                             $state.nameData
                                                           );
                                                         nameData.first_name =
-                                                          $state.inputEmail.value;
+                                                          $state.inputFirstname.value;
                                                         return ($state.nameData =
                                                           JSON.stringify(
                                                             nameData
@@ -935,692 +1317,84 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
                                                   ];
                                               }
                                             }).apply(null, eventArgs);
-                                          },
-                                          placeholder: (() => {
-                                            try {
-                                              return currentUser.email;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })(),
-                                          required: false,
-                                          value:
+                                          }}
+                                          placeholder={"First Name"}
+                                          required={true}
+                                          value={
                                             generateStateValueProp($state, [
-                                              "inputEmail",
-                                              "value"
-                                            ]) ?? ""
-                                        };
-
-                                        initializePlasmicStates(
-                                          $state,
-                                          [
-                                            {
-                                              name: "inputEmail.value",
-                                              initFunc: ({
-                                                $props,
-                                                $state,
-                                                $queries
-                                              }) =>
-                                                (() => {
-                                                  try {
-                                                    return currentUser.email;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()
-                                            }
-                                          ],
-                                          []
-                                        );
-                                        return (
-                                          <TextInput
-                                            data-plasmic-name={"inputEmail"}
-                                            data-plasmic-override={
-                                              overrides.inputEmail
-                                            }
-                                            {...child$Props}
-                                          />
-                                        );
-                                      })()}
-                                      <h6
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h6,
-                                          projectcss.__wab_text,
-                                          sty.h6__iAsC
-                                        )}
-                                      >
-                                        {"First Name"}
-                                      </h6>
-                                      <TextInput
-                                        data-plasmic-name={"inputFirstname"}
-                                        data-plasmic-override={
-                                          overrides.inputFirstname
-                                        }
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.inputFirstname
-                                        )}
-                                        name={"First Name"}
-                                        onChange={async (...eventArgs: any) => {
-                                          ((...eventArgs) => {
-                                            generateStateOnChangeProp($state, [
                                               "inputFirstname",
                                               "value"
-                                            ])(
-                                              (e => e.target?.value).apply(
-                                                null,
-                                                eventArgs
-                                              )
-                                            );
-                                          }).apply(null, eventArgs);
-
-                                          if (
-                                            eventArgs.length > 1 &&
-                                            eventArgs[1] &&
-                                            eventArgs[1]._plasmic_state_init_
-                                          ) {
-                                            return;
+                                            ]) ?? ""
                                           }
+                                        />
 
-                                          (async event => {
-                                            const $steps = {};
-
-                                            $steps["updateNameData"] = true
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    variable: {
-                                                      objRoot: $state,
-                                                      variablePath: ["nameData"]
-                                                    },
-                                                    operation: 0,
-                                                    value: (() => {
-                                                      const nameData =
-                                                        JSON.parse(
-                                                          $state.nameData
-                                                        );
-                                                      nameData.first_name =
-                                                        $state.inputFirstname.value;
-                                                      return ($state.nameData =
-                                                        JSON.stringify(
-                                                          nameData
-                                                        ));
-                                                    })()
-                                                  };
-                                                  return (({
-                                                    variable,
-                                                    value,
-                                                    startIndex,
-                                                    deleteCount
-                                                  }) => {
-                                                    if (!variable) {
-                                                      return;
-                                                    }
-                                                    const {
-                                                      objRoot,
-                                                      variablePath
-                                                    } = variable;
-
-                                                    $stateSet(
-                                                      objRoot,
-                                                      variablePath,
-                                                      value
-                                                    );
-                                                    return value;
-                                                  })?.apply(null, [actionArgs]);
-                                                })()
-                                              : undefined;
-                                            if (
-                                              $steps["updateNameData"] !=
-                                                null &&
-                                              typeof $steps[
-                                                "updateNameData"
-                                              ] === "object" &&
-                                              typeof $steps["updateNameData"]
-                                                .then === "function"
-                                            ) {
-                                              $steps["updateNameData"] =
-                                                await $steps["updateNameData"];
-                                            }
-                                          }).apply(null, eventArgs);
-                                        }}
-                                        placeholder={"First Name"}
-                                        required={true}
-                                        value={
-                                          generateStateValueProp($state, [
-                                            "inputFirstname",
-                                            "value"
-                                          ]) ?? ""
-                                        }
-                                      />
-
-                                      <h6
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h6,
-                                          projectcss.__wab_text,
-                                          sty.h6__opHxk
-                                        )}
-                                      >
-                                        {"Last Name"}
-                                      </h6>
-                                      <TextInput
-                                        data-plasmic-name={"inputLastname"}
-                                        data-plasmic-override={
-                                          overrides.inputLastname
-                                        }
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.inputLastname
-                                        )}
-                                        onChange={async (...eventArgs: any) => {
-                                          ((...eventArgs) => {
-                                            generateStateOnChangeProp($state, [
-                                              "inputLastname",
-                                              "value"
-                                            ])(
-                                              (e => e.target?.value).apply(
-                                                null,
-                                                eventArgs
-                                              )
-                                            );
-                                          }).apply(null, eventArgs);
-
-                                          if (
-                                            eventArgs.length > 1 &&
-                                            eventArgs[1] &&
-                                            eventArgs[1]._plasmic_state_init_
-                                          ) {
-                                            return;
-                                          }
-
-                                          (async event => {
-                                            const $steps = {};
-
-                                            $steps["updateNameData"] = true
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    variable: {
-                                                      objRoot: $state,
-                                                      variablePath: ["nameData"]
-                                                    },
-                                                    operation: 0,
-                                                    value: (() => {
-                                                      const nameData =
-                                                        JSON.parse(
-                                                          $state.nameData
-                                                        );
-                                                      nameData.last_name =
-                                                        $state.inputLastname.value;
-                                                      return ($state.nameData =
-                                                        JSON.stringify(
-                                                          nameData
-                                                        ));
-                                                    })()
-                                                  };
-                                                  return (({
-                                                    variable,
-                                                    value,
-                                                    startIndex,
-                                                    deleteCount
-                                                  }) => {
-                                                    if (!variable) {
-                                                      return;
-                                                    }
-                                                    const {
-                                                      objRoot,
-                                                      variablePath
-                                                    } = variable;
-
-                                                    $stateSet(
-                                                      objRoot,
-                                                      variablePath,
-                                                      value
-                                                    );
-                                                    return value;
-                                                  })?.apply(null, [actionArgs]);
-                                                })()
-                                              : undefined;
-                                            if (
-                                              $steps["updateNameData"] !=
-                                                null &&
-                                              typeof $steps[
-                                                "updateNameData"
-                                              ] === "object" &&
-                                              typeof $steps["updateNameData"]
-                                                .then === "function"
-                                            ) {
-                                              $steps["updateNameData"] =
-                                                await $steps["updateNameData"];
-                                            }
-                                          }).apply(null, eventArgs);
-                                        }}
-                                        placeholder={"Last Name"}
-                                        required={true}
-                                        value={
-                                          generateStateValueProp($state, [
-                                            "inputLastname",
-                                            "value"
-                                          ]) ?? ""
-                                        }
-                                      />
-
-                                      <h6
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h6,
-                                          projectcss.__wab_text,
-                                          sty.h6___9K2U
-                                        )}
-                                      >
-                                        {"City"}
-                                      </h6>
-                                      <TextInput
-                                        data-plasmic-name={"inputCity"}
-                                        data-plasmic-override={
-                                          overrides.inputCity
-                                        }
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.inputCity
-                                        )}
-                                        onChange={async (...eventArgs: any) => {
-                                          ((...eventArgs) => {
-                                            generateStateOnChangeProp($state, [
-                                              "inputCity",
-                                              "value"
-                                            ])(
-                                              (e => e.target?.value).apply(
-                                                null,
-                                                eventArgs
-                                              )
-                                            );
-                                          }).apply(null, eventArgs);
-
-                                          if (
-                                            eventArgs.length > 1 &&
-                                            eventArgs[1] &&
-                                            eventArgs[1]._plasmic_state_init_
-                                          ) {
-                                            return;
-                                          }
-
-                                          (async event => {
-                                            const $steps = {};
-
-                                            $steps["updateLocationData"] = true
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    variable: {
-                                                      objRoot: $state,
-                                                      variablePath: [
-                                                        "locationData"
-                                                      ]
-                                                    },
-                                                    operation: 0,
-                                                    value: (() => {
-                                                      const locationData =
-                                                        JSON.parse(
-                                                          $state.locationData
-                                                        );
-                                                      locationData.city =
-                                                        $state.inputCity.value;
-                                                      return ($state.locationData =
-                                                        JSON.stringify(
-                                                          locationData
-                                                        ));
-                                                    })()
-                                                  };
-                                                  return (({
-                                                    variable,
-                                                    value,
-                                                    startIndex,
-                                                    deleteCount
-                                                  }) => {
-                                                    if (!variable) {
-                                                      return;
-                                                    }
-                                                    const {
-                                                      objRoot,
-                                                      variablePath
-                                                    } = variable;
-
-                                                    $stateSet(
-                                                      objRoot,
-                                                      variablePath,
-                                                      value
-                                                    );
-                                                    return value;
-                                                  })?.apply(null, [actionArgs]);
-                                                })()
-                                              : undefined;
-                                            if (
-                                              $steps["updateLocationData"] !=
-                                                null &&
-                                              typeof $steps[
-                                                "updateLocationData"
-                                              ] === "object" &&
-                                              typeof $steps[
-                                                "updateLocationData"
-                                              ].then === "function"
-                                            ) {
-                                              $steps["updateLocationData"] =
-                                                await $steps[
-                                                  "updateLocationData"
-                                                ];
-                                            }
-                                          }).apply(null, eventArgs);
-                                        }}
-                                        placeholder={"City"}
-                                        required={true}
-                                        value={
-                                          generateStateValueProp($state, [
-                                            "inputCity",
-                                            "value"
-                                          ]) ?? ""
-                                        }
-                                      />
-
-                                      <h6
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h6,
-                                          projectcss.__wab_text,
-                                          sty.h6__u5SN0
-                                        )}
-                                      >
-                                        {"Country"}
-                                      </h6>
-                                      <DataFetcher
-                                        data-plasmic-name={"httpRestApiFetcher"}
-                                        data-plasmic-override={
-                                          overrides.httpRestApiFetcher
-                                        }
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.httpRestApiFetcher
-                                        )}
-                                        dataName={"fetchedCountries"}
-                                        errorDisplay={
-                                          <DataCtxReader__>
-                                            {$ctx => "Error fetching data"}
-                                          </DataCtxReader__>
-                                        }
-                                        errorName={"fetchError"}
-                                        headers={{
-                                          "Content-Type": "application/json",
-                                          Accept: "application/json",
-                                          apikey:
-                                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY5NTE4NjksImV4cCI6MjAwMjUyNzg2OX0.epN8z7ALKCjIWpz056OgbiL2Af1fg5W61yWXzGJALwA",
-                                          Authorization:
-                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njk1MTg2OSwiZXhwIjoyMDAyNTI3ODY5fQ.Zg1jbFVl47RffMhBG1rM2XeAEJzUasurJxGPq78ACp0"
-                                        }}
-                                        loadingDisplay={
-                                          <DataCtxReader__>
-                                            {$ctx => "Loading..."}
-                                          </DataCtxReader__>
-                                        }
-                                        method={"GET"}
-                                        noLayout={false}
-                                        url={
-                                          "https://tsbldwzuynryqbmaguci.supabase.co/rest/v1/typecountries?select=name&order=name.asc"
-                                        }
-                                      >
-                                        <DataCtxReader__>
-                                          {$ctx => (
-                                            <div
-                                              className={classNames(
-                                                projectcss.all,
-                                                sty.freeBox___086D7
-                                              )}
-                                            >
-                                              <AntdSelect
-                                                data-plasmic-name={
-                                                  "selectCountry"
-                                                }
-                                                data-plasmic-override={
-                                                  overrides.selectCountry
-                                                }
-                                                bordered={false}
-                                                className={classNames(
-                                                  "__wab_instance",
-                                                  sty.selectCountry
-                                                )}
-                                                defaultStylesClassName={classNames(
-                                                  projectcss.root_reset,
-                                                  projectcss.plasmic_default_styles,
-                                                  projectcss.plasmic_mixins,
-                                                  projectcss.plasmic_tokens,
-                                                  plasmic_antd_5_hostless_css.plasmic_tokens,
-                                                  plasmic_plasmic_rich_components_css.plasmic_tokens
-                                                )}
-                                                onChange={async (
-                                                  ...eventArgs: any
-                                                ) => {
-                                                  generateStateOnChangeProp(
-                                                    $state,
-                                                    ["selectCountry", "value"]
-                                                  ).apply(null, eventArgs);
-
-                                                  (async (value, option) => {
-                                                    const $steps = {};
-
-                                                    $steps[
-                                                      "updateLocationData"
-                                                    ] = true
-                                                      ? (() => {
-                                                          const actionArgs = {
-                                                            variable: {
-                                                              objRoot: $state,
-                                                              variablePath: [
-                                                                "locationData"
-                                                              ]
-                                                            },
-                                                            operation: 0,
-                                                            value: (() => {
-                                                              const locationData =
-                                                                JSON.parse(
-                                                                  $state.locationData
-                                                                );
-                                                              locationData.country =
-                                                                $state.selectCountry.value;
-                                                              return ($state.locationData =
-                                                                JSON.stringify(
-                                                                  locationData
-                                                                ));
-                                                            })()
-                                                          };
-                                                          return (({
-                                                            variable,
-                                                            value,
-                                                            startIndex,
-                                                            deleteCount
-                                                          }) => {
-                                                            if (!variable) {
-                                                              return;
-                                                            }
-                                                            const {
-                                                              objRoot,
-                                                              variablePath
-                                                            } = variable;
-
-                                                            $stateSet(
-                                                              objRoot,
-                                                              variablePath,
-                                                              value
-                                                            );
-                                                            return value;
-                                                          })?.apply(null, [
-                                                            actionArgs
-                                                          ]);
-                                                        })()
-                                                      : undefined;
-                                                    if (
-                                                      $steps[
-                                                        "updateLocationData"
-                                                      ] != null &&
-                                                      typeof $steps[
-                                                        "updateLocationData"
-                                                      ] === "object" &&
-                                                      typeof $steps[
-                                                        "updateLocationData"
-                                                      ].then === "function"
-                                                    ) {
-                                                      $steps[
-                                                        "updateLocationData"
-                                                      ] = await $steps[
-                                                        "updateLocationData"
-                                                      ];
-                                                    }
-                                                  }).apply(null, eventArgs);
-                                                }}
-                                                optionClassName={classNames({
-                                                  [sty["pcls_9tgYGgGEzNxj"]]:
-                                                    true
-                                                })}
-                                                options={(() => {
-                                                  try {
-                                                    return $ctx.fetchedCountries
-                                                      .sort((a, b) =>
-                                                        a.name.localeCompare(
-                                                          b.name
-                                                        )
-                                                      )
-                                                      .map(item => ({
-                                                        label: item.name,
-                                                        value: item.name
-                                                      }));
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return [
-                                                        {
-                                                          value: "option1",
-                                                          label: "Option 1",
-                                                          type: "option"
-                                                        },
-                                                        {
-                                                          value: "option2",
-                                                          label: "Option 2",
-                                                          type: "option"
-                                                        }
-                                                      ];
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}
-                                                placeholder={"Select..."}
-                                                popupClassName={classNames({
-                                                  [sty["pcls_ACmfzL9fFHwD"]]:
-                                                    true
-                                                })}
-                                                popupScopeClassName={
-                                                  sty["selectCountry__popup"]
-                                                }
-                                                showSearch={true}
-                                                triggerClassName={classNames({
-                                                  [sty["pcls_n1I-kmv8ISc6"]]:
-                                                    true
-                                                })}
-                                                value={generateStateValueProp(
-                                                  $state,
-                                                  ["selectCountry", "value"]
-                                                )}
-                                              />
-                                            </div>
-                                          )}
-                                        </DataCtxReader__>
-                                      </DataFetcher>
-                                    </div>
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__f9YXp
-                                      )}
-                                    >
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__tl0Dd
-                                        )}
-                                      >
-                                        <h5
+                                        <h6
                                           className={classNames(
                                             projectcss.all,
-                                            projectcss.h5,
+                                            projectcss.h6,
                                             projectcss.__wab_text,
-                                            sty.h5__dflo
+                                            sty.h6__opHxk
                                           )}
                                         >
-                                          {"Select your role"}
-                                        </h5>
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__ew3Vt
-                                          )}
-                                        >
-                                          {
-                                            "Are you a talent looking to showcase your skills, representing a talent, a booker searching for the perfect talent, or part of a booker\u2019s team? Please select your role to proceed."
-                                          }
-                                        </div>
-                                      </div>
-                                      <Stack__
-                                        as={"div"}
-                                        hasGap={true}
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox___5MvOz
-                                        )}
-                                      >
-                                        <AntdRadioGroup
-                                          data-plasmic-name={"radioGroup"}
+                                          {"Last Name"}
+                                        </h6>
+                                        <TextInput
+                                          data-plasmic-name={"inputLastname"}
                                           data-plasmic-override={
-                                            overrides.radioGroup
+                                            overrides.inputLastname
                                           }
                                           className={classNames(
                                             "__wab_instance",
-                                            sty.radioGroup
+                                            sty.inputLastname
                                           )}
                                           onChange={async (
                                             ...eventArgs: any
                                           ) => {
-                                            generateStateOnChangeProp($state, [
-                                              "radioGroup",
-                                              "value"
-                                            ]).apply(null, eventArgs);
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                ["inputLastname", "value"]
+                                              )(
+                                                (e => e.target?.value).apply(
+                                                  null,
+                                                  eventArgs
+                                                )
+                                              );
+                                            }).apply(null, eventArgs);
 
-                                            (async value => {
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+
+                                            (async event => {
                                               const $steps = {};
 
-                                              $steps["updateRole"] = true
+                                              $steps["updateNameData"] = true
                                                 ? (() => {
                                                     const actionArgs = {
                                                       variable: {
                                                         objRoot: $state,
-                                                        variablePath: ["role"]
+                                                        variablePath: [
+                                                          "nameData"
+                                                        ]
                                                       },
                                                       operation: 0,
-                                                      value:
-                                                        $state.radioGroup.value
+                                                      value: (() => {
+                                                        const nameData =
+                                                          JSON.parse(
+                                                            $state.nameData
+                                                          );
+                                                        nameData.last_name =
+                                                          $state.inputLastname.value;
+                                                        return ($state.nameData =
+                                                          JSON.stringify(
+                                                            nameData
+                                                          ));
+                                                      })()
                                                     };
                                                     return (({
                                                       variable,
@@ -1648,541 +1422,1019 @@ function PlasmicWelcomeToYourProfileSetup__RenderFunc(props: {
                                                   })()
                                                 : undefined;
                                               if (
-                                                $steps["updateRole"] != null &&
-                                                typeof $steps["updateRole"] ===
-                                                  "object" &&
-                                                typeof $steps["updateRole"]
+                                                $steps["updateNameData"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "updateNameData"
+                                                ] === "object" &&
+                                                typeof $steps["updateNameData"]
                                                   .then === "function"
                                               ) {
-                                                $steps["updateRole"] =
-                                                  await $steps["updateRole"];
+                                                $steps["updateNameData"] =
+                                                  await $steps[
+                                                    "updateNameData"
+                                                  ];
                                               }
                                             }).apply(null, eventArgs);
                                           }}
-                                          optionType={"button"}
-                                          options={(() => {
-                                            const __composite = [
-                                              { value: null, label: null },
-                                              { value: null, label: null }
-                                            ];
-                                            __composite["0"]["value"] =
-                                              "talent";
-                                            __composite["0"]["label"] =
-                                              "Talent";
-                                            __composite["1"]["value"] =
-                                              "booker";
-                                            __composite["1"]["label"] =
-                                              "Booker";
-                                            return __composite;
-                                          })()}
-                                          useChildren={true}
-                                          value={generateStateValueProp(
-                                            $state,
-                                            ["radioGroup", "value"]
+                                          placeholder={"Last Name"}
+                                          required={true}
+                                          value={
+                                            generateStateValueProp($state, [
+                                              "inputLastname",
+                                              "value"
+                                            ]) ?? ""
+                                          }
+                                        />
+
+                                        <h6
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.h6,
+                                            projectcss.__wab_text,
+                                            sty.h6___9K2U
                                           )}
                                         >
-                                          {(() => {
-                                            try {
-                                              return $state.role === "talent";
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return true;
-                                              }
-                                              throw e;
-                                            }
-                                          })() ? (
-                                            <AntdRadio
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.radio__fvU3G
-                                              )}
-                                              value={"talent"}
-                                            >
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__v0Iv4
-                                                )}
-                                              >
-                                                <h6
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.h6,
-                                                    projectcss.__wab_text,
-                                                    sty.h6__jLhHw
-                                                  )}
-                                                >
-                                                  {"Talent"}
-                                                </h6>
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__v0G7
-                                                  )}
-                                                >
-                                                  {
-                                                    "I am or representing a talent"
-                                                  }
-                                                </div>
-                                              </div>
-                                            </AntdRadio>
-                                          ) : null}
-                                          {(() => {
-                                            try {
-                                              return (
-                                                $state.role !== "" &&
-                                                $state.role !== "talent"
+                                          {"City"}
+                                        </h6>
+                                        <TextInput
+                                          data-plasmic-name={"inputCity"}
+                                          data-plasmic-override={
+                                            overrides.inputCity
+                                          }
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.inputCity
+                                          )}
+                                          onChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                ["inputCity", "value"]
+                                              )(
+                                                (e => e.target?.value).apply(
+                                                  null,
+                                                  eventArgs
+                                                )
                                               );
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return true;
-                                              }
-                                              throw e;
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
                                             }
-                                          })() ? (
-                                            <AntdRadio
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.radio___1D5I5
-                                              )}
-                                              value={"talent"}
-                                            >
+
+                                            (async event => {
+                                              const $steps = {};
+
+                                              $steps["updateLocationData"] =
+                                                true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        variable: {
+                                                          objRoot: $state,
+                                                          variablePath: [
+                                                            "locationData"
+                                                          ]
+                                                        },
+                                                        operation: 0,
+                                                        value: (() => {
+                                                          const locationData =
+                                                            JSON.parse(
+                                                              $state.locationData
+                                                            );
+                                                          locationData.city =
+                                                            $state.inputCity.value;
+                                                          return ($state.locationData =
+                                                            JSON.stringify(
+                                                              locationData
+                                                            ));
+                                                        })()
+                                                      };
+                                                      return (({
+                                                        variable,
+                                                        value,
+                                                        startIndex,
+                                                        deleteCount
+                                                      }) => {
+                                                        if (!variable) {
+                                                          return;
+                                                        }
+                                                        const {
+                                                          objRoot,
+                                                          variablePath
+                                                        } = variable;
+
+                                                        $stateSet(
+                                                          objRoot,
+                                                          variablePath,
+                                                          value
+                                                        );
+                                                        return value;
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["updateLocationData"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "updateLocationData"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "updateLocationData"
+                                                ].then === "function"
+                                              ) {
+                                                $steps["updateLocationData"] =
+                                                  await $steps[
+                                                    "updateLocationData"
+                                                  ];
+                                              }
+                                            }).apply(null, eventArgs);
+                                          }}
+                                          placeholder={"City"}
+                                          required={true}
+                                          value={
+                                            generateStateValueProp($state, [
+                                              "inputCity",
+                                              "value"
+                                            ]) ?? ""
+                                          }
+                                        />
+
+                                        <h6
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.h6,
+                                            projectcss.__wab_text,
+                                            sty.h6__u5SN0
+                                          )}
+                                        >
+                                          {"Country"}
+                                        </h6>
+                                        <DataFetcher
+                                          data-plasmic-name={
+                                            "httpRestApiFetcher"
+                                          }
+                                          data-plasmic-override={
+                                            overrides.httpRestApiFetcher
+                                          }
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.httpRestApiFetcher
+                                          )}
+                                          dataName={"fetchedCountries"}
+                                          errorDisplay={
+                                            <DataCtxReader__>
+                                              {$ctx => "Error fetching data"}
+                                            </DataCtxReader__>
+                                          }
+                                          errorName={"fetchError"}
+                                          headers={{
+                                            "Content-Type": "application/json",
+                                            Accept: "application/json",
+                                            apikey:
+                                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY5NTE4NjksImV4cCI6MjAwMjUyNzg2OX0.epN8z7ALKCjIWpz056OgbiL2Af1fg5W61yWXzGJALwA",
+                                            Authorization:
+                                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njk1MTg2OSwiZXhwIjoyMDAyNTI3ODY5fQ.Zg1jbFVl47RffMhBG1rM2XeAEJzUasurJxGPq78ACp0"
+                                          }}
+                                          loadingDisplay={
+                                            <DataCtxReader__>
+                                              {$ctx => "Loading..."}
+                                            </DataCtxReader__>
+                                          }
+                                          method={"GET"}
+                                          noLayout={false}
+                                          url={
+                                            "https://tsbldwzuynryqbmaguci.supabase.co/rest/v1/typecountries?select=name&order=name.asc"
+                                          }
+                                        >
+                                          <DataCtxReader__>
+                                            {$ctx => (
                                               <div
                                                 className={classNames(
                                                   projectcss.all,
-                                                  sty.freeBox__xQh02
+                                                  sty.freeBox___086D7
                                                 )}
                                               >
-                                                <h6
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.h6,
-                                                    projectcss.__wab_text,
-                                                    sty.h6__rtMv1
-                                                  )}
-                                                >
-                                                  {"Talent"}
-                                                </h6>
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__hHim8
-                                                  )}
-                                                >
-                                                  {
-                                                    "I am or representing a talent"
+                                                <AntdSelect
+                                                  data-plasmic-name={
+                                                    "selectCountry"
                                                   }
-                                                </div>
-                                              </div>
-                                            </AntdRadio>
-                                          ) : null}
-                                          {(() => {
-                                            try {
-                                              return $state.role === "";
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return true;
-                                              }
-                                              throw e;
-                                            }
-                                          })() ? (
-                                            <AntdRadio
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.radio__nzVta
-                                              )}
-                                              value={"talent"}
-                                            >
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__b7W3Q
-                                                )}
-                                              >
-                                                <h6
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.h6,
-                                                    projectcss.__wab_text,
-                                                    sty.h6___8RY3Z
-                                                  )}
-                                                >
-                                                  {"Talent"}
-                                                </h6>
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__z2TEh
-                                                  )}
-                                                >
-                                                  {
-                                                    "I am or representing a talent"
+                                                  data-plasmic-override={
+                                                    overrides.selectCountry
                                                   }
-                                                </div>
-                                              </div>
-                                            </AntdRadio>
-                                          ) : null}
-                                          {(() => {
-                                            try {
-                                              return $state.role === "";
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return true;
-                                              }
-                                              throw e;
-                                            }
-                                          })() ? (
-                                            <AntdRadio
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.radio__ujurD
-                                              )}
-                                              value={"booker"}
-                                            >
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__aJod9
-                                                )}
-                                              >
-                                                <h6
+                                                  bordered={false}
                                                   className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.h6,
-                                                    projectcss.__wab_text,
-                                                    sty.h6__grX3G
+                                                    "__wab_instance",
+                                                    sty.selectCountry
                                                   )}
-                                                >
-                                                  {"Booker"}
-                                                </h6>
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__vUaMh
+                                                  defaultStylesClassName={classNames(
+                                                    projectcss.root_reset,
+                                                    projectcss.plasmic_default_styles,
+                                                    projectcss.plasmic_mixins,
+                                                    projectcss.plasmic_tokens,
+                                                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                                                    plasmic_plasmic_rich_components_css.plasmic_tokens
                                                   )}
-                                                >
-                                                  {
-                                                    "I am or representing a booker"
+                                                  onChange={async (
+                                                    ...eventArgs: any
+                                                  ) => {
+                                                    generateStateOnChangeProp(
+                                                      $state,
+                                                      ["selectCountry", "value"]
+                                                    ).apply(null, eventArgs);
+
+                                                    (async (value, option) => {
+                                                      const $steps = {};
+
+                                                      $steps[
+                                                        "updateLocationData"
+                                                      ] = true
+                                                        ? (() => {
+                                                            const actionArgs = {
+                                                              variable: {
+                                                                objRoot: $state,
+                                                                variablePath: [
+                                                                  "locationData"
+                                                                ]
+                                                              },
+                                                              operation: 0,
+                                                              value: (() => {
+                                                                const locationData =
+                                                                  JSON.parse(
+                                                                    $state.locationData
+                                                                  );
+                                                                locationData.country =
+                                                                  $state.selectCountry.value;
+                                                                return ($state.locationData =
+                                                                  JSON.stringify(
+                                                                    locationData
+                                                                  ));
+                                                              })()
+                                                            };
+                                                            return (({
+                                                              variable,
+                                                              value,
+                                                              startIndex,
+                                                              deleteCount
+                                                            }) => {
+                                                              if (!variable) {
+                                                                return;
+                                                              }
+                                                              const {
+                                                                objRoot,
+                                                                variablePath
+                                                              } = variable;
+
+                                                              $stateSet(
+                                                                objRoot,
+                                                                variablePath,
+                                                                value
+                                                              );
+                                                              return value;
+                                                            })?.apply(null, [
+                                                              actionArgs
+                                                            ]);
+                                                          })()
+                                                        : undefined;
+                                                      if (
+                                                        $steps[
+                                                          "updateLocationData"
+                                                        ] != null &&
+                                                        typeof $steps[
+                                                          "updateLocationData"
+                                                        ] === "object" &&
+                                                        typeof $steps[
+                                                          "updateLocationData"
+                                                        ].then === "function"
+                                                      ) {
+                                                        $steps[
+                                                          "updateLocationData"
+                                                        ] = await $steps[
+                                                          "updateLocationData"
+                                                        ];
+                                                      }
+                                                    }).apply(null, eventArgs);
+                                                  }}
+                                                  optionClassName={classNames({
+                                                    [sty["pcls_9tgYGgGEzNxj"]]:
+                                                      true
+                                                  })}
+                                                  options={(() => {
+                                                    try {
+                                                      return $ctx.fetchedCountries
+                                                        .sort((a, b) =>
+                                                          a.name.localeCompare(
+                                                            b.name
+                                                          )
+                                                        )
+                                                        .map(item => ({
+                                                          label: item.name,
+                                                          value: item.name
+                                                        }));
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return [
+                                                          {
+                                                            value: "option1",
+                                                            label: "Option 1",
+                                                            type: "option"
+                                                          },
+                                                          {
+                                                            value: "option2",
+                                                            label: "Option 2",
+                                                            type: "option"
+                                                          }
+                                                        ];
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  placeholder={"Select..."}
+                                                  popupClassName={classNames({
+                                                    [sty["pcls_ACmfzL9fFHwD"]]:
+                                                      true
+                                                  })}
+                                                  popupScopeClassName={
+                                                    sty["selectCountry__popup"]
                                                   }
-                                                </div>
+                                                  showSearch={true}
+                                                  triggerClassName={classNames({
+                                                    [sty["pcls_n1I-kmv8ISc6"]]:
+                                                      true
+                                                  })}
+                                                  value={generateStateValueProp(
+                                                    $state,
+                                                    ["selectCountry", "value"]
+                                                  )}
+                                                />
                                               </div>
-                                            </AntdRadio>
-                                          ) : null}
-                                          {(() => {
-                                            try {
-                                              return $state.role === "booker";
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return true;
-                                              }
-                                              throw e;
-                                            }
-                                          })() ? (
-                                            <AntdRadio
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.radio__ewDy
-                                              )}
-                                              value={"booker"}
-                                            >
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__nvHei
-                                                )}
-                                              >
-                                                <h6
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.h6,
-                                                    projectcss.__wab_text,
-                                                    sty.h6__po4Av
-                                                  )}
-                                                >
-                                                  {"Booker"}
-                                                </h6>
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__pn4Ge
-                                                  )}
-                                                >
-                                                  {
-                                                    "I am or representing a booker"
-                                                  }
-                                                </div>
-                                              </div>
-                                            </AntdRadio>
-                                          ) : null}
-                                          {(() => {
-                                            try {
-                                              return (
-                                                $state.role !== "" &&
-                                                $state.role !== "booker"
-                                              );
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return true;
-                                              }
-                                              throw e;
-                                            }
-                                          })() ? (
-                                            <AntdRadio
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.radio__n8Cpj
-                                              )}
-                                              value={"booker"}
-                                            >
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__lfcFb
-                                                )}
-                                              >
-                                                <h6
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.h6,
-                                                    projectcss.__wab_text,
-                                                    sty.h6__qwv5E
-                                                  )}
-                                                >
-                                                  {"Booker"}
-                                                </h6>
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text___3JeV
-                                                  )}
-                                                >
-                                                  {
-                                                    "I am or representing a booker"
-                                                  }
-                                                </div>
-                                              </div>
-                                            </AntdRadio>
-                                          ) : null}
-                                        </AntdRadioGroup>
-                                      </Stack__>
-                                    </div>
-                                    <AntdButton
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.button___7BYWk
-                                      )}
-                                      shape={"default"}
-                                      size={"large"}
-                                      submitsForm={true}
-                                      type={"primary"}
-                                    >
+                                            )}
+                                          </DataCtxReader__>
+                                        </DataFetcher>
+                                      </div>
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__wDae8
+                                          sty.freeBox__f9YXp
                                         )}
                                       >
-                                        {"Submit"}
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__tl0Dd
+                                          )}
+                                        >
+                                          <h5
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.h5,
+                                              projectcss.__wab_text,
+                                              sty.h5__dflo
+                                            )}
+                                          >
+                                            {"Select your role"}
+                                          </h5>
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__ew3Vt
+                                            )}
+                                          >
+                                            {
+                                              "Are you a talent looking to showcase your skills, representing a talent, a booker searching for the perfect talent, or part of a booker\u2019s team? Please select your role to proceed."
+                                            }
+                                          </div>
+                                        </div>
+                                        <Stack__
+                                          as={"div"}
+                                          hasGap={true}
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox___5MvOz
+                                          )}
+                                        >
+                                          <AntdRadioGroup
+                                            data-plasmic-name={"radioGroup"}
+                                            data-plasmic-override={
+                                              overrides.radioGroup
+                                            }
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.radioGroup
+                                            )}
+                                            onChange={async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                ["radioGroup", "value"]
+                                              ).apply(null, eventArgs);
+
+                                              (async value => {
+                                                const $steps = {};
+
+                                                $steps["updateRole"] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        variable: {
+                                                          objRoot: $state,
+                                                          variablePath: ["role"]
+                                                        },
+                                                        operation: 0,
+                                                        value:
+                                                          $state.radioGroup
+                                                            .value
+                                                      };
+                                                      return (({
+                                                        variable,
+                                                        value,
+                                                        startIndex,
+                                                        deleteCount
+                                                      }) => {
+                                                        if (!variable) {
+                                                          return;
+                                                        }
+                                                        const {
+                                                          objRoot,
+                                                          variablePath
+                                                        } = variable;
+
+                                                        $stateSet(
+                                                          objRoot,
+                                                          variablePath,
+                                                          value
+                                                        );
+                                                        return value;
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["updateRole"] !=
+                                                    null &&
+                                                  typeof $steps[
+                                                    "updateRole"
+                                                  ] === "object" &&
+                                                  typeof $steps["updateRole"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["updateRole"] =
+                                                    await $steps["updateRole"];
+                                                }
+                                              }).apply(null, eventArgs);
+                                            }}
+                                            optionType={"button"}
+                                            options={(() => {
+                                              const __composite = [
+                                                { value: null, label: null },
+                                                { value: null, label: null }
+                                              ];
+                                              __composite["0"]["value"] =
+                                                "talent";
+                                              __composite["0"]["label"] =
+                                                "Talent";
+                                              __composite["1"]["value"] =
+                                                "booker";
+                                              __composite["1"]["label"] =
+                                                "Booker";
+                                              return __composite;
+                                            })()}
+                                            useChildren={true}
+                                            value={generateStateValueProp(
+                                              $state,
+                                              ["radioGroup", "value"]
+                                            )}
+                                          >
+                                            {(() => {
+                                              try {
+                                                return $state.role === "talent";
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return true;
+                                                }
+                                                throw e;
+                                              }
+                                            })() ? (
+                                              <AntdRadio
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.radio__fvU3G
+                                                )}
+                                                value={"talent"}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__v0Iv4
+                                                  )}
+                                                >
+                                                  <h6
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.h6,
+                                                      projectcss.__wab_text,
+                                                      sty.h6__jLhHw
+                                                    )}
+                                                  >
+                                                    {"Talent"}
+                                                  </h6>
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__v0G7
+                                                    )}
+                                                  >
+                                                    {
+                                                      "I am or representing a talent"
+                                                    }
+                                                  </div>
+                                                </div>
+                                              </AntdRadio>
+                                            ) : null}
+                                            {(() => {
+                                              try {
+                                                return (
+                                                  $state.role !== "" &&
+                                                  $state.role !== "talent"
+                                                );
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return true;
+                                                }
+                                                throw e;
+                                              }
+                                            })() ? (
+                                              <AntdRadio
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.radio___1D5I5
+                                                )}
+                                                value={"talent"}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__xQh02
+                                                  )}
+                                                >
+                                                  <h6
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.h6,
+                                                      projectcss.__wab_text,
+                                                      sty.h6__rtMv1
+                                                    )}
+                                                  >
+                                                    {"Talent"}
+                                                  </h6>
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__hHim8
+                                                    )}
+                                                  >
+                                                    {
+                                                      "I am or representing a talent"
+                                                    }
+                                                  </div>
+                                                </div>
+                                              </AntdRadio>
+                                            ) : null}
+                                            {(() => {
+                                              try {
+                                                return $state.role === "";
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return true;
+                                                }
+                                                throw e;
+                                              }
+                                            })() ? (
+                                              <AntdRadio
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.radio__nzVta
+                                                )}
+                                                value={"talent"}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__b7W3Q
+                                                  )}
+                                                >
+                                                  <h6
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.h6,
+                                                      projectcss.__wab_text,
+                                                      sty.h6___8RY3Z
+                                                    )}
+                                                  >
+                                                    {"Talent"}
+                                                  </h6>
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__z2TEh
+                                                    )}
+                                                  >
+                                                    {
+                                                      "I am or representing a talent"
+                                                    }
+                                                  </div>
+                                                </div>
+                                              </AntdRadio>
+                                            ) : null}
+                                            {(() => {
+                                              try {
+                                                return $state.role === "";
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return true;
+                                                }
+                                                throw e;
+                                              }
+                                            })() ? (
+                                              <AntdRadio
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.radio__ujurD
+                                                )}
+                                                value={"booker"}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__aJod9
+                                                  )}
+                                                >
+                                                  <h6
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.h6,
+                                                      projectcss.__wab_text,
+                                                      sty.h6__grX3G
+                                                    )}
+                                                  >
+                                                    {"Booker"}
+                                                  </h6>
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__vUaMh
+                                                    )}
+                                                  >
+                                                    {
+                                                      "I am or representing a booker"
+                                                    }
+                                                  </div>
+                                                </div>
+                                              </AntdRadio>
+                                            ) : null}
+                                            {(() => {
+                                              try {
+                                                return $state.role === "booker";
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return true;
+                                                }
+                                                throw e;
+                                              }
+                                            })() ? (
+                                              <AntdRadio
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.radio__ewDy
+                                                )}
+                                                value={"booker"}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__nvHei
+                                                  )}
+                                                >
+                                                  <h6
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.h6,
+                                                      projectcss.__wab_text,
+                                                      sty.h6__po4Av
+                                                    )}
+                                                  >
+                                                    {"Booker"}
+                                                  </h6>
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__pn4Ge
+                                                    )}
+                                                  >
+                                                    {
+                                                      "I am or representing a booker"
+                                                    }
+                                                  </div>
+                                                </div>
+                                              </AntdRadio>
+                                            ) : null}
+                                            {(() => {
+                                              try {
+                                                return (
+                                                  $state.role !== "" &&
+                                                  $state.role !== "booker"
+                                                );
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return true;
+                                                }
+                                                throw e;
+                                              }
+                                            })() ? (
+                                              <AntdRadio
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.radio__n8Cpj
+                                                )}
+                                                value={"booker"}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__lfcFb
+                                                  )}
+                                                >
+                                                  <h6
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.h6,
+                                                      projectcss.__wab_text,
+                                                      sty.h6__qwv5E
+                                                    )}
+                                                  >
+                                                    {"Booker"}
+                                                  </h6>
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text___3JeV
+                                                    )}
+                                                  >
+                                                    {
+                                                      "I am or representing a booker"
+                                                    }
+                                                  </div>
+                                                </div>
+                                              </AntdRadio>
+                                            ) : null}
+                                          </AntdRadioGroup>
+                                        </Stack__>
                                       </div>
-                                    </AntdButton>
-                                    {(() => {
-                                      try {
-                                        return (
-                                          $state.role === "booker" ||
-                                          $state.role === "talent"
-                                        );
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return true;
-                                        }
-                                        throw e;
-                                      }
-                                    })() ? (
-                                      <Button
+                                      <AntdButton
                                         className={classNames(
                                           "__wab_instance",
-                                          sty.button__sLeK
+                                          sty.button___7BYWk
                                         )}
-                                        color={"blue"}
+                                        shape={"default"}
+                                        size={"large"}
                                         submitsForm={true}
+                                        type={"primary"}
                                       >
                                         <div
                                           className={classNames(
                                             projectcss.all,
                                             projectcss.__wab_text,
-                                            sty.text__ytapf
+                                            sty.text__wDae8
                                           )}
                                         >
                                           {"Submit"}
                                         </div>
-                                      </Button>
-                                    ) : null}
-                                    {false ? (
-                                      <AuthButton
-                                        data-plasmic-name={"authButton"}
-                                        data-plasmic-override={
-                                          overrides.authButton
-                                        }
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.authButton
-                                        )}
-                                        onClick={async event => {
-                                          const $steps = {};
-
-                                          $steps["talent"] =
+                                      </AntdButton>
+                                      {(() => {
+                                        try {
+                                          return (
+                                            $state.role === "booker" ||
                                             $state.role === "talent"
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    destination: (() => {
-                                                      try {
-                                                        return "https://talent.offtoglow.com";
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
-                                                        }
-                                                        throw e;
-                                                      }
-                                                    })()
-                                                  };
-                                                  return (({ destination }) => {
-                                                    if (
-                                                      typeof destination ===
-                                                        "string" &&
-                                                      destination.startsWith(
-                                                        "#"
-                                                      )
-                                                    ) {
-                                                      document
-                                                        .getElementById(
-                                                          destination.substr(1)
-                                                        )
-                                                        .scrollIntoView({
-                                                          behavior: "smooth"
-                                                        });
-                                                    } else {
-                                                      __nextRouter?.push(
-                                                        destination
-                                                      );
-                                                    }
-                                                  })?.apply(null, [actionArgs]);
-                                                })()
-                                              : undefined;
+                                          );
+                                        } catch (e) {
                                           if (
-                                            $steps["talent"] != null &&
-                                            typeof $steps["talent"] ===
-                                              "object" &&
-                                            typeof $steps["talent"].then ===
-                                              "function"
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
                                           ) {
-                                            $steps["talent"] = await $steps[
-                                              "talent"
-                                            ];
+                                            return true;
                                           }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <Button
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.button__sLeK
+                                          )}
+                                          color={"blue"}
+                                          submitsForm={true}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__ytapf
+                                            )}
+                                          >
+                                            {"Submit"}
+                                          </div>
+                                        </Button>
+                                      ) : null}
+                                      {false ? (
+                                        <AuthButton
+                                          data-plasmic-name={"authButton"}
+                                          data-plasmic-override={
+                                            overrides.authButton
+                                          }
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.authButton
+                                          )}
+                                          onClick={async event => {
+                                            const $steps = {};
 
-                                          $steps["booker"] =
-                                            $state.role === "booker"
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    destination: (() => {
-                                                      try {
-                                                        return "https://booker.offtoglow.com";
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
+                                            $steps["talent"] =
+                                              $state.role === "talent"
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      destination: (() => {
+                                                        try {
+                                                          return "https://talent.offtoglow.com";
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return undefined;
+                                                          }
+                                                          throw e;
                                                         }
-                                                        throw e;
-                                                      }
-                                                    })()
-                                                  };
-                                                  return (({ destination }) => {
-                                                    if (
-                                                      typeof destination ===
-                                                        "string" &&
-                                                      destination.startsWith(
-                                                        "#"
-                                                      )
-                                                    ) {
-                                                      document
-                                                        .getElementById(
-                                                          destination.substr(1)
+                                                      })()
+                                                    };
+                                                    return (({
+                                                      destination
+                                                    }) => {
+                                                      if (
+                                                        typeof destination ===
+                                                          "string" &&
+                                                        destination.startsWith(
+                                                          "#"
                                                         )
-                                                        .scrollIntoView({
-                                                          behavior: "smooth"
-                                                        });
-                                                    } else {
-                                                      __nextRouter?.push(
-                                                        destination
-                                                      );
-                                                    }
-                                                  })?.apply(null, [actionArgs]);
-                                                })()
-                                              : undefined;
-                                          if (
-                                            $steps["booker"] != null &&
-                                            typeof $steps["booker"] ===
-                                              "object" &&
-                                            typeof $steps["booker"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["booker"] = await $steps[
-                                              "booker"
-                                            ];
-                                          }
-                                        }}
-                                      />
-                                    ) : null}
-                                  </div>
-                                </FormWrapper>
-                              );
-                            })()
-                          : null}
-                      </div>
+                                                      ) {
+                                                        document
+                                                          .getElementById(
+                                                            destination.substr(
+                                                              1
+                                                            )
+                                                          )
+                                                          .scrollIntoView({
+                                                            behavior: "smooth"
+                                                          });
+                                                      } else {
+                                                        __nextRouter?.push(
+                                                          destination
+                                                        );
+                                                      }
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                            if (
+                                              $steps["talent"] != null &&
+                                              typeof $steps["talent"] ===
+                                                "object" &&
+                                              typeof $steps["talent"].then ===
+                                                "function"
+                                            ) {
+                                              $steps["talent"] = await $steps[
+                                                "talent"
+                                              ];
+                                            }
+
+                                            $steps["booker"] =
+                                              $state.role === "booker"
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      destination: (() => {
+                                                        try {
+                                                          return "https://booker.offtoglow.com";
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return undefined;
+                                                          }
+                                                          throw e;
+                                                        }
+                                                      })()
+                                                    };
+                                                    return (({
+                                                      destination
+                                                    }) => {
+                                                      if (
+                                                        typeof destination ===
+                                                          "string" &&
+                                                        destination.startsWith(
+                                                          "#"
+                                                        )
+                                                      ) {
+                                                        document
+                                                          .getElementById(
+                                                            destination.substr(
+                                                              1
+                                                            )
+                                                          )
+                                                          .scrollIntoView({
+                                                            behavior: "smooth"
+                                                          });
+                                                      } else {
+                                                        __nextRouter?.push(
+                                                          destination
+                                                        );
+                                                      }
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                            if (
+                                              $steps["booker"] != null &&
+                                              typeof $steps["booker"] ===
+                                                "object" &&
+                                              typeof $steps["booker"].then ===
+                                                "function"
+                                            ) {
+                                              $steps["booker"] = await $steps[
+                                                "booker"
+                                              ];
+                                            }
+                                          }}
+                                        />
+                                      ) : null}
+                                    </div>
+                                  </FormWrapper>
+                                );
+                              })()
+                            : null}
+                        </div>
+                      ) : null}
                     </ConditionGuard>
                   )}
                 </DataCtxReader__>
@@ -2201,6 +2453,7 @@ const PlasmicDescendants = {
     "card",
     "graphQlFetcher",
     "conditionGuard",
+    "h3",
     "authFormFirst",
     "form",
     "inputEmail",
@@ -2216,6 +2469,7 @@ const PlasmicDescendants = {
   graphQlFetcher: [
     "graphQlFetcher",
     "conditionGuard",
+    "h3",
     "authFormFirst",
     "form",
     "inputEmail",
@@ -2229,6 +2483,7 @@ const PlasmicDescendants = {
   ],
   conditionGuard: [
     "conditionGuard",
+    "h3",
     "authFormFirst",
     "form",
     "inputEmail",
@@ -2240,6 +2495,7 @@ const PlasmicDescendants = {
     "radioGroup",
     "authButton"
   ],
+  h3: ["h3"],
   authFormFirst: ["authFormFirst"],
   form: [
     "form",
@@ -2269,6 +2525,7 @@ type NodeDefaultElementType = {
   card: typeof Card;
   graphQlFetcher: typeof GraphqlFetcher;
   conditionGuard: typeof ConditionGuard;
+  h3: "h3";
   authFormFirst: typeof AuthFormFirst;
   form: typeof FormWrapper;
   inputEmail: typeof TextInput;
@@ -2345,6 +2602,7 @@ export const PlasmicWelcomeToYourProfileSetup = Object.assign(
     card: makeNodeComponent("card"),
     graphQlFetcher: makeNodeComponent("graphQlFetcher"),
     conditionGuard: makeNodeComponent("conditionGuard"),
+    h3: makeNodeComponent("h3"),
     authFormFirst: makeNodeComponent("authFormFirst"),
     form: makeNodeComponent("form"),
     inputEmail: makeNodeComponent("inputEmail"),

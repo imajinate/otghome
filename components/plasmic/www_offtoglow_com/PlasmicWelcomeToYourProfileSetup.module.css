@@ -104,7 +104,18 @@
   max-width: 100%;
   color: #222222;
   text-align: center;
+  margin-bottom: 20px;
   min-width: 0;
+}
+.h3 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: #222222;
+  text-align: left;
+  font-size: 38px;
+  min-width: 0;
+  padding: 0px 20px;
 }
 .text__tYe4 {
   width: 100%;
@@ -114,6 +125,104 @@
   color: #222222;
   min-width: 0;
   padding: 36px 20px 28px;
+}
+.freeBox__gmDLa {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: flex-end;
+  min-width: 0;
+  padding: 0px 20px;
+}
+.freeBox__gmDLa > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+}
+.freeBox__gmDLa > :global(.__wab_flex-container) > *,
+.freeBox__gmDLa > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__gmDLa > :global(.__wab_flex-container) > picture > img,
+.freeBox__gmDLa
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+}
+.button__bw26R:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  height: 88px;
+  min-width: 0;
+}
+.svg__qP9Fg {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.freeBox__p8Mnd {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.h4__zc7U3 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+.text__u52Ni {
+  font-size: 16px;
+  color: #222222;
+}
+.svg__atiBx {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.button__ssBh1:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  height: 88px;
+  min-width: 0;
+}
+.svg__bfm4G {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.freeBox__btUw {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.h4__gIzgl {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+.text__qozdn {
+  font-size: 16px;
+  font-weight: 400;
+  color: #222222;
+}
+.svg__biMdW {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
 }
 .authFormFirst:global(.__wab_instance) {
   max-width: 100%;
