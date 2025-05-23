@@ -775,42 +775,6 @@ function PlasmicAuthForm__RenderFunc(props: {
                   ) {
                     $steps["runHandleSubmit"] = await $steps["runHandleSubmit"];
                   }
-
-                  $steps["updateFormSubmitted"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["formSubmitted"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateFormSubmitted"] != null &&
-                    typeof $steps["updateFormSubmitted"] === "object" &&
-                    typeof $steps["updateFormSubmitted"].then === "function"
-                  ) {
-                    $steps["updateFormSubmitted"] = await $steps[
-                      "updateFormSubmitted"
-                    ];
-                  }
                 },
                 onIsSubmittingChange: async (...eventArgs: any) => {
                   generateStateOnChangePropForCodeComponents(

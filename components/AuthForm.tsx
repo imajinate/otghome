@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useState } from "react";
@@ -7,6 +8,7 @@ import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 export function AuthForm(): JSX.Element {
   const [supabaseClient] = useState(() => createPagesBrowserClient());
   const [country, setCountry] = useState("");
+  const router = useRouter(); // Voeg de router hook toe
 
   return (
     <PlasmicComponent
@@ -68,6 +70,8 @@ export function AuthForm(): JSX.Element {
             }
             
             await mutate(PLASMIC_AUTH_DATA_KEY);
+            // Router push naar succes pagina na succesvolle authenticatie
+            router.push('/succes');
           } catch (error) {
             console.error("Auth error:", error);
           }
