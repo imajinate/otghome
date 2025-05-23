@@ -60,13 +60,12 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
+import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
-import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import Select from "../../Select"; // plasmic-import: f9wHHf_Tqns2/component
 import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import { FormListWrapper } from "@plasmicpkgs/antd5/skinny/FormList";
 import { AntdPassword } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -101,6 +100,8 @@ export type PlasmicAuthForm__ArgsType = {
   onCurrentModeChange?: (val: string) => void;
   setResetEmail?: string;
   handlePasswordReset?: () => void;
+  onClick?: () => void;
+  onFormSubmitChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicAuthForm__ArgsType;
 export const PlasmicAuthForm__ArgProps = new Array<ArgPropType>(
@@ -108,23 +109,26 @@ export const PlasmicAuthForm__ArgProps = new Array<ArgPropType>(
   "currentMode",
   "onCurrentModeChange",
   "setResetEmail",
-  "handlePasswordReset"
+  "handlePasswordReset",
+  "onClick",
+  "onFormSubmitChange"
 );
 
 export type PlasmicAuthForm__OverridesType = {
   root?: Flex__<"div">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
-  form?: Flex__<typeof FormWrapper>;
   countrySelect?: Flex__<typeof AntdSelect>;
+  form?: Flex__<typeof FormWrapper>;
   credentialsForm?: Flex__<typeof FormWrapper>;
   firstNameInput?: Flex__<typeof AntdInput>;
   lastNameInput?: Flex__<typeof AntdInput>;
   cityInput?: Flex__<typeof AntdInput>;
-  select?: Flex__<typeof Select>;
+  countrySel?: Flex__<typeof AntdSelect>;
   emailInput?: Flex__<typeof AntdInput>;
   graphQlFetcher?: Flex__<typeof GraphqlFetcher>;
   ladvar?: Flex__<typeof FormWrapper>;
   emailcheck?: Flex__<typeof FormListWrapper>;
+  confirmEmailInput?: Flex__<typeof AntdInput>;
   passwordInput?: Flex__<typeof AntdPassword>;
   confirmPasswordInput?: Flex__<typeof AntdPassword>;
   ul?: Flex__<"ul">;
@@ -138,6 +142,8 @@ export interface DefaultAuthFormProps {
   onCurrentModeChange?: (val: string) => void;
   setResetEmail?: string;
   handlePasswordReset?: () => void;
+  onClick?: () => void;
+  onFormSubmitChange?: (val: string) => void;
   mode?: SingleChoiceArg<"signIn" | "signUp" | "checkEmail" | "forgotPassword">;
   className?: string;
 }
@@ -373,12 +379,6 @@ function PlasmicAuthForm__RenderFunc(props: {
           })()
       },
       {
-        path: "select.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "form.value",
         type: "private",
         variableType: "object",
@@ -395,6 +395,41 @@ function PlasmicAuthForm__RenderFunc(props: {
 
         refName: "form",
         onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      },
+      {
+        path: "countrySel.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "confirmEmailInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "formSubmit",
+        type: "readonly",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.credentialsForm.isSubmitting;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })(),
+
+        onChangeProp: "onFormSubmitChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -511,6 +546,77 @@ function PlasmicAuthForm__RenderFunc(props: {
           <DataCtxReader__>
             {$ctx => (
               <React.Fragment>
+                <div className={classNames(projectcss.all, sty.freeBox__c4Mbt)}>
+                  <AntdSelect
+                    data-plasmic-name={"countrySelect"}
+                    data-plasmic-override={overrides.countrySelect}
+                    bordered={false}
+                    className={classNames("__wab_instance", sty.countrySelect)}
+                    defaultOpen={false}
+                    defaultStylesClassName={classNames(
+                      projectcss.root_reset,
+                      projectcss.plasmic_default_styles,
+                      projectcss.plasmic_mixins,
+                      projectcss.plasmic_tokens,
+                      plasmic_antd_5_hostless_css.plasmic_tokens,
+                      plasmic_plasmic_rich_components_css.plasmic_tokens
+                    )}
+                    mode={"single"}
+                    onChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "countrySelect",
+                        "value"
+                      ]).apply(null, eventArgs);
+                    }}
+                    options={(() => {
+                      try {
+                        return $ctx.fetchedCountries.map(item => ({
+                          label: item.name,
+                          value: item.name
+                        }));
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return (() => {
+                            const __composite = [
+                              { type: "option", value: null, label: null },
+                              { type: "option", value: null, label: null }
+                            ];
+                            __composite["0"]["value"] = "2";
+                            __composite["0"]["label"] = "2";
+                            __composite["1"]["value"] = "3";
+                            __composite["1"]["label"] = "3";
+                            return __composite;
+                          })();
+                        }
+                        throw e;
+                      }
+                    })()}
+                    placeholder={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__f6YBt
+                        )}
+                      >
+                        {"Select..."}
+                      </div>
+                    }
+                    placeholderClassName={classNames({
+                      [sty["pcls_miwbn8KTf9jN"]]: true
+                    })}
+                    popupScopeClassName={sty["countrySelect__popup"]}
+                    showSearch={true}
+                    useChildren={false}
+                    value={generateStateValueProp($state, [
+                      "countrySelect",
+                      "value"
+                    ])}
+                  />
+                </div>
                 {(() => {
                   const child$Props = {
                     children: null,
@@ -586,84 +692,6 @@ function PlasmicAuthForm__RenderFunc(props: {
                     />
                   );
                 })()}
-                {false ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__c4Mbt)}
-                  >
-                    <AntdSelect
-                      data-plasmic-name={"countrySelect"}
-                      data-plasmic-override={overrides.countrySelect}
-                      bordered={false}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.countrySelect
-                      )}
-                      defaultOpen={false}
-                      defaultStylesClassName={classNames(
-                        projectcss.root_reset,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
-                        projectcss.plasmic_tokens,
-                        plasmic_antd_5_hostless_css.plasmic_tokens,
-                        plasmic_plasmic_rich_components_css.plasmic_tokens
-                      )}
-                      mode={"single"}
-                      onChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "countrySelect",
-                          "value"
-                        ]).apply(null, eventArgs);
-                      }}
-                      options={(() => {
-                        try {
-                          return $ctx.fetchedCountries.map(item => ({
-                            label: item.name,
-                            value: item.name
-                          }));
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return (() => {
-                              const __composite = [
-                                { type: "option", value: null, label: null },
-                                { type: "option", value: null, label: null }
-                              ];
-                              __composite["0"]["value"] = "2";
-                              __composite["0"]["label"] = "2";
-                              __composite["1"]["value"] = "3";
-                              __composite["1"]["label"] = "3";
-                              return __composite;
-                            })();
-                          }
-                          throw e;
-                        }
-                      })()}
-                      placeholder={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__f6YBt
-                          )}
-                        >
-                          {"Select..."}
-                        </div>
-                      }
-                      placeholderClassName={classNames({
-                        [sty["pcls_miwbn8KTf9jN"]]: true
-                      })}
-                      popupScopeClassName={sty["countrySelect__popup"]}
-                      showSearch={true}
-                      useChildren={false}
-                      value={generateStateValueProp($state, [
-                        "countrySelect",
-                        "value"
-                      ])}
-                    />
-                  </div>
-                ) : null}
               </React.Fragment>
             )}
           </DataCtxReader__>
@@ -935,6 +963,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                       "__wab_instance",
                       sty.formField___0Slv9
                     )}
+                    hideValidationMessage={false}
                     label={
                       <div
                         className={classNames(
@@ -999,71 +1028,129 @@ function PlasmicAuthForm__RenderFunc(props: {
                       })()}
                     </div>
                   </FormItemWrapper>
-                  <FormItemWrapper
-                    className={classNames(
-                      "__wab_instance",
-                      sty.formField___61I63
-                    )}
-                    label={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__yRdxp
-                        )}
-                      >
-                        {"City"}
-                      </div>
-                    }
-                    name={"country"}
-                    rules={[{ ruleType: "required", message: "Required" }]}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__zdfJ)}
                   >
-                    <Select
-                      data-plasmic-name={"select"}
-                      data-plasmic-override={overrides.select}
-                      className={classNames("__wab_instance", sty.select)}
-                      name={"country"}
-                      onChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "select",
-                            "value"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__a6IEu
+                      )}
+                    >
+                      {"Country"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___1ZnD1
+                      )}
+                    >
+                      <FormItemWrapper
+                        className={classNames(
+                          "__wab_instance",
+                          sty.formField___61I63
+                        )}
+                        label={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__yRdxp
+                            )}
+                          >
+                            {"Country"}
+                          </div>
                         }
-                      }}
-                      options={(() => {
-                        try {
-                          return $state.country.map(item => ({
-                            label: item.name,
-                            value: item.name
-                          }));
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [
-                              { value: "option1", label: "Option 1" },
-                              { value: "option2", label: "Option 2" }
-                            ];
+                        name={"country"}
+                        noLabel={true}
+                        rules={[{ ruleType: "required", message: "Required" }]}
+                      >
+                        <AntdSelect
+                          data-plasmic-name={"countrySel"}
+                          data-plasmic-override={overrides.countrySel}
+                          bordered={false}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.countrySel
+                          )}
+                          defaultOpen={false}
+                          defaultStylesClassName={classNames(
+                            projectcss.root_reset,
+                            projectcss.plasmic_default_styles,
+                            projectcss.plasmic_mixins,
+                            projectcss.plasmic_tokens,
+                            plasmic_antd_5_hostless_css.plasmic_tokens,
+                            plasmic_plasmic_rich_components_css.plasmic_tokens
+                          )}
+                          mode={"single"}
+                          onChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "countrySel",
+                              "value"
+                            ]).apply(null, eventArgs);
+                          }}
+                          optionClassName={classNames({
+                            [sty["pcls_uTou7ZeS07hv"]]: true
+                          })}
+                          options={(() => {
+                            try {
+                              return $state.country.map(item => ({
+                                label: item.name,
+                                value: item.name
+                              }));
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return (() => {
+                                  const __composite = [
+                                    {
+                                      type: "option",
+                                      value: null,
+                                      label: null
+                                    },
+                                    { type: "option", value: null, label: null }
+                                  ];
+                                  __composite["0"]["value"] = "2";
+                                  __composite["0"]["label"] = "2";
+                                  __composite["1"]["value"] = "3";
+                                  __composite["1"]["label"] = "3";
+                                  return __composite;
+                                })();
+                              }
+                              throw e;
+                            }
+                          })()}
+                          placeholder={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__t0MTb
+                              )}
+                            >
+                              {"Select Country"}
+                            </div>
                           }
-                          throw e;
-                        }
-                      })()}
-                      value={generateStateValueProp($state, [
-                        "select",
-                        "value"
-                      ])}
-                    />
-                  </FormItemWrapper>
+                          placeholderClassName={classNames({
+                            [sty["pcls_X28_OgdywHKx"]]: true
+                          })}
+                          popupScopeClassName={sty["countrySel__popup"]}
+                          showSearch={true}
+                          triggerClassName={classNames({
+                            [sty["pcls_ND4z3wAPw0IJ"]]: true
+                          })}
+                          useChildren={false}
+                          value={generateStateValueProp($state, [
+                            "countrySel",
+                            "value"
+                          ])}
+                        />
+                      </FormItemWrapper>
+                    </div>
+                  </div>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
@@ -1504,6 +1591,163 @@ function PlasmicAuthForm__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
+                      sty.formField__kRcY3
+                    )}
+                    hideValidationMessage={false}
+                    label={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__wddLg
+                        )}
+                      >
+                        {"Confirm Email"}
+                      </div>
+                    }
+                    name={"confirmemail"}
+                    rules={[]}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__mXZk)}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          bordered: false,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.confirmEmailInput
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["confirmEmailInput", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+
+                            (async event => {
+                              const $steps = {};
+
+                              $steps["updateAvailEmail"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["availEmail"]
+                                      },
+                                      operation: 0,
+                                      value: $state.confirmEmailInput.value
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateAvailEmail"] != null &&
+                                typeof $steps["updateAvailEmail"] ===
+                                  "object" &&
+                                typeof $steps["updateAvailEmail"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateAvailEmail"] = await $steps[
+                                  "updateAvailEmail"
+                                ];
+                              }
+                            }).apply(null, eventArgs);
+                          },
+                          placeholder: "Email",
+                          value: generateStateValueProp($state, [
+                            "confirmEmailInput",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "confirmEmailInput.value"
+                            }
+                          ],
+                          [],
+                          AntdInput_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdInput
+                            data-plasmic-name={"confirmEmailInput"}
+                            data-plasmic-override={overrides.confirmEmailInput}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                    </div>
+                    {(() => {
+                      try {
+                        return $state.confirmEmailInput.value
+                          ? $state.emailInput.value !==
+                              $state.confirmEmailInput.value
+                          : false;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__nMoG5
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                if (
+                                  $state.emailInput.value !==
+                                  $state.confirmEmailInput.value
+                                ) {
+                                  return "Emails do not match. Please ensure both entries are identical.";
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "Password is not the same\n";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
+                  </FormItemWrapper>
+                  <FormItemWrapper
+                    className={classNames(
+                      "__wab_instance",
                       sty.formField___1PVdn
                     )}
                     label={
@@ -1876,9 +2120,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                         throw e;
                       }
                     })()}
-                    onClick={async () => {
-                      const $steps = {};
-                    }}
+                    onClick={args.onClick}
                     shape={"default"}
                     size={"large"}
                     submitsForm={true}
@@ -2400,36 +2642,38 @@ const PlasmicDescendants = {
   root: [
     "root",
     "httpRestApiFetcher",
-    "form",
     "countrySelect",
+    "form",
     "credentialsForm",
     "firstNameInput",
     "lastNameInput",
     "cityInput",
-    "select",
+    "countrySel",
     "emailInput",
     "graphQlFetcher",
     "ladvar",
     "emailcheck",
+    "confirmEmailInput",
     "passwordInput",
     "confirmPasswordInput",
     "ul",
     "forgotPasswordForm",
     "input"
   ],
-  httpRestApiFetcher: ["httpRestApiFetcher", "form", "countrySelect"],
-  form: ["form"],
+  httpRestApiFetcher: ["httpRestApiFetcher", "countrySelect", "form"],
   countrySelect: ["countrySelect"],
+  form: ["form"],
   credentialsForm: [
     "credentialsForm",
     "firstNameInput",
     "lastNameInput",
     "cityInput",
-    "select",
+    "countrySel",
     "emailInput",
     "graphQlFetcher",
     "ladvar",
     "emailcheck",
+    "confirmEmailInput",
     "passwordInput",
     "confirmPasswordInput",
     "ul"
@@ -2437,11 +2681,12 @@ const PlasmicDescendants = {
   firstNameInput: ["firstNameInput"],
   lastNameInput: ["lastNameInput"],
   cityInput: ["cityInput"],
-  select: ["select"],
+  countrySel: ["countrySel"],
   emailInput: ["emailInput"],
   graphQlFetcher: ["graphQlFetcher", "ladvar", "emailcheck"],
   ladvar: ["ladvar", "emailcheck"],
   emailcheck: ["emailcheck"],
+  confirmEmailInput: ["confirmEmailInput"],
   passwordInput: ["passwordInput"],
   confirmPasswordInput: ["confirmPasswordInput"],
   ul: ["ul"],
@@ -2454,17 +2699,18 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   httpRestApiFetcher: typeof DataFetcher;
-  form: typeof FormWrapper;
   countrySelect: typeof AntdSelect;
+  form: typeof FormWrapper;
   credentialsForm: typeof FormWrapper;
   firstNameInput: typeof AntdInput;
   lastNameInput: typeof AntdInput;
   cityInput: typeof AntdInput;
-  select: typeof Select;
+  countrySel: typeof AntdSelect;
   emailInput: typeof AntdInput;
   graphQlFetcher: typeof GraphqlFetcher;
   ladvar: typeof FormWrapper;
   emailcheck: typeof FormListWrapper;
+  confirmEmailInput: typeof AntdInput;
   passwordInput: typeof AntdPassword;
   confirmPasswordInput: typeof AntdPassword;
   ul: "ul";
@@ -2533,17 +2779,18 @@ export const PlasmicAuthForm = Object.assign(
   {
     // Helper components rendering sub-elements
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
-    form: makeNodeComponent("form"),
     countrySelect: makeNodeComponent("countrySelect"),
+    form: makeNodeComponent("form"),
     credentialsForm: makeNodeComponent("credentialsForm"),
     firstNameInput: makeNodeComponent("firstNameInput"),
     lastNameInput: makeNodeComponent("lastNameInput"),
     cityInput: makeNodeComponent("cityInput"),
-    select: makeNodeComponent("select"),
+    countrySel: makeNodeComponent("countrySel"),
     emailInput: makeNodeComponent("emailInput"),
     graphQlFetcher: makeNodeComponent("graphQlFetcher"),
     ladvar: makeNodeComponent("ladvar"),
     emailcheck: makeNodeComponent("emailcheck"),
+    confirmEmailInput: makeNodeComponent("confirmEmailInput"),
     passwordInput: makeNodeComponent("passwordInput"),
     confirmPasswordInput: makeNodeComponent("confirmPasswordInput"),
     ul: makeNodeComponent("ul"),

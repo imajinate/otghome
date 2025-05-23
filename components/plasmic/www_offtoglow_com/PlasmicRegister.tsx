@@ -153,6 +153,12 @@ function PlasmicRegister__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "authForm.formSubmit",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -273,10 +279,10 @@ function PlasmicRegister__RenderFunc(props: {
                     "authForm",
                     "currentMode"
                   ])}
-                  handleSubmit={async (mode, credentials) => {
+                  onClick={async () => {
                     const $steps = {};
 
-                    $steps["updateFirstStep"] = true
+                    $steps["updateFirstStep"] = !!$state.authForm.formSubmit
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -316,6 +322,20 @@ function PlasmicRegister__RenderFunc(props: {
                     generateStateOnChangeProp($state, [
                       "authForm",
                       "currentMode"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onFormSubmitChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "authForm",
+                      "formSubmit"
                     ]).apply(null, eventArgs);
 
                     if (
