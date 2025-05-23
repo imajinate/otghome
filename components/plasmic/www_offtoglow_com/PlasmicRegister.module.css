@@ -127,6 +127,7 @@
   height: auto;
   max-width: 500px;
   margin-bottom: 18px;
+  background: var(--token-y67qtjHCZN4U);
   min-width: 0;
 }
 .authForm:global(.__wab_instance) {

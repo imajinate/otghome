@@ -59,13 +59,14 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
+import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { DataFetcher } from "@plasmicpkgs/plasmic-query";
-import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import Select from "../../Select"; // plasmic-import: f9wHHf_Tqns2/component
 import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import { FormListWrapper } from "@plasmicpkgs/antd5/skinny/FormList";
 import { AntdPassword } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -112,13 +113,14 @@ export const PlasmicAuthForm__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicAuthForm__OverridesType = {
   root?: Flex__<"div">;
+  httpRestApiFetcher?: Flex__<typeof DataFetcher>;
+  form?: Flex__<typeof FormWrapper>;
+  countrySelect?: Flex__<typeof AntdSelect>;
   credentialsForm?: Flex__<typeof FormWrapper>;
   firstNameInput?: Flex__<typeof AntdInput>;
   lastNameInput?: Flex__<typeof AntdInput>;
   cityInput?: Flex__<typeof AntdInput>;
-  httpRestApiFetcher?: Flex__<typeof DataFetcher>;
-  countrySelect?: Flex__<typeof AntdSelect>;
-  countryInput?: Flex__<typeof AntdInput>;
+  select?: Flex__<typeof Select>;
   emailInput?: Flex__<typeof AntdInput>;
   graphQlFetcher?: Flex__<typeof GraphqlFetcher>;
   ladvar?: Flex__<typeof FormWrapper>;
@@ -352,18 +354,47 @@ function PlasmicAuthForm__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "countryInput.value",
+        path: "country",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``,
-
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.form.value;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       },
       {
-        path: "selCountry",
+        path: "select.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "form.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "form",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "form.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+
+        refName: "form",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -426,6 +457,217 @@ function PlasmicAuthForm__RenderFunc(props: {
           )
         })}
       >
+        <DataFetcher
+          data-plasmic-name={"httpRestApiFetcher"}
+          data-plasmic-override={overrides.httpRestApiFetcher}
+          className={classNames("__wab_instance", sty.httpRestApiFetcher)}
+          dataName={"fetchedCountries"}
+          errorDisplay={
+            <DataCtxReader__>
+              {$ctx => (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__hoNx8
+                  )}
+                >
+                  {"Error fetching data"}
+                </div>
+              )}
+            </DataCtxReader__>
+          }
+          errorName={"fetchError"}
+          headers={{
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            apikey:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY5NTE4NjksImV4cCI6MjAwMjUyNzg2OX0.epN8z7ALKCjIWpz056OgbiL2Af1fg5W61yWXzGJALwA",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njk1MTg2OSwiZXhwIjoyMDAyNTI3ODY5fQ.Zg1jbFVl47RffMhBG1rM2XeAEJzUasurJxGPq78ACp0"
+          }}
+          loadingDisplay={
+            <DataCtxReader__>
+              {$ctx => (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__fmd9W
+                  )}
+                >
+                  {"Loading..."}
+                </div>
+              )}
+            </DataCtxReader__>
+          }
+          method={"GET"}
+          noLayout={false}
+          queryKey={"country"}
+          url={
+            "https://tsbldwzuynryqbmaguci.supabase.co/rest/v1/typecountries?select=name&order=name.asc"
+          }
+        >
+          <DataCtxReader__>
+            {$ctx => (
+              <React.Fragment>
+                {(() => {
+                  const child$Props = {
+                    children: null,
+                    className: classNames("__wab_instance", sty.form),
+                    extendedOnValuesChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "value",
+                        ["form", "value"],
+                        FormWrapper_Helpers
+                      ).apply(null, eventArgs);
+                    },
+                    formItems: [
+                      { label: "Name", name: "name", inputType: "Text" },
+                      {
+                        label: "Message",
+                        name: "message",
+                        inputType: "Text Area"
+                      }
+                    ],
+                    initialValues: (() => {
+                      try {
+                        return $ctx.fetchedCountries;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })(),
+                    labelCol: { span: 8, horizontalOnly: true },
+                    layout: "vertical",
+                    mode: "advanced",
+                    onIsSubmittingChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "isSubmitting",
+                        ["form", "isSubmitting"],
+                        FormWrapper_Helpers
+                      ).apply(null, eventArgs);
+                    },
+                    ref: ref => {
+                      $refs["form"] = ref;
+                    },
+                    submitSlot: null,
+                    wrapperCol: { span: 16, horizontalOnly: true }
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "value",
+                        plasmicStateName: "form.value"
+                      },
+                      {
+                        name: "isSubmitting",
+                        plasmicStateName: "form.isSubmitting"
+                      }
+                    ],
+                    [],
+                    FormWrapper_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <FormWrapper
+                      data-plasmic-name={"form"}
+                      data-plasmic-override={overrides.form}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+                {false ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__c4Mbt)}
+                  >
+                    <AntdSelect
+                      data-plasmic-name={"countrySelect"}
+                      data-plasmic-override={overrides.countrySelect}
+                      bordered={false}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.countrySelect
+                      )}
+                      defaultOpen={false}
+                      defaultStylesClassName={classNames(
+                        projectcss.root_reset,
+                        projectcss.plasmic_default_styles,
+                        projectcss.plasmic_mixins,
+                        projectcss.plasmic_tokens,
+                        plasmic_antd_5_hostless_css.plasmic_tokens,
+                        plasmic_plasmic_rich_components_css.plasmic_tokens
+                      )}
+                      mode={"single"}
+                      onChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "countrySelect",
+                          "value"
+                        ]).apply(null, eventArgs);
+                      }}
+                      options={(() => {
+                        try {
+                          return $ctx.fetchedCountries.map(item => ({
+                            label: item.name,
+                            value: item.name
+                          }));
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return (() => {
+                              const __composite = [
+                                { type: "option", value: null, label: null },
+                                { type: "option", value: null, label: null }
+                              ];
+                              __composite["0"]["value"] = "2";
+                              __composite["0"]["label"] = "2";
+                              __composite["1"]["value"] = "3";
+                              __composite["1"]["label"] = "3";
+                              return __composite;
+                            })();
+                          }
+                          throw e;
+                        }
+                      })()}
+                      placeholder={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__f6YBt
+                          )}
+                        >
+                          {"Select..."}
+                        </div>
+                      }
+                      placeholderClassName={classNames({
+                        [sty["pcls_miwbn8KTf9jN"]]: true
+                      })}
+                      popupScopeClassName={sty["countrySelect__popup"]}
+                      showSearch={true}
+                      useChildren={false}
+                      value={generateStateValueProp($state, [
+                        "countrySelect",
+                        "value"
+                      ])}
+                    />
+                  </div>
+                ) : null}
+              </React.Fragment>
+            )}
+          </DataCtxReader__>
+        </DataFetcher>
         {(hasVariant($state, "mode", "forgotPassword") ? false : true)
           ? (() => {
               const child$Props = {
@@ -760,259 +1002,67 @@ function PlasmicAuthForm__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__tfYip
+                      sty.formField___61I63
                     )}
-                    initialValue={$state.countrySelect.value}
                     label={
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text___2Jf8S
+                          sty.text__yRdxp
                         )}
                       >
-                        {"Country"}
+                        {"City"}
                       </div>
                     }
                     name={"country"}
-                    rules={[]}
+                    rules={[{ ruleType: "required", message: "Required" }]}
                   >
-                    <DataFetcher
-                      data-plasmic-name={"httpRestApiFetcher"}
-                      data-plasmic-override={overrides.httpRestApiFetcher}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.httpRestApiFetcher
-                      )}
-                      dataName={"fetchedCountries"}
-                      errorDisplay={
-                        <DataCtxReader__>
-                          {$ctx => (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__hoNx8
-                              )}
-                            >
-                              {"Error fetching data"}
-                            </div>
-                          )}
-                        </DataCtxReader__>
-                      }
-                      errorName={"fetchError"}
-                      headers={{
-                        "Content-Type": "application/json",
-                        Accept: "application/json",
-                        apikey:
-                          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY5NTE4NjksImV4cCI6MjAwMjUyNzg2OX0.epN8z7ALKCjIWpz056OgbiL2Af1fg5W61yWXzGJALwA",
-                        Authorization:
-                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzYmxkd3p1eW5yeXFibWFndWNpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njk1MTg2OSwiZXhwIjoyMDAyNTI3ODY5fQ.Zg1jbFVl47RffMhBG1rM2XeAEJzUasurJxGPq78ACp0"
+                    <Select
+                      data-plasmic-name={"select"}
+                      data-plasmic-override={overrides.select}
+                      className={classNames("__wab_instance", sty.select)}
+                      name={"country"}
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "select",
+                            "value"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
                       }}
-                      loadingDisplay={
-                        <DataCtxReader__>
-                          {$ctx => (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__fmd9W
-                              )}
-                            >
-                              {"Loading..."}
-                            </div>
-                          )}
-                        </DataCtxReader__>
-                      }
-                      method={"GET"}
-                      noLayout={false}
-                      queryKey={"country"}
-                      url={
-                        "https://tsbldwzuynryqbmaguci.supabase.co/rest/v1/typecountries?select=name&order=name.asc"
-                      }
-                    >
-                      <DataCtxReader__>
-                        {$ctx => (
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__c4Mbt
-                            )}
-                          >
-                            <AntdSelect
-                              data-plasmic-name={"countrySelect"}
-                              data-plasmic-override={overrides.countrySelect}
-                              bordered={false}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.countrySelect
-                              )}
-                              defaultOpen={false}
-                              defaultStylesClassName={classNames(
-                                projectcss.root_reset,
-                                projectcss.plasmic_default_styles,
-                                projectcss.plasmic_mixins,
-                                projectcss.plasmic_tokens,
-                                plasmic_antd_5_hostless_css.plasmic_tokens,
-                                plasmic_plasmic_rich_components_css.plasmic_tokens
-                              )}
-                              onChange={async (...eventArgs: any) => {
-                                generateStateOnChangeProp($state, [
-                                  "countrySelect",
-                                  "value"
-                                ]).apply(null, eventArgs);
-
-                                (async (value, option) => {
-                                  const $steps = {};
-
-                                  $steps["updateCountryInputValue"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: [
-                                              "countryInput",
-                                              "value"
-                                            ]
-                                          },
-                                          operation: 0,
-                                          value: $state.countrySelect.value
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateCountryInputValue"] != null &&
-                                    typeof $steps["updateCountryInputValue"] ===
-                                      "object" &&
-                                    typeof $steps["updateCountryInputValue"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["updateCountryInputValue"] =
-                                      await $steps["updateCountryInputValue"];
-                                  }
-                                }).apply(null, eventArgs);
-                              }}
-                              options={(() => {
-                                try {
-                                  return $ctx.fetchedCountries.map(item => ({
-                                    label: item.name,
-                                    value: item.name
-                                  }));
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return (() => {
-                                      const __composite = [
-                                        {
-                                          type: "option",
-                                          value: null,
-                                          label: null
-                                        },
-                                        {
-                                          type: "option",
-                                          value: null,
-                                          label: null
-                                        }
-                                      ];
-                                      __composite["0"]["value"] = "2";
-                                      __composite["0"]["label"] = "2";
-                                      __composite["1"]["value"] = "3";
-                                      __composite["1"]["label"] = "3";
-                                      return __composite;
-                                    })();
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                              placeholder={
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__f6YBt
-                                  )}
-                                >
-                                  {"Select..."}
-                                </div>
-                              }
-                              placeholderClassName={classNames({
-                                [sty["pcls_miwbn8KTf9jN"]]: true
-                              })}
-                              popupScopeClassName={sty["countrySelect__popup"]}
-                              showSearch={true}
-                              value={generateStateValueProp($state, [
-                                "countrySelect",
-                                "value"
-                              ])}
-                            />
-                          </div>
-                        )}
-                      </DataCtxReader__>
-                    </DataFetcher>
-                    {(() => {
-                      const child$Props = {
-                        bordered: false,
-                        className: classNames(
-                          "__wab_instance",
-                          sty.countryInput
-                        ),
-                        onChange: async (...eventArgs: any) => {
-                          generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["countryInput", "value"],
-                            AntdInput_Helpers
-                          ).apply(null, eventArgs);
-                        },
-                        placeholder: "country",
-                        value: generateStateValueProp($state, [
-                          "countryInput",
-                          "value"
-                        ])
-                      };
-                      initializeCodeComponentStates(
-                        $state,
-                        [
-                          {
-                            name: "value",
-                            plasmicStateName: "countryInput.value"
+                      options={(() => {
+                        try {
+                          return $state.country.map(item => ({
+                            label: item.name,
+                            value: item.name
+                          }));
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [
+                              { value: "option1", label: "Option 1" },
+                              { value: "option2", label: "Option 2" }
+                            ];
                           }
-                        ],
-                        [],
-                        AntdInput_Helpers ?? {},
-                        child$Props
-                      );
-
-                      return (
-                        <AntdInput
-                          data-plasmic-name={"countryInput"}
-                          data-plasmic-override={overrides.countryInput}
-                          {...child$Props}
-                        />
-                      );
-                    })()}
+                          throw e;
+                        }
+                      })()}
+                      value={generateStateValueProp($state, [
+                        "select",
+                        "value"
+                      ])}
+                    />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
@@ -2349,13 +2399,14 @@ function PlasmicAuthForm__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "httpRestApiFetcher",
+    "form",
+    "countrySelect",
     "credentialsForm",
     "firstNameInput",
     "lastNameInput",
     "cityInput",
-    "httpRestApiFetcher",
-    "countrySelect",
-    "countryInput",
+    "select",
     "emailInput",
     "graphQlFetcher",
     "ladvar",
@@ -2366,14 +2417,15 @@ const PlasmicDescendants = {
     "forgotPasswordForm",
     "input"
   ],
+  httpRestApiFetcher: ["httpRestApiFetcher", "form", "countrySelect"],
+  form: ["form"],
+  countrySelect: ["countrySelect"],
   credentialsForm: [
     "credentialsForm",
     "firstNameInput",
     "lastNameInput",
     "cityInput",
-    "httpRestApiFetcher",
-    "countrySelect",
-    "countryInput",
+    "select",
     "emailInput",
     "graphQlFetcher",
     "ladvar",
@@ -2385,9 +2437,7 @@ const PlasmicDescendants = {
   firstNameInput: ["firstNameInput"],
   lastNameInput: ["lastNameInput"],
   cityInput: ["cityInput"],
-  httpRestApiFetcher: ["httpRestApiFetcher", "countrySelect"],
-  countrySelect: ["countrySelect"],
-  countryInput: ["countryInput"],
+  select: ["select"],
   emailInput: ["emailInput"],
   graphQlFetcher: ["graphQlFetcher", "ladvar", "emailcheck"],
   ladvar: ["ladvar", "emailcheck"],
@@ -2403,13 +2453,14 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  httpRestApiFetcher: typeof DataFetcher;
+  form: typeof FormWrapper;
+  countrySelect: typeof AntdSelect;
   credentialsForm: typeof FormWrapper;
   firstNameInput: typeof AntdInput;
   lastNameInput: typeof AntdInput;
   cityInput: typeof AntdInput;
-  httpRestApiFetcher: typeof DataFetcher;
-  countrySelect: typeof AntdSelect;
-  countryInput: typeof AntdInput;
+  select: typeof Select;
   emailInput: typeof AntdInput;
   graphQlFetcher: typeof GraphqlFetcher;
   ladvar: typeof FormWrapper;
@@ -2481,13 +2532,14 @@ export const PlasmicAuthForm = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
+    form: makeNodeComponent("form"),
+    countrySelect: makeNodeComponent("countrySelect"),
     credentialsForm: makeNodeComponent("credentialsForm"),
     firstNameInput: makeNodeComponent("firstNameInput"),
     lastNameInput: makeNodeComponent("lastNameInput"),
     cityInput: makeNodeComponent("cityInput"),
-    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
-    countrySelect: makeNodeComponent("countrySelect"),
-    countryInput: makeNodeComponent("countryInput"),
+    select: makeNodeComponent("select"),
     emailInput: makeNodeComponent("emailInput"),
     graphQlFetcher: makeNodeComponent("graphQlFetcher"),
     ladvar: makeNodeComponent("ladvar"),
