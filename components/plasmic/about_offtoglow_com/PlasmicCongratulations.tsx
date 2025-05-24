@@ -224,7 +224,7 @@ function PlasmicCongratulations__RenderFunc(props: {
                 noLayout={false}
                 query={{
                   query:
-                    "query gebruiker($usercheck: String!) {\n  usersCollection(filter: {email: {eq: $usercheck}}) {\n    edges {\n      node {\n        email\n        name\n      }\n    }\n  }\n}",
+                    "query gebruiker($usercheck: String!) {\n  usersCollection(filter: {email: {eq: $usercheck}}) {\n    edges {\n      node {\n        email\n        name\n        deftalentteam\n        defbookerteam\n      }\n    }\n  }\n}",
                   variables: {}
                 }}
                 url={"https://tsbldwzuynryqbmaguci.supabase.co/graphql/v1"}
@@ -254,16 +254,17 @@ function PlasmicCongratulations__RenderFunc(props: {
                       condition={(() => {
                         try {
                           return (
-                            currentUser.email !==
                             $ctx.fetchedData.data.usersCollection.edges[0].node
-                              .email
+                              .defbookerteam === "" ||
+                            $ctx.fetchedData.data.usersCollection.edges[0].node
+                              .deftalentteam === ""
                           );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return true;
+                            return false;
                           }
                           throw e;
                         }
@@ -299,7 +300,12 @@ function PlasmicCongratulations__RenderFunc(props: {
                     >
                       {(() => {
                         try {
-                          return !currentUser.isLoggedIn;
+                          return (
+                            $ctx.fetchedData.data.usersCollection.edges[0].node
+                              .defbookerteam === "" ||
+                            $ctx.fetchedData.data.usersCollection.edges[0].node
+                              .deftalentteam === ""
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -316,58 +322,30 @@ function PlasmicCongratulations__RenderFunc(props: {
                             sty.freeBox__sagZa
                           )}
                         >
-                          {(() => {
-                            try {
-                              return !currentUser.isLoggedIn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <h2
-                              data-plasmic-name={"h2"}
-                              data-plasmic-override={overrides.h2}
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h2,
-                                projectcss.__wab_text,
-                                sty.h2
-                              )}
-                            >
-                              {"Congratulations \ud83c\udf89"}
-                            </h2>
-                          ) : null}
-                          {(() => {
-                            try {
-                              return !currentUser.isLoggedIn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <h3
-                              data-plasmic-name={"h3"}
-                              data-plasmic-override={overrides.h3}
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h3,
-                                projectcss.__wab_text,
-                                sty.h3
-                              )}
-                            >
-                              {"Your email address is confirmed!"}
-                            </h3>
-                          ) : null}
+                          <h2
+                            data-plasmic-name={"h2"}
+                            data-plasmic-override={overrides.h2}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h2,
+                              projectcss.__wab_text,
+                              sty.h2
+                            )}
+                          >
+                            {"Congratulations \ud83c\udf89"}
+                          </h2>
+                          <h3
+                            data-plasmic-name={"h3"}
+                            data-plasmic-override={overrides.h3}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h3,
+                              projectcss.__wab_text,
+                              sty.h3
+                            )}
+                          >
+                            {"Your email address is confirmed!"}
+                          </h3>
                           <div
                             className={classNames(
                               projectcss.all,
