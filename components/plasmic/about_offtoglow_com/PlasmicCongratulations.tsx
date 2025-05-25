@@ -257,7 +257,11 @@ function PlasmicCongratulations__RenderFunc(props: {
                             $ctx.fetchedData.data.usersCollection.edges[0].node
                               .defbookerteam === "" ||
                             $ctx.fetchedData.data.usersCollection.edges[0].node
-                              .deftalentteam === ""
+                              .defbookerteam === null ||
+                            $ctx.fetchedData.data.usersCollection.edges[0].node
+                              .deftalentteam === "" ||
+                            $ctx.fetchedData.data.usersCollection.edges[0].node
+                              .deftalentteam === null
                           );
                         } catch (e) {
                           if (
@@ -304,7 +308,11 @@ function PlasmicCongratulations__RenderFunc(props: {
                             $ctx.fetchedData.data.usersCollection.edges[0].node
                               .defbookerteam === "" ||
                             $ctx.fetchedData.data.usersCollection.edges[0].node
-                              .deftalentteam === ""
+                              .defbookerteam === null ||
+                            $ctx.fetchedData.data.usersCollection.edges[0].node
+                              .deftalentteam === "" ||
+                            $ctx.fetchedData.data.usersCollection.edges[0].node
+                              .deftalentteam === null
                           );
                         } catch (e) {
                           if (
