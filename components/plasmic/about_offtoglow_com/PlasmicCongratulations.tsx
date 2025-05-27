@@ -313,6 +313,22 @@ function PlasmicCongratulations__RenderFunc(props: {
                           "__wab_instance",
                           sty.emailVerificationHandler
                         )}
+                        firstName={(() => {
+                          try {
+                            return JSON.parse(
+                              $ctx.fetchedData.data.usersCollection.edges[0]
+                                .node.name
+                            ).first_name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
                       />
 
                       {false ? (
