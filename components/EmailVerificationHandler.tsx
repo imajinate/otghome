@@ -11,7 +11,7 @@ export function EmailVerificationHandler() {
   const [isExpired, setIsExpired] = useState(false);
   const supabase = createClientComponentClient();
 
-  // Check of de link is verlopen
+  // Check if the link has expired
   useEffect(() => {
     const { error, error_code } = router.query;
     if (error_code === "otp_expired" || error?.includes("expired")) {
@@ -21,11 +21,11 @@ export function EmailVerificationHandler() {
     }
   }, [router]);
 
-  // Verifieer het e-mailtoken
+  // Verify the email token
   const verifyEmail = async () => {
     try {
       const token = router.asPath.split("token=")[1]?.split("&")[0];
-      if (!token) throw new Error("Token niet gevonden in URL");
+      if (!token) throw new Error("Token not found in URL");
       
       const { error } = await supabase.auth.verifyOtp({
         type: "email",
@@ -34,12 +34,12 @@ export function EmailVerificationHandler() {
       if (error) throw error;
       router.push("/verified-success");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Verificatie mislukt");
+      setError(err instanceof Error ? err.message : "Verification failed");
       setIsExpired(true);
     }
   };
 
-  // CORRECTE MANIER om een nieuwe verificatielink te sturen in Supabase v2
+  // Resend verification email
   const resendVerification = async () => {
     setIsLoading(true);
     setError("");
@@ -51,33 +51,33 @@ export function EmailVerificationHandler() {
         },
       });
       if (error) throw error;
-      alert("Controleer je e-mail voor de nieuwe link!");
+      alert("Please check your email for the new verification link!");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Onbekende fout");
+      setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div>
+    <div className="verifation-container">
       {isExpired ? (
         <div>
-          <h1>Link verlopen</h1>
-          <p>Je verificatielink is ongeldig. Vul je e-mail in voor een nieuwe:</p>
+          <h1>Link Expired</h1>
+          <p>Your verification link is invalid. Please enter your email to receive a new one:</p>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Jouw e-mailadres"
-          />
+            placeholder="Your email address"
+          /><br></br>
           <button onClick={resendVerification} disabled={isLoading}>
-            {isLoading ? "Versturen..." : "Nieuwe link sturen"}
+            {isLoading ? "Sending..." : "Send New Link"}
           </button>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
       ) : (
-        <h1>Bezig met verifiëren...</h1>
+        <h1>Verifying your email...</h1>
       )}
     </div>
   );
