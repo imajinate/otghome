@@ -8,6 +8,7 @@ export function EmailVerificationHandler() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [isExpired, setIsExpired] = useState(false);
+  const [firstName, setFirstName] = useState("");
   const supabase = createClientComponentClient();
 
   const verifyEmail = useCallback(async () => {
@@ -15,12 +16,22 @@ export function EmailVerificationHandler() {
       const token = router.asPath.split("token=")[1]?.split("&")[0];
       if (!token) throw new Error("Token not found in URL");
       
-      const { error } = await supabase.auth.verifyOtp({
+      const { data: { user }, error } = await supabase.auth.verifyOtp({
         type: "email",
         token_hash: token,
       });
+
       if (error) throw error;
-      router.push("/verified-success");
+
+      // Haal de gebruiker opnieuw op om raw_user_meta_data te krijgen
+      const { data: { user: fullUser } } = await supabase.auth.getUser();
+      
+      if (fullUser) {
+        const metaData = fullUser.user_metadata || {};
+        setFirstName(metaData.first_name || "User");
+      }
+
+      setIsExpired(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Verification failed");
       setIsExpired(true);
@@ -80,7 +91,7 @@ export function EmailVerificationHandler() {
             <h1 className="confirmation-title">Congratulations 🎉</h1>
             <h2 className="confirmation-subtitle">Your email address is confirmed!</h2>
             <div className="confirmation-message">
-              Welcome to our community, <span className="highlight">Supa</span>! We&apos;re excited to have you on board.
+              Welcome to our community, <span className="highlight">{firstName}</span>! We&apos;re excited to have you on board.
               
               To help you get started, please let us know how you&apos;d like to use our platform. Are you here to showcase your talents, represent amazing performers, book the perfect talent for your next event, or support a booking team?
               Simply select the role that best describes you to continue.
