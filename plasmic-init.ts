@@ -5,6 +5,7 @@ import { AuthFormFirst } from "./components/AuthFormFirst";
 import { AuthFormBookingsForm } from "./components/AuthFormBookingsForm";
 import { PasswordResetForm } from "./components/PasswordResetForm";
 import { UpdatePasswordForm } from "./components/UpdatePasswordForm";
+import { EmailVerificationHandler } from "./components/EmailVerificationHandler";
 // import { UpdatePasswordFormNew } from "./components/UpdatePasswordFormNew";
 
 export const PLASMIC = initPlasmicLoader({
@@ -39,3 +40,10 @@ PLASMIC.substituteComponent(UpdatePasswordForm, "UpdatePasswordForm");
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
 // PLASMIC.registerComponent(.....);
+
+// Registreer Field component
+PLASMIC.registerComponent(EmailVerificationHandler, {
+  name: "EmailVerificationHandler",
+  props: {  },
+  },
+);
