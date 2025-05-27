@@ -2,75 +2,49 @@ import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-export function EmailVerificationHandler() {
+interface EmailVerificationHandlerProps {
+  firstName?: string; // Prop voor naam via Plasmic
+}
+
+export function EmailVerificationHandler({ firstName = "User" }: EmailVerificationHandlerProps) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [isExpired, setIsExpired] = useState(false);
-  const [firstName, setFirstName] = useState("");
+  const [isVerified, setIsVerified] = useState(false); // Nieuwe state voor verificatie status
   const supabase = createClientComponentClient();
+
+  const checkVerificationStatus = useCallback(async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    return !!user?.email_confirmed_at;
+  }, [supabase.auth]);
 
   const verifyEmail = useCallback(async () => {
     try {
-      // Haal e-mailadres uit URL padnaam
-      const pathParts = router.asPath.split('/');
-      const userEmail = decodeURIComponent(pathParts[pathParts.length - 1]);
-      
-      if (!userEmail.includes('@')) {
-        throw new Error("Ongeldig e-mailadres in URL");
+      // Check eerst of al geverifieerd
+      const alreadyVerified = await checkVerificationStatus();
+      if (alreadyVerified) {
+        setIsVerified(true);
+        return;
       }
 
-      setEmail(userEmail); // Sla ook op voor eventuele nieuwe verificatie
-
-      // Haal token uit query parameters
       const token = router.asPath.split("token=")[1]?.split("&")[0];
       if (!token) throw new Error("Token not found in URL");
       
-      // Verify email token
       const { error: verifyError } = await supabase.auth.verifyOtp({
         type: "email",
         token_hash: token,
-        email: userEmail // Voeg e-mail toe voor extra validatie
       });
       if (verifyError) throw verifyError;
 
-      console.log("Searching for user with email:", userEmail);
-
-      // Query public.users table by email
-      const { data: publicUserData, error: publicError } = await supabase
-        .from('users')
-        .select('name')
-        .eq('email', userEmail)
-        .maybeSingle();
-
-      console.log("Public user data:", publicUserData);
-
-      if (publicError) {
-        console.error("Error fetching user data:", publicError);
-        throw publicError;
-      }
-
-      // Extract first name
-      let extractedFirstName = userEmail.split('@')[0];
-      
-      if (publicUserData?.name) {
-        const nameData = publicUserData.name;
-        if (typeof nameData === 'object' && nameData.first_name) {
-          extractedFirstName = nameData.first_name;
-        } else if (typeof nameData === 'string') {
-          extractedFirstName = nameData.split(' ')[0] || extractedFirstName;
-        }
-      }
-
-      setFirstName(extractedFirstName);
+      setIsVerified(true);
       setIsExpired(false);
     } catch (err) {
-      console.error("Verification error:", err);
       setError(err instanceof Error ? err.message : "Verification failed");
       setIsExpired(true);
     }
-  }, [router, supabase]);
+  }, [router, supabase.auth, checkVerificationStatus]);
 
   useEffect(() => {
     const { error, error_code } = router.query;
@@ -78,8 +52,13 @@ export function EmailVerificationHandler() {
       setIsExpired(true);
     } else if (router.asPath.includes("token")) {
       verifyEmail();
+    } else {
+      // Check bestaande verificatie bij mount
+      checkVerificationStatus().then(verified => {
+        if (verified) setIsVerified(true);
+      });
     }
-  }, [router, verifyEmail]);
+  }, [router, verifyEmail, checkVerificationStatus]);
 
   const resendVerification = async () => {
     setIsLoading(true);
@@ -88,7 +67,7 @@ export function EmailVerificationHandler() {
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}`,
+          emailRedirectTo: `${window.location.origin}${router.asPath.split('?')[0]}`,
         },
       });
       if (error) throw error;
@@ -100,9 +79,13 @@ export function EmailVerificationHandler() {
     }
   };
 
+  // Render logica
+  const showSuccessScreen = isVerified || !isExpired;
+  const showExpiredScreen = isExpired && !isVerified;
+
   return (
     <div>
-      {isExpired ? (
+      {showExpiredScreen ? (
         <div className="verification-container">
           <div>
             <h1>Link Expired</h1>
@@ -119,7 +102,7 @@ export function EmailVerificationHandler() {
             {error && <p style={{ color: "red" }}>{error}</p>}
           </div>
         </div>
-      ) : (
+      ) : showSuccessScreen ? (
         <div className="email-confirmation-container">
           <div className="confirmation-content">
             <h2 className="confirmation-title">Congratulations 🎉</h2>
@@ -156,7 +139,7 @@ export function EmailVerificationHandler() {
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

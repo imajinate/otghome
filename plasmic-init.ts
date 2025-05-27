@@ -45,6 +45,11 @@ PLASMIC.substituteComponent(UpdatePasswordForm, "UpdatePasswordForm");
 PLASMIC.registerComponent(EmailVerificationHandler, {
   name: "EmailVerificationHandler",
   importPath: "./components/EmailVerificationHandler",
-  props: {  },
+    props: {
+      firstName: {
+        type: "string",
+        defaultValue: "User",
+      }
+    },
   },
 );
