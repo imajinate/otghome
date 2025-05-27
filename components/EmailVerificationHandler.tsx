@@ -1,5 +1,4 @@
-// components/EmailVerificationHandler.tsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
@@ -11,18 +10,7 @@ export function EmailVerificationHandler() {
   const [isExpired, setIsExpired] = useState(false);
   const supabase = createClientComponentClient();
 
-  // Check if the link has expired
-  useEffect(() => {
-    const { error, error_code } = router.query;
-    if (error_code === "otp_expired" || error?.includes("expired")) {
-      setIsExpired(true);
-    } else if (router.asPath.includes("token")) {
-      verifyEmail();
-    }
-  }, [router]);
-
-  // Verify the email token
-  const verifyEmail = async () => {
+  const verifyEmail = useCallback(async () => {
     try {
       const token = router.asPath.split("token=")[1]?.split("&")[0];
       if (!token) throw new Error("Token not found in URL");
@@ -37,9 +25,17 @@ export function EmailVerificationHandler() {
       setError(err instanceof Error ? err.message : "Verification failed");
       setIsExpired(true);
     }
-  };
+  }, [router, supabase.auth]);
 
-  // Resend verification email
+  useEffect(() => {
+    const { error, error_code } = router.query;
+    if (error_code === "otp_expired" || error?.includes("expired")) {
+      setIsExpired(true);
+    } else if (router.asPath.includes("token")) {
+      verifyEmail();
+    }
+  }, [router, verifyEmail]);
+
   const resendVerification = async () => {
     setIsLoading(true);
     setError("");
@@ -70,7 +66,7 @@ export function EmailVerificationHandler() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email address"
-          /><br></br>
+          /><br />
           <button onClick={resendVerification} disabled={isLoading}>
             {isLoading ? "Sending..." : "Send New Link"}
           </button>
@@ -82,12 +78,12 @@ export function EmailVerificationHandler() {
             <h2 className="confirmation-title">Congratulations 🎉</h2>
             <h3 className="confirmation-subtitle">Your email address is confirmed!</h3>
             <div className="confirmation-message">
-              Welcome to our community, <span className="highlight">Supa</span>! We're excited to have you on board.
+              Welcome to our community, <span className="highlight">Supa</span>! We&apos;re excited to have you on board.
               
-              To help you get started, please let us know how you'd like to use our platform. Are you here to showcase your talents, represent amazing performers, book the perfect talent for your next event, or support a booking team?
+              To help you get started, please let us know how you&apos;d like to use our platform. Are you here to showcase your talents, represent amazing performers, book the perfect talent for your next event, or support a booking team?
               Simply select the role that best describes you to continue.
 
-              Let's get started—choose your role below!
+              Let&apos;s get started—choose your role below!
             </div>
             <div className="role-selection">
               <button className="role-button talent-button" type="button">
