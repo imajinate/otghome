@@ -17,8 +17,14 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
   const supabase = createClientComponentClient();
 
   const checkVerificationStatus = useCallback(async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    return !!user?.email_confirmed_at;
+    try {
+      const { data: { user }, error } = await supabase.auth.getUser();
+      if (error) throw error;
+      return !!user?.email_confirmed_at;
+    } catch (err) {
+      console.error("Error checking verification status:", err);
+      return false;
+    }
   }, [supabase.auth]);
 
   const verifyEmail = useCallback(async () => {
@@ -32,29 +38,43 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
       });
       if (verifyError) throw verifyError;
 
-      setIsVerified(true);
-      setIsExpired(false);
+      return true;
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Verification failed");
-      setIsExpired(true);
-    } finally {
-      setIsChecking(false);
+      console.error("Verification error:", err);
+      throw err;
     }
   }, [router, supabase.auth]);
 
   useEffect(() => {
     const initVerificationCheck = async () => {
-      const verified = await checkVerificationStatus();
-      setIsVerified(verified);
-      
-      const { error, error_code } = router.query;
-      if (error_code === "otp_expired" || error?.includes("expired")) {
-        setIsExpired(true);
-      } else if (router.asPath.includes("token")) {
-        await verifyEmail();
+      try {
+        // Eerst controleren of de gebruiker al geverifieerd is
+        const alreadyVerified = await checkVerificationStatus();
+        if (alreadyVerified) {
+          setIsVerified(true);
+          setIsChecking(false);
+          return;
+        }
+
+        // Als er een token in de URL zit, proberen te verifiëren
+        if (router.asPath.includes("token")) {
+          const verificationSuccess = await verifyEmail();
+          if (verificationSuccess) {
+            setIsVerified(true);
+          }
+        }
+
+        // Controleren op verlopen link
+        const { error, error_code } = router.query;
+        if (error_code === "otp_expired" || error?.includes("expired")) {
+          setIsExpired(true);
+        }
+      } catch (err) {
+        console.error("Initial verification check error:", err);
+        setError(err instanceof Error ? err.message : "Verification check failed");
+      } finally {
+        setIsChecking(false);
       }
-      
-      setIsChecking(false);
     };
 
     initVerificationCheck();
@@ -83,7 +103,8 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
     return <div className="loading-container">Checking verification status...</div>;
   }
 
-  // Logica omgedraaid: toon success scherm ALS geverifieerd (email_confirmed_at is NIET null)
+  // Logische volgorde aangepast:
+  // 1. Eerst checken of geverifieerd
   if (isVerified) {
     return (
       <div className="email-confirmation-container">
@@ -131,7 +152,7 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
     );
   }
 
-  // Toon expired scherm als link verlopen is
+  // 2. Dan checken op verlopen link
   if (isExpired) {
     return (
       <div className="verification-container">
@@ -153,7 +174,7 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
     );
   }
 
-  // Standaard geval: niet geverifieerd (email_confirmed_at is null)
+  // 3. Standaard geval: niet geverifieerd
   return (
     <div className="email-confirmation-container">
       <div className="confirmation-content">
