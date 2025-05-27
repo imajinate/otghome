@@ -60,7 +60,7 @@ export function EmailVerificationHandler() {
   };
 
   return (
-    <div className="verifation-container">
+    <div className="verification-container">
       {isExpired ? (
         <div>
           <h1>Link Expired</h1>
