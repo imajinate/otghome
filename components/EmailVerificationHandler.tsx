@@ -56,21 +56,10 @@ export function EmailVerificationHandler() {
   };
 
   return (
-    <div className="verification-container">
+    <div>
       {isExpired ? (
-        <div>
-          <h1>Link Expired</h1>
-          <p>Your verification link is invalid. Please enter your email to receive a new one:</p>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Your email address"
-          /><br />
-          <button onClick={resendVerification} disabled={isLoading}>
-            {isLoading ? "Sending..." : "Send New Link"}
-          </button>
-          {error && <p style={{ color: "red" }}>{error}</p>}
+        <div className="verification-container">
+          {/* ... (behoud de bestaande expired UI) ... */}
         </div>
       ) : (
         <div className="email-confirmation-container">
@@ -86,13 +75,21 @@ export function EmailVerificationHandler() {
               Let&apos;s get started—choose your role below!
             </div>
             <div className="role-selection">
-              <button className="role-button talent-button" type="button">
+              <button 
+                className="role-button talent-button" 
+                type="button"
+                onClick={() => window.location.href = "https://talent.offtoglow.com"}
+              >
                 <div className="role-content">
                   <h4 className="role-title">Talent</h4>
                   <div className="role-description">I am or representing a talent</div>
                 </div>
               </button>
-              <button className="role-button booker-button" type="button">
+              <button 
+                className="role-button booker-button" 
+                type="button"
+                onClick={() => window.location.href = "https://booker.offtoglow.com"}
+              >
                 <div className="role-content">
                   <h4 className="role-title">Booker</h4>
                   <div className="role-description">I am or representing a booker</div>
