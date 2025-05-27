@@ -13,7 +13,7 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
   const [error, setError] = useState("");
   const [isExpired, setIsExpired] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
-  const [isChecking, setIsChecking] = useState(true); // Loading state for initial check
+  const [isChecking, setIsChecking] = useState(true);
   const supabase = createClientComponentClient();
 
   const checkVerificationStatus = useCallback(async () => {
@@ -78,7 +78,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
     }
   };
 
-  // Render logica
   if (isChecking) {
     return <div className="loading-container">Checking verification status...</div>;
   }
@@ -110,9 +109,9 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
         <div className="confirmation-content">
           <h2 className="confirmation-title">Email Verification Required</h2>
           <div className="confirmation-message">
-            <p>We've sent a confirmation email to your inbox.</p>
+            <p>We&apos;ve sent a confirmation email to your inbox.</p>
             <p>Please check your email and click the verification link to complete your registration.</p>
-            <p>If you didn't receive the email, check your spam folder or request a new verification link below.</p>
+            <p>If you didn&apos;t receive the email, check your spam folder or request a new verification link below.</p>
           </div>
           <div className="resend-section">
             <input
@@ -136,9 +135,9 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
         <h2 className="confirmation-title">Congratulations 🎉</h2>
         <h3 className="confirmation-subtitle">Your email has been successfully verified!</h3>
         <div className="confirmation-message">
-          Welcome to our community, <span className="highlight">{firstName}</span>! We're excited to have you on board.
+          Welcome to our community, <span className="highlight">{firstName}</span>! We&apos;re excited to have you on board.
           <br /><br />
-          To help you get started, please let us know how you'd like to use our platform:
+          To help you get started, please let us know how you&apos;d like to use our platform:
           <br /><br />
           <ul className="role-options">
             <li>Are you an artist or performer looking to showcase your talent?</li>
