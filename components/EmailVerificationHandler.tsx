@@ -17,37 +17,45 @@ export function EmailVerificationHandler() {
       if (!token) throw new Error("Token not found in URL");
       
       // Verify email token
-      const { error: verifyError } = await supabase.auth.verifyOtp({
+      const { data: { user }, error: verifyError } = await supabase.auth.verifyOtp({
         type: "email",
         token_hash: token,
       });
       if (verifyError) throw verifyError;
 
-      // Get authenticated user
-      const { data: { user } } = await supabase.auth.getUser();
+      // Get user email from auth session
+      const userEmail = user?.email;
+      if (!userEmail) throw new Error("No email found");
       
-      if (user?.id) {
-        // Query public.users table for name data
-        const { data: publicUserData, error: publicError } = await supabase
-          .from('users')
-          .select('name')
-          .eq('id', user.id)
-          .single();
+      console.log("Searching for user with email:", userEmail);
 
-        if (!publicError && publicUserData?.name) {
-          const nameData = publicUserData.name;
-          console.log("Name data from public.users:", nameData); // Debug log
-          
-          // Extract first_name from JSON structure
-          const firstNameFromDB = nameData.first_name || 
-                                (typeof nameData === 'string' ? nameData.split(' ')[0] : 'User');
-          setFirstName(firstNameFromDB);
-        } else {
-          // Fallback to email prefix
-          setFirstName(user.email?.split('@')[0] || 'User');
+      // Query public.users table by email
+      const { data: publicUserData, error: publicError } = await supabase
+        .from('users')
+        .select('name, email')
+        .eq('email', userEmail)
+        .maybeSingle();
+
+      console.log("Public user data:", publicUserData);
+
+      if (publicError) {
+        console.error("Error fetching user data:", publicError);
+        throw publicError;
+      }
+
+      // Extract first name
+      let extractedFirstName = userEmail.split('@')[0] || 'User';
+      
+      if (publicUserData?.name) {
+        const nameData = publicUserData.name;
+        if (typeof nameData === 'object' && nameData.first_name) {
+          extractedFirstName = nameData.first_name;
+        } else if (typeof nameData === 'string') {
+          extractedFirstName = nameData.split(' ')[0] || extractedFirstName;
         }
       }
 
+      setFirstName(extractedFirstName);
       setIsExpired(false);
     } catch (err) {
       console.error("Verification error:", err);
