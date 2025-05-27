@@ -92,10 +92,10 @@ export function EmailVerificationHandler() {
             <h2 className="confirmation-subtitle">Your email address is confirmed!</h2>
             <div className="confirmation-message">
               Welcome to our community, <span className="highlight">{firstName}</span>! We&apos;re excited to have you on board.
-              <br></br>
+              <br></br><br></br>
               To help you get started, please let us know how you&apos;d like to use our platform. Are you here to showcase your talents, represent amazing performers, book the perfect talent for your next event, or support a booking team?
               Simply select the role that best describes you to continue.
-              <br></br>
+              <br></br><br></br>
               Let&apos;s get started—choose your role below!
             </div>
             <div className="role-selection">
