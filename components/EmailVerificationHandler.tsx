@@ -77,7 +77,34 @@ export function EmailVerificationHandler() {
           {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
       ) : (
-        <h1>Verifying your email...</h1>
+        <div className="email-confirmation-container">
+          <div className="confirmation-content">
+            <h2 className="confirmation-title">Congratulations 🎉</h2>
+            <h3 className="confirmation-subtitle">Your email address is confirmed!</h3>
+            <div className="confirmation-message">
+              Welcome to our community, <span className="highlight">Supa</span>! We're excited to have you on board.
+              
+              To help you get started, please let us know how you'd like to use our platform. Are you here to showcase your talents, represent amazing performers, book the perfect talent for your next event, or support a booking team?
+              Simply select the role that best describes you to continue.
+
+              Let's get started—choose your role below!
+            </div>
+            <div className="role-selection">
+              <button className="role-button talent-button" type="button">
+                <div className="role-content">
+                  <h4 className="role-title">Talent</h4>
+                  <div className="role-description">I am or representing a talent</div>
+                </div>
+              </button>
+              <button className="role-button booker-button" type="button">
+                <div className="role-content">
+                  <h4 className="role-title">Booker</h4>
+                  <div className="role-description">I am or representing a booker</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
