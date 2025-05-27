@@ -35,14 +35,14 @@
 .freeBox___3JwVl {
   display: flex;
   flex-direction: column;
-  position: sticky;
+  position: relative;
   width: 100%;
   height: 100vh;
   justify-content: flex-end;
   align-items: flex-start;
   background: url("/plasmic/www_offtoglow_com/images/welcomebgJpg.jpg") top 50% left 50% / cover repeat;
-  left: 0px;
-  top: 0px;
+  left: auto;
+  top: auto;
   z-index: 1;
   grid-column-end: span 1;
   grid-column-start: 2;
@@ -74,6 +74,10 @@
   grid-row-start: 1;
   min-width: 0;
   padding: 8px 20px;
+}
+.emailVerificationHandler:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }
 .graphQlFetcher:global(.__wab_instance) {
   width: 100%;

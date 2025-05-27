@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Card from "../../Card"; // plasmic-import: twFopKdKGk6j/component
+import { EmailVerificationHandler } from "../../EmailVerificationHandler"; // plasmic-import: gRc82GluJ42g/codeComponent
 import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import { ConditionGuard } from "@plasmicpkgs/plasmic-basic-components";
 import Button from "../../Button"; // plasmic-import: bUjxyyacyjDo/component
@@ -89,6 +90,7 @@ export const PlasmicCongratulations__ArgProps = new Array<ArgPropType>();
 export type PlasmicCongratulations__OverridesType = {
   root?: Flex__<"div">;
   card?: Flex__<typeof Card>;
+  emailVerificationHandler?: Flex__<typeof EmailVerificationHandler>;
   graphQlFetcher?: Flex__<typeof GraphqlFetcher>;
   conditionGuard?: Flex__<typeof ConditionGuard>;
   h2?: Flex__<"h2">;
@@ -198,6 +200,15 @@ function PlasmicCongratulations__RenderFunc(props: {
               </Card>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__mImq)}>
+              <EmailVerificationHandler
+                data-plasmic-name={"emailVerificationHandler"}
+                data-plasmic-override={overrides.emailVerificationHandler}
+                className={classNames(
+                  "__wab_instance",
+                  sty.emailVerificationHandler
+                )}
+              />
+
               <GraphqlFetcher
                 data-plasmic-name={"graphQlFetcher"}
                 data-plasmic-override={overrides.graphQlFetcher}
@@ -596,6 +607,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "card",
+    "emailVerificationHandler",
     "graphQlFetcher",
     "conditionGuard",
     "h2",
@@ -603,6 +615,7 @@ const PlasmicDescendants = {
     "span"
   ],
   card: ["card"],
+  emailVerificationHandler: ["emailVerificationHandler"],
   graphQlFetcher: ["graphQlFetcher", "conditionGuard", "h2", "h3", "span"],
   conditionGuard: ["conditionGuard", "h2", "h3", "span"],
   h2: ["h2"],
@@ -615,6 +628,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   card: typeof Card;
+  emailVerificationHandler: typeof EmailVerificationHandler;
   graphQlFetcher: typeof GraphqlFetcher;
   conditionGuard: typeof ConditionGuard;
   h2: "h2";
@@ -683,6 +697,7 @@ export const PlasmicCongratulations = Object.assign(
   {
     // Helper components rendering sub-elements
     card: makeNodeComponent("card"),
+    emailVerificationHandler: makeNodeComponent("emailVerificationHandler"),
     graphQlFetcher: makeNodeComponent("graphQlFetcher"),
     conditionGuard: makeNodeComponent("conditionGuard"),
     h2: makeNodeComponent("h2"),

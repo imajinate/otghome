@@ -1712,6 +1712,12 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        },
+        {
+          "id": "gRc82GluJ42g",
+          "name": "EmailVerificationHandler",
+          "displayName": "EmailVerificationHandler",
+          "componentImportPath": "./components/EmailVerificationHandler"
         }
       ],
       "customFunctions": []
