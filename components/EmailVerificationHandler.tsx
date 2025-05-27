@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 interface EmailVerificationHandlerProps {
-  firstName?: string; // Prop voor naam via Plasmic
+  firstName?: string;
 }
 
 export function EmailVerificationHandler({ firstName = "User" }: EmailVerificationHandlerProps) {
@@ -12,7 +12,8 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [isExpired, setIsExpired] = useState(false);
-  const [isVerified, setIsVerified] = useState(false); // Nieuwe state voor verificatie status
+  const [isVerified, setIsVerified] = useState(false);
+  const [isChecking, setIsChecking] = useState(true); // Loading state for initial check
   const supabase = createClientComponentClient();
 
   const checkVerificationStatus = useCallback(async () => {
@@ -22,13 +23,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
 
   const verifyEmail = useCallback(async () => {
     try {
-      // Check eerst of al geverifieerd
-      const alreadyVerified = await checkVerificationStatus();
-      if (alreadyVerified) {
-        setIsVerified(true);
-        return;
-      }
-
       const token = router.asPath.split("token=")[1]?.split("&")[0];
       if (!token) throw new Error("Token not found in URL");
       
@@ -43,21 +37,26 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
     } catch (err) {
       setError(err instanceof Error ? err.message : "Verification failed");
       setIsExpired(true);
+    } finally {
+      setIsChecking(false);
     }
-  }, [router, supabase.auth, checkVerificationStatus]);
+  }, [router, supabase.auth]);
 
   useEffect(() => {
-    const { error, error_code } = router.query;
-    if (error_code === "otp_expired" || error?.includes("expired")) {
-      setIsExpired(true);
-    } else if (router.asPath.includes("token")) {
-      verifyEmail();
-    } else {
-      // Check bestaande verificatie bij mount
-      checkVerificationStatus().then(verified => {
-        if (verified) setIsVerified(true);
-      });
-    }
+    const initVerificationCheck = async () => {
+      const verified = await checkVerificationStatus();
+      setIsVerified(verified);
+      setIsChecking(false);
+      
+      const { error, error_code } = router.query;
+      if (error_code === "otp_expired" || error?.includes("expired")) {
+        setIsExpired(true);
+      } else if (router.asPath.includes("token")) {
+        verifyEmail();
+      }
+    };
+
+    initVerificationCheck();
   }, [router, verifyEmail, checkVerificationStatus]);
 
   const resendVerification = async () => {
@@ -71,7 +70,7 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
         },
       });
       if (error) throw error;
-      alert("Please check your email for the new verification link!");
+      alert("A new verification link has been sent to your email!");
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
@@ -80,66 +79,99 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
   };
 
   // Render logica
-  const showSuccessScreen = isVerified || !isExpired;
-  const showExpiredScreen = isExpired && !isVerified;
+  if (isChecking) {
+    return <div className="loading-container">Checking verification status...</div>;
+  }
 
-  return (
-    <div>
-      {showExpiredScreen ? (
-        <div className="verification-container">
-          <div>
-            <h1>Link Expired</h1>
-            <p>Your verification link is invalid. Please enter your email to receive a new one:</p>
+  if (isExpired) {
+    return (
+      <div className="verification-container">
+        <div>
+          <h1>Verification Link Expired</h1>
+          <p>The verification link has expired. Please enter your email address to receive a new one:</p>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your email address"
+          /><br />
+          <button onClick={resendVerification} disabled={isLoading}>
+            {isLoading ? "Sending..." : "Resend Verification Link"}
+          </button>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </div>
+      </div>
+    );
+  }
+
+  if (!isVerified) {
+    return (
+      <div className="email-confirmation-container">
+        <div className="confirmation-content">
+          <h2 className="confirmation-title">Email Verification Required</h2>
+          <div className="confirmation-message">
+            <p>We've sent a confirmation email to your inbox.</p>
+            <p>Please check your email and click the verification link to complete your registration.</p>
+            <p>If you didn't receive the email, check your spam folder or request a new verification link below.</p>
+          </div>
+          <div className="resend-section">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-            /><br />
+            />
             <button onClick={resendVerification} disabled={isLoading}>
-              {isLoading ? "Sending..." : "Send New Link"}
+              {isLoading ? "Sending..." : "Resend Verification Email"}
             </button>
-            {error && <p style={{ color: "red" }}>{error}</p>}
           </div>
         </div>
-      ) : showSuccessScreen ? (
-        <div className="email-confirmation-container">
-          <div className="confirmation-content">
-            <h2 className="confirmation-title">Congratulations 🎉</h2>
-            <h3 className="confirmation-subtitle">Your email address is confirmed!</h3>
-            <div className="confirmation-message">
-              Welcome to our community, <span className="highlight">{firstName}</span>! We&apos;re excited to have you on board.
-              <br /><br />
-              To help you get started, please let us know how you&apos;d like to use our platform. Are you here to showcase your talents, represent amazing performers, book the perfect talent for your next event, or support a booking team?
-              Simply select the role that best describes you to continue.
-              <br /><br />
-              Let&apos;s get started—choose your role below!
-            </div>
-            <div className="role-selection">
-              <button 
-                className="role-button talent-button" 
-                type="button"
-                onClick={() => window.location.href = "https://talent.offtoglow.com"}
-              >
-                <div className="role-content">
-                  <h4 className="role-title">Talent</h4>
-                  <div className="role-description">I am or representing a talent</div>
-                </div>
-              </button>
-              <button 
-                className="role-button booker-button" 
-                type="button"
-                onClick={() => window.location.href = "https://booker.offtoglow.com"}
-              >
-                <div className="role-content">
-                  <h4 className="role-title">Booker</h4>
-                  <div className="role-description">I am or representing a booker</div>
-                </div>
-              </button>
-            </div>
-          </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="email-confirmation-container">
+      <div className="confirmation-content">
+        <h2 className="confirmation-title">Congratulations 🎉</h2>
+        <h3 className="confirmation-subtitle">Your email has been successfully verified!</h3>
+        <div className="confirmation-message">
+          Welcome to our community, <span className="highlight">{firstName}</span>! We're excited to have you on board.
+          <br /><br />
+          To help you get started, please let us know how you'd like to use our platform:
+          <br /><br />
+          <ul className="role-options">
+            <li>Are you an artist or performer looking to showcase your talent?</li>
+            <li>Do you represent talented individuals?</li>
+            <li>Are you looking to book performers for your event?</li>
+            <li>Or are you part of a booking team?</li>
+          </ul>
+          <br />
+          Please select your role below to continue:
         </div>
-      ) : null}
+        <div className="role-selection">
+          <button 
+            className="role-button talent-button" 
+            type="button"
+            onClick={() => window.location.href = "https://talent.offtoglow.com"}
+          >
+            <div className="role-content">
+              <h4 className="role-title">Talent</h4>
+              <div className="role-description">I am or represent an artist/performer</div>
+            </div>
+          </button>
+          <button 
+            className="role-button booker-button" 
+            type="button"
+            onClick={() => window.location.href = "https://booker.offtoglow.com"}
+          >
+            <div className="role-content">
+              <h4 className="role-title">Booker</h4>
+              <div className="role-description">I want to book talent for events</div>
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
