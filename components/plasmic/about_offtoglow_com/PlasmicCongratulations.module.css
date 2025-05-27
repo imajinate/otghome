@@ -75,10 +75,6 @@
   min-width: 0;
   padding: 8px 20px;
 }
-.emailVerificationHandler:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .graphQlFetcher:global(.__wab_instance) {
   width: 100%;
   max-width: 650px;
@@ -86,6 +82,10 @@
   min-width: 0;
 }
 .conditionGuard:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.emailVerificationHandler:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }

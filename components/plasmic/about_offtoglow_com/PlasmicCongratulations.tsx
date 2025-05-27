@@ -60,9 +60,9 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Card from "../../Card"; // plasmic-import: twFopKdKGk6j/component
-import { EmailVerificationHandler } from "../../EmailVerificationHandler"; // plasmic-import: gRc82GluJ42g/codeComponent
 import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import { ConditionGuard } from "@plasmicpkgs/plasmic-basic-components";
+import { EmailVerificationHandler } from "../../EmailVerificationHandler"; // plasmic-import: gRc82GluJ42g/codeComponent
 import Button from "../../Button"; // plasmic-import: bUjxyyacyjDo/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -90,9 +90,9 @@ export const PlasmicCongratulations__ArgProps = new Array<ArgPropType>();
 export type PlasmicCongratulations__OverridesType = {
   root?: Flex__<"div">;
   card?: Flex__<typeof Card>;
-  emailVerificationHandler?: Flex__<typeof EmailVerificationHandler>;
   graphQlFetcher?: Flex__<typeof GraphqlFetcher>;
   conditionGuard?: Flex__<typeof ConditionGuard>;
+  emailVerificationHandler?: Flex__<typeof EmailVerificationHandler>;
   h2?: Flex__<"h2">;
   h3?: Flex__<"h3">;
   span?: Flex__<"span">;
@@ -200,15 +200,6 @@ function PlasmicCongratulations__RenderFunc(props: {
               </Card>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__mImq)}>
-              <EmailVerificationHandler
-                data-plasmic-name={"emailVerificationHandler"}
-                data-plasmic-override={overrides.emailVerificationHandler}
-                className={classNames(
-                  "__wab_instance",
-                  sty.emailVerificationHandler
-                )}
-              />
-
               <GraphqlFetcher
                 data-plasmic-name={"graphQlFetcher"}
                 data-plasmic-override={overrides.graphQlFetcher}
@@ -313,28 +304,18 @@ function PlasmicCongratulations__RenderFunc(props: {
                         }
                       }}
                     >
-                      {(() => {
-                        try {
-                          return (
-                            $ctx.fetchedData.data.usersCollection.edges[0].node
-                              .defbookerteam === "" ||
-                            $ctx.fetchedData.data.usersCollection.edges[0].node
-                              .defbookerteam === null ||
-                            $ctx.fetchedData.data.usersCollection.edges[0].node
-                              .deftalentteam === "" ||
-                            $ctx.fetchedData.data.usersCollection.edges[0].node
-                              .deftalentteam === null
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
+                      <EmailVerificationHandler
+                        data-plasmic-name={"emailVerificationHandler"}
+                        data-plasmic-override={
+                          overrides.emailVerificationHandler
                         }
-                      })() ? (
+                        className={classNames(
+                          "__wab_instance",
+                          sty.emailVerificationHandler
+                        )}
+                      />
+
+                      {false ? (
                         <div
                           className={classNames(
                             projectcss.all,
@@ -607,17 +588,30 @@ const PlasmicDescendants = {
   root: [
     "root",
     "card",
-    "emailVerificationHandler",
     "graphQlFetcher",
     "conditionGuard",
+    "emailVerificationHandler",
     "h2",
     "h3",
     "span"
   ],
   card: ["card"],
+  graphQlFetcher: [
+    "graphQlFetcher",
+    "conditionGuard",
+    "emailVerificationHandler",
+    "h2",
+    "h3",
+    "span"
+  ],
+  conditionGuard: [
+    "conditionGuard",
+    "emailVerificationHandler",
+    "h2",
+    "h3",
+    "span"
+  ],
   emailVerificationHandler: ["emailVerificationHandler"],
-  graphQlFetcher: ["graphQlFetcher", "conditionGuard", "h2", "h3", "span"],
-  conditionGuard: ["conditionGuard", "h2", "h3", "span"],
   h2: ["h2"],
   h3: ["h3"],
   span: ["span"]
@@ -628,9 +622,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   card: typeof Card;
-  emailVerificationHandler: typeof EmailVerificationHandler;
   graphQlFetcher: typeof GraphqlFetcher;
   conditionGuard: typeof ConditionGuard;
+  emailVerificationHandler: typeof EmailVerificationHandler;
   h2: "h2";
   h3: "h3";
   span: "span";
@@ -697,9 +691,9 @@ export const PlasmicCongratulations = Object.assign(
   {
     // Helper components rendering sub-elements
     card: makeNodeComponent("card"),
-    emailVerificationHandler: makeNodeComponent("emailVerificationHandler"),
     graphQlFetcher: makeNodeComponent("graphQlFetcher"),
     conditionGuard: makeNodeComponent("conditionGuard"),
+    emailVerificationHandler: makeNodeComponent("emailVerificationHandler"),
     h2: makeNodeComponent("h2"),
     h3: makeNodeComponent("h3"),
     span: makeNodeComponent("span"),
