@@ -59,13 +59,26 @@ export function EmailVerificationHandler() {
     <div>
       {isExpired ? (
         <div className="verification-container">
-          {/* ... (behoud de bestaande expired UI) ... */}
+          <div>
+            <h1 className="expired-title">Link Expired</h1>
+            <p className="expired-message">Your verification link is invalid. Please enter your email to receive a new one:</p>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email address"
+            /><br />
+            <button onClick={resendVerification} disabled={isLoading}>
+              {isLoading ? "Sending..." : "Send New Link"}
+            </button>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+          </div>
         </div>
       ) : (
         <div className="email-confirmation-container">
           <div className="confirmation-content">
-            <h2 className="confirmation-title">Congratulations 🎉</h2>
-            <h3 className="confirmation-subtitle">Your email address is confirmed!</h3>
+            <h1 className="confirmation-title">Congratulations 🎉</h1>
+            <h2 className="confirmation-subtitle">Your email address is confirmed!</h2>
             <div className="confirmation-message">
               Welcome to our community, <span className="highlight">Supa</span>! We&apos;re excited to have you on board.
               
@@ -81,7 +94,7 @@ export function EmailVerificationHandler() {
                 onClick={() => window.location.href = "https://talent.offtoglow.com"}
               >
                 <div className="role-content">
-                  <h4 className="role-title">Talent</h4>
+                  <h3 className="role-title">Talent</h3>
                   <div className="role-description">I am or representing a talent</div>
                 </div>
               </button>
@@ -91,7 +104,7 @@ export function EmailVerificationHandler() {
                 onClick={() => window.location.href = "https://booker.offtoglow.com"}
               >
                 <div className="role-content">
-                  <h4 className="role-title">Booker</h4>
+                  <h3 className="role-title">Booker</h3>
                   <div className="role-description">I am or representing a booker</div>
                 </div>
               </button>
