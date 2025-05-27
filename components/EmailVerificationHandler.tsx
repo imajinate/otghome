@@ -13,26 +13,34 @@ export function EmailVerificationHandler() {
 
   const verifyEmail = useCallback(async () => {
     try {
+      // Haal e-mailadres uit URL padnaam
+      const pathParts = router.asPath.split('/');
+      const userEmail = decodeURIComponent(pathParts[pathParts.length - 1]);
+      
+      if (!userEmail.includes('@')) {
+        throw new Error("Ongeldig e-mailadres in URL");
+      }
+
+      setEmail(userEmail); // Sla ook op voor eventuele nieuwe verificatie
+
+      // Haal token uit query parameters
       const token = router.asPath.split("token=")[1]?.split("&")[0];
       if (!token) throw new Error("Token not found in URL");
       
       // Verify email token
-      const { data: { user }, error: verifyError } = await supabase.auth.verifyOtp({
+      const { error: verifyError } = await supabase.auth.verifyOtp({
         type: "email",
         token_hash: token,
+        email: userEmail // Voeg e-mail toe voor extra validatie
       });
       if (verifyError) throw verifyError;
 
-      // Get user email from auth session
-      const userEmail = user?.email;
-      if (!userEmail) throw new Error("No email found");
-      
       console.log("Searching for user with email:", userEmail);
 
       // Query public.users table by email
       const { data: publicUserData, error: publicError } = await supabase
         .from('users')
-        .select('name, email')
+        .select('name')
         .eq('email', userEmail)
         .maybeSingle();
 
@@ -44,7 +52,7 @@ export function EmailVerificationHandler() {
       }
 
       // Extract first name
-      let extractedFirstName = userEmail.split('@')[0] || 'User';
+      let extractedFirstName = userEmail.split('@')[0];
       
       if (publicUserData?.name) {
         const nameData = publicUserData.name;
@@ -80,7 +88,7 @@ export function EmailVerificationHandler() {
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
+          emailRedirectTo: `${window.location.origin}`,
         },
       });
       if (error) throw error;
@@ -118,10 +126,10 @@ export function EmailVerificationHandler() {
             <h3 className="confirmation-subtitle">Your email address is confirmed!</h3>
             <div className="confirmation-message">
               Welcome to our community, <span className="highlight">{firstName}</span>! We&apos;re excited to have you on board.
-              <br></br><br></br>
+              <br /><br />
               To help you get started, please let us know how you&apos;d like to use our platform. Are you here to showcase your talents, represent amazing performers, book the perfect talent for your next event, or support a booking team?
               Simply select the role that best describes you to continue.
-              <br></br><br></br>
+              <br /><br />
               Let&apos;s get started—choose your role below!
             </div>
             <div className="role-selection">
