@@ -18,8 +18,22 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
 
   const checkVerificationStatus = useCallback(async () => {
     try {
+      // Eerst sessie controleren
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        console.log("No active session found");
+        return false;
+      }
+
+      // Dan gebruiker ophalen
       const { data: { user }, error } = await supabase.auth.getUser();
       if (error) throw error;
+      
+      console.log("User verification status:", {
+        email: user?.email,
+        confirmed_at: user?.email_confirmed_at
+      });
+      
       return !!user?.email_confirmed_at;
     } catch (err) {
       console.error("Error checking verification status:", err);
@@ -32,12 +46,14 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
       const token = router.asPath.split("token=")[1]?.split("&")[0];
       if (!token) throw new Error("Token not found in URL");
       
-      const { error: verifyError } = await supabase.auth.verifyOtp({
+      console.log("Verifying token:", token);
+      const { error } = await supabase.auth.verifyOtp({
         type: "email",
         token_hash: token,
       });
-      if (verifyError) throw verifyError;
+      if (error) throw error;
 
+      console.log("Token successfully verified");
       return true;
     } catch (err) {
       console.error("Verification error:", err);
@@ -46,44 +62,61 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
   }, [router, supabase.auth]);
 
   useEffect(() => {
+    let mounted = true;
+
     const initVerificationCheck = async () => {
       try {
-        // Eerst controleren of de gebruiker al geverifieerd is
-        const alreadyVerified = await checkVerificationStatus();
-        if (alreadyVerified) {
+        // Korte delay om auth te initialiseren
+        await new Promise(resolve => setTimeout(resolve, 300));
+
+        // Check verificatiestatus
+        const verified = await checkVerificationStatus();
+        if (!mounted) return;
+
+        if (verified) {
+          console.log("User is already verified");
           setIsVerified(true);
           setIsChecking(false);
           return;
         }
 
-        // Als er een token in de URL zit, proberen te verifiëren
+        // Als er een token is, probeer te verifiëren
         if (router.asPath.includes("token")) {
+          console.log("Found token in URL, attempting verification");
           const verificationSuccess = await verifyEmail();
-          if (verificationSuccess) {
-            setIsVerified(true);
-          }
+          if (!mounted) return;
+          setIsVerified(verificationSuccess);
         }
 
-        // Controleren op verlopen link
+        // Check voor verlopen link
         const { error, error_code } = router.query;
         if (error_code === "otp_expired" || error?.includes("expired")) {
+          console.log("Expired link detected");
           setIsExpired(true);
         }
       } catch (err) {
         console.error("Initial verification check error:", err);
+        if (!mounted) return;
         setError(err instanceof Error ? err.message : "Verification check failed");
       } finally {
-        setIsChecking(false);
+        if (mounted) {
+          setIsChecking(false);
+        }
       }
     };
 
     initVerificationCheck();
+
+    return () => {
+      mounted = false;
+    };
   }, [router, verifyEmail, checkVerificationStatus]);
 
   const resendVerification = async () => {
     setIsLoading(true);
     setError("");
     try {
+      console.log("Resending verification to:", email);
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
@@ -93,6 +126,7 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
       if (error) throw error;
       alert("A new verification link has been sent to your email!");
     } catch (err) {
+      console.error("Resend error:", err);
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setIsLoading(false);
@@ -103,8 +137,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
     return <div className="loading-container">Checking verification status...</div>;
   }
 
-  // Logische volgorde aangepast:
-  // 1. Eerst checken of geverifieerd
   if (isVerified) {
     return (
       <div className="email-confirmation-container">
@@ -152,7 +184,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
     );
   }
 
-  // 2. Dan checken op verlopen link
   if (isExpired) {
     return (
       <div className="verification-container">
@@ -174,7 +205,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
     );
   }
 
-  // 3. Standaard geval: niet geverifieerd
   return (
     <div className="email-confirmation-container">
       <div className="confirmation-content">
