@@ -16,27 +16,45 @@ export function EmailVerificationHandler() {
       const token = router.asPath.split("token=")[1]?.split("&")[0];
       if (!token) throw new Error("Token not found in URL");
       
-      const { data: { user }, error } = await supabase.auth.verifyOtp({
+      // Verify email token
+      const { error: verifyError } = await supabase.auth.verifyOtp({
         type: "email",
         token_hash: token,
       });
+      if (verifyError) throw verifyError;
 
-      if (error) throw error;
-
-      // Haal de gebruiker opnieuw op om raw_user_meta_data te krijgen
-      const { data: { user: fullUser } } = await supabase.auth.getUser();
+      // Get authenticated user
+      const { data: { user } } = await supabase.auth.getUser();
       
-      if (fullUser) {
-        const metaData = fullUser.user_metadata || {};
-        setFirstName(metaData.first_name || "User");
+      if (user?.id) {
+        // Query public.users table for name data
+        const { data: publicUserData, error: publicError } = await supabase
+          .from('users')
+          .select('name')
+          .eq('id', user.id)
+          .single();
+
+        if (!publicError && publicUserData?.name) {
+          const nameData = publicUserData.name;
+          console.log("Name data from public.users:", nameData); // Debug log
+          
+          // Extract first_name from JSON structure
+          const firstNameFromDB = nameData.first_name || 
+                                (typeof nameData === 'string' ? nameData.split(' ')[0] : 'User');
+          setFirstName(firstNameFromDB);
+        } else {
+          // Fallback to email prefix
+          setFirstName(user.email?.split('@')[0] || 'User');
+        }
       }
 
       setIsExpired(false);
     } catch (err) {
+      console.error("Verification error:", err);
       setError(err instanceof Error ? err.message : "Verification failed");
       setIsExpired(true);
     }
-  }, [router, supabase.auth]);
+  }, [router, supabase]);
 
   useEffect(() => {
     const { error, error_code } = router.query;
@@ -71,8 +89,8 @@ export function EmailVerificationHandler() {
       {isExpired ? (
         <div className="verification-container">
           <div>
-            <h1 className="expired-title">Link Expired</h1>
-            <p className="expired-message">Your verification link is invalid. Please enter your email to receive a new one:</p>
+            <h1>Link Expired</h1>
+            <p>Your verification link is invalid. Please enter your email to receive a new one:</p>
             <input
               type="email"
               value={email}
@@ -88,14 +106,14 @@ export function EmailVerificationHandler() {
       ) : (
         <div className="email-confirmation-container">
           <div className="confirmation-content">
-            <h1 className="confirmation-title">Congratulations 🎉</h1>
-            <h2 className="confirmation-subtitle">Your email address is confirmed!</h2>
+            <h2 className="confirmation-title">Congratulations 🎉</h2>
+            <h3 className="confirmation-subtitle">Your email address is confirmed!</h3>
             <div className="confirmation-message">
               Welcome to our community, <span className="highlight">{firstName}</span>! We&apos;re excited to have you on board.
-              <br></br><br></br>
+              
               To help you get started, please let us know how you&apos;d like to use our platform. Are you here to showcase your talents, represent amazing performers, book the perfect talent for your next event, or support a booking team?
               Simply select the role that best describes you to continue.
-              <br></br><br></br>
+
               Let&apos;s get started—choose your role below!
             </div>
             <div className="role-selection">
@@ -105,7 +123,7 @@ export function EmailVerificationHandler() {
                 onClick={() => window.location.href = "https://talent.offtoglow.com"}
               >
                 <div className="role-content">
-                  <h3 className="role-title">Talent</h3>
+                  <h4 className="role-title">Talent</h4>
                   <div className="role-description">I am or representing a talent</div>
                 </div>
               </button>
@@ -115,7 +133,7 @@ export function EmailVerificationHandler() {
                 onClick={() => window.location.href = "https://booker.offtoglow.com"}
               >
                 <div className="role-content">
-                  <h3 className="role-title">Booker</h3>
+                  <h4 className="role-title">Booker</h4>
                   <div className="role-description">I am or representing a booker</div>
                 </div>
               </button>
