@@ -16,7 +16,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
   const [isChecking, setIsChecking] = useState(true);
   const supabase = createClientComponentClient();
 
-  // Proper email extractie zonder query parameters
   const extractEmailFromUrl = (url: string): string => {
     try {
       const pathParts = url.split('/');
@@ -59,7 +58,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
       });
       if (error) throw error;
 
-      // Update verificatiestatus in database
       const { error: updateError } = await supabase
         .from('users')
         .update({ is_verified: true })
@@ -82,14 +80,7 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
         if (!userEmail) throw new Error("Valid email not found in URL");
         setEmail(userEmail);
 
-        // Directe check op expired error
-        const searchParams = new URLSearchParams(window.location.search);
-        if (searchParams.get('error_code') === 'otp_expired') {
-          setIsExpired(true);
-          setIsChecking(false);
-          return;
-        }
-
+        // Eerst controleren of de gebruiker al geverifieerd is
         const verified = await checkVerificationStatus(userEmail);
         if (!mounted) return;
 
@@ -99,6 +90,15 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
           return;
         }
 
+        // Als niet geverifieerd, controleren op expired error
+        const searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.get('error_code') === 'otp_expired') {
+          setIsExpired(true);
+          setIsChecking(false);
+          return;
+        }
+
+        // Als er een token is, proberen te verifiëren
         if (searchParams.has('token')) {
           const verificationSuccess = await verifyEmail(userEmail);
           if (verificationSuccess) setIsVerified(true);
