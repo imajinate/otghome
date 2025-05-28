@@ -720,7 +720,7 @@ export const PlasmicCongratulations = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "Email confirmed | OfftoGlow",
+      title: "Email Verification | OfftoGlow",
       description: "",
       ogImageSrc: "",
       canonical: ""
