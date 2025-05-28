@@ -36,7 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 # pages
-/pages/404/
+/pages/404.tsx
 /pages/5nN0wMAaSX6O3o5x/
 /pages/5WqztA5PSPLqEsO02zhHwaXl7v5H/
 /pages/MT3pje7t1Prbi5r4/
