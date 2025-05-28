@@ -20,11 +20,8 @@ export default function PlasmicLoaderPage(props: {
   const router = useRouter();
   const { isUserLoading, plasmicUserToken, plasmicUser } = usePlasmicAuthData();
 
-  // Verwijderd: redirect-logica naar /notfound
-  // Next.js handelt 404 automatisch af via pages/404.tsx
-
   if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
-    return null; // Tijdelijk lege pagina tijdens SSR
+    return null; // Next.js zal automatisch 404.tsx tonen
   }
 
   const pageMeta = plasmicData.entryCompMetas[0];
@@ -44,7 +41,6 @@ export default function PlasmicLoaderPage(props: {
   );
 }
 
-// Onveranderd
 function usePlasmicAuthData() {
   const { isLoading, data } = useSWR(PLASMIC_AUTH_DATA_KEY, async () => {
     const data = await fetch("/api/plasmic-auth").then((r) => r.json());
@@ -69,7 +65,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const plasmicData = await PLASMIC.maybeFetchComponentData(plasmicPath);
 
   if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
-    return { notFound: true }; // Activeert automatisch pages/404.tsx
+    return { notFound: true };
   }
 
   const pageMeta = plasmicData.entryCompMetas[0];
@@ -88,12 +84,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const pageModules = await PLASMIC.fetchPages();
-  return {
-    paths: pageModules.map((mod) => ({
+  
+  // Filter expliciet de 404-path eruit
+  const filteredPaths = pageModules
+    .filter((mod) => mod.path !== "/404")
+    .map((mod) => ({
       params: {
         catchall: mod.path.substring(1).split("/"),
       },
-    })),
-    fallback: "blocking", // Vereist voor SSG 404-afhandeling
+    }));
+
+  return {
+    paths: filteredPaths,
+    fallback: "blocking",
   };
 };
