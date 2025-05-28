@@ -23,7 +23,7 @@ export default function PlasmicLoaderPage(props: {
   const { isUserLoading, plasmicUserToken, plasmicUser } = usePlasmicAuthData();
   
   if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
-    router.push('/notfound.tsx'); // Doorsturen naar 404 pagina
+    router.push('/notfound'); // Doorsturen naar 404 pagina
     return null;
   }
   const pageMeta = plasmicData.entryCompMetas[0];
