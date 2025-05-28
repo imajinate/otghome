@@ -1213,20 +1213,6 @@
       "cssFilePath": "plasmic/www_offtoglow_com/plasmic.module.css",
       "components": [
         {
-          "id": "wK73mKSlpdfF",
-          "name": "Homepage",
-          "type": "managed",
-          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
-          "renderModuleFilePath": "plasmic/www_offtoglow_com/PlasmicHomepage.tsx",
-          "importSpec": {
-            "modulePath": "../pages/index.tsx"
-          },
-          "cssFilePath": "plasmic/www_offtoglow_com/PlasmicHomepage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/homepage"
-        },
-        {
           "id": "bUjxyyacyjDo",
           "name": "Button",
           "type": "managed",
@@ -1511,6 +1497,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/404"
+        },
+        {
+          "id": "wK73mKSlpdfF",
+          "name": "Homepage",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicHomepage.tsx",
+          "importSpec": {
+            "modulePath": "../pages/index.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicHomepage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/"
         }
       ],
       "icons": [
