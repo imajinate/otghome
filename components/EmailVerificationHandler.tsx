@@ -123,7 +123,7 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}/verify-email/${encodeURIComponent(email)}`,
+          emailRedirectTo: `https://accounts.offtoglow.com/5WqztA5PSPLqEsO02zhHwaXl7v5H/RMDgPSzr/${encodeURIComponent(email)}`,
         },
       });
       if (error) throw error;
