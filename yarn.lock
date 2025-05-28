@@ -885,7 +885,7 @@
     "@plasmicapp/query" "0.1.79"
     fast-stringify "^2.0.0"
 
-"@plasmicapp/host@1.0.218":
+"@plasmicapp/host@1.0.218", "@plasmicapp/host@>=1.0.0":
   version "1.0.218"
   resolved "https://registry.yarnpkg.com/@plasmicapp/host/-/host-1.0.218.tgz#55f6883115783acb422f232898ba264321dd4238"
   integrity sha512-U6iQ6sEVnoHA0t2h2CLmLtkhSXcrko7bc+NF9XLGigZIZooKqYpo9RckvBONDZ4gtBGjYnkaICU9wIERWo2Vvg==
