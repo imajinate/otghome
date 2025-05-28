@@ -208,7 +208,7 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
   }
 
   return (
-    <div className="email-confirmation-container">
+    <div className="verification-container">
       <div className="confirmation-content">
         <h2 className="confirmation-title">Email Verification Required</h2>
         <div className="confirmation-message">
