@@ -7,4 +7,14 @@ const nextConfig = {
   reactStrictMode: false,
 };
 
-module.exports = nextConfig;
+// Correct webpack configuration in next.config.js
+module.exports = {
+  webpack(config) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      // Custom aliases go here
+      '@components': path.resolve(__dirname, 'components'),
+    };
+    return config;
+  },
+};
