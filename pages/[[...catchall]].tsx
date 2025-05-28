@@ -21,8 +21,10 @@ export default function PlasmicLoaderPage(props: {
   const { plasmicData, queryCache } = props;
   const router = useRouter();
   const { isUserLoading, plasmicUserToken, plasmicUser } = usePlasmicAuthData();
+  
   if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
-    return <Error statusCode={404} />;
+    router.push('/404'); // Doorsturen naar 404 pagina
+    return null;
   }
   const pageMeta = plasmicData.entryCompMetas[0];
   return (
