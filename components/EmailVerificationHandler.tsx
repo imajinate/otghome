@@ -69,7 +69,7 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
       console.error("Verification error:", err);
       throw err;
     }
-  }, [supabase.auth]);
+  }, [supabase]);
 
   useEffect(() => {
     let mounted = true;
