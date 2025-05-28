@@ -8,7 +8,6 @@ import {
 import type { GetStaticPaths, GetStaticProps } from "next";
 import "@supabase/auth-helpers-nextjs";
 import useSWR from "swr";
-
 import Error from "next/error";
 import { useRouter } from "next/router";
 import { PLASMIC } from "@/plasmic-init";
@@ -17,15 +16,23 @@ import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 export default function PlasmicLoaderPage(props: {
   plasmicData?: ComponentRenderData;
   queryCache?: Record<string, any>;
+  notFound?: boolean;
 }) {
-  const { plasmicData, queryCache } = props;
+  const { plasmicData, queryCache, notFound } = props;
   const router = useRouter();
   const { isUserLoading, plasmicUserToken, plasmicUser } = usePlasmicAuthData();
-  
-  if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
-    router.push('/notfound'); // Doorsturen naar 404 pagina
-    return null;
+
+  // Redirect naar /notfound als de pagina niet bestaat
+  React.useEffect(() => {
+    if (notFound || !plasmicData || plasmicData.entryCompMetas.length === 0) {
+      router.push("/notfound");
+    }
+  }, [notFound, plasmicData, router]);
+
+  if (notFound || !plasmicData || plasmicData.entryCompMetas.length === 0) {
+    return null; // Laadstatus of fallback
   }
+
   const pageMeta = plasmicData.entryCompMetas[0];
   return (
     <PlasmicRootProvider
@@ -43,10 +50,7 @@ export default function PlasmicLoaderPage(props: {
   );
 }
 
-/**
- * Send a request from client to server to get the user and auth token.
- * This is going to use the user current session to get a valid plasmic user.
- */
+// Functie voor Plasmic auth-data (blijft hetzelfde)
 function usePlasmicAuthData() {
   const { isLoading, data } = useSWR(PLASMIC_AUTH_DATA_KEY, async () => {
     const data = await fetch("/api/plasmic-auth").then((r) => r.json());
@@ -59,16 +63,24 @@ function usePlasmicAuthData() {
   };
 }
 
+// Aangepaste getStaticProps om 404 correct af te handelen
 export const getStaticProps: GetStaticProps = async (context) => {
   const { catchall } = context.params ?? {};
-  const plasmicPath = typeof catchall === 'string' ? catchall : Array.isArray(catchall) ? `/${catchall.join('/')}` : '/';
+  const plasmicPath =
+    typeof catchall === "string"
+      ? catchall
+      : Array.isArray(catchall)
+      ? `/${catchall.join("/")}`
+      : "/";
+
   const plasmicData = await PLASMIC.maybeFetchComponentData(plasmicPath);
-  if (!plasmicData) {
-    // non-Plasmic catch-all
-    return { props: {} };
+
+  // Als de pagina niet bestaat, sturen we notFound: true
+  if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
+    return { notFound: true };
   }
+
   const pageMeta = plasmicData.entryCompMetas[0];
-  // Cache the necessary data fetched for the page
   const queryCache = await extractPlasmicQueryData(
     <PlasmicRootProvider
       loader={PLASMIC}
@@ -78,10 +90,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
       <PlasmicComponent component={pageMeta.displayName} />
     </PlasmicRootProvider>
   );
-  // Use revalidate if you want incremental static regeneration
-  return { props: { plasmicData, queryCache }, revalidate: 60 };
-}
 
+  return { props: { plasmicData, queryCache }, revalidate: 60 };
+};
+
+// getStaticPaths blijft hetzelfde
 export const getStaticPaths: GetStaticPaths = async () => {
   const pageModules = await PLASMIC.fetchPages();
   return {
@@ -92,4 +105,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
     })),
     fallback: "blocking",
   };
-}
+};
