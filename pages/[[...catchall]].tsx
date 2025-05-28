@@ -8,7 +8,6 @@ import {
 import type { GetStaticPaths, GetStaticProps } from "next";
 import "@supabase/auth-helpers-nextjs";
 import useSWR from "swr";
-import Error from "next/error";
 import { useRouter } from "next/router";
 import { PLASMIC } from "@/plasmic-init";
 import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
@@ -16,25 +15,16 @@ import { PLASMIC_AUTH_DATA_KEY } from "@/utils/cache-keys";
 export default function PlasmicLoaderPage(props: {
   plasmicData?: ComponentRenderData;
   queryCache?: Record<string, any>;
-  notFound?: boolean;
 }) {
-  const { plasmicData, queryCache, notFound } = props;
+  const { plasmicData, queryCache } = props;
   const router = useRouter();
   const { isUserLoading, plasmicUserToken, plasmicUser } = usePlasmicAuthData();
 
-  // Redirect naar /notfound als de pagina niet bestaat (alleen client-side)
-  React.useEffect(() => {
-    if (notFound) {
-      router.push("/notfound");
-    }
-  }, [notFound, router]);
-
-  if (notFound) {
-    return null; // Tijdelijk lege pagina tijdens redirect
-  }
+  // Verwijderd: redirect-logica naar /notfound
+  // Next.js handelt 404 automatisch af via pages/404.tsx
 
   if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
-    return null; // Fallback voor andere gevallen
+    return null; // Tijdelijk lege pagina tijdens SSR
   }
 
   const pageMeta = plasmicData.entryCompMetas[0];
@@ -54,7 +44,7 @@ export default function PlasmicLoaderPage(props: {
   );
 }
 
-// Functie voor Plasmic auth-data (onveranderd)
+// Onveranderd
 function usePlasmicAuthData() {
   const { isLoading, data } = useSWR(PLASMIC_AUTH_DATA_KEY, async () => {
     const data = await fetch("/api/plasmic-auth").then((r) => r.json());
@@ -67,7 +57,6 @@ function usePlasmicAuthData() {
   };
 }
 
-// getStaticProps (alleen 404-logica aangepast)
 export const getStaticProps: GetStaticProps = async (context) => {
   const { catchall } = context.params ?? {};
   const plasmicPath =
@@ -79,9 +68,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const plasmicData = await PLASMIC.maybeFetchComponentData(plasmicPath);
 
-  // Belangrijk: return { notFound: true } als de pagina niet bestaat
   if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
-    return { notFound: true };
+    return { notFound: true }; // Activeert automatisch pages/404.tsx
   }
 
   const pageMeta = plasmicData.entryCompMetas[0];
@@ -98,7 +86,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { props: { plasmicData, queryCache }, revalidate: 60 };
 };
 
-// getStaticPaths (onveranderd)
 export const getStaticPaths: GetStaticPaths = async () => {
   const pageModules = await PLASMIC.fetchPages();
   return {
@@ -107,6 +94,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
         catchall: mod.path.substring(1).split("/"),
       },
     })),
-    fallback: "blocking",
+    fallback: "blocking", // Vereist voor SSG 404-afhandeling
   };
 };
