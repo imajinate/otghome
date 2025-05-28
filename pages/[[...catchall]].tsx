@@ -22,15 +22,19 @@ export default function PlasmicLoaderPage(props: {
   const router = useRouter();
   const { isUserLoading, plasmicUserToken, plasmicUser } = usePlasmicAuthData();
 
-  // Redirect naar /notfound als de pagina niet bestaat
+  // Redirect naar /notfound als de pagina niet bestaat (alleen client-side)
   React.useEffect(() => {
-    if (notFound || !plasmicData || plasmicData.entryCompMetas.length === 0) {
+    if (notFound) {
       router.push("/notfound");
     }
-  }, [notFound, plasmicData, router]);
+  }, [notFound, router]);
 
-  if (notFound || !plasmicData || plasmicData.entryCompMetas.length === 0) {
-    return null; // Laadstatus of fallback
+  if (notFound) {
+    return null; // Tijdelijk lege pagina tijdens redirect
+  }
+
+  if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
+    return null; // Fallback voor andere gevallen
   }
 
   const pageMeta = plasmicData.entryCompMetas[0];
@@ -50,7 +54,7 @@ export default function PlasmicLoaderPage(props: {
   );
 }
 
-// Functie voor Plasmic auth-data (blijft hetzelfde)
+// Functie voor Plasmic auth-data (onveranderd)
 function usePlasmicAuthData() {
   const { isLoading, data } = useSWR(PLASMIC_AUTH_DATA_KEY, async () => {
     const data = await fetch("/api/plasmic-auth").then((r) => r.json());
@@ -63,7 +67,7 @@ function usePlasmicAuthData() {
   };
 }
 
-// Aangepaste getStaticProps om 404 correct af te handelen
+// getStaticProps (alleen 404-logica aangepast)
 export const getStaticProps: GetStaticProps = async (context) => {
   const { catchall } = context.params ?? {};
   const plasmicPath =
@@ -75,7 +79,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const plasmicData = await PLASMIC.maybeFetchComponentData(plasmicPath);
 
-  // Als de pagina niet bestaat, sturen we notFound: true
+  // Belangrijk: return { notFound: true } als de pagina niet bestaat
   if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
     return { notFound: true };
   }
@@ -94,7 +98,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { props: { plasmicData, queryCache }, revalidate: 60 };
 };
 
-// getStaticPaths blijft hetzelfde
+// getStaticPaths (onveranderd)
 export const getStaticPaths: GetStaticPaths = async () => {
   const pageModules = await PLASMIC.fetchPages();
   return {

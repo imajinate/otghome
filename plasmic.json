@@ -1486,17 +1486,17 @@
         },
         {
           "id": "pOeLTreHHtp3",
-          "name": "NotFound",
+          "name": "Custom404",
           "type": "managed",
           "projectId": "rpSUvc8HqqQeYPehLJKGyo",
-          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicNotFound.tsx",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicCustom404.tsx",
           "importSpec": {
-            "modulePath": "../pages/notfound.tsx"
+            "modulePath": "../pages/404.tsx"
           },
-          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicNotFound.module.css",
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicCustom404.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/notfound"
+          "path": "/404"
         }
       ],
       "icons": [
