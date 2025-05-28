@@ -16,65 +16,70 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
   const [isChecking, setIsChecking] = useState(true);
   const supabase = createClientComponentClient();
 
-  const checkVerificationStatus = useCallback(async () => {
+  const checkVerificationStatus = useCallback(async (userEmail: string) => {
     try {
-      // Eerst sessie controleren
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        console.log("No active session found");
-        return false;
-      }
+      // Query public.users table voor is_verified status
+      const { data, error } = await supabase
+        .from('users')
+        .select('is_verified')
+        .eq('email', userEmail)
+        .maybeSingle();
 
-      // Dan gebruiker ophalen
-      const { data: { user }, error } = await supabase.auth.getUser();
       if (error) throw error;
-      
-      console.log("User verification status:", {
-        email: user?.email,
-        confirmed_at: user?.email_confirmed_at
-      });
-      
-      return !!user?.email_confirmed_at;
+      return data?.is_verified ?? false;
     } catch (err) {
       console.error("Error checking verification status:", err);
       return false;
     }
-  }, [supabase.auth]);
+  }, [supabase]);
 
   const verifyEmail = useCallback(async () => {
     try {
       const token = router.asPath.split("token=")[1]?.split("&")[0];
       if (!token) throw new Error("Token not found in URL");
       
-      console.log("Verifying token:", token);
+      // Verifieer het token
       const { error } = await supabase.auth.verifyOtp({
         type: "email",
         token_hash: token,
       });
       if (error) throw error;
 
-      console.log("Token successfully verified");
+      // Update is_verified in public.users na succesvolle verificatie
+      const { error: updateError } = await supabase
+        .from('users')
+        .update({ is_verified: true })
+        .eq('email', email);
+
+      if (updateError) throw updateError;
+
       return true;
     } catch (err) {
       console.error("Verification error:", err);
       throw err;
     }
-  }, [router, supabase.auth]);
+  }, [router, supabase.auth, email]);
 
   useEffect(() => {
     let mounted = true;
 
     const initVerificationCheck = async () => {
       try {
-        // Korte delay om auth te initialiseren
-        await new Promise(resolve => setTimeout(resolve, 300));
+        // Haal e-mailadres uit URL
+        const pathParts = router.asPath.split('/');
+        const userEmail = decodeURIComponent(pathParts[pathParts.length - 1]);
+        
+        if (!userEmail.includes('@')) {
+          throw new Error("Invalid email in URL");
+        }
 
-        // Check verificatiestatus
-        const verified = await checkVerificationStatus();
+        setEmail(userEmail);
+
+        // Check verificatiestatus in public.users
+        const verified = await checkVerificationStatus(userEmail);
         if (!mounted) return;
 
         if (verified) {
-          console.log("User is already verified");
           setIsVerified(true);
           setIsChecking(false);
           return;
@@ -82,7 +87,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
 
         // Als er een token is, probeer te verifiëren
         if (router.asPath.includes("token")) {
-          console.log("Found token in URL, attempting verification");
           const verificationSuccess = await verifyEmail();
           if (!mounted) return;
           setIsVerified(verificationSuccess);
@@ -91,7 +95,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
         // Check voor verlopen link
         const { error, error_code } = router.query;
         if (error_code === "otp_expired" || error?.includes("expired")) {
-          console.log("Expired link detected");
           setIsExpired(true);
         }
       } catch (err) {
@@ -116,7 +119,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
     setIsLoading(true);
     setError("");
     try {
-      console.log("Resending verification to:", email);
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
@@ -126,7 +128,6 @@ export function EmailVerificationHandler({ firstName = "User" }: EmailVerificati
       if (error) throw error;
       alert("A new verification link has been sent to your email!");
     } catch (err) {
-      console.error("Resend error:", err);
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setIsLoading(false);
