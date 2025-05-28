@@ -176,7 +176,7 @@ function Plasmic_404__RenderFunc(props: {
 
               $steps["goToHomepage"] = true
                 ? (() => {
-                    const actionArgs = { destination: `/homepage` };
+                    const actionArgs = { destination: `/` };
                     return (({ destination }) => {
                       if (
                         typeof destination === "string" &&

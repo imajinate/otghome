@@ -1,0 +1,238 @@
+.root {
+  display: grid;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-content: flex-start;
+  justify-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.root > * {
+  grid-column: 4;
+}
+.freeBox__gvoaT {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-height: 90vh;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__gvoaT {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+.freeBox___3JwVl {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background: url("/plasmic/www_offtoglow_com/images/welcomebgJpg.jpg") top 50% left 50% / cover repeat;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  grid-column-end: span 1;
+  grid-column-start: 2;
+  min-width: 0;
+  padding: 8px;
+}
+.card:global(.__wab_instance) {
+  max-width: 100%;
+}
+.text__lXxLx {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: #222222;
+  font-size: 12px;
+  min-width: 0;
+}
+.freeBox__mImq {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  min-width: 0;
+  padding: 8px 20px;
+}
+.graphQlFetcher:global(.__wab_instance) {
+  width: 100%;
+  max-width: 650px;
+  object-fit: cover;
+  min-width: 0;
+}
+.conditionGuard:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.emailVerificationHandler:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.freeBox__sagZa {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 650px;
+  min-width: 0;
+  padding: 8px;
+}
+.h2 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: #222222;
+  text-align: center;
+  margin-bottom: 20px;
+  min-width: 0;
+}
+.h3 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: #222222;
+  text-align: left;
+  font-size: 38px;
+  min-width: 0;
+  padding: 0px 20px;
+}
+.text__tYe4 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 20px;
+  color: #222222;
+  min-width: 0;
+  padding: 36px 20px 28px;
+}
+.span {
+  font-size: 22px;
+  font-weight: 600;
+}
+.freeBox__gmDLa {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: flex-end;
+  min-width: 0;
+  padding: 0px 20px;
+}
+.freeBox__gmDLa > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+}
+.freeBox__gmDLa > :global(.__wab_flex-container) > *,
+.freeBox__gmDLa > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__gmDLa > :global(.__wab_flex-container) > picture > img,
+.freeBox__gmDLa
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+}
+.button__bw26R:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  height: 88px;
+  min-width: 0;
+}
+.svg__qP9Fg {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.freeBox__p8Mnd {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.h4__zc7U3 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+.text__u52Ni {
+  font-size: 16px;
+  color: #222222;
+}
+.svg__atiBx {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.button__ssBh1:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  height: 88px;
+  min-width: 0;
+}
+.svg__bfm4G {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.freeBox__btUw {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.h4__gIzgl {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+.text__qozdn {
+  font-size: 16px;
+  font-weight: 400;
+  color: #222222;
+}
+.svg__biMdW {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
