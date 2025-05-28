@@ -1320,20 +1320,6 @@
           "path": "/register"
         },
         {
-          "id": "bE9M2R4cBYga",
-          "name": "_404",
-          "type": "managed",
-          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
-          "renderModuleFilePath": "plasmic/www_offtoglow_com/Plasmic_404.tsx",
-          "importSpec": {
-            "modulePath": "../pages/5WqztA5PSPLqEsO02zhHwaXl7v5H.tsx"
-          },
-          "cssFilePath": "plasmic/www_offtoglow_com/Plasmic_404.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/5WqztA5PSPLqEsO02zhHwaXl7v5H"
-        },
-        {
           "id": "qTyITqH96yO7",
           "name": "AuthFormFirst",
           "type": "managed",
@@ -1497,6 +1483,34 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/5WqztA5PSPLqEsO02zhHwaXl7v5H/RMDgPSzr/[email]"
+        },
+        {
+          "id": "bE9M2R4cBYga",
+          "name": "Error",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicError.tsx",
+          "importSpec": {
+            "modulePath": "../pages/5WqztA5PSPLqEsO02zhHwaXl7v5H.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicError.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/5WqztA5PSPLqEsO02zhHwaXl7v5H"
+        },
+        {
+          "id": "pOeLTreHHtp3",
+          "name": "_404",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/Plasmic_404.tsx",
+          "importSpec": {
+            "modulePath": "../pages/404.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/Plasmic_404.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/404"
         }
       ],
       "icons": [
