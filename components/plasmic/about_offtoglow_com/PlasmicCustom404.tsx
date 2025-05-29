@@ -81,6 +81,7 @@ export type PlasmicCustom404__OverridesType = {
   root?: Flex__<"div">;
   h1?: Flex__<"h1">;
   h2?: Flex__<"h2">;
+  text?: Flex__<"div">;
   link?: Flex__<"a"> & Partial<LinkProps>;
   h3?: Flex__<"h3">;
 };
@@ -190,10 +191,12 @@ function PlasmicCustom404__RenderFunc(props: {
                 {"Oops! This Show Can't Go On... \ud83c\udfad"}
               </h2>
               <div
+                data-plasmic-name={"text"}
+                data-plasmic-override={overrides.text}
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__rjfAq
+                  sty.text
                 )}
               >
                 {
@@ -244,17 +247,6 @@ function PlasmicCustom404__RenderFunc(props: {
                 <React.Fragment>{""}</React.Fragment>
               </React.Fragment>
             </PlasmicLink__>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__zeuO6
-              )}
-            >
-              {
-                '"Every wrong turn is just a new dance move in your career"\nTeam OfftoGlow'
-              }
-            </div>
           </Stack__>
         </div>
       </div>
@@ -263,9 +255,10 @@ function PlasmicCustom404__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h1", "h2", "link", "h3"],
+  root: ["root", "h1", "h2", "text", "link", "h3"],
   h1: ["h1"],
   h2: ["h2"],
+  text: ["text"],
   link: ["link", "h3"],
   h3: ["h3"]
 } as const;
@@ -276,6 +269,7 @@ type NodeDefaultElementType = {
   root: "div";
   h1: "h1";
   h2: "h2";
+  text: "div";
   link: "a";
   h3: "h3";
 };
@@ -342,6 +336,7 @@ export const PlasmicCustom404 = Object.assign(
     // Helper components rendering sub-elements
     h1: makeNodeComponent("h1"),
     h2: makeNodeComponent("h2"),
+    text: makeNodeComponent("text"),
     link: makeNodeComponent("link"),
     h3: makeNodeComponent("h3"),
 

@@ -92,6 +92,39 @@
   min-width: 0;
   padding: 8px;
 }
+.freeBox__kpc3K {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.freeBox__kpc3K > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  margin-left: calc(0px - 12px);
+  width: calc(100% + 12px);
+}
+.freeBox__kpc3K > :global(.__wab_flex-container) > *,
+.freeBox__kpc3K > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__kpc3K > :global(.__wab_flex-container) > picture > img,
+.freeBox__kpc3K
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 12px;
+}
+.text__imiNi {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
 .freeBox__i7JCo {
   display: flex;
   flex-direction: row;
