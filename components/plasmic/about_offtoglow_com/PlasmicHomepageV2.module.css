@@ -355,7 +355,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: url("/plasmic/about_offtoglow_com/images/bherobgSvg2.svg") top 68% left 50% / cover no-repeat
+  background: url("/plasmic/about_offtoglow_com/images/bherobgSvg4.svg") top 68% left 50% / contain no-repeat
       scroll,
     url("/plasmic/about_offtoglow_com/images/globeSvg.svg") top 50% left 50% / cover no-repeat fixed,
     radial-gradient(
