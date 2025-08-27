@@ -292,7 +292,7 @@ function PlasmicVerifcation__RenderFunc(props: {
 
                         $steps["goToHomepage"] = true
                           ? (() => {
-                              const actionArgs = { destination: `/` };
+                              const actionArgs = { destination: `/old` };
                               return (({ destination }) => {
                                 if (
                                   typeof destination === "string" &&

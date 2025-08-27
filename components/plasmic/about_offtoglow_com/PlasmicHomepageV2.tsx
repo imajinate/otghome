@@ -4041,7 +4041,7 @@ export const PlasmicHomepageV2 = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "Welcome ",
+      title: "Welcome  to OfftoGlow",
       description: "",
       ogImageSrc: "",
       canonical: ""

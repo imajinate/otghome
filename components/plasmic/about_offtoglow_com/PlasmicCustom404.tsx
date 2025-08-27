@@ -228,7 +228,7 @@ function PlasmicCustom404__RenderFunc(props: {
                 sty.link
               )}
               component={Link}
-              href={`/`}
+              href={`/old`}
               platform={"nextjs"}
             >
               <React.Fragment>
