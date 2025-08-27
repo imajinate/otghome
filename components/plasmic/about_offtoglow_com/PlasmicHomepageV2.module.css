@@ -435,7 +435,7 @@
   font-size: 18px;
   color: #222222;
   padding-top: 0px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -474,7 +474,10 @@
   justify-content: flex-start;
   align-items: center;
   row-gap: 6px;
+  background: #ffffffad;
   min-width: 0;
+  border-radius: 8px;
+  padding: 20px;
 }
 .text__usBw {
   width: 100%;
