@@ -67,11 +67,13 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import { AntdPassword } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdPassword_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { _useGlobalVariants } from "../about_offtoglow_com/plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
+import { _useStyleTokens } from "../about_offtoglow_com/PlasmicStyleTokensProvider"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectcss
 import sty from "./PlasmicAuthFormBookingsForm.module.css"; // plasmic-import: ER7ouwJGwhQ1/css
 
@@ -248,6 +250,12 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+  const styleTokensClassNames_plasmic_rich_components =
+    useStyleTokens_plasmic_rich_components();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -259,9 +267,9 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
+        styleTokensClassNames_antd_5_hostless,
+        styleTokensClassNames_plasmic_rich_components,
         sty.root,
         {
           [sty.rootmode_checkEmail]: hasVariant($state, "mode", "checkEmail"),
@@ -456,22 +464,19 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField___1Udxr
+                      sty.formField__ojSa
                     )}
                     label={"Email"}
                     name={"email"}
                   >
                     <AntdInput
-                      className={classNames(
-                        "__wab_instance",
-                        sty.input___7TpDu
-                      )}
+                      className={classNames("__wab_instance", sty.input__db74X)}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__zHeT5
+                      sty.formField__c5H6D
                     )}
                     label={"Password"}
                     name={"password"}
@@ -484,8 +489,8 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                     />
                   </FormItemWrapper>
                   <AntdButton
-                    className={classNames("__wab_instance", sty.button__lvway, {
-                      [sty.buttonmode_signUp__lvwayCx1E6]: hasVariant(
+                    className={classNames("__wab_instance", sty.button__xD1K, {
+                      [sty.buttonmode_signUp__xD1KCx1E6]: hasVariant(
                         $state,
                         "mode",
                         "signUp"
@@ -499,9 +504,9 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__eInfs,
+                        sty.text__w6DQo,
                         {
-                          [sty.textmode_signUp__eInfsCx1E6]: hasVariant(
+                          [sty.textmode_signUp__w6DQoCx1E6]: hasVariant(
                             $state,
                             "mode",
                             "signUp"
@@ -732,9 +737,7 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
               );
             })()
           : null}
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox___6Ry9W, {
             [sty.freeBoxmode_checkEmail___6Ry9WasXrv]: hasVariant(
               $state,
@@ -890,7 +893,7 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                 : "Forgot Password"}
             </div>
           ) : null}
-        </Stack__>
+        </div>
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__bKemL, {
@@ -963,15 +966,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicAuthFormBookingsForm__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicAuthFormBookingsForm__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicAuthFormBookingsForm__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicAuthFormBookingsForm__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

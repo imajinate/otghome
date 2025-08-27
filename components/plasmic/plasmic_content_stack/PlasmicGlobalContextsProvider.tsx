@@ -5,7 +5,8 @@
 // Plasmic Project: 2vr9hQFY2mN9rEqhWxcPmu
 
 import * as React from "react";
-import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
+
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 2vr9hQFY2mN9rEqhWxcPmu/projectModule
 import { ContentStackCredentialsProvider } from "@plasmicpkgs/plasmic-content-stack";
 
 export interface GlobalContextsProviderProps {

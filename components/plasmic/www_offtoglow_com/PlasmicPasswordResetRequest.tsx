@@ -61,11 +61,13 @@ import {
 
 import PasswordResetForm from "../../PasswordResetForm"; // plasmic-import: OXtcbqP4qn4B/component
 import Card from "../../Card"; // plasmic-import: twFopKdKGk6j/component
+import { _useGlobalVariants } from "../about_offtoglow_com/plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
+import { _useStyleTokens } from "../about_offtoglow_com/PlasmicStyleTokensProvider"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectcss
 import sty from "./PlasmicPasswordResetRequest.module.css"; // plasmic-import: eYoY6gUOk0ZJ/css
 
@@ -132,6 +134,12 @@ function PlasmicPasswordResetRequest__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+  const styleTokensClassNames_plasmic_rich_components =
+    useStyleTokens_plasmic_rich_components();
+
   return (
     <React.Fragment>
       <Head>
@@ -167,9 +175,9 @@ function PlasmicPasswordResetRequest__RenderFunc(props: {
           projectcss.root_reset,
           projectcss.plasmic_default_styles,
           projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          plasmic_antd_5_hostless_css.plasmic_tokens,
-          plasmic_plasmic_rich_components_css.plasmic_tokens,
+          styleTokensClassNames,
+          styleTokensClassNames_antd_5_hostless,
+          styleTokensClassNames_plasmic_rich_components,
           sty.root
         )}
       >
@@ -236,15 +244,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicPasswordResetRequest__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicPasswordResetRequest__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicPasswordResetRequest__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicPasswordResetRequest__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

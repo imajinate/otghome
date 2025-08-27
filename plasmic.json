@@ -48,7 +48,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/react_scroll_parallax_global/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/react_scroll_parallax_global/plasmic.tsx"
     },
     {
       "projectId": "sqPBLwEBBKHA2WDuGb17eV",
@@ -139,7 +140,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/radix_ui/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/radix_ui/plasmic.tsx"
     },
     {
       "projectId": "kpio2pzukKRJkKg6SSrKTe",
@@ -155,7 +157,8 @@
       "splitsProviderFilePath": "",
       "codeComponents": [],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/dayjs/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/dayjs/plasmic.tsx"
     },
     {
       "projectId": "77tPPMY1MAED1Fqwv1T1ig",
@@ -171,7 +174,8 @@
       "splitsProviderFilePath": "",
       "codeComponents": [],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/date_fns/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/date_fns/plasmic.tsx"
     },
     {
       "projectId": "szjgMQpPpxhmkjnaBvZQJG",
@@ -194,7 +198,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/react_parallax_tilt/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/react_parallax_tilt/plasmic.tsx"
     },
     {
       "projectId": "2vr9hQFY2mN9rEqhWxcPmu",
@@ -229,7 +234,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/plasmic_content_stack/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_content_stack/plasmic.tsx"
     },
     {
       "projectId": "hsyJcmBceSfPzvvXzVTuk7",
@@ -245,7 +251,8 @@
       "splitsProviderFilePath": "",
       "codeComponents": [],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/lodash/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/lodash/plasmic.tsx"
     },
     {
       "projectId": "95cydKu4zdmeK3V4rXXSKZ",
@@ -261,7 +268,8 @@
       "splitsProviderFilePath": "",
       "codeComponents": [],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/fast_stringify/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/fast_stringify/plasmic.tsx"
     },
     {
       "projectId": "a3pmZtcpA5asHkNtN3SGoF",
@@ -277,7 +285,8 @@
       "splitsProviderFilePath": "",
       "codeComponents": [],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/uuid/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/uuid/plasmic.tsx"
     },
     {
       "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
@@ -300,7 +309,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/plasmic_nav/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_nav/plasmic.tsx"
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -359,7 +369,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/plasmic_basic_components/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_basic_components/plasmic.tsx"
     },
     {
       "projectId": "YUiM7yqBWAqsh8KSnrdj7",
@@ -388,7 +399,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/plasmic_query/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_query/plasmic.tsx"
     },
     {
       "projectId": "9Vr5YWkf3w7jj6SsTcCEta",
@@ -411,7 +423,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/loading_boundary/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/loading_boundary/plasmic.tsx"
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -466,7 +479,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/plasmic_rich_components/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_rich_components/plasmic.tsx"
     },
     {
       "projectId": "r3ASNrnyvLLLAtDvzUioQ",
@@ -493,7 +507,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/react_slick/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/react_slick/plasmic.tsx"
     },
     {
       "projectId": "28Ba3BDvRe7EiWdfFNnLB6",
@@ -704,7 +719,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/antd/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/antd/plasmic.tsx"
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -1105,7 +1121,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/antd_5_hostless/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/antd_5_hostless/plasmic.tsx"
     },
     {
       "projectId": "5dGW8Awro3qq8Hh5MveXLP",
@@ -1134,7 +1151,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/lottie_react/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/lottie_react/plasmic.tsx"
     },
     {
       "projectId": "8PtdGodUbexNYgkuyBUcWu",
@@ -1157,7 +1175,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/plasmic_embed_css/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_embed_css/plasmic.tsx"
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -1180,7 +1199,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/react_awesome_reveal/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/react_awesome_reveal/plasmic.tsx"
     },
     {
       "projectId": "enk3K4vZ6pmH6kVCoZJXGn",
@@ -1203,7 +1223,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/react_youtube/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/react_youtube/plasmic.tsx"
     },
     {
       "projectId": "rpSUvc8HqqQeYPehLJKGyo",
@@ -1497,6 +1518,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/404"
+        },
+        {
+          "id": "IIpHC3JIHJ0K",
+          "name": "HomepageV2",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicHomepageV2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/v2.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicHomepageV2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/v2"
         }
       ],
       "icons": [
@@ -1681,6 +1716,26 @@
           "id": "XYnJroQcmgT0",
           "name": "rob-csaszar-b5yiBMHk5sQ-unsplash.jpg",
           "filePath": "../public/plasmic/www_offtoglow_com/images/robCsaszarB5YiBmHk5SQUnsplashJpg.jpg"
+        },
+        {
+          "id": "5ysK0ZB1L0Hp",
+          "name": "globe.svg",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/globeSvg.svg"
+        },
+        {
+          "id": "BnaOpXDZBlS1",
+          "name": "bherobg.svg",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/bherobgSvg.svg"
+        },
+        {
+          "id": "2lJqgX8gXYRt",
+          "name": "bherobg.svg 2",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/bherobgSvg2.svg"
+        },
+        {
+          "id": "0-W1S4TcZdW0",
+          "name": "logo2025.svg",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/logo2025Svg.svg"
         }
       ],
       "indirect": false,
@@ -1706,7 +1761,9 @@
           "componentImportPath": "./components/EmailVerificationHandler"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "styleTokensProviderFilePath": "plasmic/about_offtoglow_com/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/about_offtoglow_com/plasmic.tsx"
     }
   ],
   "globalVariants": {
@@ -1723,6 +1780,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.334",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.334/dist/plasmic.schema.json"
+  "cliVersion": "0.1.342",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.342/dist/plasmic.schema.json"
 }

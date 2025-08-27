@@ -63,13 +63,13 @@ import Button from "../../Button"; // plasmic-import: bUjxyyacyjDo/component
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
-
-import { useScreenVariants as useScreenVariantshA1MVaLfOpX } from "../www_offtoglow_com/PlasmicGlobalVariant__Screen"; // plasmic-import: hA1mVaLfOP_X/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../www_offtoglow_com/plasmic.module.css"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: wK73mKSlpdfF/css
 
@@ -193,9 +193,12 @@ function PlasmicHomepage__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantshA1MVaLfOpX()
-  });
+  const globalVariants = _useGlobalVariants();
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+  const styleTokensClassNames_plasmic_rich_components =
+    useStyleTokens_plasmic_rich_components();
 
   return (
     <React.Fragment>
@@ -220,30 +223,24 @@ function PlasmicHomepage__RenderFunc(props: {
         }
       `}</style>
 
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"root"}
         data-plasmic-override={overrides.root}
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
-        hasGap={true}
         className={classNames(
           projectcss.all,
           projectcss.root_reset,
           projectcss.plasmic_default_styles,
           projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          plasmic_antd_5_hostless_css.plasmic_tokens,
-          plasmic_plasmic_rich_components_css.plasmic_tokens,
+          styleTokensClassNames,
+          styleTokensClassNames_antd_5_hostless,
+          styleTokensClassNames_plasmic_rich_components,
           sty.root
         )}
       >
         <div className={classNames(projectcss.all, sty.freeBox__ksvx4)}>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__fxYs9)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__fxYs9)}>
             <Otglogo2024SvgIcon
               className={classNames(projectcss.all, sty.svg__vMs0K)}
               role={"img"}
@@ -251,11 +248,7 @@ function PlasmicHomepage__RenderFunc(props: {
 
             <div className={classNames(projectcss.all, sty.freeBox___8Xq2V)} />
 
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__kpc3K)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__kpc3K)}>
               <PlasmicLink__
                 className={classNames(
                   projectcss.all,
@@ -291,13 +284,9 @@ function PlasmicHomepage__RenderFunc(props: {
               >
                 {"Booker Login"}
               </PlasmicLink__>
-            </Stack__>
+            </div>
             {false ? (
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__i7JCo)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__i7JCo)}>
                 <Button
                   className={classNames("__wab_instance", sty.button__c1GTk)}
                   color={"white"}
@@ -416,7 +405,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     {"Booker Sign In"}
                   </div>
                 </Button>
-              </Stack__>
+              </div>
             ) : null}
             <Button
               className={classNames("__wab_instance", sty.button__nsZka)}
@@ -461,7 +450,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 {"Join for Free"}
               </div>
             </Button>
-          </Stack__>
+          </div>
           <h1
             className={classNames(
               projectcss.all,
@@ -3348,21 +3337,9 @@ function PlasmicHomepage__RenderFunc(props: {
             >
               {"A Platform That Empowers Your Brand and Streamlines Bookings"}
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__fm00T)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__kH1Pl)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__yXcZm)}
-                >
+            <div className={classNames(projectcss.all, sty.freeBox__fm00T)}>
+              <div className={classNames(projectcss.all, sty.freeBox__kH1Pl)}>
+                <div className={classNames(projectcss.all, sty.freeBox__yXcZm)}>
                   <h3
                     className={classNames(
                       projectcss.all,
@@ -3384,12 +3361,8 @@ function PlasmicHomepage__RenderFunc(props: {
                       "Offtoglow is designed with simplicity and efficiency in mind, ensuring a seamless experience for managing bookings, creating a unique digital presence, and engaging with industry peers."
                     }
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__nDTs)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__nDTs)}>
                   <h3
                     className={classNames(
                       projectcss.all,
@@ -3411,18 +3384,10 @@ function PlasmicHomepage__RenderFunc(props: {
                       "Centralize all your bookings and requests in one place with easy-to-use profiles and a streamlined submission form. Save time and stay organized with automated features and clear tracking.\n"
                     }
                   </div>
-                </Stack__>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__yNuHo)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__yMbDc)}
-                >
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__yNuHo)}>
+                <div className={classNames(projectcss.all, sty.freeBox__yMbDc)}>
                   <h3
                     className={classNames(
                       projectcss.all,
@@ -3444,12 +3409,8 @@ function PlasmicHomepage__RenderFunc(props: {
                       "Benefit from our review and rating system, allowing you to see experiences from other users and make informed decisions. Transparency is key to building trust and credibility.\n"
                     }
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__zhnBr)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__zhnBr)}>
                   <h3
                     className={classNames(
                       projectcss.all,
@@ -3471,18 +3432,10 @@ function PlasmicHomepage__RenderFunc(props: {
                       "Enjoy peace of mind with secure end-to-end transactions. Our platform ensures that all interactions and payments between verified users are protected."
                     }
                   </div>
-                </Stack__>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__sjk8C)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__amDer)}
-                >
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__sjk8C)}>
+                <div className={classNames(projectcss.all, sty.freeBox__amDer)}>
                   <h3
                     className={classNames(
                       projectcss.all,
@@ -3504,12 +3457,8 @@ function PlasmicHomepage__RenderFunc(props: {
                       "Explore a diverse online database of talents from around the world, searchable by various categories and genres. Find the perfect match for your needs with ease."
                     }
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__hnhJy)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__hnhJy)}>
                   <h3
                     className={classNames(
                       projectcss.all,
@@ -3531,18 +3480,10 @@ function PlasmicHomepage__RenderFunc(props: {
                       "Create a unique digital space to showcase your brand, manage bookings effortlessly, and provide a comprehensive view of your expertise. Customize your online presence to reflect your identity and engage more deeply with your audience."
                     }
                   </div>
-                </Stack__>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__h4ZQh)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__oezqn)}
-                >
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__h4ZQh)}>
+                <div className={classNames(projectcss.all, sty.freeBox__oezqn)}>
                   <h3
                     className={classNames(
                       projectcss.all,
@@ -3564,14 +3505,12 @@ function PlasmicHomepage__RenderFunc(props: {
                       "You have full control over how you present yourself and manage your bookings. Tailor your profile to suit your style, position yourself effectively in the market, and handle bookings on your terms."
                     }
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__wASs)}
                 />
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img__dwTaq)}
@@ -3600,11 +3539,7 @@ function PlasmicHomepage__RenderFunc(props: {
             >
               {"Unlock a new way to shine. Get ready to Offtoglow."}
             </h2>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__xa4Go)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__xa4Go)}>
               <Button
                 className={classNames("__wab_instance", sty.button__ipEgr)}
                 color={"softBlue"}
@@ -3640,10 +3575,10 @@ function PlasmicHomepage__RenderFunc(props: {
               >
                 {"Start now"}
               </Button>
-            </Stack__>
+            </div>
           </div>
         </div>
-      </Stack__>
+      </div>
     </React.Fragment>
   ) as React.ReactElement | null;
 }
@@ -3684,15 +3619,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicHomepage__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicHomepage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicHomepage__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicHomepage__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

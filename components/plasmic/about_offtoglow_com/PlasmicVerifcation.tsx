@@ -64,13 +64,13 @@ import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import { ConditionGuard } from "@plasmicpkgs/plasmic-basic-components";
 import { EmailVerificationHandler } from "../../EmailVerificationHandler"; // plasmic-import: gRc82GluJ42g/codeComponent
 import Button from "../../Button"; // plasmic-import: bUjxyyacyjDo/component
-
-import { useScreenVariants as useScreenVariantshA1MVaLfOpX } from "../www_offtoglow_com/PlasmicGlobalVariant__Screen"; // plasmic-import: hA1mVaLfOP_X/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../www_offtoglow_com/plasmic.module.css"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectcss
 import sty from "./PlasmicVerifcation.module.css"; // plasmic-import: 3gtjCoHvk73C/css
 
@@ -142,9 +142,12 @@ function PlasmicVerifcation__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantshA1MVaLfOpX()
-  });
+  const globalVariants = _useGlobalVariants();
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+  const styleTokensClassNames_plasmic_rich_components =
+    useStyleTokens_plasmic_rich_components();
 
   return (
     <React.Fragment>
@@ -180,9 +183,9 @@ function PlasmicVerifcation__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
+            styleTokensClassNames_antd_5_hostless,
+            styleTokensClassNames_plasmic_rich_components,
             sty.root
           )}
         >
@@ -422,9 +425,7 @@ function PlasmicVerifcation__RenderFunc(props: {
                               </React.Fragment>
                             </React.Fragment>
                           </div>
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__gmDLa
@@ -594,7 +595,7 @@ function PlasmicVerifcation__RenderFunc(props: {
                                 </div>
                               </div>
                             </Button>
-                          </Stack__>
+                          </div>
                         </div>
                       ) : null}
                     </ConditionGuard>
@@ -667,15 +668,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicVerifcation__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicVerifcation__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicVerifcation__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicVerifcation__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

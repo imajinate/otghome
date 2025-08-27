@@ -5,7 +5,8 @@
 // Plasmic Project: rpSUvc8HqqQeYPehLJKGyo
 
 import * as React from "react";
-import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
+
+import { _useGlobalVariants } from "../about_offtoglow_com/plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
 import { EmbedCss } from "@plasmicpkgs/plasmic-embed-css";
 import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider";
 import { ContentStackCredentialsProvider } from "@plasmicpkgs/plasmic-content-stack";
@@ -16,18 +17,15 @@ export interface GlobalContextsProviderProps {
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
-
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   contentStackCredentialsProviderProps?: Partial<
     Omit<
       React.ComponentProps<typeof ContentStackCredentialsProvider>,
       "children"
     >
   >;
-
   parallaxProviderWrapperProps?: Partial<
     Omit<React.ComponentProps<typeof ParallaxProviderWrapper>, "children">
   >;

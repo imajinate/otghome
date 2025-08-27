@@ -5,7 +5,8 @@
 // Plasmic Project: 84wxoth5npGrp6RRXPL88z
 
 import * as React from "react";
-import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
+
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 84wxoth5npGrp6RRXPL88z/projectModule
 import { ParallaxProviderWrapper } from "@plasmicpkgs/react-scroll-parallax";
 
 export interface GlobalContextsProviderProps {

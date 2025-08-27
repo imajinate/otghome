@@ -59,10 +59,13 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../www_offtoglow_com/plasmic.module.css"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectcss
 import sty from "./PlasmicCustom404.module.css"; // plasmic-import: pOeLTreHHtp3/css
 
@@ -129,9 +132,28 @@ function PlasmicCustom404__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+  const styleTokensClassNames_plasmic_rich_components =
+    useStyleTokens_plasmic_rich_components();
+
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicCustom404.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicCustom404.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicCustom404.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -150,22 +172,14 @@ function PlasmicCustom404__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
+            styleTokensClassNames_antd_5_hostless,
+            styleTokensClassNames_plasmic_rich_components,
             sty.root
           )}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__sOwWf)}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__qz4Hi)}
-            >
+          <div className={classNames(projectcss.all, sty.freeBox__sOwWf)}>
+            <div className={classNames(projectcss.all, sty.freeBox__qz4Hi)}>
               <h1
                 data-plasmic-name={"h1"}
                 data-plasmic-override={overrides.h1}
@@ -203,7 +217,7 @@ function PlasmicCustom404__RenderFunc(props: {
                   "Looks like the page you're looking for isn't in our lineup. \nBut don't worry - at OfftoGlow, we always find a way to make things work!"
                 }
               </div>
-            </Stack__>
+            </div>
             <PlasmicLink__
               data-plasmic-name={"link"}
               data-plasmic-override={overrides.link}
@@ -247,7 +261,7 @@ function PlasmicCustom404__RenderFunc(props: {
                 <React.Fragment>{""}</React.Fragment>
               </React.Fragment>
             </PlasmicLink__>
-          </Stack__>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -286,15 +300,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicCustom404__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicCustom404__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicCustom404__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicCustom404__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -346,7 +360,7 @@ export const PlasmicCustom404 = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "404",
       description: "",
       ogImageSrc: "",
       canonical: ""

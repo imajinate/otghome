@@ -164,6 +164,8 @@
   background: none;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  row-gap: 0px;
+  column-gap: 0px;
   box-shadow: none;
   box-sizing: border-box;
   text-decoration-line: none;
@@ -177,6 +179,8 @@
   background: none;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  row-gap: 0px;
+  column-gap: 0px;
   box-shadow: none;
   box-sizing: border-box;
   margin: 0;
@@ -617,7 +621,7 @@ ul:where(.root_reset_tags) {
   padding-left: var(--mixin-swuA-p4VPrG0_padding-left);
   position: var(--mixin-swuA-p4VPrG0_position);
   list-style-type: var(--mixin-swuA-p4VPrG0_list-style-type);
-  flex-column-gap: var(--mixin-swuA-p4VPrG0_flex-column-gap);
+  column-gap: var(--mixin-swuA-p4VPrG0_column-gap);
 }
 
 :where(.root_reset) ol:where(.ol),
@@ -633,7 +637,7 @@ ol:where(.root_reset_tags) {
   padding-left: var(--mixin-4lp7xWRrTBIo_padding-left);
   position: var(--mixin-4lp7xWRrTBIo_position);
   list-style-type: var(--mixin-4lp7xWRrTBIo_list-style-type);
-  flex-column-gap: var(--mixin-4lp7xWRrTBIo_flex-column-gap);
+  column-gap: var(--mixin-4lp7xWRrTBIo_column-gap);
 }
 
 :where(.root_reset) h5:where(.h5),
