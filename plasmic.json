@@ -1605,6 +1605,21 @@
           "id": "uJ1CfZb5StEd",
           "name": "ReduceadminoverheadSvgIcon",
           "moduleFilePath": "plasmic/www_offtoglow_com/icons/PlasmicIcon__ReduceadminoverheadSvg.tsx"
+        },
+        {
+          "id": "l1fjJb4ZZVRD",
+          "name": "UnlockEarningsSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__UnlockEarningsSvg.tsx"
+        },
+        {
+          "id": "Zat-p-u4QdVI",
+          "name": "ViewClose818SvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__ViewClose818SvgrepoComSvg.tsx"
+        },
+        {
+          "id": "CTPeqsI19eQF",
+          "name": "CollaborationSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__CollaborationSvgrepoComSvg.tsx"
         }
       ],
       "images": [
@@ -1732,6 +1747,56 @@
           "id": "zvqfrCcaLeLA",
           "name": "bherobg.svg 4",
           "filePath": "../public/plasmic/about_offtoglow_com/images/bherobgSvg4.svg"
+        },
+        {
+          "id": "aljUTBFtPOOi",
+          "name": "desktopportfolio.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/desktopportfolioPng.png"
+        },
+        {
+          "id": "w62L75frbx37",
+          "name": "bookform.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/bookformPng.png"
+        },
+        {
+          "id": "FPwPsI5z0J7f",
+          "name": "dashany.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/dashanyPng.png"
+        },
+        {
+          "id": "fT5gL0nuIcPc",
+          "name": "bookingdash.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/bookingdashPng.png"
+        },
+        {
+          "id": "mQkPgU7jASsD",
+          "name": "task.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/taskPng.png"
+        },
+        {
+          "id": "fuqsbi0xu1g9",
+          "name": "notes.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/notesPng.png"
+        },
+        {
+          "id": "z1xUlJQEsn9A",
+          "name": "links.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/linksPng.png"
+        },
+        {
+          "id": "q7DsRAi90apZ",
+          "name": "blog.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/blogPng.png"
+        },
+        {
+          "id": "y6nlYa_hQkfm",
+          "name": "availblock.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/availblockPng.png"
+        },
+        {
+          "id": "njPAtG6_CXfP",
+          "name": "agenda.png",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/agendaPng.png"
         }
       ],
       "indirect": false,
