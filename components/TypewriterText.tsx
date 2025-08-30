@@ -18,26 +18,32 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    // Bepalen wat de volgende actie is en hoe lang wachten
-    let delay = speed;
     const fullText = texts[index];
+    let delay: number;
 
+    // Bepaal delay: typen/wissen = speed, pauze = pauseDuration
     if (!isDeleting && subIndex === fullText.length) {
-      // Volledig getypt → pauze
       delay = pauseDuration;
-      setIsDeleting(true);
     } else if (isDeleting && subIndex === 0) {
-      // Wissen afgerond → volgende woord
-      setIsDeleting(false);
-      setIndex((prev) => (prev + 1) % texts.length);
       delay = speed;
+    } else {
+      delay = isDeleting ? speed / 2 : speed;
     }
 
     const timer = setTimeout(() => {
-      // Type of delete één karakter
-      setSubIndex((prev) =>
-        isDeleting ? prev - 1 : prev + 1
-      );
+      // Als we aan het einde zijn en nog niet wissen, start wissen
+      if (!isDeleting && subIndex === fullText.length) {
+        setIsDeleting(true);
+      }
+      // Als we wissen en bij 0, ga naar volgend woord
+      else if (isDeleting && subIndex === 0) {
+        setIsDeleting(false);
+        setIndex((prev) => (prev + 1) % texts.length);
+      }
+      // Anders verhoog of verlaag subIndex
+      else {
+        setSubIndex((prev) => prev + (isDeleting ? -1 : 1));
+      }
     }, delay);
 
     return () => clearTimeout(timer);
