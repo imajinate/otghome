@@ -13,31 +13,35 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
   pauseDuration = 2000,
   className,
 }) => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentText = texts[currentTextIndex];
+    // Bepalen wat de volgende actie is en hoe lang wachten
+    let delay = speed;
+    const fullText = texts[index];
+
+    if (!isDeleting && subIndex === fullText.length) {
+      // Volledig getypt → pauze
+      delay = pauseDuration;
+      setIsDeleting(true);
+    } else if (isDeleting && subIndex === 0) {
+      // Wissen afgerond → volgende woord
+      setIsDeleting(false);
+      setIndex((prev) => (prev + 1) % texts.length);
+      delay = speed;
+    }
+
     const timer = setTimeout(() => {
-      if (!isDeleting) {
-        if (displayedText.length < currentText.length) {
-          setDisplayedText(currentText.slice(0, displayedText.length + 1));
-        } else {
-          setTimeout(() => setIsDeleting(true), pauseDuration);
-        }
-      } else {
-        if (displayedText.length > 0) {
-          setDisplayedText(displayedText.slice(0, -1));
-        } else {
-          setIsDeleting(false);
-          setCurrentTextIndex(i => (i + 1) % texts.length);
-        }
-      }
-    }, isDeleting ? speed / 2 : speed);
+      // Type of delete één karakter
+      setSubIndex((prev) =>
+        isDeleting ? prev - 1 : prev + 1
+      );
+    }, delay);
 
     return () => clearTimeout(timer);
-  }, [displayedText, isDeleting, currentTextIndex, texts, speed, pauseDuration]);
+  }, [subIndex, isDeleting, index, texts, speed, pauseDuration]);
 
   const cursorStyle: React.CSSProperties = {
     display: 'inline-block',
@@ -46,7 +50,7 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
 
   return (
     <span className={className}>
-      {displayedText}
+      {texts[index].slice(0, subIndex)}
       <span style={cursorStyle}>_</span>
       <style jsx>{`
         @keyframes blink {
