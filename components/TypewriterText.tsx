@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
-interface TypewriterTextProps {
+export interface TypewriterTextProps {
   texts: string[];
   speed?: number;
   pauseDuration?: number;
+  className?: string;         // voeg className prop toe
 }
 
 export const TypewriterText: React.FC<TypewriterTextProps> = ({
   texts,
   speed = 100,
   pauseDuration = 2000,
+  className,                  // destructure className
 }) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
@@ -26,21 +28,22 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
         }
       } else {
         if (displayedText.length > 0) {
-          setDisplayedText(currentText.slice(0, displayedText.length - 1));
+          setDisplayedText(displayedText.slice(0, -1));
         } else {
           setIsDeleting(false);
-          setCurrentTextIndex((i) => (i + 1) % texts.length);
+          setCurrentTextIndex(i => (i + 1) % texts.length);
         }
       }
-    }, isDeleting ? speed / 2 : speed);
+    }, isDeleting ? speed/2 : speed);
 
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentTextIndex, texts, speed, pauseDuration]);
 
   const isTyping = displayedText.length < texts[currentTextIndex].length;
 
+  // geef className door aan de root span
   return (
-    <span>
+    <span className={className}>
       {displayedText}
       {isTyping && <span data-plasmic-class="cursor">_</span>}
     </span>
