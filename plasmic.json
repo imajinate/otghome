@@ -1797,6 +1797,11 @@
           "id": "njPAtG6_CXfP",
           "name": "agenda.png",
           "filePath": "../public/plasmic/about_offtoglow_com/images/agendaPng.png"
+        },
+        {
+          "id": "mMu6zSodULR4",
+          "name": "bherobg.svg 5",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/bherobgSvg5.svg"
         }
       ],
       "indirect": false,
