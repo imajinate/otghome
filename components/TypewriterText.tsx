@@ -4,14 +4,14 @@ export interface TypewriterTextProps {
   texts: string[];
   speed?: number;
   pauseDuration?: number;
-  className?: string;         // voeg className prop toe
+  className?: string;
 }
 
 export const TypewriterText: React.FC<TypewriterTextProps> = ({
   texts,
   speed = 100,
   pauseDuration = 2000,
-  className,                  // destructure className
+  className,
 }) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
@@ -34,18 +34,26 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
           setCurrentTextIndex(i => (i + 1) % texts.length);
         }
       }
-    }, isDeleting ? speed/2 : speed);
+    }, isDeleting ? speed / 2 : speed);
 
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentTextIndex, texts, speed, pauseDuration]);
 
-  const isTyping = displayedText.length < texts[currentTextIndex].length;
+  const cursorStyle: React.CSSProperties = {
+    display: 'inline-block',
+    animation: 'blink 1s steps(2, start) infinite',
+  };
 
-  // geef className door aan de root span
   return (
     <span className={className}>
       {displayedText}
-      <span data-plasmic-class="cursor">_</span>
-      </span>
+      <span style={cursorStyle}>_</span>
+      <style jsx>{`
+        @keyframes blink {
+          0%, 50% { visibility: visible; }
+          51%, 100% { visibility: hidden; }
+        }
+      `}</style>
+    </span>
   );
 };
