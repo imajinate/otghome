@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './TypewriterText.css'; // Importeer de CSS
 
 interface TypewriterTextProps {
   texts: string[];
@@ -19,18 +20,16 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
 
   useEffect(() => {
     const currentText = texts[currentTextIndex];
-    
+    const isComplete = displayedText === currentText;
+
     const timer = setTimeout(() => {
       if (!isDeleting) {
-        // Typing
         if (displayedText.length < currentText.length) {
           setDisplayedText(currentText.slice(0, displayedText.length + 1));
         } else {
-          // Pause before deleting
           setTimeout(() => setIsDeleting(true), pauseDuration);
         }
       } else {
-        // Deleting
         if (displayedText.length > 0) {
           setDisplayedText(displayedText.slice(0, -1));
         } else {
@@ -43,5 +42,12 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentTextIndex, texts, speed, pauseDuration]);
 
-  return <span className={className}>{displayedText}</span>;
+  const isTyping = displayedText.length < texts[currentTextIndex].length;
+
+  return (
+    <span className={className}>
+      {displayedText}
+      {isTyping && <span className="cursor">_</span>}
+    </span>
+  );
 };
