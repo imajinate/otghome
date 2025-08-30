@@ -57,7 +57,8 @@ PLASMIC.registerComponent(EmailVerificationHandler, {
 
 // Registreer de typewriter component
 PLASMIC.registerComponent(TypewriterText, {
-  name: "Rotating Text",
+  name: "RotatingText",
+  importName: "TypewriterText",
   importPath: "./components/TypewriterText",
   props: {
     texts: {
@@ -65,12 +66,12 @@ PLASMIC.registerComponent(TypewriterText, {
       defaultValue: ["creator", "influencer", "model", "singer", "rapper", "dj"]
     },
     speed: {
-      type: "number", 
+      type: "number",
       defaultValue: 100
     },
     pauseDuration: {
       type: "number",
-      defaultValue: 2000
+      defaultValue: 3000
     }
   }
 });
