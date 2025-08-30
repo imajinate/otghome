@@ -1820,6 +1820,12 @@
           "name": "EmailVerificationHandler",
           "displayName": "EmailVerificationHandler",
           "componentImportPath": "./components/EmailVerificationHandler"
+        },
+        {
+          "id": "ZFwT5I17yEXd",
+          "name": "TypewriterText",
+          "displayName": "RotatingText",
+          "componentImportPath": "./components/TypewriterText"
         }
       ],
       "customFunctions": [],

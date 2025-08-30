@@ -220,6 +220,81 @@
   margin-bottom: 12px;
   min-width: 0;
 }
+.freeBox__pkfj {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 12px;
+  min-width: 0;
+}
+.freeBox__bhoHz {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  min-width: 0;
+}
+.freeBox__tHu9 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  padding: 0px 16px;
+}
+.h1__hawD {
+  width: auto;
+  height: auto;
+  text-align: left;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.18;
+  letter-spacing: normal;
+  color: var(--token-85NLt28mNxmq);
+  margin-right: 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .h1__hawD {
+    font-size: 50px;
+  }
+}
+.rotatingText:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--token-85NLt28mNxmq);
+  text-transform: none;
+}
+.h1__yK8P {
+  width: auto;
+  height: auto;
+  text-align: left;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.18;
+  letter-spacing: normal;
+  color: var(--token-85NLt28mNxmq);
+  margin-right: 15px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .h1__yK8P {
+    font-size: 50px;
+  }
+}
 .h1__n1OXd {
   width: 100%;
   height: auto;
@@ -311,18 +386,6 @@
   color: var(--token-RvPI6LyeIPmd);
   text-align: center;
   min-width: 0;
-}
-.freeBox__bmhWk {
-  flex-direction: row;
-  position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: 1px;
-  max-width: 100%;
-  min-width: 0;
-  flex-shrink: 0;
-  display: none;
 }
 .freeBox__lCJy4 {
   display: flex;
@@ -3861,18 +3924,19 @@
   justify-content: center;
   width: 100%;
   height: auto;
-  max-width: 980px;
   margin-bottom: 36px;
   row-gap: 20px;
+  max-width: 980px;
   min-width: 0;
   padding: 8px;
 }
 .sliderCarouselWhatNow:global(.__wab_instance) {
-  width: auto;
+  width: 100%;
   max-width: 100%;
   object-fit: cover;
   display: block;
   color: var(--token-jgohepLVeKvh);
+  min-width: 0;
 }
 ._1Profile {
   display: flex;
