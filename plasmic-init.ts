@@ -6,6 +6,7 @@ import { AuthFormBookingsForm } from "./components/AuthFormBookingsForm";
 import { PasswordResetForm } from "./components/PasswordResetForm";
 import { UpdatePasswordForm } from "./components/UpdatePasswordForm";
 import { EmailVerificationHandler } from "./components/EmailVerificationHandler";
+import { TypewriterText } from './components/TypewriterText';
 // import { UpdatePasswordFormNew } from "./components/UpdatePasswordFormNew";
 
 export const PLASMIC = initPlasmicLoader({
@@ -53,3 +54,23 @@ PLASMIC.registerComponent(EmailVerificationHandler, {
     },
   },
 );
+
+// Registreer de typewriter component
+PLASMIC.registerComponent(TypewriterText, {
+  name: "Rotating Text",
+  importPath: "./components/TypewriterText",
+  props: {
+    texts: {
+      type: "array",
+      defaultValue: ["creator", "influencer", "model", "singer", "rapper", "dj"]
+    },
+    speed: {
+      type: "number", 
+      defaultValue: 100
+    },
+    pauseDuration: {
+      type: "number",
+      defaultValue: 2000
+    }
+  }
+});
