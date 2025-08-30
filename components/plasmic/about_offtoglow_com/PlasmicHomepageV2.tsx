@@ -534,43 +534,33 @@ function PlasmicHomepageV2__RenderFunc(props: {
                         pauseDuration={1888}
                         speed={128}
                         texts={[
-                          "a creator",
-                          "an influencer",
-                          "an artist",
-                          "a model",
-                          "a singer",
-                          "a rapper",
-                          "a DJ",
-                          "an entrepreneur",
-                          "an athlete",
-                          "a dancer",
-                          "a podcaster",
-                          "a coach",
-                          "a streamer",
-                          "a writer",
-                          "a vlogger",
-                          "a chef",
-                          "a videographer",
-                          "a photographer",
-                          "a producer",
-                          "an actor",
-                          "a TV host",
-                          "a speaker",
-                          "a reviewer",
-                          "a cartoonist"
+                          "a creator?",
+                          "an influencer?",
+                          "an artist?",
+                          "a model?",
+                          "a singer?",
+                          "a rapper?",
+                          "a DJ?",
+                          "an entrepreneur?",
+                          "an athlete?",
+                          "a dancer?",
+                          "a podcaster?",
+                          "a coach?",
+                          "a streamer?",
+                          "a writer?",
+                          "a vlogger?",
+                          "a chef?",
+                          "a videographer?",
+                          "a photographer?",
+                          "a producer?",
+                          "an actor?",
+                          "a TV host?",
+                          "a speaker?",
+                          "a reviewer?",
+                          "a cartoonist?",
+                          "an MC?"
                         ]}
                       />
-
-                      <h1
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h1,
-                          projectcss.__wab_text,
-                          sty.h1__yK8P
-                        )}
-                      >
-                        {"?"}
-                      </h1>
                     </div>
                   </div>
                   <h1
