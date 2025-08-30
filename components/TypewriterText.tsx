@@ -45,7 +45,7 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
   return (
     <span className={className}>
       {displayedText}
-      {isTyping && <span data-plasmic-class="cursor">_</span>}
-    </span>
+      <span data-plasmic-class="cursor">_</span>
+      </span>
   );
 };
