@@ -93,16 +93,3 @@ PLASMIC.registerComponent(NavWrapper, {
   }
 });
 
-// Registreer NavWrapperContext voor dynamic values
-PLASMIC.registerGlobalContext(NavWrapper, {
-  name: "NavWrapperContext",
-  importPath: "./components/NavWrapper",
-  providesData: true,
-  props: {
-    scrollThreshold: {
-      type: "number",
-      defaultValue: 0,
-      description: "Scrollafstand (pixels) waarbij isScrolled true wordt"
-    }
-  }
-});
