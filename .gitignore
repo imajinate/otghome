@@ -36,6 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 # pages
+/pages/about.tsx
 /pages/notfound.tsx
 /pages/5nN0wMAaSX6O3o5x/
 /pages/5WqztA5PSPLqEsO02zhHwaXl7v5H/
