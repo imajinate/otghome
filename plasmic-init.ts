@@ -73,18 +73,36 @@ PLASMIC.registerComponent(TypewriterText, {
 });
 
 
-// Registreer de NavWrapper component
-PLASMIC.registerGlobalContext(NavWrapper, {
+// Maak NavWrapper beschikbaar als drag-&-drop component
+PLASMIC.registerComponent(NavWrapper, {
   name: "NavWrapper",
+  importPath: "./components/NavWrapper",
+  props: {
+    scrollThreshold: {
+      type: "number",
+      defaultValue: 0,
+      description: "Scrollafstand (pixels) waarbij isScrolled true wordt",
+    },
+    children: {
+      type: "slot",
+      defaultValue: [],
+    },
+    className: {
+      type: "string",
+      defaultValue: "",
+    },
+  },
+});
+
+PLASMIC.registerGlobalContext(NavWrapper, {
+  name: "NavWrapperContext",
+  importPath: "./components/NavWrapper",
   providesData: true,
   props: {
     scrollThreshold: {
       type: "number",
       defaultValue: 0,
-      description: "Scroll position (in pixels) where navigation should change state"
-    }
+      description: "Scrollafstand (pixels) waarbij isScrolled true wordt",
+    },
   },
-  // Voor Codegen projecten (voeg alleen toe als je Codegen gebruikt):
-  importPath: "./components/NavWrapper", // Pas aan naar jouw bestandsstructuur
-  isDefaultExport: false
 });

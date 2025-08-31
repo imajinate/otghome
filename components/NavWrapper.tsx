@@ -1,29 +1,28 @@
+// components/NavWrapper.tsx
 import React, { useState, useEffect, ReactNode } from 'react';
 import { DataProvider } from '@plasmicapp/react-web/lib/host';
 
 export interface NavWrapperProps {
   children?: ReactNode;
+  scrollThreshold?: number;
   className?: string;
-  scrollThreshold?: number; // Optioneel: definieer vanaf welke scroll positie de state verandert
 }
 
-export function NavWrapper({ 
-  children, 
+export function NavWrapper({
+  children,
+  scrollThreshold = 0,
   className,
-  scrollThreshold = 0 
 }: NavWrapperProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
+      const scrollY = window.scrollY || window.pageYOffset;
       setIsScrolled(scrollY > scrollThreshold);
     };
 
-    // Event listener toevoegen
-    window.addEventListener('scroll', handleScroll);
-    
-    // Cleanup functie
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
