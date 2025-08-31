@@ -79,6 +79,8 @@ import Icon4Icon from "../www_offtoglow_com/icons/PlasmicIcon__Icon4"; // plasmi
 import UnlockEarningsSvgIcon from "./icons/PlasmicIcon__UnlockEarningsSvg"; // plasmic-import: l1fjJb4ZZVRD/icon
 import ViewClose818SvgrepoComSvgIcon from "./icons/PlasmicIcon__ViewClose818SvgrepoComSvg"; // plasmic-import: Zat-p-u4QdVI/icon
 import CollaborationSvgrepoComSvgIcon from "./icons/PlasmicIcon__CollaborationSvgrepoComSvg"; // plasmic-import: CTPeqsI19eQF/icon
+import OtGColorSvgIcon from "./icons/PlasmicIcon__OtGColorSvg"; // plasmic-import: VKNNURFqmiZf/icon
+import InstagramIconSvgIcon from "./icons/PlasmicIcon__InstagramIconSvg"; // plasmic-import: 8IeaExDrxVer/icon
 
 createPlasmicElementProxy;
 
@@ -93,7 +95,8 @@ export const PlasmicHomepageV2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepageV2__OverridesType = {
   root?: Flex__<"div">;
-  nav?: Flex__<"div">;
+  navigation?: Flex__<"div">;
+  scrollNav?: Flex__<"div">;
   heroV2?: Flex__<"div">;
   rotatingText?: Flex__<typeof TypewriterText>;
   sliderCarouselM?: Flex__<typeof SliderWrapper>;
@@ -112,6 +115,7 @@ export type PlasmicHomepageV2__OverridesType = {
   _9Notes?: Flex__<"div">;
   _10ToDo?: Flex__<"div">;
   sliderCarouselEarlyAdopters?: Flex__<typeof SliderWrapper>;
+  h6?: Flex__<"h6">;
 };
 
 export interface DefaultHomepageV2Props {}
@@ -203,6 +207,12 @@ function PlasmicHomepageV2__RenderFunc(props: {
 
         refName: "sliderCarouselWhatNow",
         onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
+      },
+      {
+        path: "isDefaultNav",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -260,9 +270,9 @@ function PlasmicHomepageV2__RenderFunc(props: {
         )}
       >
         <div
-          data-plasmic-name={"nav"}
-          data-plasmic-override={overrides.nav}
-          className={classNames(projectcss.all, sty.nav)}
+          data-plasmic-name={"navigation"}
+          data-plasmic-override={overrides.navigation}
+          className={classNames(projectcss.all, sty.navigation)}
         >
           <PlasmicImg__
             alt={""}
@@ -492,6 +502,245 @@ function PlasmicHomepageV2__RenderFunc(props: {
                 projectcss.all,
                 projectcss.__wab_text,
                 sty.text___2Qp2
+              )}
+            >
+              {"Join for Free"}
+            </div>
+          </Button>
+        </div>
+        <div
+          data-plasmic-name={"scrollNav"}
+          data-plasmic-override={overrides.scrollNav}
+          className={classNames(projectcss.all, sty.scrollNav)}
+        >
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img___3Kz)}
+            displayHeight={"32px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            src={{
+              src: "/plasmic/about_offtoglow_com/images/otGlogobeta2Svg.svg",
+              fullWidth: 4543,
+              fullHeight: 880,
+              aspectRatio: undefined
+            }}
+          />
+
+          <div className={classNames(projectcss.all, sty.freeBox__dZXk8)} />
+
+          <div className={classNames(projectcss.all, sty.freeBox__xObSt)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__fVEf8
+              )}
+            >
+              {"Login: "}
+            </div>
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                projectcss.__wab_text,
+                sty.link___6CfH
+              )}
+              component={Link}
+              href={"https://talent.offtoglow.com/"}
+              platform={"nextjs"}
+              target={"_blank"}
+            >
+              {"Talent"}
+            </PlasmicLink__>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__zxKpF
+              )}
+            >
+              {"|"}
+            </div>
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                projectcss.__wab_text,
+                sty.link__an9Jr
+              )}
+              component={Link}
+              href={"https://booker.offtoglow.com/"}
+              platform={"nextjs"}
+              target={"_blank"}
+            >
+              {"Booker"}
+            </PlasmicLink__>
+          </div>
+          {false ? (
+            <div className={classNames(projectcss.all, sty.freeBox__iXQvT)}>
+              <Button
+                className={classNames("__wab_instance", sty.button___9AbQ)}
+                color={"white"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToPage"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return "https://talent.offtoglow.com/login";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
+                  ) {
+                    $steps["goToPage"] = await $steps["goToPage"];
+                  }
+                }}
+                selectLeft={true}
+                shape={"rounded"}
+                submitsForm={true}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ekTrh
+                  )}
+                >
+                  {"Talent Sign In"}
+                </div>
+              </Button>
+              <Button
+                className={classNames("__wab_instance", sty.button__guveI)}
+                color={"white"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToPage"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return "https://booker.offtoglow.com/login";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
+                  ) {
+                    $steps["goToPage"] = await $steps["goToPage"];
+                  }
+                }}
+                selectRight={true}
+                shape={"rounded"}
+                submitsForm={true}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__kL64R
+                  )}
+                >
+                  {"Booker Sign In"}
+                </div>
+              </Button>
+            </div>
+          ) : null}
+          <Button
+            className={classNames("__wab_instance", sty.button__nC1In)}
+            color={"green"}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["goToRegister"] = true
+                ? (() => {
+                    const actionArgs = { destination: `/register` };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToRegister"] != null &&
+                typeof $steps["goToRegister"] === "object" &&
+                typeof $steps["goToRegister"].then === "function"
+              ) {
+                $steps["goToRegister"] = await $steps["goToRegister"];
+              }
+            }}
+            submitsForm={true}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__emlic
               )}
             >
               {"Join for Free"}
@@ -4033,199 +4282,308 @@ function PlasmicHomepageV2__RenderFunc(props: {
               );
             })()}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__s9Us2)}>
-            <h1
+          <div className={classNames(projectcss.all, sty.freeBox__v73Dy)}>
+            <h3
               className={classNames(
                 projectcss.all,
-                projectcss.h1,
+                projectcss.h3,
                 projectcss.__wab_text,
-                sty.h1__l6D7L
+                sty.h3__fFrWr
               )}
             >
-              {"Meet Offtoglow"}
-            </h1>
+              {"Join the Beta Waitlist \u2013"}
+            </h3>
+            <h3
+              className={classNames(
+                projectcss.all,
+                projectcss.h3,
+                projectcss.__wab_text,
+                sty.h3__d5Gjc
+              )}
+            >
+              {"Shape the Future of Personal Branding"}
+            </h3>
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__pGhrg
+                sty.text___4FAxK
               )}
             >
-              {"A Platform That Empowers Your Brand and Streamlines Bookings"}
+              <React.Fragment>
+                <React.Fragment>{"Be "}</React.Fragment>
+                <span
+                  className={"plasmic_default__all plasmic_default__span"}
+                  style={{ fontWeight: 700 }}
+                >
+                  {"one of the first 100 personal brands"}
+                </span>
+                <React.Fragment>
+                  {
+                    " to access OfftoGlow\u2019s powerful platform and help us refine it for everyone. \n\n"
+                  }
+                </React.Fragment>
+                <span
+                  className={"plasmic_default__all plasmic_default__span"}
+                  style={{ fontWeight: 700 }}
+                >
+                  {"Sign up today to enjoy exclusive early-access benefits:"}
+                </span>
+              </React.Fragment>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__cZt3J)}>
-              <div className={classNames(projectcss.all, sty.freeBox___8KGjy)}>
-                <div className={classNames(projectcss.all, sty.freeBox__cthhd)}>
-                  <h3
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h3,
-                      projectcss.__wab_text,
-                      sty.h3__eeQjk
-                    )}
-                  >
-                    {"Simple and Fast"}
-                  </h3>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__cmpx7
-                    )}
-                  >
-                    {
-                      "Offtoglow is designed with simplicity and efficiency in mind, ensuring a seamless experience for managing bookings, creating a unique digital presence, and engaging with industry peers."
-                    }
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__cxyKl)}>
-                  <h3
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h3,
-                      projectcss.__wab_text,
-                      sty.h3__t4ZVi
-                    )}
-                  >
-                    {"Efficient"}
-                  </h3>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dDg3G
-                    )}
-                  >
-                    {
-                      "Centralize all your bookings and requests in one place with easy-to-use profiles and a streamlined submission form. Save time and stay organized with automated features and clear tracking.\n"
-                    }
-                  </div>
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__a2EO)}>
-                <div className={classNames(projectcss.all, sty.freeBox__cQaP7)}>
-                  <h3
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h3,
-                      projectcss.__wab_text,
-                      sty.h3__li2Hu
-                    )}
-                  >
-                    {"Transparent"}
-                  </h3>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__pZya6
-                    )}
-                  >
-                    {
-                      "Benefit from our review and rating system, allowing you to see experiences from other users and make informed decisions. Transparency is key to building trust and credibility.\n"
-                    }
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__p4Oe0)}>
-                  <h3
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h3,
-                      projectcss.__wab_text,
-                      sty.h3__fBjZk
-                    )}
-                  >
-                    {"Safe and Secure"}
-                  </h3>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__jRGjY
-                    )}
-                  >
-                    {
-                      "Enjoy peace of mind with secure end-to-end transactions. Our platform ensures that all interactions and payments between verified users are protected."
-                    }
-                  </div>
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__oXle)}>
-                <div className={classNames(projectcss.all, sty.freeBox__o1A6Q)}>
-                  <h3
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h3,
-                      projectcss.__wab_text,
-                      sty.h3__eT61
-                    )}
-                  >
-                    {"Global Access"}
-                  </h3>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__yisLo
-                    )}
-                  >
-                    {
-                      "Explore a diverse online database of talents from around the world, searchable by various categories and genres. Find the perfect match for your needs with ease."
-                    }
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__maUom)}>
-                  <h3
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h3,
-                      projectcss.__wab_text,
-                      sty.h3__jPr6W
-                    )}
-                  >
-                    {"Personalized Digital Space"}
-                  </h3>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__er7GH
-                    )}
-                  >
-                    {
-                      "Create a unique digital space to showcase your brand, manage bookings effortlessly, and provide a comprehensive view of your expertise. Customize your online presence to reflect your identity and engage more deeply with your audience."
-                    }
-                  </div>
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__x5Lb3)}>
-                <div className={classNames(projectcss.all, sty.freeBox__zfZzL)}>
-                  <h3
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h3,
-                      projectcss.__wab_text,
-                      sty.h3__pa1Pz
-                    )}
-                  >
-                    {"In Your Control"}
-                  </h3>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__upaTy
-                    )}
-                  >
-                    {
-                      "You have full control over how you present yourself and manage your bookings. Tailor your profile to suit your style, position yourself effectively in the market, and handle bookings on your terms."
-                    }
-                  </div>
-                </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__kpnI)}
+            <div className={classNames(projectcss.all, sty.freeBox__prC0X)}>
+              <div className={classNames(projectcss.all, sty.freeBox__huQga)}>
+                <OtGColorSvgIcon
+                  className={classNames(projectcss.all, sty.svg__m1WbN)}
+                  role={"img"}
                 />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__kvasf
+                  )}
+                >
+                  {"Priority onboarding and support"}
+                </div>
               </div>
+              <div className={classNames(projectcss.all, sty.freeBox___5GvXd)}>
+                <OtGColorSvgIcon
+                  className={classNames(projectcss.all, sty.svg__kq2HT)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__qjYq
+                  )}
+                >
+                  {"Direct feedback channels to influence upcoming features"}
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__vARt0)}>
+                <OtGColorSvgIcon
+                  className={classNames(projectcss.all, sty.svg__eh1Id)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__iesqp
+                  )}
+                >
+                  {"Early adopter recognition within our community"}
+                </div>
+              </div>
+            </div>
+            <Button
+              className={classNames("__wab_instance", sty.button__kpuX)}
+              color={"green"}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToRegister"] = true
+                  ? (() => {
+                      const actionArgs = { destination: `/register` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToRegister"] != null &&
+                  typeof $steps["goToRegister"] === "object" &&
+                  typeof $steps["goToRegister"].then === "function"
+                ) {
+                  $steps["goToRegister"] = await $steps["goToRegister"];
+                }
+              }}
+              submitsForm={true}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__tw8Bs
+                )}
+              >
+                {"\ud83c\udfc5Join the Beta Waitlist \u2013 Free to Join"}
+              </div>
+            </Button>
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox___1LkYf)}>
+            <div className={classNames(projectcss.all, sty.freeBox__oOJk1)}>
+              <div className={classNames(projectcss.all, sty.freeBox__yfj7B)}>
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__zBBem)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"168px"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/about_offtoglow_com/images/otGlogobeta2Svg.svg",
+                    fullWidth: 4543,
+                    fullHeight: 880,
+                    aspectRatio: undefined
+                  }}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__yaQWq
+                  )}
+                >
+                  {
+                    "OfftoGlow is the world\u2019s first platform of its kind \u2014 a Global Personal Brand Technology Platform built to empower creators, entrepreneurs, and influencers to unlock their full earning potential. By combining cutting-edge tools, seamless infrastructure, and data-driven insights, we enable personal brands to grow, monetize, and thrive on a truly global scale. With OfftoGlow, personal brands gain the intelligence, infrastructure, and autonomy they need to transform influence into sustainable impact."
+                  }
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox___6PvBw)}>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__qpHuD
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  platform={"nextjs"}
+                >
+                  {"Home"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__gR7I0
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  platform={"nextjs"}
+                >
+                  {"About Us"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link___7SG7
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  platform={"nextjs"}
+                >
+                  {"FAQ"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__dqWlC
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  platform={"nextjs"}
+                >
+                  {"Privacy Policy"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__uq2U
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  platform={"nextjs"}
+                >
+                  {"Terms"}
+                </PlasmicLink__>
+                <div className={classNames(projectcss.all, sty.freeBox__uxp6N)}>
+                  <h6
+                    data-plasmic-name={"h6"}
+                    data-plasmic-override={overrides.h6}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h6,
+                      projectcss.__wab_text,
+                      sty.h6
+                    )}
+                  >
+                    {"Follow Us"}
+                  </h6>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ix0Ec)}
+                  >
+                    <PlasmicLink__
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__v8OrG
+                      )}
+                      component={Link}
+                      platform={"nextjs"}
+                    >
+                      <InstagramIconSvgIcon
+                        className={classNames(projectcss.all, sty.svg__nIgtB)}
+                        role={"img"}
+                      />
+                    </PlasmicLink__>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__r5GvR
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return (
+                      "© " +
+                      new Date().getFullYear() +
+                      " OfftoGlow Ltd. All rights reserved."
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u00a9 2025 OfftoGlow Ltd. All rights reserved.";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
           </div>
         </div>
@@ -4237,7 +4595,8 @@ function PlasmicHomepageV2__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "nav",
+    "navigation",
+    "scrollNav",
     "heroV2",
     "rotatingText",
     "sliderCarouselM",
@@ -4255,9 +4614,11 @@ const PlasmicDescendants = {
     "_8Calendar",
     "_9Notes",
     "_10ToDo",
-    "sliderCarouselEarlyAdopters"
+    "sliderCarouselEarlyAdopters",
+    "h6"
   ],
-  nav: ["nav"],
+  navigation: ["navigation"],
+  scrollNav: ["scrollNav"],
   heroV2: ["heroV2", "rotatingText"],
   rotatingText: ["rotatingText"],
   sliderCarouselM: ["sliderCarouselM"],
@@ -4287,14 +4648,16 @@ const PlasmicDescendants = {
   _8Calendar: ["_8Calendar"],
   _9Notes: ["_9Notes"],
   _10ToDo: ["_10ToDo"],
-  sliderCarouselEarlyAdopters: ["sliderCarouselEarlyAdopters"]
+  sliderCarouselEarlyAdopters: ["sliderCarouselEarlyAdopters"],
+  h6: ["h6"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  nav: "div";
+  navigation: "div";
+  scrollNav: "div";
   heroV2: "div";
   rotatingText: typeof TypewriterText;
   sliderCarouselM: typeof SliderWrapper;
@@ -4313,6 +4676,7 @@ type NodeDefaultElementType = {
   _9Notes: "div";
   _10ToDo: "div";
   sliderCarouselEarlyAdopters: typeof SliderWrapper;
+  h6: "h6";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4375,7 +4739,8 @@ export const PlasmicHomepageV2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    nav: makeNodeComponent("nav"),
+    navigation: makeNodeComponent("navigation"),
+    scrollNav: makeNodeComponent("scrollNav"),
     heroV2: makeNodeComponent("heroV2"),
     rotatingText: makeNodeComponent("rotatingText"),
     sliderCarouselM: makeNodeComponent("sliderCarouselM"),
@@ -4396,6 +4761,7 @@ export const PlasmicHomepageV2 = Object.assign(
     sliderCarouselEarlyAdopters: makeNodeComponent(
       "sliderCarouselEarlyAdopters"
     ),
+    h6: makeNodeComponent("h6"),
 
     // Metadata about props expected for PlasmicHomepageV2
     internalVariantProps: PlasmicHomepageV2__VariantProps,

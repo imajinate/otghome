@@ -1620,6 +1620,26 @@
           "id": "CTPeqsI19eQF",
           "name": "CollaborationSvgrepoComSvgIcon",
           "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__CollaborationSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "VKNNURFqmiZf",
+          "name": "OtGColorSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__OtGColorSvg.tsx"
+        },
+        {
+          "id": "WMtPLXbONu__",
+          "name": "InstagramSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__InstagramSvg.tsx"
+        },
+        {
+          "id": "pqzC4SyaAjkh",
+          "name": "InstagramRoundSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__InstagramRoundSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "8IeaExDrxVer",
+          "name": "InstagramIconSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__InstagramIconSvg.tsx"
         }
       ],
       "images": [
@@ -1802,6 +1822,11 @@
           "id": "mMu6zSodULR4",
           "name": "bherobg.svg 5",
           "filePath": "../public/plasmic/about_offtoglow_com/images/bherobgSvg5.svg"
+        },
+        {
+          "id": "AOlp6EaNxc9f",
+          "name": "OtGlogobeta2.svg",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/otGlogobeta2Svg.svg"
         }
       ],
       "indirect": false,
