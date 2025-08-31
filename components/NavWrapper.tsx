@@ -1,23 +1,12 @@
 // components/NavWrapper.tsx
+import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
 import { useEffect, useState } from "react";
-import { PlasmicComponent } from "@plasmicapp/loader-react";
 
-export interface NavWrapperProps {
-  /**
-   * Voor Studio preview: standaard tonen van de navigatie
-   */
-  initialIsDefault?: boolean;
-  className?: string;
-}
-
-export default function NavWrapper({
-  initialIsDefault = true,
-  className = "",
-}: NavWrapperProps) {
-  const [isDefaultNav, setIsDefaultNav] = useState(initialIsDefault);
+export function NavWrapper(): JSX.Element {
+  const [isDefaultNav, setIsDefaultNav] = useState(true);
 
   useEffect(() => {
-    // Alleen window scroll toevoegen in de browser, niet in Studio
+    // Alleen in de browser
     if (typeof window === "undefined") return;
 
     const handleScroll = () => setIsDefaultNav(window.scrollY <= 100);
@@ -27,13 +16,12 @@ export default function NavWrapper({
   }, []);
 
   return (
-    <div className={className}>
-      <PlasmicComponent
-        component="Navigation" // exact de naam van je Plasmic component
-        componentProps={{
-          isDefaultNav, // boolean prop die je in Studio hebt aangemaakt
-        }}
-      />
-    </div>
+    <PlasmicComponent
+      component="Navigation" // exact de naam van je Plasmic component
+      componentProps={{
+        isDefaultNav, // boolean prop die je in Studio hebt aangemaakt
+      }}
+      forceOriginal // zoals in je AuthForm voorbeeld
+    />
   );
 }
