@@ -72,6 +72,7 @@ PLASMIC.registerComponent(TypewriterText, {
   },
 });
 
+/*
 // Registreer de NavWrapper component
 PLASMIC.registerGlobalContext(NavWrapper, {
   name: "NavWrapper",
@@ -87,3 +88,4 @@ PLASMIC.registerGlobalContext(NavWrapper, {
   importPath: "./components/NavWrapper", // Pas aan naar jouw bestandsstructuur
   isDefaultExport: false
 });
+*/
