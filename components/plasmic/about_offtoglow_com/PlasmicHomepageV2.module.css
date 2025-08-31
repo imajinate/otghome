@@ -4920,7 +4920,7 @@
     font-size: 50px;
   }
 }
-.freeBox__c2Xs {
+.freeBox___2Onj6 {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -4929,9 +4929,23 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 168px;
-  margin-bottom: 68px;
+  background: linear-gradient(#ffffffcc, #ffffffcc),
+    url("/plasmic/about_offtoglow_com/images/earlyadopterrightPng.png") top 50% right 0% / contain no-repeat padding-box
+      border-box scroll,
+    url("/plasmic/about_offtoglow_com/images/earlyadopterleftPng.png") top 50% left 0% / contain no-repeat;
+  min-width: 0;
+  padding: 168px 0px;
+}
+.freeBox__c2Xs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
   row-gap: 30px;
+  margin-bottom: 68px;
   min-width: 0;
 }
 .freeBox__zIeMy {
@@ -4993,7 +5007,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-bottom: 168px;
   column-gap: 20px;
   overflow: auto;
   min-width: 0;
@@ -5118,7 +5131,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: var(--token-DbGdjBpQ6R_X);
+  background: #ffa10714;
   min-width: 0;
   padding: 128px 8px;
 }

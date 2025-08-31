@@ -4034,253 +4034,264 @@ function PlasmicHomepageV2__RenderFunc(props: {
               </React.Fragment>
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__c2Xs)}>
-            <div className={classNames(projectcss.all, sty.freeBox__zIeMy)}>
-              <h2
-                className={classNames(
-                  projectcss.all,
-                  projectcss.h2,
-                  projectcss.__wab_text,
-                  sty.h2___0M2Im
-                )}
-              >
-                <React.Fragment>
-                  <span
-                    className={"plasmic_default__all plasmic_default__span"}
-                    style={{ color: "var(--token-85NLt28mNxmq)" }}
-                  >
-                    {"Check Out Our "}
-                  </span>
-                </React.Fragment>
-              </h2>
-              <h2
-                className={classNames(
-                  projectcss.all,
-                  projectcss.h2,
-                  projectcss.__wab_text,
-                  sty.h2__nSnG
-                )}
-              >
-                <React.Fragment>
-                  <span
-                    className={"plasmic_default__all plasmic_default__span"}
-                    style={{ color: "#F15A24" }}
-                  >
-                    {"Early Adopters"}
-                  </span>
-                </React.Fragment>
-              </h2>
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jqiBy
-              )}
-            >
-              {
-                "We\u2019re proud to partner with these inspiring personal brands who believe in OfftoGlow\u2019s vision. Explore their profiles, learn more about their journeys, and see how they\u2019re turning their passion into success."
-              }
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__o4Dz)}>
-            {(() => {
-              const child$Props = {
-                arrowColor: true ? "var(--antd-colorInfo)" : undefined,
-                autoplay: true,
-                beforeChange: async (...eventArgs: any) => {
-                  generateStateOnChangePropForCodeComponents(
-                    $state,
-                    "currentSlide",
-                    ["sliderCarouselEarlyAdopters", "currentSlide"],
-                    SliderWrapper_Helpers
-                  ).apply(null, eventArgs);
-                },
-                centerMode: true,
-                centerPadding: "50",
-                className: classNames(
-                  "__wab_instance",
-                  sty.sliderCarouselEarlyAdopters
-                ),
-                dots: false,
-                initialSlide: generateStateValueProp($state, [
-                  "sliderCarouselEarlyAdopters",
-                  "currentSlide"
-                ]),
-                ref: ref => {
-                  $refs["sliderCarouselEarlyAdopters"] = ref;
-                },
-                sliderScopeClassName:
-                  sty["sliderCarouselEarlyAdopters__slider"],
-                slidesPerRow: 3,
-                slidesToScroll: 1,
-                slidesToShow: 1,
-                vertical: false
-              };
-              initializeCodeComponentStates(
-                $state,
-                [
-                  {
-                    name: "currentSlide",
-                    plasmicStateName: "sliderCarouselEarlyAdopters.currentSlide"
-                  }
-                ],
-                [],
-                SliderWrapper_Helpers ?? {},
-                child$Props
-              );
-
-              return (
-                <SliderWrapper
-                  data-plasmic-name={"sliderCarouselEarlyAdopters"}
-                  data-plasmic-override={overrides.sliderCarouselEarlyAdopters}
-                  {...child$Props}
+          <div className={classNames(projectcss.all, sty.freeBox___2Onj6)}>
+            <div className={classNames(projectcss.all, sty.freeBox__c2Xs)}>
+              <div className={classNames(projectcss.all, sty.freeBox__zIeMy)}>
+                <h2
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h2,
+                    projectcss.__wab_text,
+                    sty.h2___0M2Im
+                  )}
                 >
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      sty.link__fKwN9
-                    )}
-                    component={Link}
-                    href={(() => {
-                      try {
-                        return "https://offtoglow.com/djirwan";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    platform={"nextjs"}
-                    target={"_blank"}
-                  >
-                    <Tilt
-                      className={classNames("__wab_instance", sty.tilt__zNxZt)}
+                  <React.Fragment>
+                    <span
+                      className={"plasmic_default__all plasmic_default__span"}
+                      style={{ color: "var(--token-85NLt28mNxmq)" }}
                     >
-                      <div
+                      {"Check Out Our "}
+                    </span>
+                  </React.Fragment>
+                </h2>
+                <h2
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h2,
+                    projectcss.__wab_text,
+                    sty.h2__nSnG
+                  )}
+                >
+                  <React.Fragment>
+                    <span
+                      className={"plasmic_default__all plasmic_default__span"}
+                      style={{ color: "#F15A24" }}
+                    >
+                      {"Early Adopters"}
+                    </span>
+                  </React.Fragment>
+                </h2>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__jqiBy
+                )}
+              >
+                {
+                  "We\u2019re proud to partner with these inspiring personal brands who believe in OfftoGlow\u2019s vision. Explore their profiles, learn more about their journeys, and see how they\u2019re turning their passion into success."
+                }
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__o4Dz)}>
+              {(() => {
+                const child$Props = {
+                  arrowColor: true ? "var(--antd-colorInfo)" : undefined,
+                  autoplay: true,
+                  beforeChange: async (...eventArgs: any) => {
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "currentSlide",
+                      ["sliderCarouselEarlyAdopters", "currentSlide"],
+                      SliderWrapper_Helpers
+                    ).apply(null, eventArgs);
+                  },
+                  centerMode: true,
+                  centerPadding: "50",
+                  className: classNames(
+                    "__wab_instance",
+                    sty.sliderCarouselEarlyAdopters
+                  ),
+                  dots: false,
+                  initialSlide: generateStateValueProp($state, [
+                    "sliderCarouselEarlyAdopters",
+                    "currentSlide"
+                  ]),
+                  ref: ref => {
+                    $refs["sliderCarouselEarlyAdopters"] = ref;
+                  },
+                  sliderScopeClassName:
+                    sty["sliderCarouselEarlyAdopters__slider"],
+                  slidesPerRow: 3,
+                  slidesToScroll: 1,
+                  slidesToShow: 1,
+                  vertical: false
+                };
+                initializeCodeComponentStates(
+                  $state,
+                  [
+                    {
+                      name: "currentSlide",
+                      plasmicStateName:
+                        "sliderCarouselEarlyAdopters.currentSlide"
+                    }
+                  ],
+                  [],
+                  SliderWrapper_Helpers ?? {},
+                  child$Props
+                );
+
+                return (
+                  <SliderWrapper
+                    data-plasmic-name={"sliderCarouselEarlyAdopters"}
+                    data-plasmic-override={
+                      overrides.sliderCarouselEarlyAdopters
+                    }
+                    {...child$Props}
+                  >
+                    <PlasmicLink__
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__fKwN9
+                      )}
+                      component={Link}
+                      href={(() => {
+                        try {
+                          return "https://offtoglow.com/djirwan";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      platform={"nextjs"}
+                      target={"_blank"}
+                    >
+                      <Tilt
                         className={classNames(
-                          projectcss.all,
-                          sty.freeBox__lvXeP
+                          "__wab_instance",
+                          sty.tilt__zNxZt
                         )}
                       >
-                        <PlasmicImg__
-                          alt={""}
-                          className={classNames(sty.img__fuFfs)}
-                          displayHeight={"350px"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"300px"}
-                          loading={"lazy"}
-                          onClick={async event => {
-                            const $steps = {};
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__lvXeP
+                          )}
+                        >
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__fuFfs)}
+                            displayHeight={"350px"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"300px"}
+                            loading={"lazy"}
+                            onClick={async event => {
+                              const $steps = {};
 
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return `<a href="http://offtoglow.com/djirwan" target="_blank">Link</a>`;
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return `<a href="http://offtoglow.com/djirwan" target="_blank">Link</a>`;
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
+                            src={
+                              "https://tsbldwzuynryqbmaguci.supabase.co/storage/v1/object/public/OtGImgs/5014c0db-53e5-4b07-9dda-efaeb3832c0c/deskhero?t=1730522369656"
                             }
-                          }}
-                          src={
-                            "https://tsbldwzuynryqbmaguci.supabase.co/storage/v1/object/public/OtGImgs/5014c0db-53e5-4b07-9dda-efaeb3832c0c/deskhero?t=1730522369656"
-                          }
-                          width={"300px"}
-                        />
+                            width={"300px"}
+                          />
 
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__nvBiG
-                          )}
-                        >
-                          {"DJ Irwan"}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__nvBiG
+                            )}
+                          >
+                            {"DJ Irwan"}
+                          </div>
                         </div>
-                      </div>
-                    </Tilt>
-                  </PlasmicLink__>
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      sty.link__hbJSz
-                    )}
-                    component={Link}
-                    href={(() => {
-                      try {
-                        return "https://offtoglow.com/blijbeast";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
+                      </Tilt>
+                    </PlasmicLink__>
+                    <PlasmicLink__
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__hbJSz
+                      )}
+                      component={Link}
+                      href={(() => {
+                        try {
+                          return "https://offtoglow.com/blijbeast";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                    platform={"nextjs"}
-                    target={"_blank"}
-                  >
-                    <Tilt
-                      className={classNames("__wab_instance", sty.tilt__zdqZn)}
+                      })()}
+                      platform={"nextjs"}
+                      target={"_blank"}
                     >
-                      <div
+                      <Tilt
                         className={classNames(
-                          projectcss.all,
-                          sty.freeBox__yxIAn
+                          "__wab_instance",
+                          sty.tilt__zdqZn
                         )}
                       >
-                        <PlasmicImg__
-                          alt={""}
-                          className={classNames(sty.img__yWuRa)}
-                          displayHeight={"350px"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"none"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"100%"}
-                          loading={"lazy"}
-                          src={
-                            "https://tsbldwzuynryqbmaguci.supabase.co/storage/v1/object/public/OtGImgs/d8361209-25d7-4935-99b3-456d0184a141/deskhero?t=1746477144952"
-                          }
-                        />
-
                         <div
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___96OGx
+                            sty.freeBox__yxIAn
                           )}
                         >
-                          {"Blijbeast"}
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__yWuRa)}
+                            displayHeight={"350px"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"100%"}
+                            loading={"lazy"}
+                            src={
+                              "https://tsbldwzuynryqbmaguci.supabase.co/storage/v1/object/public/OtGImgs/d8361209-25d7-4935-99b3-456d0184a141/deskhero?t=1746477144952"
+                            }
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___96OGx
+                            )}
+                          >
+                            {"Blijbeast"}
+                          </div>
                         </div>
-                      </div>
-                    </Tilt>
-                  </PlasmicLink__>
-                </SliderWrapper>
-              );
-            })()}
+                      </Tilt>
+                    </PlasmicLink__>
+                  </SliderWrapper>
+                );
+              })()}
+            </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__v73Dy)}>
             <h3
