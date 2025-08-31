@@ -64,6 +64,7 @@ import { TypewriterText } from "../../TypewriterText"; // plasmic-import: ZFwT5I
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import Tilt from "@plasmicpkgs/react-parallax-tilt";
+import Footermenu from "../../Footermenu"; // plasmic-import: puYfivG4HZSi/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -80,7 +81,6 @@ import UnlockEarningsSvgIcon from "./icons/PlasmicIcon__UnlockEarningsSvg"; // p
 import ViewClose818SvgrepoComSvgIcon from "./icons/PlasmicIcon__ViewClose818SvgrepoComSvg"; // plasmic-import: Zat-p-u4QdVI/icon
 import CollaborationSvgrepoComSvgIcon from "./icons/PlasmicIcon__CollaborationSvgrepoComSvg"; // plasmic-import: CTPeqsI19eQF/icon
 import OtGColorSvgIcon from "./icons/PlasmicIcon__OtGColorSvg"; // plasmic-import: VKNNURFqmiZf/icon
-import InstagramIconSvgIcon from "./icons/PlasmicIcon__InstagramIconSvg"; // plasmic-import: 8IeaExDrxVer/icon
 
 createPlasmicElementProxy;
 
@@ -115,7 +115,8 @@ export type PlasmicHomepageV2__OverridesType = {
   _9Notes?: Flex__<"div">;
   _10ToDo?: Flex__<"div">;
   sliderCarouselEarlyAdopters?: Flex__<typeof SliderWrapper>;
-  h6?: Flex__<"h6">;
+  h5?: Flex__<"h5">;
+  footermenu?: Flex__<typeof Footermenu>;
 };
 
 export interface DefaultHomepageV2Props {}
@@ -4322,18 +4323,24 @@ function PlasmicHomepageV2__RenderFunc(props: {
               )}
             >
               <React.Fragment>
-                <React.Fragment>{"Be "}</React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"one of the first 100 personal brands"}
-                </span>
-                <React.Fragment>
-                  {
-                    " to access OfftoGlow\u2019s powerful platform and help us refine it for everyone. \n\n"
-                  }
-                </React.Fragment>
+                <React.Fragment>{""}</React.Fragment>
+                {
+                  <h5
+                    data-plasmic-name={"h5"}
+                    data-plasmic-override={overrides.h5}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h5,
+                      projectcss.__wab_text,
+                      sty.h5
+                    )}
+                  >
+                    {
+                      "Be among our first personal brands to access OfftoGlow\u2019s powerful platform and help shape its future."
+                    }
+                  </h5>
+                }
+                <React.Fragment>{""}</React.Fragment>
                 <span
                   className={"plasmic_default__all plasmic_default__span"}
                   style={{ fontWeight: 700 }}
@@ -4432,7 +4439,7 @@ function PlasmicHomepageV2__RenderFunc(props: {
                   sty.text__tw8Bs
                 )}
               >
-                {"\ud83c\udfc5Join the Beta Waitlist \u2013 Free to Join"}
+                {"\ud83c\udfc5 Join the Beta Waitlist \u2013 Free to Join"}
               </div>
             </Button>
           </div>
@@ -4469,105 +4476,11 @@ function PlasmicHomepageV2__RenderFunc(props: {
                   }
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___6PvBw)}>
-                <PlasmicLink__
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link__qpHuD
-                  )}
-                  component={Link}
-                  href={"https://www.plasmic.app/"}
-                  platform={"nextjs"}
-                >
-                  {"Home"}
-                </PlasmicLink__>
-                <PlasmicLink__
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link__gR7I0
-                  )}
-                  component={Link}
-                  href={"https://www.plasmic.app/"}
-                  platform={"nextjs"}
-                >
-                  {"About Us"}
-                </PlasmicLink__>
-                <PlasmicLink__
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link___7SG7
-                  )}
-                  component={Link}
-                  href={"https://www.plasmic.app/"}
-                  platform={"nextjs"}
-                >
-                  {"FAQ"}
-                </PlasmicLink__>
-                <PlasmicLink__
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link__dqWlC
-                  )}
-                  component={Link}
-                  href={"https://www.plasmic.app/"}
-                  platform={"nextjs"}
-                >
-                  {"Privacy Policy"}
-                </PlasmicLink__>
-                <PlasmicLink__
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link__uq2U
-                  )}
-                  component={Link}
-                  href={"https://www.plasmic.app/"}
-                  platform={"nextjs"}
-                >
-                  {"Terms"}
-                </PlasmicLink__>
-                <div className={classNames(projectcss.all, sty.freeBox__uxp6N)}>
-                  <h6
-                    data-plasmic-name={"h6"}
-                    data-plasmic-override={overrides.h6}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h6,
-                      projectcss.__wab_text,
-                      sty.h6
-                    )}
-                  >
-                    {"Follow Us"}
-                  </h6>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ix0Ec)}
-                  >
-                    <PlasmicLink__
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.a,
-                        sty.link__v8OrG
-                      )}
-                      component={Link}
-                      platform={"nextjs"}
-                    >
-                      <InstagramIconSvgIcon
-                        className={classNames(projectcss.all, sty.svg__nIgtB)}
-                        role={"img"}
-                      />
-                    </PlasmicLink__>
-                  </div>
-                </div>
-              </div>
+              <Footermenu
+                data-plasmic-name={"footermenu"}
+                data-plasmic-override={overrides.footermenu}
+                className={classNames("__wab_instance", sty.footermenu)}
+              />
             </div>
             <div
               className={classNames(
@@ -4626,7 +4539,8 @@ const PlasmicDescendants = {
     "_9Notes",
     "_10ToDo",
     "sliderCarouselEarlyAdopters",
-    "h6"
+    "h5",
+    "footermenu"
   ],
   navigation: ["navigation"],
   scrollNav: ["scrollNav"],
@@ -4660,7 +4574,8 @@ const PlasmicDescendants = {
   _9Notes: ["_9Notes"],
   _10ToDo: ["_10ToDo"],
   sliderCarouselEarlyAdopters: ["sliderCarouselEarlyAdopters"],
-  h6: ["h6"]
+  h5: ["h5"],
+  footermenu: ["footermenu"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4687,7 +4602,8 @@ type NodeDefaultElementType = {
   _9Notes: "div";
   _10ToDo: "div";
   sliderCarouselEarlyAdopters: typeof SliderWrapper;
-  h6: "h6";
+  h5: "h5";
+  footermenu: typeof Footermenu;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4772,7 +4688,8 @@ export const PlasmicHomepageV2 = Object.assign(
     sliderCarouselEarlyAdopters: makeNodeComponent(
       "sliderCarouselEarlyAdopters"
     ),
-    h6: makeNodeComponent("h6"),
+    h5: makeNodeComponent("h5"),
+    footermenu: makeNodeComponent("footermenu"),
 
     // Metadata about props expected for PlasmicHomepageV2
     internalVariantProps: PlasmicHomepageV2__VariantProps,
