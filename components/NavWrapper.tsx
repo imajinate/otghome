@@ -16,6 +16,10 @@ export function NavWrapper({
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    // In Plasmic Studio-editor draait NODE_ENV doorgaans als "development"
+    if (process.env.NODE_ENV === 'development') {
+      return;
+    }
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
       setIsScrolled(scrollY > scrollThreshold);
@@ -27,6 +31,11 @@ export function NavWrapper({
       window.removeEventListener('scroll', handleScroll);
     };
   }, [scrollThreshold]);
+
+  // Altijd children tonen in development (Studio-editor)
+  if (process.env.NODE_ENV === 'development') {
+    return <>{children}</>;
+  }
 
   return (
     <div className={className}>
