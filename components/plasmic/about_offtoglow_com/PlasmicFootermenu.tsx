@@ -177,7 +177,7 @@ function PlasmicFootermenu__RenderFunc(props: {
           sty.link__tcAbm
         )}
         component={Link}
-        href={"https://www.plasmic.app/"}
+        href={`/about`}
         platform={"nextjs"}
       >
         {"About Us"}
@@ -190,7 +190,7 @@ function PlasmicFootermenu__RenderFunc(props: {
           sty.link__gnyDk
         )}
         component={Link}
-        href={"https://www.plasmic.app/"}
+        href={`/faq`}
         platform={"nextjs"}
       >
         {"FAQ"}
@@ -203,7 +203,7 @@ function PlasmicFootermenu__RenderFunc(props: {
           sty.link__jFpB7
         )}
         component={Link}
-        href={"https://www.plasmic.app/"}
+        href={`/privacy`}
         platform={"nextjs"}
       >
         {"Privacy Policy"}
@@ -216,7 +216,7 @@ function PlasmicFootermenu__RenderFunc(props: {
           sty.link__b4Qm
         )}
         component={Link}
-        href={"https://www.plasmic.app/"}
+        href={`/terms`}
         platform={"nextjs"}
       >
         {"Terms"}

@@ -464,19 +464,22 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__nVTm9
+                      sty.formField__xrJqi
                     )}
                     label={"Email"}
                     name={"email"}
                   >
                     <AntdInput
-                      className={classNames("__wab_instance", sty.input__cKtNs)}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.input___8K0Gt
+                      )}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__nKgN
+                      sty.formField___3YQr1
                     )}
                     label={"Password"}
                     name={"password"}
@@ -489,8 +492,8 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                     />
                   </FormItemWrapper>
                   <AntdButton
-                    className={classNames("__wab_instance", sty.button__gorvs, {
-                      [sty.buttonmode_signUp__gorvsCx1E6]: hasVariant(
+                    className={classNames("__wab_instance", sty.button___7HXw, {
+                      [sty.buttonmode_signUp___7HXwCx1E6]: hasVariant(
                         $state,
                         "mode",
                         "signUp"
@@ -504,9 +507,9 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__hcBdR,
+                        sty.text__aj1Z6,
                         {
-                          [sty.textmode_signUp__hcBdRCx1E6]: hasVariant(
+                          [sty.textmode_signUp__aj1Z6Cx1E6]: hasVariant(
                             $state,
                             "mode",
                             "signUp"

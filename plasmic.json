@@ -1545,6 +1545,48 @@
           "cssFilePath": "plasmic/about_offtoglow_com/PlasmicFootermenu.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "xOHZqS4c_eHA",
+          "name": "Privacy",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicPrivacy.tsx",
+          "importSpec": {
+            "modulePath": "../pages/privacy.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicPrivacy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/privacy"
+        },
+        {
+          "id": "ogjEitMqVyVl",
+          "name": "Terms",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicTerms.tsx",
+          "importSpec": {
+            "modulePath": "../pages/terms.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicTerms.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/terms"
+        },
+        {
+          "id": "tEVJpKmZgCv_",
+          "name": "Faq",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicFaq.tsx",
+          "importSpec": {
+            "modulePath": "../pages/faq.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicFaq.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/faq"
         }
       ],
       "icons": [
