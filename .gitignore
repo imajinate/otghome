@@ -37,6 +37,9 @@ next-env.d.ts
 
 # pages
 /pages/about.tsx
+/pages/terms.tsx
+/pages/privacy.tsx
+/pages/faq.tsx
 /pages/notfound.tsx
 /pages/5nN0wMAaSX6O3o5x/
 /pages/5WqztA5PSPLqEsO02zhHwaXl7v5H/
