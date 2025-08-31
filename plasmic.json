@@ -1709,6 +1709,26 @@
           "id": "8IeaExDrxVer",
           "name": "InstagramIconSvgIcon",
           "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__InstagramIconSvg.tsx"
+        },
+        {
+          "id": "nwNIbP1pgw5e",
+          "name": "DiscordSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__DiscordSvg.tsx"
+        },
+        {
+          "id": "JpKDCYUlAYxZ",
+          "name": "DiscordSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__DiscordSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "VvBOpt_bRidX",
+          "name": "Facebook176SvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__Facebook176Svg.tsx"
+        },
+        {
+          "id": "Y4T2p10ZAtB9",
+          "name": "FacebookSvgIcon",
+          "moduleFilePath": "plasmic/about_offtoglow_com/icons/PlasmicIcon__FacebookSvg.tsx"
         }
       ],
       "images": [

@@ -90,8 +90,6 @@ export type PlasmicPrivacy__OverridesType = {
   navigation?: Flex__<"div">;
   scrollNav?: Flex__<"div">;
   h1?: Flex__<"h1">;
-  h4?: Flex__<"h4">;
-  h3?: Flex__<"h3">;
   footermenu?: Flex__<typeof Footermenu>;
 };
 
@@ -693,194 +691,1237 @@ function PlasmicPrivacy__RenderFunc(props: {
             >
               {"Privacy"}
             </h1>
-            <h4
-              data-plasmic-name={"h4"}
-              data-plasmic-override={overrides.h4}
-              className={classNames(
-                projectcss.all,
-                projectcss.h4,
-                projectcss.__wab_text,
-                sty.h4
-              )}
-            >
-              {
-                "At OfftoGlow, we believe a personal brand is more than presence\u2014it\u2019s potential. Our mission is to help personal brands unlock that potential by turning visibility into revenue, faster and smarter."
-              }
-            </h4>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__vQpkA)}>
-            <h3
-              data-plasmic-name={"h3"}
-              data-plasmic-override={overrides.h3}
-              className={classNames(
-                projectcss.all,
-                projectcss.h3,
-                projectcss.__wab_text,
-                sty.h3
-              )}
-            >
-              {"Our Story"}
-            </h3>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__rfG35
-              )}
-            >
-              {
-                "After nearly 15 years in the entertainment industry, our founder saw the same challenge everywhere: talented individuals building strong audiences, but struggling to monetize their brand beyond a few channels. OfftoGlow was created to change that\u2014by giving personal brands the tools to scale their income as easily as they grow their influence."
-              }
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__aGyUp)}>
-            <div className={classNames(projectcss.all, sty.freeBox__uFxb)}>
-              <div className={classNames(projectcss.all, sty.freeBox__lwJ7R)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2__bBfzN
-                  )}
-                >
-                  {"Why OfftoGlow"}
-                </h2>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cnIwz
-                  )}
-                >
-                  {
-                    "We\u2019re building the world\u2019s first Global Personal Brand Technology Platform. Starting with bookings, OfftoGlow helps personal brands secure deals more efficiently. From there, we\u2019re expanding step by step\u2014into merchandise (with production and delivery handled end-to-end), digital products, fan subscriptions, events, and more. These are just the beginning: our vision is a platform where every part of a personal brand\u2019s growth and monetization can be managed in one place."
-                  }
-                </div>
-              </div>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox___5XiCg)}>
-              <div className={classNames(projectcss.all, sty.freeBox__qjq6A)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2__jmI6T
-                  )}
-                >
-                  {"Our vision"}
-                </h2>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mdYac
-                  )}
-                >
-                  {
-                    "We envision a world where every personal brand can grow into a meaningful, future-proof brand\u2014supported, monetized, and managed all in one place."
-                  }
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__iLcPe)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2__f7W9L
-                  )}
-                >
-                  {"Our Mission"}
-                </h2>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___3DOee
-                  )}
-                >
-                  {
-                    "To empower every personal brand with enterprise-grade monetization tools made simple, giving them the means to scale income, build stronger partnerships, launch new ventures, and grow into sustainable, future-proof brands."
-                  }
-                </div>
-              </div>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__wNcR4)}>
-              <div className={classNames(projectcss.all, sty.freeBox__aJ0If)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2__islAl
-                  )}
-                >
-                  {"In Beta\u2014Shaped by Personal Brands"}
-                </h2>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rtCjy
-                  )}
-                >
-                  {
-                    "Today, we\u2019re collaborating with a small group of early adopters\u2014artists, coaches, hosts, and more\u2014to refine OfftoGlow. Their feedback is shaping the platform from day one, ensuring we address real monetization challenges for personal brands."
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__ltapa)}>
-            <div className={classNames(projectcss.all, sty.freeBox__dPj9J)}>
-              <div className={classNames(projectcss.all, sty.freeBox__gCsIj)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2__xoQyD
-                  )}
-                >
-                  <React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ color: "var(--token-85NLt28mNxmq)" }}
-                    >
-                      {" Ready to grow your "}
-                    </span>
-                  </React.Fragment>
-                </h2>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2__tma4L
-                  )}
-                >
-                  <React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ color: "#F15A24" }}
-                    >
-                      {"Personal Brand income?"}
-                    </span>
-                  </React.Fragment>
-                </h2>
-              </div>
+            <div className={classNames(projectcss.all, sty.freeBox__gWhCy)}>
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__y4P2B
+                  sty.text__vrAX
                 )}
               >
-                {
-                  "Be part of our beta and help define the future of personal brand monetization, guided by a team of seasoned experts across the industry."
-                }
+                <React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Last Updated:"}
+                  </span>
+                  <React.Fragment>{" August 31, 2025\n"}</React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Effective Date:"}
+                  </span>
+                  <React.Fragment>{" August 31, 2025\n\n"}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__kkL7Q
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>{""}</React.Fragment>
+                        {
+                          <h6
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h6,
+                              projectcss.__wab_text,
+                              sty.h6__hy4Zo
+                            )}
+                          >
+                            <React.Fragment>
+                              <React.Fragment>{""}</React.Fragment>
+                              {
+                                <h5
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.h5,
+                                    projectcss.__wab_text,
+                                    sty.h5___3RZqN
+                                  )}
+                                >
+                                  {"1. Introduction"}
+                                </h5>
+                              }
+                              <React.Fragment>{""}</React.Fragment>
+                            </React.Fragment>
+                          </h6>
+                        }
+                        <React.Fragment>{""}</React.Fragment>
+                      </React.Fragment>
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      'Welcome to OfftoGlow ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform, including our website and mobile application (collectively, the "Service"). \n\nBy accessing or using our Service, you agree to this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not use our Service.\n\n'
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__hs06K
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>{""}</React.Fragment>
+                        {
+                          <h5
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h5,
+                              projectcss.__wab_text,
+                              sty.h5__uvqSz
+                            )}
+                          >
+                            {"2. Information We Collect"}
+                          </h5>
+                        }
+                        <React.Fragment>{""}</React.Fragment>
+                      </React.Fragment>
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6___05Xmy
+                      )}
+                    >
+                      {"2.1 Personal Information"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "We may collect personal information that you voluntarily provide to us when you:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__eFv7T
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__oSbLq
+                        )}
+                      >
+                        {"Register for an account\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__hrNtU
+                        )}
+                      >
+                        {"Create a profile or portfolio\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__pUFp
+                        )}
+                      >
+                        {"Make bookings or payments\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__aUAk
+                        )}
+                      >
+                        {"Contact us for support\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__fdint
+                        )}
+                      >
+                        {"Subscribe to our newsletter"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>
+                    {"This information may include:\n"}
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__sq5Hp
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__s2Mav
+                        )}
+                      >
+                        {
+                          "Name and contact information (email address, phone number)\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__pc3K
+                        )}
+                      >
+                        {
+                          "Profile information (bio, skills, experience, photos, videos, audio files)\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__zfHN
+                        )}
+                      >
+                        {
+                          "Payment information (processed securely through third-party payment processors)\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__q8Aov
+                        )}
+                      >
+                        {
+                          "Booking and transaction details\n- Communication preferences\n"
+                        }
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__aWwJi
+                      )}
+                    >
+                      {"2.2 Automatically Collected Information"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "When you use our Service, we may automatically collect certain information, including:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__zTRx
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__gZrks
+                        )}
+                      >
+                        {
+                          "Device information (IP address, browser type, operating system)\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___4Hh3L
+                        )}
+                      >
+                        {
+                          "Usage data (pages visited, time spent on pages, clicks)\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__j9Hbu
+                        )}
+                      >
+                        {"Location data (with your consent)\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__akEj
+                        )}
+                      >
+                        {"Cookies and similar tracking technologies"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__imEd4
+                      )}
+                    >
+                      {"2.3 User-Generated Content"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "We collect content you create and share through our Service, including:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__vUaY
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__e7Pe
+                        )}
+                      >
+                        {"Profile portfolios (videos, music, photos)"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__si67B
+                        )}
+                      >
+                        {"Blog posts and articles\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__xAt6G
+                        )}
+                      >
+                        {"Notes and task lists\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__taGQ
+                        )}
+                      >
+                        {"Booking forms and availability settings"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{"\n"}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__hzeJg
+                      )}
+                    >
+                      {"3. How We Use Your Information"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {"We use the information we collect to:\n"}
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__o2Ia
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__nZXR
+                        )}
+                      >
+                        {"Provide, maintain, and improve our Service\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___2WknG
+                        )}
+                      >
+                        {"Process bookings and facilitate transactions\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__plga0
+                        )}
+                      >
+                        {
+                          "Communicate with you about your account and our services\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___1QzEl
+                        )}
+                      >
+                        {
+                          "Send you marketing communications (with your consent)\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___2A0Cp
+                        )}
+                      >
+                        {"Analyze usage patterns and improve user experience\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__orTfW
+                        )}
+                      >
+                        {"Ensure platform security and prevent fraud\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__hc17W
+                        )}
+                      >
+                        {"Comply with legal obligations"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{"\n"}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__joI6
+                      )}
+                    >
+                      {"4. Information Sharing and Disclosure"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "We may share your information in the following circumstances:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__p6TiO
+                      )}
+                    >
+                      {"4.1 With Your Consent"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "We may share your information when you give us explicit consent to do so.\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__dqbPm
+                      )}
+                    >
+                      {"4.2 For Business Operations"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "We may share information with trusted third-party service providers who assist us in:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__px2Rj
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__zWpjD
+                        )}
+                      >
+                        {"Payment processing"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__jz4Z8
+                        )}
+                      >
+                        {"Email communications\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__uDyPk
+                        )}
+                      >
+                        {"Analytics and performance monitoring\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__tSeKm
+                        )}
+                      >
+                        {"Customer support\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__m8XCu
+                        )}
+                      >
+                        {"Data storage and security"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6___3ECgM
+                      )}
+                    >
+                      {"4.3 Legal Requirements"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "We may disclose your information if required by law or in response to:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__qbBxc
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__q5Ubk
+                        )}
+                      >
+                        {"Court orders or legal process\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__rXsE
+                        )}
+                      >
+                        {"Government requests\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__hgU9Y
+                        )}
+                      >
+                        {"Protection of our rights, property, or safety\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__bvoRt
+                        )}
+                      >
+                        {"Investigation of fraud or other illegal activities"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__r8EUz
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>{""}</React.Fragment>
+                        {
+                          <h6
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h6,
+                              projectcss.__wab_text,
+                              sty.h6__jE3
+                            )}
+                          >
+                            {"4.4 Business Transfers"}
+                          </h6>
+                        }
+                        <React.Fragment>{""}</React.Fragment>
+                      </React.Fragment>
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__txBog
+                      )}
+                    >
+                      {"5. Data Security"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure.\n\nSecurity measures include:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__igho7
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___3H7T
+                        )}
+                      >
+                        {"Encryption of sensitive data\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__re50K
+                        )}
+                      >
+                        {"Secure server infrastructure\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___6E4Dg
+                        )}
+                      >
+                        {"Regular security audits\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___3ARml
+                        )}
+                      >
+                        {"Access controls and authentication\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__lldob
+                        )}
+                      >
+                        {"Employee training on data protection"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{"\n"}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__b7DRs
+                      )}
+                    >
+                      {"6. Data Retention"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. When we no longer need your information, we will securely delete or anonymize it.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__jWrJ
+                      )}
+                    >
+                      {"7. Your Rights and Choices"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "Depending on your location, you may have the following rights regarding your personal information:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__adv0V
+                      )}
+                    >
+                      {"7.1 Access and Portability"}
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__wHuHm
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__n7Zbz
+                        )}
+                      >
+                        {"Request access to your personal information\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___5DfiR
+                        )}
+                      >
+                        {"Receive a copy of your data in a portable format"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__xXipB
+                      )}
+                    >
+                      {"7.2 Correction and Update"}
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__k7Wex
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__uZDlQ
+                        )}
+                      >
+                        {"Update or correct inaccurate personal information\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__wh6HX
+                        )}
+                      >
+                        {"Complete incomplete information"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__u48Yu
+                      )}
+                    >
+                      {"7.3 Deletion"}
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__gdfFm
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__omJ9C
+                        )}
+                      >
+                        {"Request deletion of your personal information\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__tOoer
+                        )}
+                      >
+                        {"Close your account and remove associated data"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__jYu8M
+                      )}
+                    >
+                      {"7.4 Restriction and Objection"}
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__drCh
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__y6Kov
+                        )}
+                      >
+                        {"Restrict processing of your personal information\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__kljrL
+                        )}
+                      >
+                        {"Object to processing based on legitimate interests\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__onh2J
+                        )}
+                      >
+                        {"Opt-out of marketing communications"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__aafZc
+                      )}
+                    >
+                      {"7.5 Consent Withdrawal"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "Withdraw consent for data processing where consent is the legal basis\n\nTo exercise these rights, please contact us at [privacy@offtoglow.com].\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__hzzsP
+                      )}
+                    >
+                      {"8. Cookies and Tracking Technologies"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {"We use cookies and similar technologies to:\n"}
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__smzw4
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__cnOw3
+                        )}
+                      >
+                        {"Remember your preferences and settings"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__rn6Gc
+                        )}
+                      >
+                        {"Analyze site usage and performance\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__crve
+                        )}
+                      >
+                        {"Provide personalized content and advertising\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__jJl7X
+                        )}
+                      >
+                        {"Ensure platform security"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>
+                    {
+                      "\nYou can manage your cookie preferences through your browser settings. However, disabling certain cookies may affect the functionality of our Service.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__fbqL
+                      )}
+                    >
+                      {"9. Third-Party Services"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "Our Service may contain links to third-party websites or integrate with third-party services. This Privacy Policy does not apply to those external services. We encourage you to review the privacy policies of any third-party services you use.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__tPeGh
+                      )}
+                    >
+                      {"10. International Data Transfers"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "Your information may be transferred to and processed in countries other than your country of residence. We ensure appropriate safeguards are in place to protect your information during such transfers, in compliance with applicable data protection laws.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__iYifb
+                      )}
+                    >
+                      {"11. Children's Privacy"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "Our Service is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13, we will take steps to delete such information.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__lOpDk
+                      )}
+                    >
+                      {"12. Changes to This Privacy Policy"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "We may update this Privacy Policy from time to time. We will notify you of any material changes by:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__ogYhR
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__bz1ZM
+                        )}
+                      >
+                        {"Posting the updated Privacy Policy on our website\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__oErXa
+                        )}
+                      >
+                        {"Sending you an email notification\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___3UWok
+                        )}
+                      >
+                        {"Providing notice through our Service"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>
+                    {
+                      "\nYour continued use of our Service after any changes indicates your acceptance of the updated Privacy Policy.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__pHbTi
+                      )}
+                    >
+                      {"13. Contact Information"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__ts2Dv
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"OfftoGlow"}
+                        </span>
+                      </React.Fragment>
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "Email: privacy@offtoglow.com  \nJurisdiction: Hong Kong\n\nFor data protection inquiries specifically, you may also contact our Data Protection Officer at: dpo@offtoglow.com"
+                    }
+                  </React.Fragment>
+                </React.Fragment>
               </div>
             </div>
           </div>
@@ -958,12 +1999,10 @@ function PlasmicPrivacy__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navigation", "scrollNav", "h1", "h4", "h3", "footermenu"],
+  root: ["root", "navigation", "scrollNav", "h1", "footermenu"],
   navigation: ["navigation"],
   scrollNav: ["scrollNav"],
   h1: ["h1"],
-  h4: ["h4"],
-  h3: ["h3"],
   footermenu: ["footermenu"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -974,8 +2013,6 @@ type NodeDefaultElementType = {
   navigation: "div";
   scrollNav: "div";
   h1: "h1";
-  h4: "h4";
-  h3: "h3";
   footermenu: typeof Footermenu;
 };
 
@@ -1042,8 +2079,6 @@ export const PlasmicPrivacy = Object.assign(
     navigation: makeNodeComponent("navigation"),
     scrollNav: makeNodeComponent("scrollNav"),
     h1: makeNodeComponent("h1"),
-    h4: makeNodeComponent("h4"),
-    h3: makeNodeComponent("h3"),
     footermenu: makeNodeComponent("footermenu"),
 
     // Metadata about props expected for PlasmicPrivacy

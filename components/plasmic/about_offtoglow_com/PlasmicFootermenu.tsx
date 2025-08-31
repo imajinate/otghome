@@ -70,6 +70,8 @@ import projectcss from "../www_offtoglow_com/plasmic.module.css"; // plasmic-imp
 import sty from "./PlasmicFootermenu.module.css"; // plasmic-import: puYfivG4HZSi/css
 
 import InstagramIconSvgIcon from "./icons/PlasmicIcon__InstagramIconSvg"; // plasmic-import: 8IeaExDrxVer/icon
+import DiscordSvgrepoComSvgIcon from "./icons/PlasmicIcon__DiscordSvgrepoComSvg"; // plasmic-import: JpKDCYUlAYxZ/icon
+import FacebookSvgIcon from "./icons/PlasmicIcon__FacebookSvg"; // plasmic-import: Y4T2p10ZAtB9/icon
 
 createPlasmicElementProxy;
 
@@ -85,7 +87,6 @@ export const PlasmicFootermenu__ArgProps = new Array<ArgPropType>();
 export type PlasmicFootermenu__OverridesType = {
   root?: Flex__<"div">;
   h6?: Flex__<"h6">;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultFootermenuProps {
@@ -245,9 +246,35 @@ function PlasmicFootermenu__RenderFunc(props: {
             platform={"nextjs"}
           >
             <InstagramIconSvgIcon
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+              className={classNames(projectcss.all, sty.svg__ke7Ql)}
+              role={"img"}
+            />
+          </PlasmicLink__>
+          <PlasmicLink__
+            className={classNames(
+              projectcss.all,
+              projectcss.a,
+              sty.link__dsNu9
+            )}
+            component={Link}
+            platform={"nextjs"}
+          >
+            <DiscordSvgrepoComSvgIcon
+              className={classNames(projectcss.all, sty.svg__hSNzg)}
+              role={"img"}
+            />
+          </PlasmicLink__>
+          <PlasmicLink__
+            className={classNames(
+              projectcss.all,
+              projectcss.a,
+              sty.link__omxVi
+            )}
+            component={Link}
+            platform={"nextjs"}
+          >
+            <FacebookSvgIcon
+              className={classNames(projectcss.all, sty.svg__m2P3I)}
               role={"img"}
             />
           </PlasmicLink__>
@@ -258,9 +285,8 @@ function PlasmicFootermenu__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h6", "svg"],
-  h6: ["h6"],
-  svg: ["svg"]
+  root: ["root", "h6"],
+  h6: ["h6"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -268,7 +294,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   h6: "h6";
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -332,7 +357,6 @@ export const PlasmicFootermenu = Object.assign(
   {
     // Helper components rendering sub-elements
     h6: makeNodeComponent("h6"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicFootermenu
     internalVariantProps: PlasmicFootermenu__VariantProps,

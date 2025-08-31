@@ -91,7 +91,6 @@ export type PlasmicTerms__OverridesType = {
   scrollNav?: Flex__<"div">;
   h1?: Flex__<"h1">;
   h4?: Flex__<"h4">;
-  h3?: Flex__<"h3">;
   footermenu?: Flex__<typeof Footermenu>;
 };
 
@@ -680,208 +679,1302 @@ function PlasmicTerms__RenderFunc(props: {
           </Button>
         </div>
         <div className={classNames(projectcss.all, sty.freeBox__w9TLw)}>
-          <div className={classNames(projectcss.all, sty.freeBox__a068)}>
-            <h1
-              data-plasmic-name={"h1"}
-              data-plasmic-override={overrides.h1}
-              className={classNames(
-                projectcss.all,
-                projectcss.h1,
-                projectcss.__wab_text,
-                sty.h1
-              )}
-            >
-              {"Terms"}
-            </h1>
-            <h4
-              data-plasmic-name={"h4"}
-              data-plasmic-override={overrides.h4}
-              className={classNames(
-                projectcss.all,
-                projectcss.h4,
-                projectcss.__wab_text,
-                sty.h4
-              )}
-            >
-              {
-                "At OfftoGlow, we believe a personal brand is more than presence\u2014it\u2019s potential. Our mission is to help personal brands unlock that potential by turning visibility into revenue, faster and smarter."
-              }
-            </h4>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__uhZbz)}>
-            <h3
-              data-plasmic-name={"h3"}
-              data-plasmic-override={overrides.h3}
-              className={classNames(
-                projectcss.all,
-                projectcss.h3,
-                projectcss.__wab_text,
-                sty.h3
-              )}
-            >
-              {"Our Story"}
-            </h3>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___69Q6R
-              )}
-            >
-              {
-                "After nearly 15 years in the entertainment industry, our founder saw the same challenge everywhere: talented individuals building strong audiences, but struggling to monetize their brand beyond a few channels. OfftoGlow was created to change that\u2014by giving personal brands the tools to scale their income as easily as they grow their influence."
-              }
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__jKg69)}>
-            <div className={classNames(projectcss.all, sty.freeBox__arW3X)}>
-              <div className={classNames(projectcss.all, sty.freeBox__z4Ul)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2__eyup2
-                  )}
-                >
-                  {"Why OfftoGlow"}
-                </h2>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zj2C6
-                  )}
-                >
-                  {
-                    "We\u2019re building the world\u2019s first Global Personal Brand Technology Platform. Starting with bookings, OfftoGlow helps personal brands secure deals more efficiently. From there, we\u2019re expanding step by step\u2014into merchandise (with production and delivery handled end-to-end), digital products, fan subscriptions, events, and more. These are just the beginning: our vision is a platform where every part of a personal brand\u2019s growth and monetization can be managed in one place."
-                  }
-                </div>
-              </div>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__ej7Os)}>
-              <div className={classNames(projectcss.all, sty.freeBox__xEemh)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2___1TeGc
-                  )}
-                >
-                  {"Our vision"}
-                </h2>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gfC4C
-                  )}
-                >
-                  {
-                    "We envision a world where every personal brand can grow into a meaningful, future-proof brand\u2014supported, monetized, and managed all in one place."
-                  }
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__hvNma)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2__f7Imu
-                  )}
-                >
-                  {"Our Mission"}
-                </h2>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rNul0
-                  )}
-                >
-                  {
-                    "To empower every personal brand with enterprise-grade monetization tools made simple, giving them the means to scale income, build stronger partnerships, launch new ventures, and grow into sustainable, future-proof brands."
-                  }
-                </div>
-              </div>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__epPxi)}>
-              <div className={classNames(projectcss.all, sty.freeBox__ccs)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2__kjLpA
-                  )}
-                >
-                  {"In Beta\u2014Shaped by Personal Brands"}
-                </h2>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bIxnH
-                  )}
-                >
-                  {
-                    "Today, we\u2019re collaborating with a small group of early adopters\u2014artists, coaches, hosts, and more\u2014to refine OfftoGlow. Their feedback is shaping the platform from day one, ensuring we address real monetization challenges for personal brands."
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__sa5PE)}>
-            <div className={classNames(projectcss.all, sty.freeBox__u3Agp)}>
-              <div className={classNames(projectcss.all, sty.freeBox__rx3RR)}>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2___7G0GX
-                  )}
-                >
-                  <React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ color: "var(--token-85NLt28mNxmq)" }}
-                    >
-                      {" Ready to grow your "}
-                    </span>
-                  </React.Fragment>
-                </h2>
-                <h2
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h2,
-                    projectcss.__wab_text,
-                    sty.h2___6Rv6Q
-                  )}
-                >
-                  <React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ color: "#F15A24" }}
-                    >
-                      {"Personal Brand income?"}
-                    </span>
-                  </React.Fragment>
-                </h2>
-              </div>
-              <div
+          <div className={classNames(projectcss.all, sty.freeBox__mZrSk)}>
+            <div className={classNames(projectcss.all, sty.freeBox__a068)}>
+              <h1
+                data-plasmic-name={"h1"}
+                data-plasmic-override={overrides.h1}
                 className={classNames(
                   projectcss.all,
+                  projectcss.h1,
                   projectcss.__wab_text,
-                  sty.text__xYtOp
+                  sty.h1
                 )}
               >
-                {
-                  "Be part of our beta and help define the future of personal brand monetization, guided by a team of seasoned experts across the industry."
-                }
-              </div>
+                {"Terms"}
+              </h1>
+              <h4
+                data-plasmic-name={"h4"}
+                data-plasmic-override={overrides.h4}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h4,
+                  projectcss.__wab_text,
+                  sty.h4
+                )}
+              >
+                <React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Last Updated:"}
+                  </span>
+                  <React.Fragment>{" August 31, 2025\n"}</React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Effective Date: "}
+                  </span>
+                  <React.Fragment>{"August 31, 2025\n\n"}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__uy6V
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>{""}</React.Fragment>
+                        {
+                          <h5
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h5,
+                              projectcss.__wab_text,
+                              sty.h5__gycOb
+                            )}
+                          >
+                            {"1. Acceptance of Terms"}
+                          </h5>
+                        }
+                        <React.Fragment>{""}</React.Fragment>
+                      </React.Fragment>
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      'Welcome to OfftoGlow ("we," "our," or "us"). These Terms of Service ("Terms") constitute a legally binding agreement between you ("user," "you," or "your") and OfftoGlow concerning your access to and use of our platform, including our website and mobile application (collectively, the "Service").\n\nBy accessing or using our Service, you agree to be bound by these Terms. If you do not agree with these Terms, please do not use our Service.\n\n'
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__sBiK
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>{""}</React.Fragment>
+                        {
+                          <h5
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h5,
+                              projectcss.__wab_text,
+                              sty.h5__cgZ46
+                            )}
+                          >
+                            {"2. Description of Service"}
+                          </h5>
+                        }
+                        <React.Fragment>{""}</React.Fragment>
+                      </React.Fragment>
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "OfftoGlow is a comprehensive platform designed to help personal brands monetize their skills and manage their business operations. Our Service includes:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__rv7HL
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__dljyx
+                        )}
+                      >
+                        {"Profile and portfolio creation tools\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__eEvfe
+                        )}
+                      >
+                        {"Booking management system\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__vk14
+                        )}
+                      >
+                        {"Payment processing\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__jbpHs
+                        )}
+                      >
+                        {"Analytics and insights\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__smuPi
+                        )}
+                      >
+                        {"Communication tools\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__gv8Mn
+                        )}
+                      >
+                        {"Content management features\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___3Yr75
+                        )}
+                      >
+                        {"Availability and calendar management"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{"\n"}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__ilteu
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>{""}</React.Fragment>
+                        {
+                          <h5
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h5,
+                              projectcss.__wab_text,
+                              sty.h5__lJfom
+                            )}
+                          >
+                            {"3. User Accounts"}
+                          </h5>
+                        }
+                        <React.Fragment>{""}</React.Fragment>
+                      </React.Fragment>
+                    </h5>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__llOn
+                      )}
+                    >
+                      {"3.1 Account Registration"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "To access certain features of our Service, you must create an account. You agree to:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__zgSc3
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__eUzF4
+                        )}
+                      >
+                        {"Provide accurate, current, and complete information"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___08KCv
+                        )}
+                      >
+                        {"Maintain and update your information as needed\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__puaGm
+                        )}
+                      >
+                        {
+                          "Keep your login credentials secure and confidential\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__ruN9U
+                        )}
+                      >
+                        {
+                          "Be responsible for all activities under your account\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___9TYSb
+                        )}
+                      >
+                        {"Notify us immediately of any unauthorized use"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__pBvm
+                      )}
+                    >
+                      {"3.2 Account Termination"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "We reserve the right to suspend or terminate your account at any time for:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__eUoPl
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___5Kosx
+                        )}
+                      >
+                        {"Violation of these Terms\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__aIpj
+                        )}
+                      >
+                        {"Fraudulent or illegal activities"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__qq6Rx
+                        )}
+                      >
+                        {"Extended periods of inactivity\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__kCzih
+                        )}
+                      >
+                        {"Non-payment of fees"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>
+                    {
+                      "You may terminate your account at any time by contacting us or using the account deletion feature in your settings.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__ptHSw
+                      )}
+                    >
+                      {"4. Acceptable Use Policy"}
+                    </h5>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__uZvh0
+                      )}
+                    >
+                      {"4.1 Permitted Uses"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {"You may use our Service to:\n"}
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__vaMgn
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__iEwGj
+                        )}
+                      >
+                        {"Create and manage your personal brand profile\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__oL3H
+                        )}
+                      >
+                        {"Book and manage appointments\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___9ScEr
+                        )}
+                      >
+                        {"Process payments for your services\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__zanr6
+                        )}
+                      >
+                        {"Communicate with clients and collaborators\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__nkq3R
+                        )}
+                      >
+                        {
+                          "Create and share content within our platform guidelines"
+                        }
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__r44Db
+                      )}
+                    >
+                      {"4.2 Prohibited Uses"}
+                    </h6>
+                  }
+                  <React.Fragment>{"You agree not to:\n"}</React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__afJGh
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__sTle
+                        )}
+                      >
+                        {"Violate any applicable laws or regulations\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__dQjiP
+                        )}
+                      >
+                        {"Infringe on intellectual property rights\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__dBPbl
+                        )}
+                      >
+                        {"Upload malicious code or viruses\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___9RkOd
+                        )}
+                      >
+                        {"Engage in spam, harassment, or abusive behavior\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__mvq8U
+                        )}
+                      >
+                        {"Use the Service for fraudulent activities\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__zXipY
+                        )}
+                      >
+                        {"Impersonate others or provide false information\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___2YRdi
+                        )}
+                      >
+                        {"Attempt to gain unauthorized access to our systems\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__fyZ4L
+                        )}
+                      >
+                        {
+                          "Use automated tools to access or interact with our Service\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__jrRHm
+                        )}
+                      >
+                        {"Post inappropriate, offensive, or harmful content"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{"\n"}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__osnWh
+                      )}
+                    >
+                      {"5. Booking and Payment Terms"}
+                    </h5>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__n3Umd
+                      )}
+                    >
+                      {"5.1 Booking Process"}
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul___6Hpb
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__sWdfr
+                        )}
+                      >
+                        {
+                          "Bookings are subject to availability and confirmation\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__q3HLy
+                        )}
+                      >
+                        {"All booking details must be accurate and complete\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__gqftl
+                        )}
+                      >
+                        {
+                          "You are responsible for managing your availability calendar\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__zn3L
+                        )}
+                      >
+                        {
+                          "Confirmation of bookings is at your discretion as a service provider"
+                        }
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__am102
+                      )}
+                    >
+                      {"5.2 Payments"}
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul___3P2Ml
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___95GKk
+                        )}
+                      >
+                        {
+                          "Payment processing is handled through secure third-party providers\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__cLnMk
+                        )}
+                      >
+                        {"Service fees may apply to transactions\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___9Yv9B
+                        )}
+                      >
+                        {
+                          "Refunds are subject to your individual cancellation policy\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___83Y0C
+                        )}
+                      >
+                        {
+                          "You are responsible for tax obligations related to your earnings\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__sLQc9
+                        )}
+                      >
+                        {
+                          "We reserve the right to withhold payments in case of disputes or suspected fraud"
+                        }
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6___64ZWo
+                      )}
+                    >
+                      {"5.3 Cancellation and Refunds"}
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__s5Dn3
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__vYkpP
+                        )}
+                      >
+                        {
+                          "Cancellation policies are set by individual service providers\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__wKZgj
+                        )}
+                      >
+                        {
+                          "Customers may be subject to cancellation fees as determined by the service provider\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__tpY5Z
+                        )}
+                      >
+                        {
+                          "Refunds are processed according to the applicable cancellation policy\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__p5Ynb
+                        )}
+                      >
+                        {
+                          "We may facilitate dispute resolution but are not responsible for refund decisions"
+                        }
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{"\n"}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__jv6Kc
+                      )}
+                    >
+                      {"6. Content and Intellectual Property"}
+                    </h5>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__vCi65
+                      )}
+                    >
+                      {"6.1 Your Content"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "You retain ownership of content you create and upload to our Service. By using our Service, you grant us a non-exclusive, worldwide, royalty-free license to use, display, and distribute your content solely for the purpose of operating and improving our Service.\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__buCtX
+                      )}
+                    >
+                      {"6.2 Our Content"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "All content and materials provided by OfftoGlow, including text, graphics, logos, and software, are protected by intellectual property laws. You may not use our content without express written permission.\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__o04RV
+                      )}
+                    >
+                      {"6.3 Copyright Infringement"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "We respect intellectual property rights and expect users to do the same. If you believe your copyright has been infringed, please contact us with details of the alleged infringement.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5___29KJ8
+                      )}
+                    >
+                      {"7. Privacy and Data Protection"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "Your privacy is important to us. Our Privacy Policy, which is incorporated by reference into these Terms, explains how we collect, use, and protect your information. By using our Service, you consent to our privacy practices as described in our Privacy Policy.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__tyqir
+                      )}
+                    >
+                      {"8. Service Availability and Modifications"}
+                    </h5>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__ktNjh
+                      )}
+                    >
+                      {"8.1 Service Availability"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "We strive to maintain service availability but do not guarantee uninterrupted access. We may experience downtime for maintenance, updates, or technical issues.\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__x1Bjm
+                      )}
+                    >
+                      {"8.2 Service Modifications"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "We reserve the right to modify, suspend, or discontinue any aspect of our Service at any time. We will provide reasonable notice of significant changes when possible.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__y3HdW
+                      )}
+                    >
+                      {"9. Beta Testing and Features"}
+                    </h5>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6___1GpVq
+                      )}
+                    >
+                      {"9.1 Beta Features"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      'Our Service may include beta features that are experimental and subject to change. Beta features are provided "as is" without warranties.\n'
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__qk8Ha
+                      )}
+                    >
+                      {"9.2 Feedback"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "If you provide feedback about our Service, we may use that feedback to improve our platform without compensation to you.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__c3Rlu
+                      )}
+                    >
+                      {"10. Disclaimers and Limitations of Liability"}
+                    </h5>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__qzBu
+                      )}
+                    >
+                      {"10.1 Service Disclaimers"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      'OUR SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.\n'
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__vsTzk
+                      )}
+                    >
+                      {"10.2 Limitation of Liability"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL OFFTOGLOW BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR BUSINESS OPPORTUNITIES.\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6___9N
+                      )}
+                    >
+                      {"10.3 Maximum Liability"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "OUR TOTAL LIABILITY TO YOU FOR ANY CLAIMS ARISING FROM THESE TERMS OR YOUR USE OF OUR SERVICE SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE TWELVE MONTHS PRECEDING THE CLAIM.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__qpNli
+                      )}
+                    >
+                      {"11. Indemnification"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "You agree to indemnify, defend, and hold harmless OfftoGlow and its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__bQVu
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___13CHx
+                        )}
+                      >
+                        {"Your use of our Service\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__t6XFt
+                        )}
+                      >
+                        {"Your violation of these Terms\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__tzzNy
+                        )}
+                      >
+                        {"Your violation of any third-party rights\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__iOlyK
+                        )}
+                      >
+                        {"Content you post or share through our Service"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{"\n"}</React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__t0OEk
+                      )}
+                    >
+                      {"12. Force Majeure"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "We shall not be liable for any failure or delay in performance of our obligations due to circumstances beyond our reasonable control, including but not limited to acts of God, natural disasters, war, terrorism, strikes, or government actions.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__t9S4K
+                      )}
+                    >
+                      {"13. Governing Law and Dispute Resolution"}
+                    </h5>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__boUo1
+                      )}
+                    >
+                      {"13.1 Governing Law"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "These Terms shall be governed by and construed in accordance with the laws of Hong Kong, without regard to conflict of law principles.\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__lHtXf
+                      )}
+                    >
+                      {"13.2 Dispute Resolution"}
+                    </h6>
+                  }
+                  <React.Fragment>
+                    {
+                      "Any disputes arising from these Terms or your use of our Service shall be resolved through binding arbitration in accordance with the rules of the Hong Kong International Arbitration Centre (HKIAC).\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__n5EdG
+                      )}
+                    >
+                      {"14. Severability"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "If any provision of these Terms is found to be unenforceable or invalid, the remaining provisions shall remain in full force and effect.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__v8TIc
+                      )}
+                    >
+                      {"15. Entire Agreement"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "These Terms, together with our Privacy Policy, constitute the entire agreement between you and OfftoGlow regarding your use of our Service.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__eIxoY
+                      )}
+                    >
+                      {"16. Changes to Terms"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "We may update these Terms from time to time. We will notify you of material changes by:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul__gNjlh
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__a1NVi
+                        )}
+                      >
+                        {"Posting updated Terms on our website\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__hywF
+                        )}
+                      >
+                        {"Sending email notifications\n"}
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__yeLza
+                        )}
+                      >
+                        {"Providing in-app notifications"}
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>
+                    {
+                      "\nYour continued use of our Service after changes become effective constitutes acceptance of the updated Terms.\n\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        projectcss.__wab_text,
+                        sty.h5__lvai7
+                      )}
+                    >
+                      {"17. Contact Information"}
+                    </h5>
+                  }
+                  <React.Fragment>
+                    {
+                      "If you have questions about these Terms, please contact us at:\n\nOfftoGlow\nEmail: legal@offtoglow.com\nJurisdiction: Hong Kong\n\nFor specific legal inquiries, you may also contact: terms@offtoglow.com"
+                    }
+                  </React.Fragment>
+                </React.Fragment>
+              </h4>
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__nOz74)}>
@@ -958,12 +2051,11 @@ function PlasmicTerms__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navigation", "scrollNav", "h1", "h4", "h3", "footermenu"],
+  root: ["root", "navigation", "scrollNav", "h1", "h4", "footermenu"],
   navigation: ["navigation"],
   scrollNav: ["scrollNav"],
   h1: ["h1"],
   h4: ["h4"],
-  h3: ["h3"],
   footermenu: ["footermenu"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -975,7 +2067,6 @@ type NodeDefaultElementType = {
   scrollNav: "div";
   h1: "h1";
   h4: "h4";
-  h3: "h3";
   footermenu: typeof Footermenu;
 };
 
@@ -1043,7 +2134,6 @@ export const PlasmicTerms = Object.assign(
     scrollNav: makeNodeComponent("scrollNav"),
     h1: makeNodeComponent("h1"),
     h4: makeNodeComponent("h4"),
-    h3: makeNodeComponent("h3"),
     footermenu: makeNodeComponent("footermenu"),
 
     // Metadata about props expected for PlasmicTerms
