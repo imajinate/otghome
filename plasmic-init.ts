@@ -7,7 +7,6 @@ import { PasswordResetForm } from "./components/PasswordResetForm";
 import { UpdatePasswordForm } from "./components/UpdatePasswordForm";
 import { EmailVerificationHandler } from "./components/EmailVerificationHandler";
 import { TypewriterText } from './components/TypewriterText';
-import { NavWrapper } from "./components/NavWrapper";
 // import { UpdatePasswordFormNew } from "./components/UpdatePasswordFormNew";
 
 export const PLASMIC = initPlasmicLoader({
@@ -71,25 +70,3 @@ PLASMIC.registerComponent(TypewriterText, {
     className: { type: 'string', defaultValue: '' },
   },
 });
-
-
-// Registreer NavWrapper als drag-&-drop component
-PLASMIC.registerComponent(NavWrapper, {
-  name: "NavWrapper",
-  importPath: "./components/NavWrapper",
-  props: {
-    scrollThreshold: {
-      type: "number",
-      defaultValue: 0,
-      description: "Scrollafstand (pixels) waarbij isScrolled true wordt"
-    },
-    children: {
-      type: "slot"
-    },
-    className: {
-      type: "string",
-      defaultValue: ""
-    }
-  }
-});
-
