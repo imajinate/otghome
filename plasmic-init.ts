@@ -7,6 +7,7 @@ import { PasswordResetForm } from "./components/PasswordResetForm";
 import { UpdatePasswordForm } from "./components/UpdatePasswordForm";
 import { EmailVerificationHandler } from "./components/EmailVerificationHandler";
 import { TypewriterText } from './components/TypewriterText';
+import NavWrapper from "./components/NavWrapper";
 // import { UpdatePasswordFormNew } from "./components/UpdatePasswordFormNew";
 
 export const PLASMIC = initPlasmicLoader({
@@ -68,5 +69,22 @@ PLASMIC.registerComponent(TypewriterText, {
     speed: { type: 'number', defaultValue: 100 },
     pauseDuration: { type: 'number', defaultValue: 2000 },
     className: { type: 'string', defaultValue: '' },
+  },
+});
+
+// Registreer de NavWrapper component
+PLASMIC.registerComponent(NavWrapper, {
+  name: 'NavWrapper',
+  importName: 'NavWrapper',
+  importPath: './components/NavWrapper',
+  props: {
+    initialIsDefault: {
+      type: 'boolean',
+      defaultValue: true,
+    },
+    className: {
+      type: 'string',
+      defaultValue: '',
+    },
   },
 });

@@ -1,11 +1,18 @@
 // components/NavWrapper.tsx
 import { useEffect, useState } from "react";
-import { PlasmicComponent } from "@plasmicapp/loader-react"; // geen loader nodig
+import { PlasmicComponent } from "@plasmicapp/loader-react";
 
-export default function NavWrapper() {
-  const [isDefaultNav, setIsDefaultNav] = useState(true);
+export interface NavWrapperProps {
+  initialIsDefault?: boolean; // voor Studio preview
+}
+
+export default function NavWrapper({ initialIsDefault = true }: NavWrapperProps) {
+  const [isDefaultNav, setIsDefaultNav] = useState(initialIsDefault);
 
   useEffect(() => {
+    // Alleen window scroll listener toevoegen in browser, niet in Studio
+    if (typeof window === "undefined") return;
+
     const handleScroll = () => setIsDefaultNav(window.scrollY <= 100);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -13,9 +20,9 @@ export default function NavWrapper() {
 
   return (
     <PlasmicComponent
-      component="Navigation" // exacte naam van je component in Plasmic Studio
+      component="Navigation"
       componentProps={{
-        isDefaultNav, // boolean prop uit Studio
+        isDefaultNav,
       }}
     />
   );
