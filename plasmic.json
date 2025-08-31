@@ -1587,6 +1587,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/faq"
+        },
+        {
+          "id": "r1pblfpIJwD3",
+          "name": "UpperNav",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicUpperNav.tsx",
+          "importSpec": {
+            "modulePath": "UpperNav.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicUpperNav.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import UpperNav from "../../UpperNav"; // plasmic-import: r1pblfpIJwD3/component
 import Button from "../../Button"; // plasmic-import: bUjxyyacyjDo/component
 import { TypewriterText } from "../../TypewriterText"; // plasmic-import: ZFwT5I17yEXd/codeComponent
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
@@ -95,7 +96,7 @@ export const PlasmicHomepageV2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepageV2__OverridesType = {
   root?: Flex__<"div">;
-  navigation?: Flex__<"div">;
+  upperNav?: Flex__<typeof UpperNav>;
   scrollNav?: Flex__<"div">;
   heroV2?: Flex__<"div">;
   rotatingText?: Flex__<typeof TypewriterText>;
@@ -270,245 +271,12 @@ function PlasmicHomepageV2__RenderFunc(props: {
           sty.root
         )}
       >
-        <div
-          data-plasmic-name={"navigation"}
-          data-plasmic-override={overrides.navigation}
-          className={classNames(projectcss.all, sty.navigation)}
-        >
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img___2Z4Bb)}
-            displayHeight={"32px"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"auto"}
-            loading={"lazy"}
-            src={{
-              src: "/plasmic/about_offtoglow_com/images/logo2025Svg.svg",
-              fullWidth: 4543,
-              fullHeight: 880,
-              aspectRatio: undefined
-            }}
-          />
+        <UpperNav
+          data-plasmic-name={"upperNav"}
+          data-plasmic-override={overrides.upperNav}
+          className={classNames("__wab_instance", sty.upperNav)}
+        />
 
-          <div className={classNames(projectcss.all, sty.freeBox__yUlLi)} />
-
-          <div className={classNames(projectcss.all, sty.freeBox__ezWn)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__oFowQ
-              )}
-            >
-              {"Login: "}
-            </div>
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                projectcss.__wab_text,
-                sty.link__uz2J
-              )}
-              component={Link}
-              href={"https://talent.offtoglow.com/"}
-              platform={"nextjs"}
-              target={"_blank"}
-            >
-              {"Talent"}
-            </PlasmicLink__>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__aVoVr
-              )}
-            >
-              {"|"}
-            </div>
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                projectcss.__wab_text,
-                sty.link__h4Te5
-              )}
-              component={Link}
-              href={"https://booker.offtoglow.com/"}
-              platform={"nextjs"}
-              target={"_blank"}
-            >
-              {"Booker"}
-            </PlasmicLink__>
-          </div>
-          {false ? (
-            <div className={classNames(projectcss.all, sty.freeBox__hVb0)}>
-              <Button
-                className={classNames("__wab_instance", sty.button__svZ9F)}
-                color={"white"}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return "https://talent.offtoglow.com/login";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-                selectLeft={true}
-                shape={"rounded"}
-                submitsForm={true}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2Dps
-                  )}
-                >
-                  {"Talent Sign In"}
-                </div>
-              </Button>
-              <Button
-                className={classNames("__wab_instance", sty.button___3XVRe)}
-                color={"white"}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return "https://booker.offtoglow.com/login";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-                selectRight={true}
-                shape={"rounded"}
-                submitsForm={true}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ckeLa
-                  )}
-                >
-                  {"Booker Sign In"}
-                </div>
-              </Button>
-            </div>
-          ) : null}
-          <Button
-            className={classNames("__wab_instance", sty.button__wEXlo)}
-            color={"green"}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["goToRegister"] = true
-                ? (() => {
-                    const actionArgs = { destination: `/register` };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
-                      }
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["goToRegister"] != null &&
-                typeof $steps["goToRegister"] === "object" &&
-                typeof $steps["goToRegister"].then === "function"
-              ) {
-                $steps["goToRegister"] = await $steps["goToRegister"];
-              }
-            }}
-            submitsForm={true}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___2Qp2
-              )}
-            >
-              {"Join for Free"}
-            </div>
-          </Button>
-        </div>
         <div
           data-plasmic-name={"scrollNav"}
           data-plasmic-override={overrides.scrollNav}
@@ -4519,7 +4287,7 @@ function PlasmicHomepageV2__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "navigation",
+    "upperNav",
     "scrollNav",
     "heroV2",
     "rotatingText",
@@ -4542,7 +4310,7 @@ const PlasmicDescendants = {
     "h5",
     "footermenu"
   ],
-  navigation: ["navigation"],
+  upperNav: ["upperNav"],
   scrollNav: ["scrollNav"],
   heroV2: ["heroV2", "rotatingText"],
   rotatingText: ["rotatingText"],
@@ -4582,7 +4350,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  navigation: "div";
+  upperNav: typeof UpperNav;
   scrollNav: "div";
   heroV2: "div";
   rotatingText: typeof TypewriterText;
@@ -4666,7 +4434,7 @@ export const PlasmicHomepageV2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    navigation: makeNodeComponent("navigation"),
+    upperNav: makeNodeComponent("upperNav"),
     scrollNav: makeNodeComponent("scrollNav"),
     heroV2: makeNodeComponent("heroV2"),
     rotatingText: makeNodeComponent("rotatingText"),
