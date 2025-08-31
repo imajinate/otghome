@@ -11,7 +11,49 @@
   min-width: 0;
   padding: 0px;
 }
+.freeBox__h0Asb {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: 20px;
+  min-width: 0;
+}
+.freeBox__s2O69 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 4px;
+  min-width: 0;
+}
+.text__jTxyu {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--token-Pxe4wDL2kJpb);
+  min-width: 0;
+}
 .link__eShrH {
+  color: var(--token-DbGdjBpQ6R_X);
+  font-size: 14px;
+}
+.link__gebIj {
+  color: var(--token-DbGdjBpQ6R_X);
+  font-size: 14px;
+}
+.link__gQOoz {
   color: var(--token-DbGdjBpQ6R_X);
   font-size: 14px;
 }
@@ -19,15 +61,67 @@
   color: var(--token-DbGdjBpQ6R_X);
   font-size: 14px;
 }
-.link__gnyDk {
+.freeBox__p7TFs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 4px;
+  min-width: 0;
+}
+.text__ui8E {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--token-Pxe4wDL2kJpb);
+  min-width: 0;
+}
+.link__nmbEe {
   color: var(--token-DbGdjBpQ6R_X);
   font-size: 14px;
 }
-.link__jFpB7 {
+.link___8C6Fe {
   color: var(--token-DbGdjBpQ6R_X);
   font-size: 14px;
 }
-.link__b4Qm {
+.link__q4Xam {
+  color: var(--token-DbGdjBpQ6R_X);
+  font-size: 14px;
+}
+.freeBox__gsitY {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 4px;
+  min-width: 0;
+}
+.text__lkP4F {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--token-Pxe4wDL2kJpb);
+  min-width: 0;
+}
+.link__r95Cv {
+  color: var(--token-DbGdjBpQ6R_X);
+  font-size: 14px;
+}
+.link__miPvx {
   color: var(--token-DbGdjBpQ6R_X);
   font-size: 14px;
 }

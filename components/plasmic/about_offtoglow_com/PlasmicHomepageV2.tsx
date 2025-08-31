@@ -65,7 +65,7 @@ import { TypewriterText } from "../../TypewriterText"; // plasmic-import: ZFwT5I
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import Tilt from "@plasmicpkgs/react-parallax-tilt";
-import Footermenu from "../../Footermenu"; // plasmic-import: puYfivG4HZSi/component
+import Footer from "../../Footer"; // plasmic-import: VH17Qyr0baQ-/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -117,7 +117,7 @@ export type PlasmicHomepageV2__OverridesType = {
   _10ToDo?: Flex__<"div">;
   sliderCarouselEarlyAdopters?: Flex__<typeof SliderWrapper>;
   h5?: Flex__<"h5">;
-  footermenu?: Flex__<typeof Footermenu>;
+  footer?: Flex__<typeof Footer>;
 };
 
 export interface DefaultHomepageV2Props {}
@@ -4211,73 +4211,11 @@ function PlasmicHomepageV2__RenderFunc(props: {
               </div>
             </Button>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox___1LkYf)}>
-            <div className={classNames(projectcss.all, sty.freeBox__oOJk1)}>
-              <div className={classNames(projectcss.all, sty.freeBox__yfj7B)}>
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__zBBem)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"168px"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"auto"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/about_offtoglow_com/images/otGlogobeta2Svg.svg",
-                    fullWidth: 4543,
-                    fullHeight: 880,
-                    aspectRatio: undefined
-                  }}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__yaQWq
-                  )}
-                >
-                  {
-                    "OfftoGlow is the world\u2019s first platform of its kind \u2014 a Global Personal Brand Technology Platform built to empower creators, entrepreneurs, and influencers to unlock their full earning potential. By combining cutting-edge tools, seamless infrastructure, and data-driven insights, we enable personal brands to grow, monetize, and thrive on a truly global scale. With OfftoGlow, personal brands gain the intelligence, infrastructure, and autonomy they need to transform influence into sustainable impact."
-                  }
-                </div>
-              </div>
-              <Footermenu
-                data-plasmic-name={"footermenu"}
-                data-plasmic-override={overrides.footermenu}
-                className={classNames("__wab_instance", sty.footermenu)}
-              />
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__r5GvR
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return (
-                      "© " +
-                      new Date().getFullYear() +
-                      " OfftoGlow Ltd. All rights reserved."
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "\u00a9 2025 OfftoGlow Ltd. All rights reserved.";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          </div>
+          <Footer
+            data-plasmic-name={"footer"}
+            data-plasmic-override={overrides.footer}
+            className={classNames("__wab_instance", sty.footer)}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -4308,7 +4246,7 @@ const PlasmicDescendants = {
     "_10ToDo",
     "sliderCarouselEarlyAdopters",
     "h5",
-    "footermenu"
+    "footer"
   ],
   upperNav: ["upperNav"],
   scrollNav: ["scrollNav"],
@@ -4343,7 +4281,7 @@ const PlasmicDescendants = {
   _10ToDo: ["_10ToDo"],
   sliderCarouselEarlyAdopters: ["sliderCarouselEarlyAdopters"],
   h5: ["h5"],
-  footermenu: ["footermenu"]
+  footer: ["footer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4371,7 +4309,7 @@ type NodeDefaultElementType = {
   _10ToDo: "div";
   sliderCarouselEarlyAdopters: typeof SliderWrapper;
   h5: "h5";
-  footermenu: typeof Footermenu;
+  footer: typeof Footer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4457,7 +4395,7 @@ export const PlasmicHomepageV2 = Object.assign(
       "sliderCarouselEarlyAdopters"
     ),
     h5: makeNodeComponent("h5"),
-    footermenu: makeNodeComponent("footermenu"),
+    footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicHomepageV2
     internalVariantProps: PlasmicHomepageV2__VariantProps,

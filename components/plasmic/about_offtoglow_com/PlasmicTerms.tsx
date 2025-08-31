@@ -61,7 +61,7 @@ import {
 
 import UpperNav from "../../UpperNav"; // plasmic-import: r1pblfpIJwD3/component
 import Button from "../../Button"; // plasmic-import: bUjxyyacyjDo/component
-import Footermenu from "../../Footermenu"; // plasmic-import: puYfivG4HZSi/component
+import Footer from "../../Footer"; // plasmic-import: VH17Qyr0baQ-/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -90,9 +90,10 @@ export type PlasmicTerms__OverridesType = {
   root?: Flex__<"div">;
   upperNav?: Flex__<typeof UpperNav>;
   scrollNav?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
   h1?: Flex__<"h1">;
   h4?: Flex__<"h4">;
-  footermenu?: Flex__<typeof Footermenu>;
+  footer?: Flex__<typeof Footer>;
 };
 
 export interface DefaultTermsProps {}
@@ -213,8 +214,10 @@ function PlasmicTerms__RenderFunc(props: {
           className={classNames(projectcss.all, sty.scrollNav)}
         >
           <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
             alt={""}
-            className={classNames(sty.img___4W2Oe)}
+            className={classNames(sty.img)}
             displayHeight={"32px"}
             displayMaxHeight={"none"}
             displayMaxWidth={"100%"}
@@ -1745,86 +1748,25 @@ function PlasmicTerms__RenderFunc(props: {
               </h4>
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__nOz74)}>
-            <div className={classNames(projectcss.all, sty.freeBox__fFyqt)}>
-              <div className={classNames(projectcss.all, sty.freeBox__lTzH)}>
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__mhPxq)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"168px"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"auto"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/about_offtoglow_com/images/otGlogobeta2Svg.svg",
-                    fullWidth: 4543,
-                    fullHeight: 880,
-                    aspectRatio: undefined
-                  }}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__z4PNn
-                  )}
-                >
-                  {
-                    "OfftoGlow is the world\u2019s first platform of its kind \u2014 a Global Personal Brand Technology Platform built to empower creators, entrepreneurs, and influencers to unlock their full earning potential. By combining cutting-edge tools, seamless infrastructure, and data-driven insights, we enable personal brands to grow, monetize, and thrive on a truly global scale. With OfftoGlow, personal brands gain the intelligence, infrastructure, and autonomy they need to transform influence into sustainable impact."
-                  }
-                </div>
-              </div>
-              <Footermenu
-                data-plasmic-name={"footermenu"}
-                data-plasmic-override={overrides.footermenu}
-                className={classNames("__wab_instance", sty.footermenu)}
-              />
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__aBvKp
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return (
-                      "© " +
-                      new Date().getFullYear() +
-                      " OfftoGlow Ltd. All rights reserved."
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "\u00a9 2025 OfftoGlow Ltd. All rights reserved.";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          </div>
         </div>
+        <Footer
+          data-plasmic-name={"footer"}
+          data-plasmic-override={overrides.footer}
+          className={classNames("__wab_instance", sty.footer)}
+        />
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "upperNav", "scrollNav", "h1", "h4", "footermenu"],
+  root: ["root", "upperNav", "scrollNav", "img", "h1", "h4", "footer"],
   upperNav: ["upperNav"],
-  scrollNav: ["scrollNav"],
+  scrollNav: ["scrollNav", "img"],
+  img: ["img"],
   h1: ["h1"],
   h4: ["h4"],
-  footermenu: ["footermenu"]
+  footer: ["footer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1833,9 +1775,10 @@ type NodeDefaultElementType = {
   root: "div";
   upperNav: typeof UpperNav;
   scrollNav: "div";
+  img: typeof PlasmicImg__;
   h1: "h1";
   h4: "h4";
-  footermenu: typeof Footermenu;
+  footer: typeof Footer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1900,9 +1843,10 @@ export const PlasmicTerms = Object.assign(
     // Helper components rendering sub-elements
     upperNav: makeNodeComponent("upperNav"),
     scrollNav: makeNodeComponent("scrollNav"),
+    img: makeNodeComponent("img"),
     h1: makeNodeComponent("h1"),
     h4: makeNodeComponent("h4"),
-    footermenu: makeNodeComponent("footermenu"),
+    footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicTerms
     internalVariantProps: PlasmicTerms__VariantProps,
