@@ -73,18 +73,17 @@ PLASMIC.registerComponent(TypewriterText, {
 });
 
 // Registreer de NavWrapper component
-PLASMIC.registerComponent(NavWrapper, {
-  name: 'NavWrapper',
-  importName: 'NavWrapper',
-  importPath: './components/NavWrapper',
+PLASMIC.registerGlobalContext(NavWrapper, {
+  name: "NavWrapper",
+  providesData: true,
   props: {
-    initialIsDefault: {
-      type: 'boolean',
-      defaultValue: true,
-    },
-    className: {
-      type: 'string',
-      defaultValue: '',
-    },
+    scrollThreshold: {
+      type: "number",
+      defaultValue: 0,
+      description: "Scroll position (in pixels) where navigation should change state"
+    }
   },
+  // Voor Codegen projecten (voeg alleen toe als je Codegen gebruikt):
+  importPath: "./components/NavWrapper", // Pas aan naar jouw bestandsstructuur
+  isDefaultExport: false
 });
