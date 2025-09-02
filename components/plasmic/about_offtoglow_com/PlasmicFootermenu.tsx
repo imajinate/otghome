@@ -252,8 +252,21 @@ function PlasmicFootermenu__RenderFunc(props: {
               sty.link___8C6Fe
             )}
             component={Link}
-            href={`/`}
+            href={(() => {
+              try {
+                return "https://discord.gg/q9DXrT8txv";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return `/`;
+                }
+                throw e;
+              }
+            })()}
             platform={"nextjs"}
+            target={"_blank"}
           >
             {"Support"}
           </PlasmicLink__>
@@ -344,7 +357,21 @@ function PlasmicFootermenu__RenderFunc(props: {
               sty.link__dsNu9
             )}
             component={Link}
+            href={(() => {
+              try {
+                return "https://discord.gg/q9DXrT8txv";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             platform={"nextjs"}
+            target={"_blank"}
           >
             <DiscordSvgrepoComSvgIcon
               className={classNames(projectcss.all, sty.svg__hSNzg)}
