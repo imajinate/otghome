@@ -628,34 +628,6 @@ function PlasmicHomepageV2__RenderFunc(props: {
               <Button
                 className={classNames("__wab_instance", sty.button___3014)}
                 color={"green"}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToRegister"] = true
-                    ? (() => {
-                        const actionArgs = { destination: `/register` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToRegister"] != null &&
-                    typeof $steps["goToRegister"] === "object" &&
-                    typeof $steps["goToRegister"].then === "function"
-                  ) {
-                    $steps["goToRegister"] = await $steps["goToRegister"];
-                  }
-                }}
                 submitsForm={true}
               >
                 <div
@@ -4170,34 +4142,6 @@ function PlasmicHomepageV2__RenderFunc(props: {
             <Button
               className={classNames("__wab_instance", sty.button__kpuX)}
               color={"green"}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToRegister"] = true
-                  ? (() => {
-                      const actionArgs = { destination: `/register` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToRegister"] != null &&
-                  typeof $steps["goToRegister"] === "object" &&
-                  typeof $steps["goToRegister"].then === "function"
-                ) {
-                  $steps["goToRegister"] = await $steps["goToRegister"];
-                }
-              }}
               submitsForm={true}
             >
               <div

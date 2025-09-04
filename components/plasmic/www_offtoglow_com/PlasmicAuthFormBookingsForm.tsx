@@ -464,19 +464,19 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__l9HEr
+                      sty.formField__tMzki
                     )}
                     label={"Email"}
                     name={"email"}
                   >
                     <AntdInput
-                      className={classNames("__wab_instance", sty.input__tPIn2)}
+                      className={classNames("__wab_instance", sty.input__stFnu)}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__sTGh
+                      sty.formField___6UAA
                     )}
                     label={"Password"}
                     name={"password"}
@@ -489,13 +489,17 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                     />
                   </FormItemWrapper>
                   <AntdButton
-                    className={classNames("__wab_instance", sty.button__w8Ste, {
-                      [sty.buttonmode_signUp__w8SteCx1E6]: hasVariant(
-                        $state,
-                        "mode",
-                        "signUp"
-                      )
-                    })}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.button___3J2Fb,
+                      {
+                        [sty.buttonmode_signUp___3J2FbCx1E6]: hasVariant(
+                          $state,
+                          "mode",
+                          "signUp"
+                        )
+                      }
+                    )}
                     shape={"default"}
                     submitsForm={true}
                     type={"primary"}
@@ -504,9 +508,9 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__nRfTe,
+                        sty.text___9KjGa,
                         {
-                          [sty.textmode_signUp__nRfTeCx1E6]: hasVariant(
+                          [sty.textmode_signUp___9KjGaCx1E6]: hasVariant(
                             $state,
                             "mode",
                             "signUp"

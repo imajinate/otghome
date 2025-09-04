@@ -358,34 +358,6 @@ function PlasmicUpperNav__RenderFunc(props: {
       <Button
         className={classNames("__wab_instance", sty.button__zg9Yr)}
         color={"green"}
-        onClick={async event => {
-          const $steps = {};
-
-          $steps["goToRegister"] = true
-            ? (() => {
-                const actionArgs = { destination: `/register` };
-                return (({ destination }) => {
-                  if (
-                    typeof destination === "string" &&
-                    destination.startsWith("#")
-                  ) {
-                    document
-                      .getElementById(destination.substr(1))
-                      .scrollIntoView({ behavior: "smooth" });
-                  } else {
-                    __nextRouter?.push(destination);
-                  }
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["goToRegister"] != null &&
-            typeof $steps["goToRegister"] === "object" &&
-            typeof $steps["goToRegister"].then === "function"
-          ) {
-            $steps["goToRegister"] = await $steps["goToRegister"];
-          }
-        }}
         submitsForm={true}
       >
         <div
