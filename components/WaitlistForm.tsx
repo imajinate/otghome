@@ -39,7 +39,7 @@ export default function WaitlistForm() {
       >
         {status === "loading" ? "Submitting..." : "Join Waitlist"}
       </button>
-      {status === "success" && <p className="text-green-600">You're on the list 🎉</p>}
+      {status === "success" && <p className="text-green-600">You&apos;re on the list 🎉</p>}
       {status === "error" && <p className="text-red-600">Something went wrong. Try again.</p>}
     </form>
   );
