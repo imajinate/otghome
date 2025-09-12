@@ -8,6 +8,9 @@ import { UpdatePasswordForm } from "./components/UpdatePasswordForm";
 import { EmailVerificationHandler } from "./components/EmailVerificationHandler";
 import { TypewriterText } from './components/TypewriterText';
 // import { UpdatePasswordFormNew } from "./components/UpdatePasswordFormNew";
+import WaitlistForm from "@/components/WaitlistForm";
+import ResetPasswordForm from "@/components/ResetPasswordForm";
+
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -70,3 +73,8 @@ PLASMIC.registerComponent(TypewriterText, {
     className: { type: 'string', defaultValue: '' },
   },
 });
+
+export function registerMyComponents() {
+  PLASMIC.registerComponent(WaitlistForm, { name: "WaitlistForm", props: {} });
+  PLASMIC.registerComponent(ResetPasswordForm, { name: "ResetPasswordForm", props: {} });
+}

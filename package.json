@@ -37,7 +37,7 @@
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/auth-helpers-react": "^0.5.0",
     "@supabase/ssr": "^0.4.1",
-    "@supabase/supabase-js": "^2.45.3",
+    "@supabase/supabase-js": "^2.57.4",
     "antd": "^5.27.1",
     "buffer": "^6.0.3",
     "date-fns": "^4.1.0",
@@ -48,6 +48,7 @@
     "react-dom": "^18",
     "react-native-url-polyfill": "^2.0.0",
     "react-slick": "^0.31.0",
+    "resend": "^6.0.3",
     "slick-carousel": "^1.8.1",
     "swr": "^2.2.5",
     "uuid": "^11.1.0"
