@@ -13,13 +13,13 @@ type WaitlistFormProps = {
 };
 
 export default function WaitlistForm({
-  inputPadding = "4px",
+  inputPadding = "8px",
   inputBorderColor = "#D1D5DB",
   inputBorderRadius = "8px",
-  buttonBg = "#34A853",
+  buttonBg = "#30A46C",
   buttonTextColor = "white",
   buttonRadius = "8px",
-  buttonLabel = "Join the Beta Waitlist – Free to Join",
+  buttonLabel = "🏅 Join the Beta Waitlist – Free to Join",
   successMessage = "You’re on the list 🎉",
   errorMessage = "Something went wrong. Try again.",
 }: WaitlistFormProps) {
@@ -67,6 +67,8 @@ export default function WaitlistForm({
           border: `1px solid ${inputBorderColor}`,
           borderRadius: inputBorderRadius,
           width: "100%",
+          fontSize: "22px",
+          height: "50px",
         }}
       />
 
@@ -76,8 +78,10 @@ export default function WaitlistForm({
         disabled={status === "loading"}
         style={{
           width: "100%",
+          height: "60px",
           backgroundColor: buttonBg,
           color: buttonTextColor,
+          fontSize: "22px",
           fontWeight: 500,
           padding: "8px 16px",
           borderRadius: buttonRadius,
