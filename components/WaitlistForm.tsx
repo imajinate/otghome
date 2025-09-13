@@ -24,27 +24,46 @@ export default function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full max-w-sm">
+    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "400px", width: "100%" }}>
+      {/* Input */}
       <input
         type="email"
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="p-1 border border-[#D1D5DB] rounded-lg"
         required
+        style={{
+          padding: "4px",
+          border: "1px solid #D1D5DB",
+          borderRadius: "8px",
+          width: "100%",
+        }}
       />
+
+      {/* Button */}
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-[#34A853] hover:bg-[#2c8e46] text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2"
+        style={{
+          width: "100%",
+          backgroundColor: "#34A853",
+          color: "white",
+          fontWeight: 500,
+          padding: "8px 16px",
+          borderRadius: "8px",
+          border: "none",
+          cursor: "pointer",
+        }}
       >
         🥇 {status === "loading" ? "Submitting..." : "Join the Beta Waitlist – Free to Join"}
       </button>
+
+      {/* Status */}
       {status === "success" && (
-        <p className="text-green-600">You&apos;re on the list 🎉</p>
+        <p style={{ color: "green" }}>You&apos;re on the list 🎉</p>
       )}
       {status === "error" && (
-        <p className="text-red-600">Something went wrong. Try again.</p>
+        <p style={{ color: "red" }}>Something went wrong. Try again.</p>
       )}
     </form>
   );
