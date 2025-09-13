@@ -30,19 +30,22 @@ export default function WaitlistForm() {
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="p-1 border border-gray-300 rounded-lg"
+        className="p-1 border border-[#D1D5DB] rounded-lg"
         required
       />
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-2"
+        className="bg-[#34A853] hover:bg-[#2c8e46] text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2"
       >
-        <span role="img" aria-label="medal">🏅</span>
-        {status === "loading" ? "Submitting..." : "Join the Beta Waitlist – Free to Join"}
+        🥇 {status === "loading" ? "Submitting..." : "Join the Beta Waitlist – Free to Join"}
       </button>
-      {status === "success" && <p className="text-green-600">You&apos;re on the list 🎉</p>}
-      {status === "error" && <p className="text-red-600">Something went wrong. Try again.</p>}
+      {status === "success" && (
+        <p className="text-green-600">You&apos;re on the list 🎉</p>
+      )}
+      {status === "error" && (
+        <p className="text-red-600">Something went wrong. Try again.</p>
+      )}
     </form>
   );
 }
