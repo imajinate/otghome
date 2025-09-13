@@ -15,7 +15,7 @@ type WaitlistFormProps = {
 export default function WaitlistForm({
   inputPadding = "8px",
   inputBorderColor = "#D1D5DB",
-  inputBorderRadius = "8px 12px",
+  inputBorderRadius = "12px",
   buttonBg = "#30A46C",
   buttonTextColor = "white",
   buttonRadius = "8px",
