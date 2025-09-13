@@ -74,7 +74,16 @@ PLASMIC.registerComponent(TypewriterText, {
   },
 });
 
-export function registerMyComponents() {
-  PLASMIC.registerComponent(WaitlistForm, { name: "WaitlistForm", props: {} });
-  PLASMIC.registerComponent(ResetPasswordForm, { name: "ResetPasswordForm", props: {} });
-}
+PLASMIC.registerComponent(WaitlistForm, {
+  name: 'WaitlistForm',
+  importName: 'WaitlistForm',
+  importPath: './components/WaitlistForm',
+  props: {},
+});
+
+PLASMIC.registerComponent(ResetPasswordForm, {
+  name: 'ResetPasswordForm',
+  importName: 'ResetPasswordForm',
+  importPath: './components/ResetPasswordForm',
+  props: {},
+});
