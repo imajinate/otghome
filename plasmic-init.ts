@@ -8,6 +8,7 @@ import { UpdatePasswordForm } from "./components/UpdatePasswordForm";
 import { EmailVerificationHandler } from "./components/EmailVerificationHandler";
 import { TypewriterText } from './components/TypewriterText';
 // import { UpdatePasswordFormNew } from "./components/UpdatePasswordFormNew";
+import "@/styles/globals.css";
 import WaitlistForm from "@/components/WaitlistForm";
 import ResetPasswordForm from "@/components/ResetPasswordForm";
 
