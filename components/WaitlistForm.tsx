@@ -1,30 +1,60 @@
-// components/WaitlistForm.tsx
-import { useState } from 'react';
+import { useState } from "react";
 
-export default function WaitlistForm() {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle'|'loading'|'success'|'error'>('idle');
+type WaitlistFormProps = {
+  inputPadding?: string;
+  inputBorderColor?: string;
+  inputBorderRadius?: string;
+  buttonBg?: string;
+  buttonTextColor?: string;
+  buttonRadius?: string;
+  buttonLabel?: string;
+  successMessage?: string;
+  errorMessage?: string;
+};
+
+export default function WaitlistForm({
+  inputPadding = "4px",
+  inputBorderColor = "#D1D5DB",
+  inputBorderRadius = "8px",
+  buttonBg = "#34A853",
+  buttonTextColor = "white",
+  buttonRadius = "8px",
+  buttonLabel = "Join the Beta Waitlist – Free to Join",
+  successMessage = "You’re on the list 🎉",
+  errorMessage = "Something went wrong. Try again.",
+}: WaitlistFormProps) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus('loading');
+    setStatus("loading");
 
-    const res = await fetch('/api/waitlist', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/waitlist", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
     });
 
     if (res.ok) {
-      setStatus('success');
-      setEmail('');
+      setStatus("success");
+      setEmail("");
     } else {
-      setStatus('error');
+      setStatus("error");
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "400px", width: "100%" }}>
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "12px",
+        maxWidth: "400px",
+        width: "100%",
+      }}
+    >
       {/* Input */}
       <input
         type="email"
@@ -33,9 +63,9 @@ export default function WaitlistForm() {
         onChange={(e) => setEmail(e.target.value)}
         required
         style={{
-          padding: "4px",
-          border: "1px solid #D1D5DB",
-          borderRadius: "8px",
+          padding: inputPadding,
+          border: `1px solid ${inputBorderColor}`,
+          borderRadius: inputBorderRadius,
           width: "100%",
         }}
       />
@@ -46,25 +76,21 @@ export default function WaitlistForm() {
         disabled={status === "loading"}
         style={{
           width: "100%",
-          backgroundColor: "#34A853",
-          color: "white",
+          backgroundColor: buttonBg,
+          color: buttonTextColor,
           fontWeight: 500,
           padding: "8px 16px",
-          borderRadius: "8px",
+          borderRadius: buttonRadius,
           border: "none",
           cursor: "pointer",
         }}
       >
-        🥇 {status === "loading" ? "Submitting..." : "Join the Beta Waitlist – Free to Join"}
+        {status === "loading" ? "Submitting..." : buttonLabel}
       </button>
 
       {/* Status */}
-      {status === "success" && (
-        <p style={{ color: "green" }}>You&apos;re on the list 🎉</p>
-      )}
-      {status === "error" && (
-        <p style={{ color: "red" }}>Something went wrong. Try again.</p>
-      )}
+      {status === "success" && <p style={{ color: "green" }}>{successMessage}</p>}
+      {status === "error" && <p style={{ color: "red" }}>{errorMessage}</p>}
     </form>
   );
 }
