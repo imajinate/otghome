@@ -41,7 +41,7 @@ export default function WaitlistForm() {
         <span role="img" aria-label="medal">🏅</span>
         {status === "loading" ? "Submitting..." : "Join the Beta Waitlist – Free to Join"}
       </button>
-      {status === "success" && <p className="text-green-600">You're on the list 🎉</p>}
+      {status === "success" && <p className="text-green-600">You&apos;re on the list 🎉</p>}
       {status === "error" && <p className="text-red-600">Something went wrong. Try again.</p>}
     </form>
   );
