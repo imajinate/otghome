@@ -1613,6 +1613,20 @@
           "cssFilePath": "plasmic/about_offtoglow_com/PlasmicFooter.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "6XDVrmZWk_dH",
+          "name": "SetPassword",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicSetPassword.tsx",
+          "importSpec": {
+            "modulePath": "../pages/set-password.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicSetPassword.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/set-password"
         }
       ],
       "icons": [
@@ -1957,6 +1971,16 @@
           "id": "zgOD65Fz0aCQ",
           "name": "earlyadopterright.png",
           "filePath": "../public/plasmic/about_offtoglow_com/images/earlyadopterrightPng.png"
+        },
+        {
+          "id": "PcbZNN_zSXO2",
+          "name": "a-j-7TLZWgfid1U.jpg",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/aJ7TlzWgfid1UJpg.jpg"
+        },
+        {
+          "id": "4WeExvE9NeWl",
+          "name": "muneeb-syed-4_M8uIfPEZw.jpg",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/muneebSyed4M8UIfPeZwJpg.jpg"
         }
       ],
       "indirect": false,
@@ -1986,6 +2010,18 @@
           "name": "TypewriterText",
           "displayName": "RotatingText",
           "componentImportPath": "./components/TypewriterText"
+        },
+        {
+          "id": "5gObP80ecMLI",
+          "name": "WaitlistForm",
+          "displayName": "WaitlistForm",
+          "componentImportPath": "./components/WaitlistForm"
+        },
+        {
+          "id": "S9zjps1MUqFn",
+          "name": "ResetPasswordForm",
+          "displayName": "ResetPasswordForm",
+          "componentImportPath": "./components/ResetPasswordForm"
         }
       ],
       "customFunctions": [],

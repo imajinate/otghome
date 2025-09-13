@@ -65,6 +65,7 @@ import { TypewriterText } from "../../TypewriterText"; // plasmic-import: ZFwT5I
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import Tilt from "@plasmicpkgs/react-parallax-tilt";
+import { WaitlistForm } from "../../WaitlistForm"; // plasmic-import: 5gObP80ecMLI/codeComponent
 import Footer from "../../Footer"; // plasmic-import: VH17Qyr0baQ-/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: rpSUvc8HqqQeYPehLJKGyo/styleTokensProvider
@@ -117,6 +118,7 @@ export type PlasmicHomepageV2__OverridesType = {
   _10ToDo?: Flex__<"div">;
   sliderCarouselEarlyAdopters?: Flex__<typeof SliderWrapper>;
   h5?: Flex__<"h5">;
+  waitlistForm?: Flex__<typeof WaitlistForm>;
   footer?: Flex__<typeof Footer>;
 };
 
@@ -628,6 +630,34 @@ function PlasmicHomepageV2__RenderFunc(props: {
               <Button
                 className={classNames("__wab_instance", sty.button___3014)}
                 color={"green"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToJoin"] = true
+                    ? (() => {
+                        const actionArgs = { destination: "#join" };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToJoin"] != null &&
+                    typeof $steps["goToJoin"] === "object" &&
+                    typeof $steps["goToJoin"].then === "function"
+                  ) {
+                    $steps["goToJoin"] = await $steps["goToJoin"];
+                  }
+                }}
                 submitsForm={true}
               >
                 <div
@@ -4034,7 +4064,10 @@ function PlasmicHomepageV2__RenderFunc(props: {
               })()}
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__v73Dy)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__v73Dy)}
+            id={"join"}
+          >
             <h3
               className={classNames(
                 projectcss.all,
@@ -4139,21 +4172,13 @@ function PlasmicHomepageV2__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <Button
-              className={classNames("__wab_instance", sty.button__kpuX)}
-              color={"green"}
-              submitsForm={true}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tw8Bs
-                )}
-              >
-                {"\ud83c\udfc5 Join the Beta Waitlist \u2013 Free to Join"}
-              </div>
-            </Button>
+            <div className={classNames(projectcss.all, sty.freeBox___1Ju6F)}>
+              <WaitlistForm
+                data-plasmic-name={"waitlistForm"}
+                data-plasmic-override={overrides.waitlistForm}
+                className={classNames("__wab_instance", sty.waitlistForm)}
+              />
+            </div>
           </div>
           <Footer
             data-plasmic-name={"footer"}
@@ -4190,6 +4215,7 @@ const PlasmicDescendants = {
     "_10ToDo",
     "sliderCarouselEarlyAdopters",
     "h5",
+    "waitlistForm",
     "footer"
   ],
   upperNav: ["upperNav"],
@@ -4225,6 +4251,7 @@ const PlasmicDescendants = {
   _10ToDo: ["_10ToDo"],
   sliderCarouselEarlyAdopters: ["sliderCarouselEarlyAdopters"],
   h5: ["h5"],
+  waitlistForm: ["waitlistForm"],
   footer: ["footer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -4253,6 +4280,7 @@ type NodeDefaultElementType = {
   _10ToDo: "div";
   sliderCarouselEarlyAdopters: typeof SliderWrapper;
   h5: "h5";
+  waitlistForm: typeof WaitlistForm;
   footer: typeof Footer;
 };
 
@@ -4339,6 +4367,7 @@ export const PlasmicHomepageV2 = Object.assign(
       "sliderCarouselEarlyAdopters"
     ),
     h5: makeNodeComponent("h5"),
+    waitlistForm: makeNodeComponent("waitlistForm"),
     footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicHomepageV2

@@ -355,16 +355,61 @@ function PlasmicUpperNav__RenderFunc(props: {
           </Button>
         </div>
       ) : null}
+      {false ? (
+        <Button
+          className={classNames("__wab_instance", sty.button__zg9Yr)}
+          color={"green"}
+          submitsForm={true}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__nCrs
+            )}
+          >
+            {"Join for Free"}
+          </div>
+        </Button>
+      ) : null}
       <Button
-        className={classNames("__wab_instance", sty.button__zg9Yr)}
+        className={classNames("__wab_instance", sty.button__b26Ge)}
         color={"green"}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["goToJoin"] = true
+            ? (() => {
+                const actionArgs = { destination: "#join" };
+                return (({ destination }) => {
+                  if (
+                    typeof destination === "string" &&
+                    destination.startsWith("#")
+                  ) {
+                    document
+                      .getElementById(destination.substr(1))
+                      .scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    __nextRouter?.push(destination);
+                  }
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["goToJoin"] != null &&
+            typeof $steps["goToJoin"] === "object" &&
+            typeof $steps["goToJoin"].then === "function"
+          ) {
+            $steps["goToJoin"] = await $steps["goToJoin"];
+          }
+        }}
         submitsForm={true}
       >
         <div
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text__nCrs
+            sty.text__nrJac
           )}
         >
           {"Join for Free"}

@@ -464,19 +464,19 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__tMzki
+                      sty.formField__lbKu2
                     )}
                     label={"Email"}
                     name={"email"}
                   >
                     <AntdInput
-                      className={classNames("__wab_instance", sty.input__stFnu)}
+                      className={classNames("__wab_instance", sty.input__mVuXh)}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField___6UAA
+                      sty.formField__ia9BS
                     )}
                     label={"Password"}
                     name={"password"}
@@ -491,9 +491,9 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                   <AntdButton
                     className={classNames(
                       "__wab_instance",
-                      sty.button___3J2Fb,
+                      sty.button___5Tm1X,
                       {
-                        [sty.buttonmode_signUp___3J2FbCx1E6]: hasVariant(
+                        [sty.buttonmode_signUp___5Tm1XCx1E6]: hasVariant(
                           $state,
                           "mode",
                           "signUp"
@@ -508,9 +508,9 @@ function PlasmicAuthFormBookingsForm__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___9KjGa,
+                        sty.text__vxQq6,
                         {
-                          [sty.textmode_signUp___9KjGaCx1E6]: hasVariant(
+                          [sty.textmode_signUp__vxQq6Cx1E6]: hasVariant(
                             $state,
                             "mode",
                             "signUp"
