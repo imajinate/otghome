@@ -24,20 +24,25 @@ export default function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full max-w-sm">
       <input
         type="email"
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="border p-2 rounded"
+        className="p-1 border border-gray-300 rounded-lg"
         required
       />
-      <button type="submit" disabled={status === 'loading'} className="bg-black text-white p-2 rounded">
-        {status === 'loading' ? 'Submitting...' : 'Join Waitlist'}
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-2"
+      >
+        <span role="img" aria-label="medal">🏅</span>
+        {status === "loading" ? "Submitting..." : "Join the Beta Waitlist – Free to Join"}
       </button>
-      {status === 'success' && <p className="text-green-600">You&apos;re on the list 🎉</p>}
-      {status === 'error' && <p className="text-red-600">Something went wrong. Try again.</p>}
+      {status === "success" && <p className="text-green-600">You're on the list 🎉</p>}
+      {status === "error" && <p className="text-red-600">Something went wrong. Try again.</p>}
     </form>
   );
 }
