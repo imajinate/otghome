@@ -163,6 +163,8 @@ function PlasmicHomepageV2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -198,7 +200,8 @@ function PlasmicHomepageV2__RenderFunc(props: {
         path: "sliderCarouselEarlyAdopters.currentSlide",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 3,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobileOnly") ? 1 : 3,
 
         refName: "sliderCarouselEarlyAdopters",
         onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
@@ -3093,7 +3096,13 @@ function PlasmicHomepageV2__RenderFunc(props: {
                     ).apply(null, eventArgs);
                   },
                   centerMode: true,
-                  centerPadding: "28px",
+                  centerPadding: hasVariant(
+                    globalVariants,
+                    "screen",
+                    "mobileOnly"
+                  )
+                    ? "0"
+                    : "28px",
                   className: classNames(
                     "__wab_instance",
                     sty.sliderCarouselWhatNow
@@ -3884,10 +3893,18 @@ function PlasmicHomepageV2__RenderFunc(props: {
                   },
                   sliderScopeClassName:
                     sty["sliderCarouselEarlyAdopters__slider"],
-                  slidesPerRow: 3,
+                  slidesPerRow: hasVariant(
+                    globalVariants,
+                    "screen",
+                    "mobileOnly"
+                  )
+                    ? 1
+                    : 3,
                   slidesToScroll: 1,
                   slidesToShow: 1,
-                  vertical: false
+                  vertical: hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? false
+                    : false
                 };
                 initializeCodeComponentStates(
                   $state,

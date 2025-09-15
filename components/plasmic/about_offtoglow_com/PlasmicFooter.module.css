@@ -12,6 +12,11 @@
   min-width: 0;
   padding: 50px 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .root {
+    padding: 50px 20px;
+  }
+}
 .freeBox__xa6Mc {
   display: flex;
   flex-direction: row;
@@ -24,6 +29,14 @@
   column-gap: 50px;
   margin-bottom: 50px;
   min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__xa6Mc {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    column-gap: 0px;
+  }
 }
 .freeBox__m2Ow8 {
   display: flex;

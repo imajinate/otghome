@@ -132,6 +132,8 @@ function PlasmicUpperNav__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const currentUser = useCurrentUser?.() || {};
 
   const styleTokensClassNames = _useStyleTokens();
@@ -183,56 +185,59 @@ function PlasmicUpperNav__RenderFunc(props: {
           }}
         />
       </PlasmicLink__>
-      <div className={classNames(projectcss.all, sty.freeBox__kDoq0)} />
-
-      <div className={classNames(projectcss.all, sty.freeBox__zXe3R)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__mrkPh
-          )}
-        >
-          {"Login: "}
+      {(hasVariant(globalVariants, "screen", "mobileOnly") ? false : true) ? (
+        <div className={classNames(projectcss.all, sty.freeBox__kDoq0)} />
+      ) : null}
+      {(hasVariant(globalVariants, "screen", "mobileOnly") ? false : true) ? (
+        <div className={classNames(projectcss.all, sty.freeBox__zXe3R)}>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__mrkPh
+            )}
+          >
+            {"Login: "}
+          </div>
+          <PlasmicLink__
+            className={classNames(
+              projectcss.all,
+              projectcss.a,
+              projectcss.__wab_text,
+              sty.link__e1Olg
+            )}
+            component={Link}
+            href={"https://talent.offtoglow.com/"}
+            platform={"nextjs"}
+            target={"_blank"}
+          >
+            {"Talent"}
+          </PlasmicLink__>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__tdfKm
+            )}
+          >
+            {"|"}
+          </div>
+          <PlasmicLink__
+            className={classNames(
+              projectcss.all,
+              projectcss.a,
+              projectcss.__wab_text,
+              sty.link__dc5Hn
+            )}
+            component={Link}
+            href={"https://booker.offtoglow.com/"}
+            platform={"nextjs"}
+            target={"_blank"}
+          >
+            {"Booker"}
+          </PlasmicLink__>
         </div>
-        <PlasmicLink__
-          className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
-            sty.link__e1Olg
-          )}
-          component={Link}
-          href={"https://talent.offtoglow.com/"}
-          platform={"nextjs"}
-          target={"_blank"}
-        >
-          {"Talent"}
-        </PlasmicLink__>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__tdfKm
-          )}
-        >
-          {"|"}
-        </div>
-        <PlasmicLink__
-          className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
-            sty.link__dc5Hn
-          )}
-          component={Link}
-          href={"https://booker.offtoglow.com/"}
-          platform={"nextjs"}
-          target={"_blank"}
-        >
-          {"Booker"}
-        </PlasmicLink__>
-      </div>
+      ) : null}
       {false ? (
         <div className={classNames(projectcss.all, sty.freeBox__rvffi)}>
           <Button
@@ -372,49 +377,51 @@ function PlasmicUpperNav__RenderFunc(props: {
           </div>
         </Button>
       ) : null}
-      <Button
-        className={classNames("__wab_instance", sty.button__b26Ge)}
-        color={"green"}
-        onClick={async event => {
-          const $steps = {};
+      {(hasVariant(globalVariants, "screen", "mobileOnly") ? false : true) ? (
+        <Button
+          className={classNames("__wab_instance", sty.button__b26Ge)}
+          color={"green"}
+          onClick={async event => {
+            const $steps = {};
 
-          $steps["goToJoin"] = true
-            ? (() => {
-                const actionArgs = { destination: "#join" };
-                return (({ destination }) => {
-                  if (
-                    typeof destination === "string" &&
-                    destination.startsWith("#")
-                  ) {
-                    document
-                      .getElementById(destination.substr(1))
-                      .scrollIntoView({ behavior: "smooth" });
-                  } else {
-                    __nextRouter?.push(destination);
-                  }
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["goToJoin"] != null &&
-            typeof $steps["goToJoin"] === "object" &&
-            typeof $steps["goToJoin"].then === "function"
-          ) {
-            $steps["goToJoin"] = await $steps["goToJoin"];
-          }
-        }}
-        submitsForm={true}
-      >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__nrJac
-          )}
+            $steps["goToJoin"] = true
+              ? (() => {
+                  const actionArgs = { destination: "#join" };
+                  return (({ destination }) => {
+                    if (
+                      typeof destination === "string" &&
+                      destination.startsWith("#")
+                    ) {
+                      document
+                        .getElementById(destination.substr(1))
+                        .scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      __nextRouter?.push(destination);
+                    }
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["goToJoin"] != null &&
+              typeof $steps["goToJoin"] === "object" &&
+              typeof $steps["goToJoin"].then === "function"
+            ) {
+              $steps["goToJoin"] = await $steps["goToJoin"];
+            }
+          }}
+          submitsForm={true}
         >
-          {"Join for Free"}
-        </div>
-      </Button>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__nrJac
+            )}
+          >
+            {"Join for Free"}
+          </div>
+        </Button>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
