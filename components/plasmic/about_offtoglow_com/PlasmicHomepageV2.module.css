@@ -201,6 +201,7 @@
           #fdfdfd 100%
         )
         top 50% left 50% / cover no-repeat scroll;
+    margin: 0px;
   }
 }
 .freeBox___4HKu {
@@ -214,6 +215,11 @@
   margin-top: 128px;
   margin-bottom: 32px;
   padding: 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___4HKu {
+    margin: 0px 0px 32px;
+  }
 }
 .freeBox__x0OtS {
   display: flex;
