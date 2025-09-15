@@ -3868,6 +3868,9 @@ function PlasmicHomepageV2__RenderFunc(props: {
               {(() => {
                 const child$Props = {
                   arrowColor: true ? "var(--antd-colorInfo)" : undefined,
+                  arrows: hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? false
+                    : undefined,
                   autoplay: true,
                   beforeChange: async (...eventArgs: any) => {
                     generateStateOnChangePropForCodeComponents(

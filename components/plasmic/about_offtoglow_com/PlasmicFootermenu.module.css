@@ -23,6 +23,14 @@
   column-gap: 20px;
   min-width: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__h0Asb {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    column-gap: 0px;
+  }
+}
 .freeBox__s2O69 {
   display: flex;
   flex-direction: column;

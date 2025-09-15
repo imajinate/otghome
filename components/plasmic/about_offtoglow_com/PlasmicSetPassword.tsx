@@ -161,48 +161,50 @@ function PlasmicSetPassword__RenderFunc(props: {
         }
       `}</style>
 
-      <div
-        data-plasmic-name={"root"}
-        data-plasmic-override={overrides.root}
-        data-plasmic-root={true}
-        data-plasmic-for-node={forNode}
-        className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
-          styleTokensClassNames,
-          styleTokensClassNames_antd_5_hostless,
-          styleTokensClassNames_plasmic_rich_components,
-          sty.root
-        )}
-      >
-        <div className={classNames(projectcss.all, sty.freeBox__zn9Fo)}>
-          <div className={classNames(projectcss.all, sty.freeBox__mznCq)}>
-            <UpdatePasswordForm
-              data-plasmic-name={"updatePasswordForm"}
-              data-plasmic-override={overrides.updatePasswordForm}
-              className={classNames("__wab_instance", sty.updatePasswordForm)}
-            />
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__yg4Yc)}>
-            <Card
-              data-plasmic-name={"card"}
-              data-plasmic-override={overrides.card}
-              className={classNames("__wab_instance", sty.card)}
-            >
-              <div
-                data-plasmic-name={"text"}
-                data-plasmic-override={overrides.text}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text
-                )}
+      <div className={projectcss.plasmic_page_wrapper}>
+        <div
+          data-plasmic-name={"root"}
+          data-plasmic-override={overrides.root}
+          data-plasmic-root={true}
+          data-plasmic-for-node={forNode}
+          className={classNames(
+            projectcss.all,
+            projectcss.root_reset,
+            projectcss.plasmic_default_styles,
+            projectcss.plasmic_mixins,
+            styleTokensClassNames,
+            styleTokensClassNames_antd_5_hostless,
+            styleTokensClassNames_plasmic_rich_components,
+            sty.root
+          )}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox__zn9Fo)}>
+            <div className={classNames(projectcss.all, sty.freeBox__mznCq)}>
+              <UpdatePasswordForm
+                data-plasmic-name={"updatePasswordForm"}
+                data-plasmic-override={overrides.updatePasswordForm}
+                className={classNames("__wab_instance", sty.updatePasswordForm)}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__yg4Yc)}>
+              <Card
+                data-plasmic-name={"card"}
+                data-plasmic-override={overrides.card}
+                className={classNames("__wab_instance", sty.card)}
               >
-                {"\u00a9 Muneeb Syed"}
-              </div>
-            </Card>
+                <div
+                  data-plasmic-name={"text"}
+                  data-plasmic-override={overrides.text}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text
+                  )}
+                >
+                  {"\u00a9 Muneeb Syed"}
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
