@@ -45,56 +45,71 @@ export default function WaitlistForm({
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        maxWidth: "480px",
-        width: "100%",
-      }}
-    >
-      {/* Input */}
-      <input
-        type="email"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
+    <div className="waitlist-wrapper">
+      <form
+        onSubmit={handleSubmit}
         style={{
-          padding: inputPadding,
-          border: `1px solid ${inputBorderColor}`,
-          borderRadius: inputBorderRadius,
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px",
+          maxWidth: "480px",
           width: "100%",
-          fontSize: "22px",
-          height: "50px",
-        }}
-      />
-
-      {/* Button */}
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        style={{
-          width: "100%",
-          height: "60px",
-          backgroundColor: buttonBg,
-          color: buttonTextColor,
-          fontSize: "22px",
-          fontWeight: 500,
-          padding: "8px 16px",
-          borderRadius: buttonRadius,
-          border: "none",
-          cursor: "pointer",
         }}
       >
-        {status === "loading" ? "Submitting..." : buttonLabel}
-      </button>
+        {/* Input */}
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          style={{
+            padding: inputPadding,
+            border: `1px solid ${inputBorderColor}`,
+            borderRadius: inputBorderRadius,
+            width: "100%",
+            fontSize: "22px",
+            height: "50px",
+          }}
+        />
 
-      {/* Status */}
-      {status === "success" && <p style={{ color: "green" }}>{successMessage}</p>}
-      {status === "error" && <p style={{ color: "red" }}>{errorMessage}</p>}
-    </form>
+        {/* Button */}
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          style={{
+            width: "100%",
+            height: "60px",
+            backgroundColor: buttonBg,
+            color: buttonTextColor,
+            fontSize: "22px",
+            fontWeight: 500,
+            padding: "8px 16px",
+            borderRadius: buttonRadius,
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          {status === "loading" ? "Submitting..." : buttonLabel}
+        </button>
+
+        {/* Status */}
+        {status === "success" && <p style={{ color: "green" }}>{successMessage}</p>}
+        {status === "error" && <p style={{ color: "red" }}>{errorMessage}</p>}
+      </form>
+
+      <style jsx>{`
+        .waitlist-wrapper input,
+        .waitlist-wrapper button {
+          font-size: 22px;
+        }
+        @media (max-width: 640px) {
+          .waitlist-wrapper input,
+          .waitlist-wrapper button {
+            font-size: 14px !important;
+          }
+        }
+      `}</style>
+    </div>
   );
 }
