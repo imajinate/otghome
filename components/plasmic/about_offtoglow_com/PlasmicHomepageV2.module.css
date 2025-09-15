@@ -375,6 +375,11 @@
   border-radius: 8px;
   padding: 20px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__y51NY {
+    margin-bottom: 50px;
+  }
+}
 .text__usBw {
   width: 100%;
   height: auto;
@@ -385,6 +390,11 @@
   color: var(--token-RvPI6LyeIPmd);
   text-align: center;
   min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__usBw {
+    font-size: 16px;
+  }
 }
 .text__xcgy5 {
   position: relative;
