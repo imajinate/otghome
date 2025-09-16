@@ -1627,6 +1627,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/set-password"
+        },
+        {
+          "id": "1g6hNjCxRGPz",
+          "name": "ChooseRole",
+          "type": "managed",
+          "projectId": "rpSUvc8HqqQeYPehLJKGyo",
+          "renderModuleFilePath": "plasmic/about_offtoglow_com/PlasmicChooseRole.tsx",
+          "importSpec": {
+            "modulePath": "../pages/chooserole.tsx"
+          },
+          "cssFilePath": "plasmic/about_offtoglow_com/PlasmicChooseRole.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/chooserole"
         }
       ],
       "icons": [
@@ -1981,6 +1995,16 @@
           "id": "4WeExvE9NeWl",
           "name": "muneeb-syed-4_M8uIfPEZw.jpg",
           "filePath": "../public/plasmic/about_offtoglow_com/images/muneebSyed4M8UIfPeZwJpg.jpg"
+        },
+        {
+          "id": "0cDRNnxUecLr",
+          "name": "david-von-diemar-0BZcsD8UVmM-unsplash.jpg",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/davidVonDiemar0BZcsD8UVmMUnsplashJpg.jpg"
+        },
+        {
+          "id": "BcfOvHE1Koci",
+          "name": "graydon-driver-ggZiK8G2WLY-unsplash.jpg",
+          "filePath": "../public/plasmic/about_offtoglow_com/images/graydonDriverGgZiK8G2WlyUnsplashJpg.jpg"
         }
       ],
       "indirect": false,

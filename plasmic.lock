@@ -615,12 +615,12 @@
         {
           "type": "renderModule",
           "assetId": "zLEruNHWfm1A",
-          "checksum": "79a21b8c6ffcee29774296c50a753447"
+          "checksum": "39ac394014bdc7871e3f4d6ab46b7ce2"
         },
         {
           "type": "cssRules",
           "assetId": "zLEruNHWfm1A",
-          "checksum": "79a21b8c6ffcee29774296c50a753447"
+          "checksum": "39ac394014bdc7871e3f4d6ab46b7ce2"
         },
         {
           "type": "renderModule",
@@ -725,12 +725,12 @@
         {
           "type": "renderModule",
           "assetId": "ER7ouwJGwhQ1",
-          "checksum": "1293809969e1f24b26ec2a234a266a24"
+          "checksum": "966ca282f9da65ab2d7cd39741cd08a1"
         },
         {
           "type": "cssRules",
           "assetId": "ER7ouwJGwhQ1",
-          "checksum": "1293809969e1f24b26ec2a234a266a24"
+          "checksum": "966ca282f9da65ab2d7cd39741cd08a1"
         },
         {
           "type": "renderModule",
@@ -955,12 +955,12 @@
         {
           "type": "renderModule",
           "assetId": "pOeLTreHHtp3",
-          "checksum": "135a0651c8f5d4f92cc501152402194d"
+          "checksum": "ae5b17ab4b3a45ba58bbf61ae2773821"
         },
         {
           "type": "cssRules",
           "assetId": "pOeLTreHHtp3",
-          "checksum": "135a0651c8f5d4f92cc501152402194d"
+          "checksum": "ae5b17ab4b3a45ba58bbf61ae2773821"
         },
         {
           "assetId": "rpSUvc8HqqQeYPehLJKGyo",
@@ -1236,6 +1236,26 @@
           "assetId": "rpSUvc8HqqQeYPehLJKGyo",
           "type": "projectCss",
           "checksum": "fdcaef6d52aa5b170c5a8ce24e17881f"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "1g6hNjCxRGPz",
+          "checksum": "4b1322b2ebd3eafb9f68f4c7973d4d07"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "1g6hNjCxRGPz",
+          "checksum": "4b1322b2ebd3eafb9f68f4c7973d4d07"
+        },
+        {
+          "type": "image",
+          "assetId": "0cDRNnxUecLr",
+          "checksum": "d2bf68c14d4943f405a8567658620408"
+        },
+        {
+          "type": "image",
+          "assetId": "BcfOvHE1Koci",
+          "checksum": "4c7105178c630608a2d807917efd2790"
         }
       ],
       "codegenVersion": "0.0.2"

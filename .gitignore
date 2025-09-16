@@ -44,3 +44,4 @@ yarn-error.log*
 /pages/index.tsx
 /pages/register.tsx
 /pages/set-password.tsx
+/pages/chooserole.tsx
